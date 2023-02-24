@@ -1,10 +1,9 @@
 package com.mycompany.mavenproject2;
 
 
-
 import java.io.IOException;
 import javafx.fxml.FXML;
-import com.mycompany.;
+
 
 public class PrimaryController {
 

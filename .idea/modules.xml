@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaFXOnpe.iml" filepath="$PROJECT_DIR$/.idea/JavaFXOnpe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mavenproject2/mavenproject2.iml" filepath="$PROJECT_DIR$/mavenproject2/mavenproject2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mongo/mongo.iml" filepath="$PROJECT_DIR$/mongo/mongo.iml" />
+    </modules>
+  </component>
+</project>
