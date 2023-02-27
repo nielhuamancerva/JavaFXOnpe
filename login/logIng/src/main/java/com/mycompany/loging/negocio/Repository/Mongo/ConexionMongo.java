@@ -6,6 +6,10 @@ package com.mycompany.loging.negocio.Repository.Mongo;
 
 import com.mongodb.async.client.MongoCollection;
 import com.mongodb.async.client.MongoDatabase;
+import org.bson.Document;
+
+
+
 
 /**
  *

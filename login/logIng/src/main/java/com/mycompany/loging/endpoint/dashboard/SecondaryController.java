@@ -1,5 +1,6 @@
-package com.mycompany.loging;
+package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.App;
 import java.io.IOException;
 import javafx.fxml.FXML;
 

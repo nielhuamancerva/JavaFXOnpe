@@ -12,7 +12,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" prefHeight="394.0" prefWidth="240.0" spacing="20.0" style="-fx-background-color: CYAN;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.PrimaryController">
+<VBox alignment="CENTER" prefHeight="394.0" prefWidth="240.0" spacing="20.0" style="-fx-background-color: CYAN;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.login.PrimaryController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>

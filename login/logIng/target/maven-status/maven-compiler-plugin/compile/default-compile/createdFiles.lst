@@ -1,4 +1,3 @@
-com\mycompany\loging\SecondaryController.class
 com\mycompany\loging\negocio\Repository\Mongo\ConexionMongo.class
 com\mycompany\loging\endpoint\login\PrimaryController.class
 module-info.class
