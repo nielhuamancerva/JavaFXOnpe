@@ -1,4 +1,1 @@
 com\mycompany\mongo\Mongo.class
-com\mycompany\mongo\business\repository\ConexionDataBaseDao.class
-com\mycompany\mongo\expose\DataBaseMongo.class
-com\mycompany\mongo\business\ConexionDataBaseDaoImpl.class
