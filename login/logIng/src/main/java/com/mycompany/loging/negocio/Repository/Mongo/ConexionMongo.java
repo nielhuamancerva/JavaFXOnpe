@@ -4,8 +4,8 @@
  */
 package com.mycompany.loging.negocio.Repository.Mongo;
 
-import com.mongodb.async.client.MongoCollection;
-import com.mongodb.async.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 
@@ -18,5 +18,5 @@ import org.bson.Document;
 public interface ConexionMongo {
     public MongoDatabase conexionMongo() throws Exception;
     
-     public MongoCollection<Document> findCollection() throws Exception;
+     public Document findCollection() throws Exception;
 }

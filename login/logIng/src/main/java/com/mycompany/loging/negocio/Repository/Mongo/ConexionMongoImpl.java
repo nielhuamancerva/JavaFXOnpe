@@ -5,10 +5,11 @@
 package com.mycompany.loging.negocio.Repository.Mongo;
 
 
-import com.mongodb.async.client.MongoClient;
-import com.mongodb.async.client.MongoClients;
-import com.mongodb.async.client.MongoCollection;
-import com.mongodb.async.client.MongoDatabase;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
 /**
@@ -32,11 +33,14 @@ public class ConexionMongoImpl implements ConexionMongo{
     
    
     @Override
-    public  MongoCollection<Document> findCollection() {
+    public  Document findCollection() {
 // Obtener la collecion de mongo
         MongoCollection<Document> collection = mongoDatabase.getCollection("user");
+           Document ss  = collection.find(Filters.eq("user", "nhc")).first();
+                             
+                               
 
-        return collection;
+        return ss;
 
     }
     
