@@ -1,6 +1,5 @@
 com\mycompany\loging\endpoint\dashboard\SecondaryController.class
 com\mycompany\loging\negocio\Repository\Mongo\ConexionMongo.class
-com\mycompany\loging\endpoint\login\PrimaryController.class
 module-info.class
 com\mycompany\loging\negocio\Mongo\negocio.class
 com\mycompany\loging\negocio\Repository\Mongo\ConexionMongoImpl.class

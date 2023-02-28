@@ -1,5 +1,6 @@
 package com.mycompany.loging.endpoint.login;
 
+import com.mycompany.loging.negocio.Repository.Mongo.ConexionMongo;
 import com.mycompany.loging.negocio.Repository.Mongo.ConexionMongoImpl;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -24,7 +25,7 @@ public class PrimaryController {
         ConexionMongoImpl db = new ConexionMongoImpl();
         db.conexionMongo();
         
-         System.out.println(db.findCollection());
+        //System.out.println(db.findCollection());
          
        
         lbError.setText("");
@@ -35,6 +36,8 @@ public class PrimaryController {
         }else{
             lbError.setText("Usuario no esta Registrado");
         }
-       
+        
+        Document login = db.findCollection(userName.getText(), passwordField.getText());
+        System.err.println("Tipo es :"+login.toJson());
     }
 }

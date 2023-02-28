@@ -18,5 +18,5 @@ import org.bson.Document;
 public interface ConexionMongo {
     public MongoDatabase conexionMongo() throws Exception;
     
-     public Document findCollection() throws Exception;
+     public Document findCollection(String username, String password) throws Exception;
 }

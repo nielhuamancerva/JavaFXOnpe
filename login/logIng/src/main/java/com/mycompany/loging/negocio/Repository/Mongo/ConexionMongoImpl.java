@@ -33,13 +33,11 @@ public class ConexionMongoImpl implements ConexionMongo{
     
    
     @Override
-    public  Document findCollection() {
+    public  Document findCollection(String username, String password) {
 // Obtener la collecion de mongo
         MongoCollection<Document> collection = mongoDatabase.getCollection("user");
-           Document ss  = collection.find(Filters.eq("user", "nhc")).first();
-                             
-                               
-
+           Document ss  = collection.find(Filters.eq("user", username)).first();
+           
         return ss;
 
     }
