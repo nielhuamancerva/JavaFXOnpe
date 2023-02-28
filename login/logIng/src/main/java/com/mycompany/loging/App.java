@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * JavaFX App ERRsadsad
@@ -14,16 +15,25 @@ import java.io.IOException;
 public class App extends Application {
 
     public static Scene scene;
+    public static Stage sc;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 440, 480);
-        stage.setScene(scene);
-        stage.show();
+        //scene = new Scene(loadFXML("login"), 1200, 800);
+        setRoot(stage, "login");
+        sc=stage;
     }
 
-    public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static void setRoot(Stage stage ,String fxml) throws IOException {
+      
+        if(Objects.nonNull(stage)){
+            scene = new Scene(loadFXML("login"), 1200, 800);
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            sc.setFullScreen(true);
+            scene.setRoot(loadFXML(fxml));
+        }
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
