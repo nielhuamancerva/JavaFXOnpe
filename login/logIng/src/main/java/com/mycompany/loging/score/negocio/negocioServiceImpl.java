@@ -15,7 +15,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
  * @author LMedina
  */
 public class NegocioServiceImpl implements NegocioService{
-    private ConexionMongo conexionMongo;
+    private final ConexionMongo conexionMongo;
   
     public NegocioServiceImpl() {
         this.conexionMongo = new ConexionMongoImpl();
