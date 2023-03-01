@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,7 +20,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button id="btnElegirArchivos" layoutX="91.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="113.0" text="Elegir Archivos">
+      <Button id="btnElegirArchivos" layoutX="91.0" layoutY="200.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="30.0" prefWidth="113.0" text="Elegir Archivos">
          <font>
             <Font size="14.0" />
          </font>
