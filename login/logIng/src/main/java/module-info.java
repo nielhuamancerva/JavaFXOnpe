@@ -14,4 +14,5 @@ module com.mycompany.loging {
     //expone endpoint de controller secondary
     exports com.mycompany.loging.endpoint.login;
     opens com.mycompany.loging.endpoint.login to javafx.fxml;
+    
 }

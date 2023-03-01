@@ -14,8 +14,8 @@ import java.util.Objects;
  */
 public class App extends Application {
 
-    public static Scene scene;
-    public static Stage sc;
+    private static Scene scene;
+    private static Stage sc;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,7 +36,7 @@ public class App extends Application {
         }
     }
 
-    public static Parent loadFXML(String fxml) throws IOException {
+    private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }

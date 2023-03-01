@@ -1,21 +1,23 @@
 package com.mycompany.loging.endpoint.login;
 
 import com.mycompany.loging.App;
-import static com.mycompany.loging.App.loadFXML;
-import com.mycompany.loging.negocio.Repository.Mongo.ConexionMongo;
-import com.mycompany.loging.negocio.Repository.Mongo.ConexionMongoImpl;
+import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
+import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.bson.Document;
-//import com.mycompany.loging.
+import com.mycompany.loging.score.negocio.service.NegocioService;
+import java.util.Objects;
 public class PrimaryController {
-    
+    private NegocioService negocioService;
+  
+    public PrimaryController() {
+        this.negocioService = new NegocioServiceImpl();
+    }
+
     @FXML
     TextField userName;
     @FXML
@@ -24,15 +26,9 @@ public class PrimaryController {
     Label lbError;
 
     @FXML
-    private void iniciandoSecion() throws IOException, Exception {
-        //cambiar
-        ConexionMongoImpl db = new ConexionMongoImpl();
-        db.conexionMongo();
+    private void iniciandoSecion() throws Exception, IOException  {
         
-        //System.out.println(db.findCollection());
-         
-       
-        lbError.setText("");
+       lbError.setText("");
         if(userName.getText().isEmpty()){
             lbError.setText("Campo usuario requerido");
         }else if(passwordField.getText().isEmpty()){
@@ -40,11 +36,14 @@ public class PrimaryController {
         }else{
             lbError.setText("Usuario no esta Registrado");
         }
+       
+        Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
         
-        Document login = db.findCollection(userName.getText(), passwordField.getText());
-        System.err.println("Tipo es :"+login.toJson());
-        if (!login.toJson().isEmpty()){
+        if (Objects.nonNull(login)){
             App.setRoot(null,"dashboard");            
+        }else{
+            lbError.setText("Usuario no esta Registrado");
+           
         }
     }
 }

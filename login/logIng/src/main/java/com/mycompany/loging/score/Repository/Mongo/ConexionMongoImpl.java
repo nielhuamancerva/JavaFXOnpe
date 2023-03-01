@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.loging.negocio.Repository.Mongo;
+package com.mycompany.loging.score.Repository.Mongo;
 
 
+import com.mycompany.loging.score.Repository.Mongo.service.ConexionMongo;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -36,7 +37,7 @@ public class ConexionMongoImpl implements ConexionMongo{
     public  Document findCollection(String username, String password) {
 // Obtener la collecion de mongo
         MongoCollection<Document> collection = mongoDatabase.getCollection("user");
-           Document ss  = collection.find(Filters.eq("user", username)).first();
+           Document ss  = collection.find(Filters.eq("usuario", username)).first();
            
         return ss;
 
