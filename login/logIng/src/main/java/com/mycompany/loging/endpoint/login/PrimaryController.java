@@ -2,6 +2,7 @@ package com.mycompany.loging.endpoint.login;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
+import com.mycompany.loging.score.Util.ValidadionesFormularios;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -15,9 +16,11 @@ import java.util.Map;
 import java.util.Objects;
 public class PrimaryController {
     private NegocioService negocioService;
+    private ValidadionesFormularios validadionesFormularios;
   
     public PrimaryController() {
         this.negocioService = new NegocioServiceImpl();
+        this.validadionesFormularios = new ValidadionesFormularios();
     }
 
     @FXML
@@ -30,21 +33,10 @@ public class PrimaryController {
     @FXML
     private void iniciandoSecion() throws Exception, IOException  {
         lbError.setText("");
-         Map<String, String> validadionesFormularioIngreso = new HashMap<>();
-        
-         validadionesFormularioIngreso.put("username", userName.getText());
-         validadionesFormularioIngreso.put("password", passwordField.getText());
-      
-        if(validadionesFormularioIngreso.get("username").isEmpty()){
-            lbError.setText("Campo usuario requerido");
-        }
-        
-        if(validadionesFormularioIngreso.get("password").isEmpty()){
-            lbError.setText("Campo password requerido");
-        }
-       
-        
-        if(!validadionesFormularioIngreso.containsValue("")){
+
+        String Msg = validadionesFormularios.login(userName.getText(), passwordField.getText());
+        lbError.setText(Msg);
+        if(Msg.equals("")){
             Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
 
            if (Objects.nonNull(login)){
