@@ -45,7 +45,7 @@
             <TableColumn prefWidth="103.0" text="Acción" />
         </columns>
       </TableView>
-      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" style="-fx-background-color: FF7B54;" text="Salir" textFill="WHITE" underline="true">
+      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

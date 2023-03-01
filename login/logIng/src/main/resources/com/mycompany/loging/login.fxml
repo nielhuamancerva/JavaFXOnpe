@@ -14,7 +14,7 @@
 
 <VBox alignment="CENTER" prefHeight="740.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.login.PrimaryController">
    <children>
-      <AnchorPane prefHeight="740.0" prefWidth="1200.0">
+      <AnchorPane prefHeight="756.0" prefWidth="1200.0">
          <children>
             <AnchorPane layoutX="699.0" layoutY="2.0" prefHeight="740.0" prefWidth="7.0" style="-fx-background-color: black;" />
             <HBox alignment="TOP_CENTER" layoutX="59.0" layoutY="14.0" prefHeight="120.0" prefWidth="462.0" />
@@ -35,12 +35,15 @@
                         <Font name="Comic Sans MS Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnIngresar" layoutX="112.0" layoutY="349.0" onAction="#iniciandoSecion" prefHeight="33.0" prefWidth="103.0" text="Ingresar">
+                  <Button fx:id="btnIngresar" layoutX="110.0" layoutY="352.0" onAction="#iniciandoSecion" prefHeight="33.0" prefWidth="103.0" style="-fx-background-color: #EA4961;" text="Ingresar" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="Comic Sans MS" size="14.0" />
+                        <Font name="Comic Sans MS Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="233.0" layoutY="349.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" text="Button" />
+                  <Button layoutX="253.0" layoutY="351.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" style="-fx-background-color: #609966;" text="Salir" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="59.0" layoutY="36.0" prefHeight="595.0" prefWidth="603.0">
