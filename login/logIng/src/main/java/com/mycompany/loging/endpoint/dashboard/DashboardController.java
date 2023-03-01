@@ -4,10 +4,12 @@ import com.mycompany.loging.App;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class SecondaryController {
+public class DashboardController {
 
     @FXML
-    private void switchToPrimary() throws IOException {
+    private void switchToTransmision() throws IOException {
         //App.setRoot("primary");
+        App.setRoot(null,"cargarActas"); 
+        
     }
 }

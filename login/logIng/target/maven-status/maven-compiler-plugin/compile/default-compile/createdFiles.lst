@@ -1,5 +1,8 @@
-com\mycompany\loging\endpoint\dashboard\SecondaryController.class
 com\mycompany\loging\score\Repository\Mongo\ConexionMongoImpl.class
 com\mycompany\loging\score\Repository\Mongo\service\ConexionMongo.class
+com\mycompany\loging\score\negocio\NegocioServiceImpl.class
+com\mycompany\loging\endpoint\dashboard\DashboardController.class
+com\mycompany\loging\endpoint\login\PrimaryController.class
 module-info.class
 com\mycompany\loging\App.class
+com\mycompany\loging\score\negocio\service\NegocioService.class
