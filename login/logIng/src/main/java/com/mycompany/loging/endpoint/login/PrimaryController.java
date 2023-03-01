@@ -10,6 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 public class PrimaryController {
     private NegocioService negocioService;
@@ -27,23 +29,32 @@ public class PrimaryController {
 
     @FXML
     private void iniciandoSecion() throws Exception, IOException  {
+        lbError.setText("");
+         Map<String, String> validadionesFormularioIngreso = new HashMap<>();
         
-       lbError.setText("");
-        if(userName.getText().isEmpty()){
+         validadionesFormularioIngreso.put("username", userName.getText());
+         validadionesFormularioIngreso.put("password", passwordField.getText());
+      
+        if(validadionesFormularioIngreso.get("username").isEmpty()){
             lbError.setText("Campo usuario requerido");
-        }else if(passwordField.getText().isEmpty()){
+        }
+        
+        if(validadionesFormularioIngreso.get("password").isEmpty()){
             lbError.setText("Campo password requerido");
-        }else{
-            lbError.setText("Usuario no esta Registrado");
         }
        
-        Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
         
-        if (Objects.nonNull(login)){
-            App.setRoot(null,"dashboard");            
-        }else{
-            lbError.setText("Usuario no esta Registrado");
-           
+        if(!validadionesFormularioIngreso.containsValue("")){
+            Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
+
+           if (Objects.nonNull(login)){
+               App.setRoot(null,"dashboard");            
+           }else{
+               lbError.setText("Usuario no esta Registrado");
+
+           } 
         }
+        
+
     }
 }
