@@ -27,7 +27,8 @@ public class App extends Application {
     public static void setRoot(Stage stage ,String fxml) throws IOException {
       
         if(Objects.nonNull(stage)){
-            scene = new Scene(loadFXML("login"), 1200, 800);
+            scene = new Scene(loadFXML("login"));
+            stage.setFullScreen(true);
             stage.setScene(scene);
             stage.show();
         }else{

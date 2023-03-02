@@ -2,7 +2,7 @@ package com.mycompany.loging.endpoint.login;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
-import com.mycompany.loging.score.Util.ValidadionesFormularios;
+import com.mycompany.loging.score.util.ValidadionesFormularios;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import java.io.IOException;
 import javafx.fxml.FXML;

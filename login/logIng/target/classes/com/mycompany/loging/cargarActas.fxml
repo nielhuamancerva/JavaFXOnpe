@@ -30,20 +30,13 @@
             <Image url="@../../../imagenes/carpeta.png" />
          </image>
       </ImageView>
-      <Label id="lbArchivosEncontrados" layoutX="148.0" layoutY="258.0" text="0 Archivos Encontrados">
+      <Label fx:id="lbArchivosEncontrados" layoutX="148.0" layoutY="258.0" text="0 Archivos Encontrados">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TableView layoutX="91.0" layoutY="295.0" prefHeight="200.0" prefWidth="904.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="N" />
-          <TableColumn prefWidth="182.0" text="Código" />
-            <TableColumn prefWidth="208.0" text="Centro de Computo" />
-            <TableColumn prefWidth="162.0" text="Fecha registro" />
-            <TableColumn prefWidth="173.0" text="Estado" />
-            <TableColumn prefWidth="103.0" text="Acción" />
-        </columns>
+      <TableView fx:id="tableActas" layoutX="91.0" layoutY="295.0" prefHeight="200.0" prefWidth="904.0">
+
       </TableView>
       <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE" underline="true">
          <font>

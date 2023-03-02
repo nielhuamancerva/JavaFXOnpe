@@ -26,7 +26,6 @@ public class ConexionMongoImpl implements ConexionMongo{
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
         // Obtener una base de datos
          mongoDatabase = mongoClient.getDatabase("dbmongo");
-         
          return mongoDatabase;
         // Obtener la collecion de mongo
         

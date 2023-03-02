@@ -4,23 +4,55 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.score.model.Actas;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  *
  * @author LMedina
  */
-public class TransmisionController{
-    private  File fileSeleccionado;
-    
+public class TransmisionController implements Initializable {
+
+    private File fileSeleccionado;
+
+    @FXML
+    Label lbArchivosEncontrados;
+
+    @FXML
+    TableView<Actas> tableActas;
+
     @FXML
     private void elegirFichero() throws IOException {
-        FileChooser fileChoiser =new FileChooser();
+        FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
+        lbArchivosEncontrados.setText(fileSeleccionado.getName());
     }
-    
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+                
+        TableColumn<Actas, Integer> columnaEdad = new TableColumn<Actas, Integer>("id_acta");
+      
+
+        TableColumn<Actas, String> columnaNombre = new TableColumn<Actas, String>("codigo");
+  
+
+        tableActas.getColumns().addAll(columnaNombre, columnaEdad);
+
+ }
+
 }
