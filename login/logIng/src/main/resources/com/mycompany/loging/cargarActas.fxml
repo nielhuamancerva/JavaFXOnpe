@@ -43,7 +43,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" style="-fx-background-color: #609966;" text="Iniciar" textFill="WHITE" underline="true">
+      <Button id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" style="-fx-background-color: #609966;" text="Iniciar" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

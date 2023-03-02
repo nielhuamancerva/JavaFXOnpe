@@ -18,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import com.mycompany.loging.App;
 
 /**
  *
@@ -54,5 +55,9 @@ public class TransmisionController implements Initializable {
         tableActas.getColumns().addAll(columnaNombre, columnaEdad);
 
  }
+    @FXML
+    public void cargarActas() throws IOException{
+        App.setRoot(null,"leerActas");            
+    }
 
 }
