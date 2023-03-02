@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarFirmaController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarFirmaController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -66,7 +65,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="345.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" text="Firmó">
+      <Button layoutX="345.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: orange;" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -86,7 +85,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="492.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
+      <Button layoutX="492.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: orange;" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
