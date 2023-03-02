@@ -14,6 +14,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import javafx.application.Platform;
 public class PrimaryController {
     private NegocioService negocioService;
     private ValidadionesFormularios validadionesFormularios;
@@ -46,7 +47,10 @@ public class PrimaryController {
 
            } 
         }
-        
-
+    }
+    @FXML
+    private void salirApp() throws Exception{
+        Platform.exit();
+        System.exit(0);
     }
 }
