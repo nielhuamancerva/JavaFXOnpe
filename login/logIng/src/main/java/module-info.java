@@ -8,7 +8,7 @@ module com.mycompany.loging {
     
     opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;
-    
+    exports com.mycompany.loging.score.model;
     //expone endpoint de controller primary
     exports com.mycompany.loging.endpoint.dashboard;
     opens com.mycompany.loging.endpoint.dashboard to javafx.fxml;

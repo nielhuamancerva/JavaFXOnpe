@@ -27,8 +27,8 @@ public class CreacionTable {
         TableColumn<Actas, String> columnaHora = new TableColumn<>("hora");
         columnaHora.setCellValueFactory(new PropertyValueFactory<>("hora"));
 
-        TableColumn<Actas, String> columnaLista = new TableColumn<>("lista");
-        columnaLista.setCellValueFactory(new PropertyValueFactory<>("lista"));
+        TableColumn<Actas, String> columnaLista = new TableColumn<>("lista1");
+        columnaLista.setCellValueFactory(new PropertyValueFactory<>("lista1"));
 
         TableColumn<Actas, String> columnaVotosblancos = new TableColumn<>("votos blancos");
         columnaVotosblancos.setCellValueFactory(new PropertyValueFactory<>("votosBlanco"));

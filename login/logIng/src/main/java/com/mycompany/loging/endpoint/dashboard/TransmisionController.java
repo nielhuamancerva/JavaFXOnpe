@@ -19,6 +19,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import com.mycompany.loging.App;
+import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
+import com.mycompany.loging.score.negocio.NegocioServiceImpl;
+import com.mycompany.loging.score.negocio.service.NegocioService;
+import com.mycompany.loging.score.util.CreacionTable;
 
 /**
  *
@@ -26,7 +30,12 @@ import com.mycompany.loging.App;
  */
 public class TransmisionController implements Initializable {
 
+    private final NegocioService negocioService;
     private File fileSeleccionado;
+
+    public TransmisionController() {
+        this.negocioService = new NegocioServiceImpl();
+    }
 
     @FXML
     Label lbArchivosEncontrados;
@@ -42,22 +51,22 @@ public class TransmisionController implements Initializable {
         lbArchivosEncontrados.setText(fileSeleccionado.getName());
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                
-        TableColumn<Actas, Integer> columnaEdad = new TableColumn<Actas, Integer>("id_acta");
-      
 
-        TableColumn<Actas, String> columnaNombre = new TableColumn<Actas, String>("codigo");
-  
+        try {
+            CreacionTable yy = new CreacionTable();
 
-        tableActas.getColumns().addAll(columnaNombre, columnaEdad);
+            yy.viewActas(tableActas);
+            tableActas.setItems(negocioService.finAllActas());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
- }
     @FXML
-    public void cargarActas() throws IOException{
-        App.setRoot(null,"leerActas");            
+    public void cargarActas() throws IOException {
+        App.setRoot(null, "leerActas");
     }
 
 }
