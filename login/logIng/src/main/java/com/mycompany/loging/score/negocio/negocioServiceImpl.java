@@ -36,10 +36,10 @@ public class NegocioServiceImpl implements NegocioService{
     @Override
     public ObservableList<Actas> finAllActas() throws IOException, Exception {
         List<Actas> listActas = new ArrayList<>();
-        Actas acta = new Actas();
         conexionMongo.conexionMongo();
         conexionMongo.findAllCollecion("actas").find()
                 .forEach(action -> {
+                   Actas acta = new Actas();
                   acta.setActa(action.getString("acta"));
                   acta.setDepartamento("departamento");
                   acta.setProvincia("provincia");
