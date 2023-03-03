@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "63ffb80ac2f812ba9cb01d06"
+  },
+  "acta": "0170018700101",
+  "departamento": "AREQUIPA",
+  "provincia": "CAYLLOMA",
+  "distrito": "LARI",
+  "hora": "",
+  "lista1": "",
+  "votosBlanco": "",
+  "votosNulos": "",
+  "votosImpugnados": "",
+  "votosEmitidos": "",
+  "observaciones": "",
+  "firma1": "",
+  "firma2": "",
+  "firma3": "",
+  "estado": "",
+  "id_acta": "123"
+}]
