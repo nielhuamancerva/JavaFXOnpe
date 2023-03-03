@@ -4,9 +4,7 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
-
 import com.mycompany.loging.App;
-
 
 import com.google.gson.Gson;
 import com.google.zxing.BinaryBitmap;
@@ -18,10 +16,12 @@ import com.google.zxing.common.HybridBinarizer;
 import com.mycompany.loging.score.model.ActasLeidas;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
@@ -56,9 +56,8 @@ public class LeerActasController implements Initializable {
     @FXML
     Label lbFecha;
     @FXML
-    private static ImageView imagenCodigoBarra;
+    ImageView imagenCodigoBarra;
 
-    
     /**
      * Initializes the controller class.
      */
@@ -100,17 +99,17 @@ public class LeerActasController implements Initializable {
 
     }
 
-    private static String leeDocumentoRegion(String pathTesseract, String path, String nombre) throws TesseractException, IOException, NotFoundException, Exception {
+    private String leeDocumentoRegion(String pathTesseract, String path, String nombre) throws TesseractException, IOException, NotFoundException, Exception {
         File imageFile = new File(path + nombre);
         Tesseract tc = new Tesseract();
-        
+
         //Configurar Tesseract
         tc.setTessVariable("user_defined_dpi", "70");
         tc.setDatapath(pathTesseract);
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
- 
+
         BufferedImage image = ImageIO.read(imageFile);
-        
+
         BufferedImage imageCodBarras = image.getSubimage(1460, 110, 620, 140);       //CODIGO DE BARRAS
         BufferedImage regionLista = image.getSubimage(210, 880, 1800, 1780);         //REGION LISTA
         BufferedImage regionObservaciones = image.getSubimage(210, 2640, 1800, 300); //REGION OBSERVACION
@@ -121,65 +120,60 @@ public class LeerActasController implements Initializable {
         String nombreArchivo = imageFile.getName();
         int dotIndex = nombreArchivo.lastIndexOf(".");
         String nombreSinExtension = nombreArchivo.substring(0, dotIndex);
-        
+
         //CREAMOS IMAGEN CODIGO DE BARRAS
         //--- archivoCodigoBarras
-        File archivoCodigoBarras = new File(path + "BAR-"+nombreSinExtension+".png");
+        File archivoCodigoBarras = new File(path + "BAR-" + nombreSinExtension + ".png");
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
-        
+
         //String result = tc.doOCR(imageCodBarras);
         //System.out.println(result);
-  //      Gson gson = new Gson();
+        //      Gson gson = new Gson();
         //System.out.println(gson.toJson(leerNumeroVotos(regionLista, path, pathTesseract)));
         leerNumeroVotos(regionLista, path, pathTesseract);
         //--- archivoRegionLista
-        File archivoRegionLista = new File(path + "REG-"+nombreSinExtension+".png");
+        File archivoRegionLista = new File(path + "REG-" + nombreSinExtension + ".png");
         ImageIO.write(regionLista, "png", archivoRegionLista);
-        
+
         //--- archivoRegionObservaciones
-        File archivoRegionObservaciones = new File(path + "OBS-"+nombreSinExtension+".png");
+        File archivoRegionObservaciones = new File(path + "OBS-" + nombreSinExtension + ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
-        
+
         //--- archivoFirma1
-        File archivoFirma1 = new File(path + "FI1-"+nombreSinExtension+".png");
+        File archivoFirma1 = new File(path + "FI1-" + nombreSinExtension + ".png");
         ImageIO.write(Firma1, "png", archivoFirma1);
-        
+
         //--- archivoFirma2
-        File archivoFirma2 = new File(path + "FI2-"+nombreSinExtension+".png");
+        File archivoFirma2 = new File(path + "FI2-" + nombreSinExtension + ".png");
         ImageIO.write(Firma2, "png", archivoFirma2);
-        
+
         //--- archivoFirma3
-        File archivoFirma3 = new File(path + "FI3-"+nombreSinExtension+".png");
+        File archivoFirma3 = new File(path + "FI3-" + nombreSinExtension + ".png");
         ImageIO.write(Firma3, "png", archivoFirma3);
         //-------
-        String codigoBarras = leerCodigoDeBarras(path + "BAR-"+nombreSinExtension+".png");
-        
-  
-   
-        
+        String codigoBarras = leerCodigoDeBarras(path + "BAR-" + nombreSinExtension + ".png");
+
         acta.setCodigoBarras(codigoBarras);
-        acta.setFirmaPresidente(validarFirma(path + "FI1-"+nombreSinExtension+".png", MAX_BLACK_VALUE));
-        acta.setFirmaSecretario(validarFirma(path + "FI2-"+nombreSinExtension+".png", MAX_BLACK_VALUE));
-        acta.setFirmaTercerMiembro(validarFirma(path + "FI3-"+nombreSinExtension+".png", MAX_BLACK_VALUE));
-        
-   //     System.out.println(gson.toJson(acta));
+        acta.setFirmaPresidente(validarFirma(path + "FI1-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));
+        acta.setFirmaSecretario(validarFirma(path + "FI2-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));
+        acta.setFirmaTercerMiembro(validarFirma(path + "FI3-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));
+
+        //     System.out.println(gson.toJson(acta));
         return codigoBarras;
     }
 
     @FXML
     private void regresarInicio() throws IOException {
-        App.setRoot(null,"cargarActas");
+        App.setRoot(null, "cargarActas");
     }
-    
-        public static String leerCodigoDeBarras(String path) throws Exception {
-       
+
+    public String leerCodigoDeBarras(String path) throws Exception {
+
         File file = new File(path);
-  
-        
-  imagenCodigoBarra = new ImageView();
-         Image img = new Image(file.toURI().toString());
-       imagenCodigoBarra.setImage(img);
-           
+
+        Image img = new Image(file.toURI().toString());
+
+        imagenCodigoBarra.setImage(img);
 
         BufferedImage image = ImageIO.read(file);
         // create binary bitmap from image
