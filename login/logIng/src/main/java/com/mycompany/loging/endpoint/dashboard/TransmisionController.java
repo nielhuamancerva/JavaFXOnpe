@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import com.mycompany.loging.App;
+import javafx.event.ActionEvent;
 
 /**
  *
@@ -58,6 +59,11 @@ public class TransmisionController implements Initializable {
     @FXML
     public void cargarActas() throws IOException{
         App.setRoot(null,"leerActas");            
+    }
+
+    @FXML
+    private void regresarDashboard() throws IOException {
+        App.setRoot(null,"dashboard");  
     }
 
 }
