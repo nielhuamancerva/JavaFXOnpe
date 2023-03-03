@@ -4,12 +4,15 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.App;
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -57,6 +60,11 @@ public class LeerActasController implements Initializable {
     String mes = formatoMes.format(fehaActual);
     fechaFormatoCadena = "del "+dia+" de "+mes+" de "+anio+", se inicio el ACTO DE ESCRUTINIO";
     
+    }
+
+    @FXML
+    private void regresarInicio() throws IOException {
+        App.setRoot(null,"cargarActas");
     }
     
     

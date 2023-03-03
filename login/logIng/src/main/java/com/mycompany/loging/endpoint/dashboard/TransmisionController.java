@@ -23,6 +23,7 @@ import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreacionTable;
+import javafx.event.ActionEvent;
 
 /**
  *
@@ -67,6 +68,11 @@ public class TransmisionController implements Initializable {
     @FXML
     public void cargarActas() throws IOException {
         App.setRoot(null, "leerActas");
+    }
+
+    @FXML
+    private void regresarDashboard() throws IOException {
+        App.setRoot(null,"dashboard");  
     }
 
 }

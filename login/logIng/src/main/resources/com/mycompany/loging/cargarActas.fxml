@@ -38,7 +38,7 @@
       <TableView fx:id="tableActas" layoutX="91.0" layoutY="295.0" prefHeight="200.0" prefWidth="904.0">
 
       </TableView>
-      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE" underline="true">
+      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" onAction="#regresarDashboard" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
