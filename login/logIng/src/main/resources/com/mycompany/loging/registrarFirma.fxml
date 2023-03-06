@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -35,7 +36,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActaVoto" style="-fx-background-color: #FF7B54;" text="Atras" textFill="WHITE">
+      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActaVoto" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -43,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" style="-fx-background-color: #609966;" text="Siguiente" textFill="WHITE">
+      <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -57,7 +58,7 @@
       </ImageView>
       <ImageView fx:id="firma3" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <Button layoutX="347.0" layoutY="331.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: #7DCEA0;" text="Firmó">
+      <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" onAction="#siFirmoPresi" prefHeight="51.0" prefWidth="139.0" styleClass="button-orange" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -65,7 +66,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="345.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: orange;" text="Firmó">
+      <Button fx:id="btnSiSecre" layoutX="345.0" layoutY="455.0" mnemonicParsing="false" onAction="#siFirmoSecre" prefHeight="51.0" prefWidth="139.0" styleClass="button-orange" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -73,7 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="347.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" text="Firmó">
+      <Button fx:id="btnSiTercer" layoutX="347.0" layoutY="584.0" mnemonicParsing="false" onAction="#siFirmoTercer" prefHeight="51.0" prefWidth="139.0" styleClass="button-orange" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -81,7 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="492.0" layoutY="331.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
+      <Button fx:id="btnNoPresi" layoutX="492.0" layoutY="331.0" mnemonicParsing="false" onAction="#noFirmoPresi" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -89,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="492.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
+      <Button fx:id="btnNoSecre" layoutX="492.0" layoutY="455.0" mnemonicParsing="false" onAction="#noFirmoSecre" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -97,7 +98,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="492.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" style="-fx-background-color: orange;" text="No Firmó">
+      <Button fx:id="btnNoTercer" layoutX="492.0" layoutY="584.0" mnemonicParsing="false" onAction="#noFirmoTercer" prefHeight="51.0" prefWidth="139.0" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>

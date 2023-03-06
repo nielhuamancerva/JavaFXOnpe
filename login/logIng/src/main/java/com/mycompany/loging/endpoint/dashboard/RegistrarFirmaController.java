@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -24,6 +25,18 @@ public class RegistrarFirmaController implements Initializable {
 
     @FXML
     ImageView firma1, firma2, firma3;
+    @FXML
+    private Button btnSiPresi;
+    @FXML
+    private Button btnSiSecre;
+    @FXML
+    private Button btnSiTercer;
+    @FXML
+    private Button btnNoPresi;
+    @FXML
+    private Button btnNoSecre;
+    @FXML
+    private Button btnNoTercer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +53,57 @@ public class RegistrarFirmaController implements Initializable {
     @FXML
     private void regresarActaVoto() throws IOException {
         App.setRoot(null, "registrarObs");
+    }
+
+    @FXML
+    private void siFirmoPresi(ActionEvent event) {
+        boolean firmoP = true;
+        btnSiPresi.setStyle("-fx-background-color: " + (firmoP ? "#2ECC71" : "") + ";");
+        btnNoPresi.setStyle("-fx-background-color: " + (!firmoP ? "" : "") + ";");
+    }
+
+    @FXML
+    private void siFirmoSecre(ActionEvent event) {
+
+        boolean firmoS = true;
+        btnSiSecre.setStyle("-fx-background-color: " + (firmoS ? "#2ECC71" : "") + ";");
+        btnNoSecre.setStyle("-fx-background-color: " + (!firmoS ? "" : "") + ";");
+
+    }
+
+    @FXML
+    private void siFirmoTercer(ActionEvent event) {
+
+        boolean firmoT = true;
+        btnSiTercer.setStyle("-fx-background-color: " + (firmoT ? "#2ECC71" : "") + ";");
+        btnNoTercer.setStyle("-fx-background-color: " + (!firmoT ? "" : "") + ";");
+
+    }
+
+    @FXML
+    private void noFirmoPresi(ActionEvent event) {
+
+        boolean firmoP = true;
+        btnNoPresi.setStyle("-fx-background-color: " + (!firmoP ? "#2ECC71" : "") + ";");
+        btnSiPresi.setStyle("-fx-background-color: " + (firmoP ? "" : "") + ";");
+
+    }
+
+    @FXML
+    private void noFirmoSecre(ActionEvent event) {
+
+        boolean firmoS = true;
+        btnNoSecre.setStyle("-fx-background-color: " + (!firmoS ? "#2ECC71" : "") + ";");
+        btnSiSecre.setStyle("-fx-background-color: " + (firmoS ? "" : "") + ";");
+
+    }
+
+    @FXML
+    private void noFirmoTercer(ActionEvent event) {
+        boolean firmoT = true;
+        btnNoTercer.setStyle("-fx-background-color: " + (!firmoT ? "#2ECC71" : "") + ";");
+        btnSiTercer.setStyle("-fx-background-color: " + (firmoT ? "" : "") + ";");
+
     }
 
 }
