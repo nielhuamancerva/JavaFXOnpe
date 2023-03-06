@@ -30,7 +30,7 @@ public class PrimaryController {
     PasswordField passwordField;
     @FXML
     Label lbError;
-
+    
     @FXML
     private void iniciandoSecion() throws Exception, IOException  {
         lbError.setText("");

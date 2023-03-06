@@ -66,11 +66,17 @@
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" style="-fx-background-color: #609966;" text="Siguiente" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </AnchorPane>

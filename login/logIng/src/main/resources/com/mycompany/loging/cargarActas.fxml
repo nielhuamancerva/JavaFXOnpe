@@ -24,6 +24,9 @@
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="91.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,11 +45,17 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" style="-fx-background-color: #609966;" text="Iniciar" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label layoutX="740.0" layoutY="258.0" text="Busqueda">
          <font>

@@ -39,11 +39,17 @@
                      <font>
                         <Font name="Comic Sans MS Bold" size="18.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button id="btnSalir" layoutX="220.0" layoutY="397.0" mnemonicParsing="false" onAction="#salirApp" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Label layoutX="83.0" layoutY="183.0" prefHeight="35.0" prefWidth="164.0" text="Usuario">
                      <font>
                         <Font size="18.0" />
