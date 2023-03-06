@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -62,7 +62,7 @@
                   <Image url="@../../../imagenes/codigo-barras-temp.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="889.0" layoutY="718.0" mnemonicParsing="false" style="-fx-background-color: #EA4961;" text="Atras" textFill="WHITE" underline="true">
+            <Button layoutX="889.0" layoutY="718.0" mnemonicParsing="false" onAction="#regresarLeerActas" style="-fx-background-color: #EA4961;" text="Atras" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" style="-fx-background-color: #609966;" text="Siguiente" textFill="WHITE" underline="true">
+            <Button layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" onAction="#registrarObs" style="-fx-background-color: #609966;" text="Siguiente" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

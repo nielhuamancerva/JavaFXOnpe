@@ -266,4 +266,9 @@ public class LeerActasController implements Initializable {
         return false;
     }
 
+    @FXML
+    private void registrarVotos()throws IOException{
+        App.setRoot(null, "leerActasVotos");
+    }
+
 }

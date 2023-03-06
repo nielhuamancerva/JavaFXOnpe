@@ -15,9 +15,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 public class PrimaryController {
     private NegocioService negocioService;
     private ValidadionesFormularios validadionesFormularios;
+    @FXML
+    private Button btnIngresar;
   
     public PrimaryController() {
         this.negocioService = new NegocioServiceImpl();

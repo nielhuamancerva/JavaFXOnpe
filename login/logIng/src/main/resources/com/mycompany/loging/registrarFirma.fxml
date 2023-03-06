@@ -35,7 +35,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" style="-fx-background-color: #FF7B54;" text="Atras" textFill="WHITE">
+      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActaVoto" style="-fx-background-color: #FF7B54;" text="Atras" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
