@@ -20,16 +20,17 @@
             <HBox alignment="TOP_CENTER" layoutX="59.0" layoutY="14.0" prefHeight="120.0" prefWidth="462.0" />
             <AnchorPane layoutX="712.0" layoutY="13.0" prefHeight="632.0" prefWidth="424.0">
                <children>
-                  <PasswordField fx:id="passwordField" focusTraversable="false" layoutX="82.0" layoutY="316.0" prefHeight="40.0" prefWidth="260.0" promptText="INGRESE  SU CONTRASEÑA">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </PasswordField>
-                  <TextField fx:id="userName" focusTraversable="false" layoutX="82.0" layoutY="218.0" prefHeight="40.0" prefWidth="260.0" promptText="INGRESE SU USUARIO">
+                  
+                  <TextField fx:id="userName" focusTraversable="true" layoutX="82.0" layoutY="218.0" prefHeight="40.0" prefWidth="260.0" promptText="INGRESE SU USUARIO">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <PasswordField fx:id="passwordField" focusTraversable="true" layoutX="82.0" layoutY="316.0" prefHeight="40.0" prefWidth="260.0" promptText="INGRESE  SU CONTRASEÑA">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
                   <Label layoutX="92.0" layoutY="102.0" text="Formulario de Acceso">
                      <font>
                         <Font name="Comic Sans MS Italic" size="24.0" />
