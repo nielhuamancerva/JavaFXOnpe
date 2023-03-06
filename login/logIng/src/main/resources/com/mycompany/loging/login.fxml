@@ -36,7 +36,7 @@
                         <Font name="Comic Sans MS Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnIngresar" layoutX="58.0" layoutY="397.0" onAction="#iniciandoSecion" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #609966;" text="Ingresar" textFill="WHITE">
+                  <Button fx:id="btnIngresar" layoutX="58.0" layoutY="397.0" onAction="#iniciandoSecion" prefHeight="50.0" prefWidth="148.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Ingresar" textFill="WHITE">
                      <font>
                         <Font name="Comic Sans MS Bold" size="18.0" />
                      </font>
@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="btnSalir" layoutX="220.0" layoutY="397.0" mnemonicParsing="false" onAction="#salirApp" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #EA4961;" text="Salir" textFill="WHITE">
+                  <Button id="btnSalir" layoutX="220.0" layoutY="397.0" mnemonicParsing="false" onAction="#salirApp" prefHeight="50.0" prefWidth="148.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
