@@ -1,4 +1,3 @@
-
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.score.model.Actas;
@@ -45,9 +44,8 @@ public class TransmisionController implements Initializable {
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         lbArchivosEncontrados.setText(fileSeleccionado.getName());
-         VariableGlobales.lecturaActasEnMemoria = new HashMap();
+        VariableGlobales.lecturaActasEnMemoria = new HashMap();
         VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSeleccionado.getName());
-
     }
 
     @Override
@@ -69,7 +67,7 @@ public class TransmisionController implements Initializable {
 
     @FXML
     private void regresarDashboard() throws IOException {
-        App.setRoot(null,"dashboard");  
+        App.setRoot(null, "dashboard");
     }
 
 }

@@ -65,7 +65,7 @@ public class LeerActasController implements Initializable {
     TextField txtHora;
     @FXML
     Label lbFecha;
-         
+
     @FXML
     Label lbVaDepartamento;
     @FXML
@@ -82,9 +82,7 @@ public class LeerActasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-           
-           
-            
+
             calcularFecha();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -108,13 +106,17 @@ public class LeerActasController implements Initializable {
         fechaFormatoCadena = "del " + dia + " de " + mes + " de " + anio + ", se inicio el ACTO DE ESCRUTINIO";
 
         try {
-            String pathTesseract = "D:\\TESSORC\\tessdata";
-            String path = "D:\\TESSORC\\LEIDOS\\";
-            String codigobarra = leeDocumentoRegion(pathTesseract, path, VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+
+            VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", "D:\\TESSORC\\tessdata");
+            VariableGlobales.lecturaActasEnMemoria.put("path", "D:\\TESSORC\\LEIDOS\\");
+            String codigobarra = leeDocumentoRegion(
+                    VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"),
+                    VariableGlobales.lecturaActasEnMemoria.get("path"),
+                    VariableGlobales.lecturaActasEnMemoria.get("fileName"));
             Actas acta = negocioService.finByCodigoBarra(codigobarra);
             lbVaDepartamento.setText(acta.getDepartamento());
             lbVaprovincia.setText(acta.getProvincia());
-           lbVaDistrito.setText(acta.getDistrito());
+            lbVaDistrito.setText(acta.getDistrito());
         } catch (NotFoundException ex) {
             ex.printStackTrace();
         } catch (Exception ex) {
@@ -150,30 +152,27 @@ public class LeerActasController implements Initializable {
         File archivoCodigoBarras = new File(path + "BAR-" + nombreSinExtension + ".png");
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
 
-        //String result = tc.doOCR(imageCodBarras);
-        //System.out.println(result);
-        //      Gson gson = new Gson();
-        //System.out.println(gson.toJson(leerNumeroVotos(regionLista, path, pathTesseract)));
         leerNumeroVotos(regionLista, path, pathTesseract);
         //--- archivoRegionLista
         File archivoRegionLista = new File(path + "REG-" + nombreSinExtension + ".png");
         ImageIO.write(regionLista, "png", archivoRegionLista);
-
+        VariableGlobales.lecturaActasEnMemoria.put("votos", archivoRegionLista.toURI().toString());
         //--- archivoRegionObservaciones
         File archivoRegionObservaciones = new File(path + "OBS-" + nombreSinExtension + ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
-
+        VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
         //--- archivoFirma1
         File archivoFirma1 = new File(path + "FI1-" + nombreSinExtension + ".png");
         ImageIO.write(Firma1, "png", archivoFirma1);
-
+        VariableGlobales.lecturaActasEnMemoria.put("firma1", archivoRegionObservaciones.toURI().toString());
         //--- archivoFirma2
         File archivoFirma2 = new File(path + "FI2-" + nombreSinExtension + ".png");
         ImageIO.write(Firma2, "png", archivoFirma2);
-
+        VariableGlobales.lecturaActasEnMemoria.put("firma2", archivoRegionObservaciones.toURI().toString());
         //--- archivoFirma3
         File archivoFirma3 = new File(path + "FI3-" + nombreSinExtension + ".png");
         ImageIO.write(Firma3, "png", archivoFirma3);
+        VariableGlobales.lecturaActasEnMemoria.put("firma3", archivoRegionObservaciones.toURI().toString());
         //-------
         String codigoBarras = leerCodigoDeBarras(path + "BAR-" + nombreSinExtension + ".png");
 
@@ -291,7 +290,7 @@ public class LeerActasController implements Initializable {
     }
 
     @FXML
-    private void registrarVotos()throws IOException{
+    private void registrarVotos() throws IOException {
         App.setRoot(null, "leerActasVotos");
     }
 

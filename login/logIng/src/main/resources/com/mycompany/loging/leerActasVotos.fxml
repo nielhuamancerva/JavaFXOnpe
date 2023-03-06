@@ -13,9 +13,6 @@
       <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;">
          <children>
             <ImageView fitHeight="84.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../imagenes/logo_score.png" />
-               </image>
             </ImageView>
             <Label layoutX="114.0" layoutY="109.0" text="2. Registrar Votos">
                <font>
@@ -27,10 +24,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="560.0" fitWidth="520.0" layoutX="92.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../imagenes/acta-temporal.jpg" />
-               </image>
+            <ImageView fx:id="imagenVotos" fitHeight="560.0" fitWidth="520.0" layoutX="92.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
             <TextField layoutX="622.0" layoutY="252.0" prefHeight="51.0" prefWidth="97.0">
                <font>
