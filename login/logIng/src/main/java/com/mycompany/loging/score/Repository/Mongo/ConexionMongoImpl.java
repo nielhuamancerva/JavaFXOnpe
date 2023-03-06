@@ -42,11 +42,17 @@ public class ConexionMongoImpl implements ConexionMongo {
     }
 
     @Override
-    public  MongoCollection<Document> findAllCollecion(String username) throws Exception {
-
-       
+    public MongoCollection<Document> findAllCollecion(String username) throws Exception {
 
         return mongoDatabase.getCollection(username);
+    }
+
+    @Override
+    public Document findActaByCodigoBarra(String codigoBarra) throws Exception {
+        // Obtener la collecion de mongo
+       
+        MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
+        return collection.find(Filters.eq("acta", codigoBarra)).first();
     }
 
 }

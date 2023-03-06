@@ -68,9 +68,9 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label id="lbVaDepartamento" layoutX="218.0" layoutY="344.0" text="Label" />
-            <Label id="lbVaprovincia" layoutX="218.0" layoutY="379.0" text="Label" />
-            <Label id="lbVaDistrito" layoutX="218.0" layoutY="420.0" text="Label" />
+            <Label fx:id="lbVaDepartamento" layoutX="218.0" layoutY="344.0" text="Label" />
+            <Label fx:id="lbVaprovincia" layoutX="218.0" layoutY="379.0" text="Label" />
+            <Label fx:id="lbVaDistrito" layoutX="218.0" layoutY="420.0" text="Label" />
             <Label layoutX="61.0" layoutY="482.0" text="Siendo las" />
             <Label fx:id="lbFecha" layoutX="218.0" layoutY="482.0" text=", se inicio el ACTO DE ESCRUTINIO" />
             <TextField fx:id="txtHora" layoutX="132.0" layoutY="478.0" prefHeight="25.0" prefWidth="73.0" />

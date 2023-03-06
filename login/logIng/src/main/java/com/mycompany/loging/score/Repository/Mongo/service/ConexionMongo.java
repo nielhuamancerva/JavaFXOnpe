@@ -18,5 +18,7 @@ public interface ConexionMongo {
 
     public Document findCollection(String username, String password) throws Exception;
 
-    public  MongoCollection<Document>  findAllCollecion(String table) throws Exception;
+    public MongoCollection<Document> findAllCollecion(String table) throws Exception;
+
+    public Document findActaByCodigoBarra(String codigoBarra) throws Exception;
 }

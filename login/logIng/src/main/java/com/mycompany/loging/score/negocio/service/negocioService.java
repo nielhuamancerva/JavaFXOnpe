@@ -13,4 +13,5 @@ import org.bson.Document;
 public interface NegocioService {
     public Document consultaUsuarioDb(String username, String password) throws IOException, Exception;
     public ObservableList<Actas> finAllActas() throws IOException, Exception;
+    public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception;
 }

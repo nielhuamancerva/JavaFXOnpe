@@ -13,7 +13,11 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.ActasLeidas;
+import com.mycompany.loging.score.negocio.NegocioServiceImpl;
+import com.mycompany.loging.score.negocio.service.NegocioService;
+import com.mycompany.loging.score.util.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.ByteArrayInputStream;
@@ -45,6 +49,12 @@ import net.sourceforge.tess4j.TesseractException;
  */
 public class LeerActasController implements Initializable {
 
+    private final NegocioService negocioService;
+
+    public LeerActasController() {
+        this.negocioService = new NegocioServiceImpl();
+    }
+
     private LocalTime horaSistema = LocalTime.now();
     public static ActasLeidas acta = new ActasLeidas();
     private String fechaFormatoCadena = "";
@@ -55,6 +65,13 @@ public class LeerActasController implements Initializable {
     TextField txtHora;
     @FXML
     Label lbFecha;
+         
+    @FXML
+    Label lbVaDepartamento;
+    @FXML
+    Label lbVaprovincia;
+    @FXML
+    Label lbVaDistrito;
     @FXML
     ImageView imagenCodigoBarra;
 
@@ -65,6 +82,9 @@ public class LeerActasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
+           
+           
+            
             calcularFecha();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -90,7 +110,11 @@ public class LeerActasController implements Initializable {
         try {
             String pathTesseract = "D:\\TESSORC\\tessdata";
             String path = "D:\\TESSORC\\LEIDOS\\";
-            leeDocumentoRegion(pathTesseract, path, "01700187O.TIF");
+            String codigobarra = leeDocumentoRegion(pathTesseract, path, VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+            Actas acta = negocioService.finByCodigoBarra(codigobarra);
+            lbVaDepartamento.setText(acta.getDepartamento());
+            lbVaprovincia.setText(acta.getProvincia());
+           lbVaDistrito.setText(acta.getDistrito());
         } catch (NotFoundException ex) {
             ex.printStackTrace();
         } catch (Exception ex) {
@@ -180,7 +204,7 @@ public class LeerActasController implements Initializable {
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(new BufferedImageLuminanceSource(image)));
         // set decoding hints
         MultiFormatReader reader = new MultiFormatReader();
-        java.util.Map<DecodeHintType, Object> hints = new java.util.EnumMap<DecodeHintType, Object>(DecodeHintType.class);
+        java.util.Map<DecodeHintType, Object> hints = new java.util.EnumMap<>(DecodeHintType.class);
         hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
         com.google.zxing.Result result = reader.decode(bitmap, hints);
 

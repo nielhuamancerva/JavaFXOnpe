@@ -15,6 +15,9 @@ import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreacionTable;
+import com.mycompany.loging.score.util.VariableGlobales;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.event.ActionEvent;
 
 /**
@@ -42,6 +45,9 @@ public class TransmisionController implements Initializable {
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         lbArchivosEncontrados.setText(fileSeleccionado.getName());
+         VariableGlobales.lecturaActasEnMemoria = new HashMap();
+        VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSeleccionado.getName());
+
     }
 
     @Override
