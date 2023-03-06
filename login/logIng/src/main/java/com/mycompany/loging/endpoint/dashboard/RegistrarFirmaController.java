@@ -5,12 +5,15 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
+import com.mycompany.loging.score.util.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -19,12 +22,19 @@ import javafx.fxml.Initializable;
  */
 public class RegistrarFirmaController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    ImageView firma1, firma2, firma3;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Image imgfirma1 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma1"));
+        firma1.setImage(imgfirma1);
+
+        Image imgfirma2 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma2"));
+        firma2.setImage(imgfirma2);
+
+        Image imgfirma3 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma3"));
+        firma3.setImage(imgfirma3);
     }
 
     @FXML

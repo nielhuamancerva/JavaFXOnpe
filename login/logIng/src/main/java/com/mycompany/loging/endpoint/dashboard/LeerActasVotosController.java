@@ -24,13 +24,16 @@ import javafx.scene.image.ImageView;
 public class LeerActasVotosController implements Initializable {
 
     @FXML
-    ImageView imagenVotos;
+    ImageView imagenVotos,codigoBarra;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          Image img = new Image(VariableGlobales.lecturaActasEnMemoria.get("votos"));
 
         imagenVotos.setImage(img);
+        
+                Image imgCodigoBarra = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
+        codigoBarra.setImage(imgCodigoBarra);
     }
 
     @FXML

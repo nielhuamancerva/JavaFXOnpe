@@ -151,7 +151,7 @@ public class LeerActasController implements Initializable {
         //--- archivoCodigoBarras
         File archivoCodigoBarras = new File(path + "BAR-" + nombreSinExtension + ".png");
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
-
+        VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
         leerNumeroVotos(regionLista, path, pathTesseract);
         //--- archivoRegionLista
         File archivoRegionLista = new File(path + "REG-" + nombreSinExtension + ".png");
@@ -164,15 +164,15 @@ public class LeerActasController implements Initializable {
         //--- archivoFirma1
         File archivoFirma1 = new File(path + "FI1-" + nombreSinExtension + ".png");
         ImageIO.write(Firma1, "png", archivoFirma1);
-        VariableGlobales.lecturaActasEnMemoria.put("firma1", archivoRegionObservaciones.toURI().toString());
+        VariableGlobales.lecturaActasEnMemoria.put("firma1", archivoFirma1.toURI().toString());
         //--- archivoFirma2
         File archivoFirma2 = new File(path + "FI2-" + nombreSinExtension + ".png");
         ImageIO.write(Firma2, "png", archivoFirma2);
-        VariableGlobales.lecturaActasEnMemoria.put("firma2", archivoRegionObservaciones.toURI().toString());
+        VariableGlobales.lecturaActasEnMemoria.put("firma2", archivoFirma2.toURI().toString());
         //--- archivoFirma3
         File archivoFirma3 = new File(path + "FI3-" + nombreSinExtension + ".png");
         ImageIO.write(Firma3, "png", archivoFirma3);
-        VariableGlobales.lecturaActasEnMemoria.put("firma3", archivoRegionObservaciones.toURI().toString());
+        VariableGlobales.lecturaActasEnMemoria.put("firma3", archivoFirma3.toURI().toString());
         //-------
         String codigoBarras = leerCodigoDeBarras(path + "BAR-" + nombreSinExtension + ".png");
 
