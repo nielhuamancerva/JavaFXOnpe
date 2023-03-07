@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/logo_score.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="91.0" layoutY="149.0" text="Seleccione la Carpeta de Actas de Escrutinio">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button id="btnElegirArchivos" layoutX="91.0" layoutY="200.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="30.0" prefWidth="113.0" text="Elegir Archivos">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="91.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/carpeta.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbArchivosEncontrados" layoutX="148.0" layoutY="258.0" text="0 Archivos Encontrados">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableActas" layoutX="91.0" layoutY="295.0" prefHeight="200.0" prefWidth="904.0">
+
+      </TableView>
+      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" onAction="#regresarDashboard" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE" >
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Iniciar" textFill="WHITE" >
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="740.0" layoutY="258.0" text="Busqueda">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField id="txtBuscar" layoutX="846.0" layoutY="256.0" />
+      <Label layoutX="653.0" layoutY="38.0" text="CENTRO DE COMPUTO:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="921.0" layoutY="38.0" text="XXXXXXXX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

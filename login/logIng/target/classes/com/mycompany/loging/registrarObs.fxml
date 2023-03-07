@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarObsController">
+   <children>
+      <ImageView fx:id="codigoBarra" fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>
+      <Label layoutX="653.0" layoutY="38.0" text="CENTRO DE COMPUTO:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="921.0" layoutY="38.0" text="XXXXXXXX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="149.0" text="Registrar Observaciones">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="observacionesActa" fitHeight="111.0" fitWidth="934.0" layoutX="91.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>
+      <TextArea layoutX="91.0" layoutY="405.0" prefHeight="153.0" prefWidth="934.0" promptText="Ingrese las Observaciones">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActasVoto" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" onAction="#registrarFirma" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="91.0" layoutY="221.0" text="Ingrese las observaciones registradas en el Acta de Escrutinio">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

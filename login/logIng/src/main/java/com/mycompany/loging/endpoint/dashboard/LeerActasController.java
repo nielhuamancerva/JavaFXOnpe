@@ -293,5 +293,10 @@ public class LeerActasController implements Initializable {
     private void registrarVotos() throws IOException {
         App.setRoot(null, "leerActasVotos");
     }
+    
+    @FXML
+    private void abrirRecortarActa() throws IOException{
+        App.setRoot(null, "recortarActa");
+    }
 
 }
