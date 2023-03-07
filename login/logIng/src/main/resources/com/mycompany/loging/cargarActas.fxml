@@ -41,7 +41,7 @@
       <TableView fx:id="tableActas" layoutX="91.0" layoutY="295.0" prefHeight="200.0" prefWidth="904.0">
 
       </TableView>
-      <Button id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" onAction="#regresarDashboard" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE" underline="true">
+      <Button fx:id="btnSalir" layoutX="768.0" layoutY="609.0" mnemonicParsing="false" onAction="#regresarDashboard" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE" >
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Iniciar" textFill="WHITE" underline="true">
+      <Button fx:id="btnIniciar" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Iniciar" textFill="WHITE" >
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

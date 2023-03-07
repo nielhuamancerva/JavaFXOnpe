@@ -5,7 +5,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
-import com.mycompany.loging.score.util.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -84,8 +84,8 @@ public class RegistrarFirmaController implements Initializable {
     private void noFirmoPresi(ActionEvent event) {
 
         boolean firmoP = true;
-        btnNoPresi.setStyle("-fx-background-color: " + (!firmoP ? "#2ECC71" : "") + ";");
-        btnSiPresi.setStyle("-fx-background-color: " + (firmoP ? "" : "") + ";");
+        btnNoPresi.setStyle("-fx-background-color: " + (firmoP ? "#2ECC71" : "") + ";");
+        btnSiPresi.setStyle("-fx-background-color: " + (!firmoP ? "" : "") + ";");
 
     }
 
@@ -93,16 +93,16 @@ public class RegistrarFirmaController implements Initializable {
     private void noFirmoSecre(ActionEvent event) {
 
         boolean firmoS = true;
-        btnNoSecre.setStyle("-fx-background-color: " + (!firmoS ? "#2ECC71" : "") + ";");
-        btnSiSecre.setStyle("-fx-background-color: " + (firmoS ? "" : "") + ";");
+        btnNoSecre.setStyle("-fx-background-color: " + (firmoS ? "#2ECC71" : "") + ";");
+        btnSiSecre.setStyle("-fx-background-color: " + (!firmoS ? "" : "") + ";");
 
     }
 
     @FXML
     private void noFirmoTercer(ActionEvent event) {
         boolean firmoT = true;
-        btnNoTercer.setStyle("-fx-background-color: " + (!firmoT ? "#2ECC71" : "") + ";");
-        btnSiTercer.setStyle("-fx-background-color: " + (firmoT ? "" : "") + ";");
+        btnNoTercer.setStyle("-fx-background-color: " + (firmoT ? "#2ECC71" : "") + ";");
+        btnSiTercer.setStyle("-fx-background-color: " + (!firmoT ? "" : "") + ";");
 
     }
 

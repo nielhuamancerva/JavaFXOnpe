@@ -1,4 +1,4 @@
-package com.mycompany.loging.score.util;
+package com.mycompany.loging.score.util.constanst;
 
 import java.util.Map;
 
