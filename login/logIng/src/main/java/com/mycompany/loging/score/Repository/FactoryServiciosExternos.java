@@ -5,7 +5,9 @@
 package com.mycompany.loging.score.Repository;
 
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
+import com.mycompany.loging.score.Repository.implementacion.UserServiceImpl;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
+import com.mycompany.loging.score.Repository.service.UserService;
 
 /**
  *
@@ -14,10 +16,12 @@ import com.mycompany.loging.score.Repository.service.ConexionMongo;
 public class FactoryServiciosExternos {
 
     private static FactoryServiciosExternos instanceFactory;
-    private ConexionMongo conexionMongo;
+    private final ConexionMongo conexionMongo;
+    private final UserService userService;
 
     private FactoryServiciosExternos() {
-        this.conexionMongo =new ConexionMongoImpl();
+        this.conexionMongo = new ConexionMongoImpl();
+        this.userService = new UserServiceImpl();
     }
 
     public static FactoryServiciosExternos getInstance() {
@@ -27,7 +31,11 @@ public class FactoryServiciosExternos {
         return instanceFactory;
     }
 
-    public ConexionMongo ConexionMongoService() {
+    public ConexionMongo MongoService() {
         return this.conexionMongo;
+    }
+
+    public UserService UserService() {
+        return this.userService;
     }
 }

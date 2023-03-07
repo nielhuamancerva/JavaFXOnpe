@@ -148,7 +148,7 @@ public class LeerActasController implements Initializable {
         String nombreSinExtension = nombreArchivo.substring(0, dotIndex);
 
         //CREAMOS IMAGEN CODIGO DE BARRAS
-        //--- archivoCodigoBarras
+        //--- archivoCodigoBarras  
         File archivoCodigoBarras = new File(path + "BAR-" + nombreSinExtension + ".png");
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
         VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
