@@ -41,9 +41,9 @@ public class RegistrarFirmaController implements Initializable {
     @FXML
     private Button btnNoTercer;
     @FXML
-    private Button btnSalir;
+    private Button btnVerificaTransmision;
     @FXML
-    private Button btnSiguiente;
+    private Button btnRegresarObs;
 
     //constructor
     public RegistrarFirmaController() {
@@ -53,8 +53,8 @@ public class RegistrarFirmaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        dropShadowE.setTabEffect(btnSiguiente);
-        dropShadowE.setTabEffect(btnSalir);
+        dropShadowE.setTabEffect(btnVerificaTransmision);
+        dropShadowE.setTabEffect(btnRegresarObs);
         dropShadowE.setTabEffect(btnSiPresi);
         dropShadowE.setTabEffect(btnSiSecre);
         dropShadowE.setTabEffect(btnSiTercer);

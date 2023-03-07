@@ -36,7 +36,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActaVoto" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+      <Button fx:id="btnRegresarObs" layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActaVoto" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+      <Button fx:id="btnVerificaTransmision" layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" onAction="#verificaTransmite" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

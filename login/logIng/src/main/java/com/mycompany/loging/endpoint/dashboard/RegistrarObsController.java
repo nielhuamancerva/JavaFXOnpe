@@ -5,7 +5,6 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
-import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
@@ -24,24 +23,16 @@ import javafx.scene.image.ImageView;
  */
 public class RegistrarObsController implements Initializable {
 
-    private DropShadowE dropShadowE;
 
     @FXML
     ImageView observacionesActa, codigoBarra;
-    @FXML
-    private Button btnRegresar;
-    @FXML
-    private Button btnSiguiente;
 
     public RegistrarObsController() {
-        this.dropShadowE = new DropShadowE();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        dropShadowE.setTabEffect(btnRegresar);
-        dropShadowE.setTabEffect(btnSiguiente);
 
         Image imgObservacionesActa = new Image(VariableGlobales.lecturaActasEnMemoria.get("observaciones"));
         observacionesActa.setImage(imgObservacionesActa);
@@ -51,15 +42,14 @@ public class RegistrarObsController implements Initializable {
     }
 
     @FXML
-    private void regresarActasVoto() throws IOException {
-        App.setRoot(null, "leerActasVotos");
-
+    private void registrarFma() throws IOException{
+        App.setRoot(null, "registrarFirma");
+//            System.out.println("hola");
     }
 
     @FXML
-    private void registrarFirma() throws IOException {
-        App.setRoot(null, "registrarFirma");
-
+    private void regresaActasV() throws IOException{
+         App.setRoot(null, "leerActasVotos");
     }
 
 }
