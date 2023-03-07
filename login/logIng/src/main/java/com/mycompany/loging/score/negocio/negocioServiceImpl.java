@@ -4,8 +4,9 @@
  */
 package com.mycompany.loging.score.negocio;
 
-import com.mycompany.loging.score.Repository.Mongo.service.ConexionMongo;
-import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
+import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
+import com.mycompany.loging.score.Repository.service.ConexionMongo;
+import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.model.Actas;
 import java.io.IOException;
 import org.bson.Document;
@@ -21,24 +22,22 @@ import javafx.collections.ObservableList;
  */
 public class NegocioServiceImpl implements NegocioService {
 
-    private final ConexionMongo conexionMongo;
+    private FactoryServiciosExternos conexionMongo = FactoryServiciosExternos.getInstance();
+    
 
-    public NegocioServiceImpl() {
-        this.conexionMongo = new ConexionMongoImpl();
-    }
 
     @Override
     public Document consultaUsuarioDb(String username, String password) throws IOException, Exception {
 
-        conexionMongo.conexionMongo();
-        return conexionMongo.findCollection(username, password);
+        conexionMongo.ConexionMongoService().conexionMongo();
+        return conexionMongo.ConexionMongoService().findCollection(username, password);
     }
 
     @Override
     public ObservableList<Actas> finAllActas() throws IOException, Exception {
         List<Actas> listActas = new ArrayList<>();
-        conexionMongo.conexionMongo();
-        conexionMongo.findAllCollecion("actas").find()
+        conexionMongo.ConexionMongoService().conexionMongo();
+        conexionMongo.ConexionMongoService().findAllCollecion("actas").find()
                 .forEach(action -> {
                     Actas acta = new Actas();
                     acta.setActa(action.getString("acta"));
@@ -54,8 +53,8 @@ public class NegocioServiceImpl implements NegocioService {
     @Override
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception {
         Actas acta = new Actas();
-        conexionMongo.conexionMongo();
-        Document ss = conexionMongo.findActaByCodigoBarra(codigoBarra);
+        conexionMongo.ConexionMongoService().conexionMongo();
+        Document ss = conexionMongo.ConexionMongoService().findActaByCodigoBarra(codigoBarra);
         acta.setActa(ss.getString("acta"));
         acta.setDepartamento(ss.getString("departamento"));
         acta.setProvincia(ss.getString("provincia"));

@@ -4,8 +4,8 @@
  */
 package com.mycompany.loging.score.Repository;
 
-import com.mycompany.loging.score.Repository.Mongo.ConexionMongoImpl;
-import com.mycompany.loging.score.Repository.Mongo.service.ConexionMongo;
+import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
+import com.mycompany.loging.score.Repository.service.ConexionMongo;
 
 /**
  *
@@ -13,9 +13,11 @@ import com.mycompany.loging.score.Repository.Mongo.service.ConexionMongo;
  */
 public class FactoryServiciosExternos {
 
-    private static FactoryServiciosExternos instanceFactory = null;
+    private static FactoryServiciosExternos instanceFactory;
+    private ConexionMongo conexionMongo;
 
     private FactoryServiciosExternos() {
+        this.conexionMongo =new ConexionMongoImpl();
     }
 
     public static FactoryServiciosExternos getInstance() {
@@ -25,7 +27,7 @@ public class FactoryServiciosExternos {
         return instanceFactory;
     }
 
-    public ConexionMongo NegocioServiceImpl() {
-        return new ConexionMongoImpl();
+    public ConexionMongo ConexionMongoService() {
+        return this.conexionMongo;
     }
 }
