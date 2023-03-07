@@ -53,7 +53,7 @@
             </TextField>
             <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="757.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
-            <Button layoutX="889.0" layoutY="718.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+            <Button fx:id="btnRegresar" layoutX="889.0" layoutY="718.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -61,7 +61,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" onAction="#registrarObs" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+            <Button fx:id="btnSiguiente" layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" onAction="#registrarObs" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

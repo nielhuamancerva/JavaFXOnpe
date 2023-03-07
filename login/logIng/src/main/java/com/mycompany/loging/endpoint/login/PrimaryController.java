@@ -35,28 +35,6 @@ public class PrimaryController {
         dropShadowE.setTabEffect(btnIngresar);
         dropShadowE.setTabEffect(btnSalir);
 
-//        btnIngresar.setOnKeyPressed(event -> {
-//            if (event.getCode() == KeyCode.TAB) {
-//                btnIngresar.setStyle(null);
-//            }
-//        });
-//        btnSalir.setOnKeyPressed(event -> {
-//            if (event.getCode() == KeyCode.TAB) {
-//                btnSalir.setStyle(null);
-//            }
-//        });
-//        btnIngresar.setOnKeyReleased(event -> {
-//            if (event.getCode() == KeyCode.TAB) {
-//                btnIngresar.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
-//            }
-//        });
-//
-//        btnSalir.setOnKeyReleased(event -> {
-//            if (event.getCode() == KeyCode.TAB) {
-//                btnSalir.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
-//
-//            }
-//        });
     }
 
     public PrimaryController() {
