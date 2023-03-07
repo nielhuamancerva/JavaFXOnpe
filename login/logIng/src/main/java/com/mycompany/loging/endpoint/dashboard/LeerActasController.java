@@ -17,6 +17,7 @@ import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.ActasLeidas;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
+import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -34,6 +35,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -50,9 +52,19 @@ import net.sourceforge.tess4j.TesseractException;
 public class LeerActasController implements Initializable {
 
     private final NegocioService negocioService;
+    private DropShadowE dropShadowE;
+    
+    @FXML
+    private Button btnCancelar;
+    @FXML
+    private Button btnSiguiente;
+    @FXML
+    private Button btnRecortar;
+
 
     public LeerActasController() {
         this.negocioService = new NegocioServiceImpl();
+        this.dropShadowE = new DropShadowE();
     }
 
     private LocalTime horaSistema = LocalTime.now();
@@ -82,6 +94,8 @@ public class LeerActasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
+            dropShadowE.setTabEffect(btnCancelar);
+            dropShadowE.setTabEffect(btnSiguiente);
 
             calcularFecha();
         } catch (IOException ex) {
@@ -293,9 +307,9 @@ public class LeerActasController implements Initializable {
     private void registrarVotos() throws IOException {
         App.setRoot(null, "leerActasVotos");
     }
-    
+
     @FXML
-    private void abrirRecortarActa() throws IOException{
+    private void abrirRecortarActa() throws IOException {
         App.setRoot(null, "recortarActa");
     }
 

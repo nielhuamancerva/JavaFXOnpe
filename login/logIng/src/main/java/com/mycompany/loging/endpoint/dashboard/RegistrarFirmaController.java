@@ -5,6 +5,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
+import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,8 @@ import javafx.scene.image.ImageView;
  * @author RDeLaCruz
  */
 public class RegistrarFirmaController implements Initializable {
+    
+    private DropShadowE dropShadowE;
 
     @FXML
     ImageView firma1, firma2, firma3;
@@ -37,9 +40,28 @@ public class RegistrarFirmaController implements Initializable {
     private Button btnNoSecre;
     @FXML
     private Button btnNoTercer;
+    @FXML
+    private Button btnSalir;
+    @FXML
+    private Button btnSiguiente;
+
+    //constructor
+    public RegistrarFirmaController() {
+        this.dropShadowE = new DropShadowE();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        dropShadowE.setTabEffect(btnSiguiente);
+        dropShadowE.setTabEffect(btnSalir);
+        dropShadowE.setTabEffect(btnSiPresi);
+        dropShadowE.setTabEffect(btnSiSecre);
+        dropShadowE.setTabEffect(btnSiTercer);
+        dropShadowE.setTabEffect(btnNoPresi);
+        dropShadowE.setTabEffect(btnNoSecre);
+        dropShadowE.setTabEffect(btnNoTercer);
+        
         Image imgfirma1 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma1"));
         firma1.setImage(imgfirma1);
 
@@ -104,6 +126,11 @@ public class RegistrarFirmaController implements Initializable {
         btnNoTercer.setStyle("-fx-background-color: " + (firmoT ? "#2ECC71" : "") + ";");
         btnSiTercer.setStyle("-fx-background-color: " + (!firmoT ? "" : "") + ";");
 
+    }
+
+    @FXML
+    private void verificaTransmite()throws IOException{
+         App.setRoot(null, "transmisionRabbit");
     }
 
 }

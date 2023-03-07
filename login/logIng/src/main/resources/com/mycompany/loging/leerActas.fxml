@@ -12,7 +12,7 @@
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="1200.0">
          <children>
-            <Button layoutX="891.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarInicio" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Cancelar" textFill="WHITE">
+            <Button fx:id="btnCancelar" layoutX="891.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarInicio" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Cancelar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -20,7 +20,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" onAction="#registrarVotos" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+            <Button fx:id="btnSiguiente" layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" onAction="#registrarVotos" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

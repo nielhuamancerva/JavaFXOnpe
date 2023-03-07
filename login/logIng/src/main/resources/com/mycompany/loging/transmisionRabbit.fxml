@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionRabbitController">
+   <children>
+      <Label layoutX="45.0" layoutY="103.0" text="Transmitir datos e Imágenes">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnTransmitir" layoutX="380.0" layoutY="276.0" mnemonicParsing="false" onAction="#transmitir" prefHeight="67.0" prefWidth="180.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Transmitir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="217.0" layoutY="276.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="67.0" prefWidth="121.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="45.0" layoutY="152.0" text="Presione el botón para transmitir la información a un servidor remoto">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

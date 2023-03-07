@@ -6,58 +6,50 @@ package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
  *
  * @author RDeLaCruz
  */
-public class RegistrarObsController implements Initializable {
+public class TransmisionRabbitController implements Initializable {
 
     private DropShadowE dropShadowE;
 
     @FXML
-    ImageView observacionesActa, codigoBarra;
+    private Button btnTransmitir;
     @FXML
     private Button btnRegresar;
-    @FXML
-    private Button btnSiguiente;
 
-    public RegistrarObsController() {
+    public TransmisionRabbitController() {
         this.dropShadowE = new DropShadowE();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        dropShadowE.setTabEffect(btnTransmitir);
         dropShadowE.setTabEffect(btnRegresar);
-        dropShadowE.setTabEffect(btnSiguiente);
-
-        Image imgObservacionesActa = new Image(VariableGlobales.lecturaActasEnMemoria.get("observaciones"));
-        observacionesActa.setImage(imgObservacionesActa);
-
-        Image imgCodigoBarra = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
-        codigoBarra.setImage(imgCodigoBarra);
     }
 
     @FXML
-    private void regresarActasVoto() throws IOException {
-        App.setRoot(null, "leerActasVotos");
-
+    private void transmitir() throws IOException {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("ok");
+        alert.setContentText("Transmision confirmada");
+        alert.showAndWait();
     }
 
     @FXML
-    private void registrarFirma() throws IOException {
+    private void regresarFirmas() throws IOException {
         App.setRoot(null, "registrarFirma");
 
     }

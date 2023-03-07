@@ -33,14 +33,14 @@ public class TransmisionController implements Initializable {
     private DropShadowE dropShadowE;
 
     @FXML
-    private Button btnSalir;
+    private Button btnRegresar;
     @FXML
-    private Button btnIniciar;
+    private Button btnSiguiente;
 
     private void initialize() {
 
-        dropShadowE.setTabEffect(btnIniciar);
-        dropShadowE.setTabEffect(btnSalir);
+        dropShadowE.setTabEffect(btnRegresar);
+        dropShadowE.setTabEffect(btnSiguiente);
     }
 
     public TransmisionController() {
