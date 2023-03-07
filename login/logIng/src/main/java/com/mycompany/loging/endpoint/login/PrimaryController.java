@@ -2,6 +2,7 @@ package com.mycompany.loging.endpoint.login;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
+import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.ValidadionesFormularios;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import java.io.IOException;
@@ -16,15 +17,52 @@ import java.util.Map;
 import java.util.Objects;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+
 public class PrimaryController {
+
     private NegocioService negocioService;
     private ValidadionesFormularios validadionesFormularios;
+    private DropShadowE dropShadowE;
     @FXML
     private Button btnIngresar;
-  
+    @FXML
+    private Button btnSalir;
+
+    @FXML
+    private void initialize() {
+
+        dropShadowE.setTabEffect(btnIngresar);
+        dropShadowE.setTabEffect(btnSalir);
+
+//        btnIngresar.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnIngresar.setStyle(null);
+//            }
+//        });
+//        btnSalir.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnSalir.setStyle(null);
+//            }
+//        });
+//        btnIngresar.setOnKeyReleased(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnIngresar.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
+//            }
+//        });
+//
+//        btnSalir.setOnKeyReleased(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnSalir.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
+//
+//            }
+//        });
+    }
+
     public PrimaryController() {
         this.negocioService = new NegocioServiceImpl();
         this.validadionesFormularios = new ValidadionesFormularios();
+        this.dropShadowE = new DropShadowE();
     }
 
     @FXML
@@ -33,26 +71,27 @@ public class PrimaryController {
     PasswordField passwordField;
     @FXML
     Label lbError;
-    
+
     @FXML
-    private void iniciandoSecion() throws Exception, IOException  {
+    private void iniciandoSecion() throws Exception, IOException {
         lbError.setText("");
 
         String Msg = validadionesFormularios.login(userName.getText(), passwordField.getText());
         lbError.setText(Msg);
-        if(Msg.equals("")){
+        if (Msg.equals("")) {
             Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
 
-           if (Objects.nonNull(login)){
-               App.setRoot(null,"dashboard");            
-           }else{
-               lbError.setText("Usuario no esta Registrado");
+            if (Objects.nonNull(login)) {
+                App.setRoot(null, "dashboard");
+            } else {
+                lbError.setText("Usuario no esta Registrado");
 
-           } 
+            }
         }
     }
+
     @FXML
-    private void salirApp() throws Exception{
+    private void salirApp() throws Exception {
         Platform.exit();
         System.exit(0);
     }

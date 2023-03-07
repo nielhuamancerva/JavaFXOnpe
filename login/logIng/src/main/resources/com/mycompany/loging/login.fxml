@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="btnSalir" layoutX="220.0" layoutY="397.0" mnemonicParsing="false" onAction="#salirApp" prefHeight="50.0" prefWidth="148.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE">
+                  <Button id="btnSalir" fx:id="btnSalir" layoutX="220.0" layoutY="397.0" mnemonicParsing="false" onAction="#salirApp" prefHeight="50.0" prefWidth="148.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

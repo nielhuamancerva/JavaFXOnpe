@@ -5,7 +5,8 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.google.zxing.NotFoundException;
-import com.mycompany.loging.score.util.VariableGlobales;
+import com.mycompany.loging.score.util.VariablesGlobalesR;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

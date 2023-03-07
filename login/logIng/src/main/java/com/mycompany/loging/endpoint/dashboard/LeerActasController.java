@@ -17,7 +17,7 @@ import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.ActasLeidas;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
-import com.mycompany.loging.score.util.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.ByteArrayInputStream;

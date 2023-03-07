@@ -5,7 +5,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
-import com.mycompany.loging.score.util.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

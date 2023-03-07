@@ -14,10 +14,12 @@ import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreacionTable;
-import com.mycompany.loging.score.util.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 
 /**
  *
@@ -27,6 +29,42 @@ public class TransmisionController implements Initializable {
 
     private final NegocioService negocioService;
     private File fileSeleccionado;
+    @FXML
+    private Button btnSalir;
+    @FXML
+    private Button btnIniciar;
+    
+    
+    private void initialize() {
+
+//        btnSalir.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnSalir.setStyle(null);
+//            }
+//        });
+//        btnIniciar.setOnKeyPressed(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnIniciar.setStyle(null);
+//            }
+//        });
+//        btnSalir.setOnKeyReleased(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnSalir.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
+//            }
+//        });
+//
+//        btnIniciar.setOnKeyReleased(event -> {
+//            if (event.getCode() == KeyCode.TAB) {
+//                btnIniciar.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 10, 0.5, 0, 0);");
+//
+//            }
+//        });
+
+    }
+    
+    
+    
+    
 
     public TransmisionController() {
         this.negocioService = new NegocioServiceImpl();
