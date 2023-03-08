@@ -25,6 +25,8 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import com.mycompany.loging.score.Repository.service.Tess4jService;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import java.awt.image.RescaleOp;
+import net.sourceforge.tess4j.util.ImageHelper;
 
 /**
  *
@@ -76,12 +78,15 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         Tesseract tc = new Tesseract();
         tc.setOcrEngineMode(2);
-        //tc.setPageSegMode(PSM.SINGLE_CHAR);
+
         tc.setTessVariable("user_defined_dpi", "2400");
         tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
 
         BufferedImage valor1 = regionLista.getSubimage(1514, 120, 200, 240);
+        
+       
+        
         BufferedImage valor2 = regionLista.getSubimage(1514, 440, 200, 240);
         BufferedImage valor3 = regionLista.getSubimage(1514, 780, 200, 240);
         BufferedImage valor4 = regionLista.getSubimage(1514, 1120, 200, 240);
@@ -89,7 +94,8 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         File archivoValor1 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor1.png");
         ImageIO.write(valor1, "png", archivoValor1);
-
+        
+     
         File archivoValor2 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor2.png");
         ImageIO.write(valor2, "png", archivoValor2);
 
@@ -101,12 +107,17 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         File archivoValor5 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor5.png");
         ImageIO.write(valor5, "png", archivoValor5);
+        
+        valor5=ImageHelper.convertImageToGrayscale(valor5);
+        RescaleOp rescale = new RescaleOp(1.2f,15,null);
+        
+        BufferedImage valor5Final=rescale.filter(valor5,null);
 
         String result1 = tc.doOCR(valor1);
         String result2 = tc.doOCR(valor2);
         String result3 = tc.doOCR(valor3);
         String result4 = tc.doOCR(valor4);
-        String result5 = tc.doOCR(valor5);
+        String result5 = tc.doOCR(valor5Final);
 
         VariableGlobales.lecturaActasEnMemoria.put("Region1", result1);
         VariableGlobales.lecturaActasEnMemoria.put("Region2", result2);

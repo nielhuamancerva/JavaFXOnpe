@@ -253,6 +253,8 @@ public class LeerActasController implements Initializable {
             //System.out.println(result1.trim()+"-"+result2.trim()+"-"+result3.trim()+"-"+result4.trim()+"-"+result5.trim());
             return acta;
     }
+    
+    
 
     private static BufferedImage preprocesarImagen(BufferedImage bufferedImagen, String nombre, String path) throws IOException {
         bufferedImagen = ImageHelper.convertImageToGrayscale(bufferedImagen); // Convertir la imagen a escala de grises
