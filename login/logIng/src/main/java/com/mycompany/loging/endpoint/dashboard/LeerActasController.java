@@ -22,6 +22,7 @@ import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import java.awt.image.RescaleOp;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 
@@ -44,6 +45,7 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import net.sourceforge.tess4j.util.ImageHelper;
 
 /**
  * FXML Controller class
@@ -224,54 +226,47 @@ public class LeerActasController implements Initializable {
     }
 
     public static ActasLeidas leerNumeroVotos(BufferedImage regionLista, String path, String pathTesseract) throws Exception {
-        Tesseract tc = new Tesseract();
-        tc.setOcrEngineMode(2);
-        //tc.setPageSegMode(PSM.SINGLE_CHAR);
-        tc.setTessVariable("user_defined_dpi", "2400");
-        tc.setDatapath(pathTesseract);
-        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
+            Tesseract tc = new Tesseract();
+            tc.setOcrEngineMode(2);
+            tc.setTessVariable("user_defined_dpi", "70");
+            tc.setDatapath(pathTesseract);
+            tc.setTessVariable("tessedit_char_whitelist", "0123456789");
+            
+            BufferedImage bufferedPartidoA = regionLista.getSubimage(1514, 120, 200, 240);
+            BufferedImage bufferedVotoBlanco = regionLista.getSubimage(1514, 440, 200, 240);
+            BufferedImage bufferedVotoNulo = regionLista.getSubimage(1514, 780, 200, 240);
+            BufferedImage bufferedVotoImpugnado = regionLista.getSubimage(1514, 1120, 200, 240);
+            BufferedImage bufferedVotoEmitido = regionLista.getSubimage(1514, 1460, 200, 240);                  
+            
+            String textoPartidoA = tc.doOCR(preprocesarImagen(bufferedPartidoA, "bufferedPartidoA", path));
+            String textoVotoBlanco = tc.doOCR(preprocesarImagen(bufferedVotoBlanco,"bufferedVotoBlanco", path));
+            String textoVotoNulo = tc.doOCR(preprocesarImagen(bufferedVotoNulo, "bufferedVotoNulo", path));
+            String textoVotoImpugnado = tc.doOCR(preprocesarImagen(bufferedVotoImpugnado, "bufferedVotoImpugnado", path));
+            String textoVotoEmitido = tc.doOCR(preprocesarImagen(bufferedVotoEmitido, "bufferedVotoEmitido", path));
+            //String result5 = tc.doOCR(valor5);
 
-        BufferedImage valor1 = regionLista.getSubimage(1514, 120, 200, 240);
-        BufferedImage valor2 = regionLista.getSubimage(1514, 440, 200, 240);
-        BufferedImage valor3 = regionLista.getSubimage(1514, 780, 200, 240);
-        BufferedImage valor4 = regionLista.getSubimage(1514, 1120, 200, 240);
-        BufferedImage valor5 = regionLista.getSubimage(1514, 1460, 200, 240);
-
-        File archivoValor1 = new File(path + "archivoValor1.png");
-        ImageIO.write(valor1, "png", archivoValor1);
-
-        File archivoValor2 = new File(path + "archivoValor2.png");
-        ImageIO.write(valor2, "png", archivoValor2);
-
-        File archivoValor3 = new File(path + "archivoValor3.png");
-        ImageIO.write(valor3, "png", archivoValor3);
-
-        File archivoValor4 = new File(path + "archivoValor4.png");
-        ImageIO.write(valor4, "png", archivoValor4);
-
-        File archivoValor5 = new File(path + "archivoValor5.png");
-        ImageIO.write(valor5, "png", archivoValor5);
-
-        String result1 = tc.doOCR(valor1);
-        String result2 = tc.doOCR(valor2);
-        String result3 = tc.doOCR(valor3);
-        String result4 = tc.doOCR(valor4);
-        String result5 = tc.doOCR(valor5);
-
-        //List<Acta> listActa = new ArrayList<>();
-        //acta.setCodigoBarras(result1.trim());
-        acta.setPartidoA(Integer.parseInt(result1.trim()));
-        acta.setVotoBlanco(Integer.parseInt(result2.trim()));
-        acta.setVotoNulo(Integer.parseInt(result3.trim()));
-        acta.setVotoImpugnado(Integer.parseInt(result4.trim()));
-        acta.setVotoEmitido(Integer.parseInt(result5.trim()));
-
-        //System.out.println(result1.trim()+"-"+result2.trim()+"-"+result3.trim()+"-"+result4.trim()+"-"+result5.trim());
-        return acta;
+            acta.setPartidoA(Integer.parseInt(textoPartidoA.trim()));
+            acta.setVotoBlanco(Integer.parseInt(textoVotoBlanco.trim()));
+            acta.setVotoNulo(Integer.parseInt(textoVotoNulo.trim()));
+            acta.setVotoImpugnado(Integer.parseInt(textoVotoImpugnado.trim()));
+            acta.setVotoEmitido(Integer.parseInt(textoVotoEmitido.trim()));
+            //System.out.println(result1.trim()+"-"+result2.trim()+"-"+result3.trim()+"-"+result4.trim()+"-"+result5.trim());
+            return acta;
     }
 
+    private static BufferedImage preprocesarImagen(BufferedImage bufferedImagen, String nombre, String path) throws IOException {
+        bufferedImagen = ImageHelper.convertImageToGrayscale(bufferedImagen); // Convertir la imagen a escala de grises
+        //bufferedImagen = adjustBrightnessContrast(bufferedImagen);
+        RescaleOp rescale = new RescaleOp(1.2f, 15, null);
+        BufferedImage contraste = rescale.filter(bufferedImagen, null);
+        //System.out.println(path + nombre + ".png");
+        File imagenGenerado = new File(path + nombre + ".png");
+        ImageIO.write(contraste, "png", imagenGenerado);
+        
+        return contraste;
+    }
+    
     private static final int MAX_BLACK_VALUE = 382; // ((255 * 3) / 2) rounded down
-
     private static boolean validarFirma(String signatureFile, int minPixelCount) {
         try {
             BufferedImage image = ImageIO.read(new File(signatureFile));
