@@ -33,15 +33,9 @@ public class TransmisionController implements Initializable {
     private DropShadowE dropShadowE;
 
     @FXML
-    private Button btnSalir;
+    private Button btnRegresar;
     @FXML
-    private Button btnIniciar;
-
-    private void initialize() {
-
-        dropShadowE.setTabEffect(btnIniciar);
-        dropShadowE.setTabEffect(btnSalir);
-    }
+    private Button btnSiguiente;
 
     public TransmisionController() {
         this.negocioService = new NegocioServiceImpl();
@@ -69,13 +63,20 @@ public class TransmisionController implements Initializable {
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePath", pathFile);
         VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSeleccionado.getName());
 
+
         int dotNombreIndex = fileSeleccionado.getName().lastIndexOf(".");
         VariableGlobales.lecturaActasEnMemoria.put("fileNameSinExtension", fileSeleccionado.getName().substring(0, dotNombreIndex));
+
+
+        btnSiguiente.setDisable(false);
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        dropShadowE.setTabEffect(btnRegresar);
+        dropShadowE.setTabEffect(btnSiguiente);
 
         try {
             CreacionTable yy = new CreacionTable();

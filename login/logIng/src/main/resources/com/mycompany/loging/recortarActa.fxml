@@ -18,5 +18,10 @@
       <Button layoutX="1005.0" layoutY="723.0" mnemonicParsing="false" text="Regresar" />
       <Label layoutX="649.0" layoutY="27.0" text="Seleccione el Área a Recortar" />
       <Label fx:id="lbMensaje" layoutX="860.0" layoutY="27.0" text="cambiarmensaje" />
+      <AnchorPane fx:id="imgRecorteAnchorPane" layoutX="689.0" layoutY="269.0" prefHeight="200.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="imageViewRecorte" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

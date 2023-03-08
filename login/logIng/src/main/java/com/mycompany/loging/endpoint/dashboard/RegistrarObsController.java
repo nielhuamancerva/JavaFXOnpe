@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -23,19 +24,27 @@ import javafx.scene.image.ImageView;
  */
 public class RegistrarObsController implements Initializable {
 
+
     private FactoryServiciosExternos factoryservices;
+
 
     @FXML
     ImageView observacionesActa, codigoBarra;
 
+    public RegistrarObsController() {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         factoryservices = FactoryServiciosExternos.getInstance();
         try {
             factoryservices.Tess4jServiceImpl().leerObservaciones();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+
         Image imgObservacionesActa = new Image(VariableGlobales.lecturaActasEnMemoria.get("observaciones"));
         observacionesActa.setImage(imgObservacionesActa);
 
@@ -44,15 +53,14 @@ public class RegistrarObsController implements Initializable {
     }
 
     @FXML
-    private void regresarActasVoto() throws IOException {
-        App.setRoot(null, "leerActasVotos");
-
+    private void registrarFma() throws IOException{
+        App.setRoot(null, "registrarFirma");
+//            System.out.println("hola");
     }
 
     @FXML
-    private void registrarFirma() throws IOException {
-        App.setRoot(null, "registrarFirma");
-
+    private void regresaActasV() throws IOException{
+         App.setRoot(null, "leerActasVotos");
     }
 
 }

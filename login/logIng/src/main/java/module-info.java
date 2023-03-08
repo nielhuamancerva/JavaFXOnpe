@@ -13,6 +13,8 @@ module com.mycompany.loging {
     requires imgscalr.lib;
     requires tess4j;
     requires jai.imageio.core;
+    requires com.rabbitmq.client;
+    requires java.sql;
 
     
     opens com.mycompany.loging to javafx.fxml;

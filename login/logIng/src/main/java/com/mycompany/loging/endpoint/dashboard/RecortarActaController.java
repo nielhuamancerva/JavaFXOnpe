@@ -37,11 +37,16 @@ public class RecortarActaController implements Initializable {
     
     @FXML
     ImageView imgViewActa;
+    @FXML
+    ImageView imageViewRecorte;
     
     @FXML
     AnchorPane imgAnchorPane;
     
-    double x1=0,y1=0;
+    @FXML
+    AnchorPane imgRecorteAnchorPane;    
+    
+    double x1=0,y1=0,x2=0,y2=0,Ancho=0,Alto=0;
     /**
      * Initializes the controller class.
      */
@@ -68,10 +73,10 @@ public class RecortarActaController implements Initializable {
         });
         
         imgViewActa.setOnMouseReleased(event -> {
-            double x2 = event.getX();
-            double y2 = event.getY();
-            double Ancho=x2-x1;
-            double Alto=y2-y1;
+            x2 = event.getX();
+            y2 = event.getY();
+            Ancho=x2-x1;
+            Alto=y2-y1;
             Circle circle = new Circle(x2, y2, 10, Color.RED);
             Rectangle rect = new Rectangle(Ancho,Alto);
             rect.setX(x1);
@@ -81,6 +86,18 @@ public class RecortarActaController implements Initializable {
             imgAnchorPane.getChildren().addAll(rect,circle);
             System.out.println("x2:"+x2+"| y2:"+y2);
            
+            
+            try {
+                cargarRecorte(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("path"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+                Image imgRec = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarraRecorte"));
+                imageViewRecorte.setImage(imgRec);
+            
+            } catch (Exception e) {
+                System.out.println("Excepcion :"+e);
+            }
+            //Seteando Imagen Recorte
+            
+            
         });
    }   
     
@@ -103,6 +120,30 @@ public class RecortarActaController implements Initializable {
         File archivoTifToPng = new File(path + "TifToPng-" + nombreSinExtension + ".png");
         ImageIO.write(image, "png", archivoTifToPng);
         VariableGlobales.lecturaActasEnMemoria.put("TifToPng", archivoTifToPng.toURI().toString()); 
+        
+    }
+    
+    private void cargarRecorte(String pathTesseract, String path, String nombre) throws TesseractException, IOException, NotFoundException, Exception{
+        File imageFile = new File(path + nombre);
+        Tesseract tc = new Tesseract();
+
+        //Configurar Tesseract
+        tc.setTessVariable("user_defined_dpi", "70");
+        tc.setDatapath(pathTesseract);
+        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
+        
+        //recorte del codigo de barras
+        BufferedImage image = ImageIO.read(imageFile);
+        BufferedImage imageCodBarrasRecorte = image.getSubimage(Double.valueOf(Math.ceil(x1)).intValue(), Double.valueOf(Math.ceil(y1)).intValue(), Double.valueOf(Math.ceil(Ancho)).intValue(), Double.valueOf(Math.ceil(Alto)).intValue()); // los dos primeros parametros son el punto de origenluego sigue el ancho y alto
+        
+        String nombreArchivo = imageFile.getName();
+        int dotIndex = nombreArchivo.lastIndexOf(".");
+        String nombreSinExtension = nombreArchivo.substring(0, dotIndex);
+        
+        File archivoRecorteCodBarras = new File(path + "BAR-RECORTE-" + nombreSinExtension + ".png");
+        ImageIO.write(imageCodBarrasRecorte, "png", archivoRecorteCodBarras);
+        VariableGlobales.lecturaActasEnMemoria.put("codigoBarraRecorte", archivoRecorteCodBarras.toURI().toString());
+        
     }
     
 }

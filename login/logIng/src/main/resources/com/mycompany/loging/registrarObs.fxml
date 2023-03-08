@@ -34,26 +34,26 @@
             <Font size="18.0" />
          </font>
       </TextArea>
-      <Button layoutX="921.0" layoutY="653.0" mnemonicParsing="false" onAction="#regresarActasVoto" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="1041.0" layoutY="653.0" mnemonicParsing="false" onAction="#registrarFirma" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Label layoutX="91.0" layoutY="221.0" text="Ingrese las observaciones registradas en el Acta de Escrutinio">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Button layoutX="1051.0" layoutY="663.0" mnemonicParsing="false" onAction="#registrarFma" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="931.0" layoutY="663.0" mnemonicParsing="false" onAction="#regresaActasV" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
