@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -36,18 +37,23 @@ public class RegistrarFirmaController implements Initializable {
     @FXML
     ImageView firma1, firma2, firma3;
     @FXML
+<<<<<<< Updated upstream
     private Button btnSiPresi, btnSiSecre, btnSiTercer, btnNoPresi, btnNoSecre, btnNoTercer, btnVerificaTransmision, btnRegresarObs;
+=======
+    private Button btnSiPresi, btnNoPresi, btnSiSecre, btnSiTercer, btnNoSecre, btnNoTercer;
+
+    @FXML
+    private Button btnVerificaTransmision;
+    @FXML
+    private Button btnRegresarObs;
+>>>>>>> Stashed changes
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+//        btnNoPresi.getStyleClass().remove("selected-button");
         dropShadowE.setTabEffect(btnVerificaTransmision);
         dropShadowE.setTabEffect(btnRegresarObs);
-        dropShadowE.setTabEffect(btnSiPresi);
-        dropShadowE.setTabEffect(btnSiSecre);
-        dropShadowE.setTabEffect(btnSiTercer);
-        dropShadowE.setTabEffect(btnNoPresi);
-        dropShadowE.setTabEffect(btnNoSecre);
-        dropShadowE.setTabEffect(btnNoTercer);
 
         factoryservices = FactoryServiciosExternos.getInstance();
         try {
@@ -90,48 +96,79 @@ public class RegistrarFirmaController implements Initializable {
 
     @FXML
     private void siFirmoPresi(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnSiPresi.setStyle("-fx-background-color: " + (firmoP ? "#2ECC71" : "") + ";");
         btnNoPresi.setStyle("-fx-background-color: " + (!firmoP ? "" : "") + ";");
+=======
+        btnSiPresi.getStyleClass().add("boton-active");
+        btnNoPresi.getStyleClass().remove("boton-activeNo");
+
+>>>>>>> Stashed changes
     }
 
     @FXML
     private void siFirmoSecre(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnSiSecre.setStyle("-fx-background-color: " + (firmoS ? "#2ECC71" : "") + ";");
         btnNoSecre.setStyle("-fx-background-color: " + (!firmoS ? "" : "") + ";");
+=======
+        btnSiSecre.getStyleClass().add("boton-active");
+        btnNoSecre.getStyleClass().remove("boton-activeNo");
+>>>>>>> Stashed changes
 
     }
 
     @FXML
     private void siFirmoTercer(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnSiTercer.setStyle("-fx-background-color: " + (firmoT ? "#2ECC71" : "") + ";");
         btnNoTercer.setStyle("-fx-background-color: " + (!firmoT ? "" : "") + ";");
+=======
+        btnSiTercer.getStyleClass().add("boton-active");
+        btnNoTercer.getStyleClass().remove("boton-activeNo");
+>>>>>>> Stashed changes
 
     }
 
     @FXML
     private void noFirmoPresi(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnNoPresi.setStyle("-fx-background-color: " + (firmoP ? "#2ECC71" : "") + ";");
         btnSiPresi.setStyle("-fx-background-color: " + (!firmoP ? "" : "") + ";");
 
+=======
+        btnSiPresi.getStyleClass().remove("boton-active");
+        btnNoPresi.getStyleClass().add("boton-activeNo");
+>>>>>>> Stashed changes
     }
 
     @FXML
     private void noFirmoSecre(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnNoSecre.setStyle("-fx-background-color: " + (firmoS ? "#2ECC71" : "") + ";");
         btnSiSecre.setStyle("-fx-background-color: " + (!firmoS ? "" : "") + ";");
+=======
+        btnSiSecre.getStyleClass().remove("boton-active");
+        btnNoSecre.getStyleClass().add("boton-activeNo");
+>>>>>>> Stashed changes
 
     }
 
     @FXML
     private void noFirmoTercer(ActionEvent event) {
+<<<<<<< Updated upstream
 
         btnNoTercer.setStyle("-fx-background-color: " + (firmoT ? "#2ECC71" : "") + ";");
         btnSiTercer.setStyle("-fx-background-color: " + (!firmoT ? "" : "") + ";");
+=======
+        btnSiTercer.getStyleClass().remove("boton-active");
+        btnNoTercer.getStyleClass().add("boton-activeNo");
+>>>>>>> Stashed changes
 
     }
 

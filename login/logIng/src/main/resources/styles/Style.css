@@ -4,11 +4,11 @@
 
 
 .button-orange{
-    -fx-background-color:  #F39C12; 
+    -fx-background-color:  #F39C12;
 }
 
 .button-orange:hover{
-    -fx-background-color:  #D68910; 
+    -fx-background-color:  #D68910;
 }
 
 .button-green {
@@ -25,3 +25,12 @@
 .button-red:hover{
     -fx-background-color:  #CB4335; /* #609966 */
 }
+
+.boton-active{
+    -fx-background-color:  #2ECC71; /* #609966 */
+}
+.boton-activeNo{
+    -fx-background-color:  #2ECC71; /* #609966 */
+}
+
+
