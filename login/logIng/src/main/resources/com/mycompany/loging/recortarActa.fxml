@@ -9,19 +9,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RecortarActaController">
    <children>
-      <AnchorPane fx:id="imgAnchorPane" layoutX="24.0" layoutY="27.0" prefHeight="720.0" prefWidth="600.0">
-         <children>
-            <ImageView fx:id="imgViewActa" fitHeight="720.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
       <Button layoutX="1089.0" layoutY="723.0" mnemonicParsing="false" text="Confirmar" />
       <Button layoutX="1005.0" layoutY="723.0" mnemonicParsing="false" text="Regresar" />
-      <Label layoutX="649.0" layoutY="27.0" text="Seleccione el Área a Recortar" />
-      <Label fx:id="lbMensaje" layoutX="860.0" layoutY="27.0" text="cambiarmensaje" />
-      <AnchorPane fx:id="imgRecorteAnchorPane" layoutX="689.0" layoutY="269.0" prefHeight="200.0" prefWidth="400.0">
+      <Label layoutX="807.0" layoutY="36.0" text="Seleccione el Área a Recortar" />
+      <Label fx:id="lbMensaje" layoutX="1037.0" layoutY="36.0" text="cambiarmensaje" />
+      <AnchorPane fx:id="imgRecorteAnchorPane" layoutX="779.0" layoutY="272.0" prefHeight="200.0" prefWidth="400.0">
          <children>
             <ImageView fx:id="imageViewRecorte" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
+      <ScrollPane fx:id="imgScrollPane" layoutX="36.0" layoutY="36.0" prefHeight="712.0" prefWidth="725.0">
+         <content>
+            <ImageView fx:id="imgViewScroll" pickOnBounds="true" />
+         </content>
+      </ScrollPane>
+      <Button id="btnLimpiar" layoutX="917.0" layoutY="723.0" mnemonicParsing="false" text="Limpiar" />
    </children>
 </AnchorPane>

@@ -15,9 +15,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -38,15 +41,20 @@ public class RecortarActaController implements Initializable {
     @FXML
     ImageView imgViewActa;
     @FXML
+    ImageView imgViewScroll;
+    @FXML
     ImageView imageViewRecorte;
     
+    @FXML
+    ScrollPane imgScrollPane;
     @FXML
     AnchorPane imgAnchorPane;
     
     @FXML
     AnchorPane imgRecorteAnchorPane;    
     
-    double x1=0,y1=0,x2=0,y2=0,Ancho=0,Alto=0;
+    //img scroll
+    double imgX=0,imgY=0,imgX2=0,imgY2=0,imgAncho=0,imgAlto=0;
     /**
      * Initializes the controller class.
      */
@@ -55,50 +63,49 @@ public class RecortarActaController implements Initializable {
         // TODO
         lbMensaje.setText("Mensaje Para Recortar Acta");
         try {
-            TifToPng( VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("path"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+            TifToPng( VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
             Image img = new Image(VariableGlobales.lecturaActasEnMemoria.get("TifToPng"));
-            imgViewActa.setImage(img);
+            imgViewScroll.setImage(img);
         } catch (Exception e) {
             System.err.println("Excepcion de tipo :"+e);
         }
         
-        //eventos para seleccionar un area a recortar
-         //
-        imgViewActa.setOnMousePressed(event -> {
-            x1 = event.getX();
-            y1 = event.getY();
-            Circle circle = new Circle(x1, y1, 10, Color.RED);
-            imgAnchorPane.getChildren().add(circle);
-            System.out.println("x1:"+x1+"| y1:"+y1);
+        //eventos para seleccionar un area a recortar      
+        //++++
+        imgViewScroll.setOnMousePressed(event ->{
+            imgX=event.getX();
+            imgY=event.getY();
+            Circle circle = new Circle(imgX, imgY, 10, Color.RED);
+            Pane overlayPane = new Pane(circle);
+            overlayPane.setMouseTransparent(true);
+            imgScrollPane.setContent(new StackPane(imgViewScroll,overlayPane));
+            
         });
-        
-        imgViewActa.setOnMouseReleased(event -> {
-            x2 = event.getX();
-            y2 = event.getY();
-            Ancho=x2-x1;
-            Alto=y2-y1;
-            Circle circle = new Circle(x2, y2, 10, Color.RED);
-            Rectangle rect = new Rectangle(Ancho,Alto);
-            rect.setX(x1);
-            rect.setY(y1);
+        imgViewScroll.setOnMouseReleased(event ->{
+            imgX2=event.getX();
+            imgY2=event.getY();
+            imgAncho=imgX2-imgX;
+            imgAlto=imgY2-imgY;
+            Circle circle = new Circle(imgX2, imgY2, 10, Color.RED);
+            Rectangle rect = new Rectangle(imgAncho,imgAlto);
+            rect.setX(imgX);
+            rect.setY(imgY);
             rect.setStroke(Color.BLUE);
             rect.setFill(Color.TRANSPARENT);
-            imgAnchorPane.getChildren().addAll(rect,circle);
-            System.out.println("x2:"+x2+"| y2:"+y2);
-           
+            Pane overlayPane = new Pane(circle,rect);
+            imgScrollPane.setContent(new StackPane(imgViewScroll,overlayPane));
             
+            //cargando recorte
             try {
-                cargarRecorte(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("path"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+                cargarRecorte(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
                 Image imgRec = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarraRecorte"));
                 imageViewRecorte.setImage(imgRec);
             
             } catch (Exception e) {
                 System.out.println("Excepcion :"+e);
             }
-            //Seteando Imagen Recorte
-            
-            
         });
+        //+++++
    }   
     
     private void TifToPng(String pathTesseract, String path, String nombre) throws TesseractException, IOException, NotFoundException, Exception{
@@ -134,7 +141,7 @@ public class RecortarActaController implements Initializable {
         
         //recorte del codigo de barras
         BufferedImage image = ImageIO.read(imageFile);
-        BufferedImage imageCodBarrasRecorte = image.getSubimage(Double.valueOf(Math.ceil(x1)).intValue(), Double.valueOf(Math.ceil(y1)).intValue(), Double.valueOf(Math.ceil(Ancho)).intValue(), Double.valueOf(Math.ceil(Alto)).intValue()); // los dos primeros parametros son el punto de origenluego sigue el ancho y alto
+        BufferedImage imageCodBarrasRecorte = image.getSubimage(Double.valueOf(Math.ceil(imgX)).intValue(), Double.valueOf(Math.ceil(imgY)).intValue(), Double.valueOf(Math.ceil(imgAncho)).intValue(), Double.valueOf(Math.ceil(imgAlto)).intValue()); // los dos primeros parametros son el punto de origenluego sigue el ancho y alto
         
         String nombreArchivo = imageFile.getName();
         int dotIndex = nombreArchivo.lastIndexOf(".");
