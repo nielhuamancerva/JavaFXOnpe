@@ -13,6 +13,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.ActasLeidas;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
@@ -75,6 +76,8 @@ public class LeerActasController implements Initializable {
     @FXML
     ImageView imagenCodigoBarra;
 
+    private FactoryServiciosExternos factoryservices;
+
     /**
      * Initializes the controller class.
      */
@@ -105,20 +108,16 @@ public class LeerActasController implements Initializable {
         String mes = formatoMes.format(fehaActual);
         fechaFormatoCadena = "del " + dia + " de " + mes + " de " + anio + ", se inicio el ACTO DE ESCRUTINIO";
 
+        Actas acta;
         try {
-
-            VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", "D:\\TESSORC\\tessdata");
-            VariableGlobales.lecturaActasEnMemoria.put("path", "D:\\TESSORC\\LEIDOS\\");
-            String codigobarra = leeDocumentoRegion(
-                    VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"),
-                    VariableGlobales.lecturaActasEnMemoria.get("path"),
-                    VariableGlobales.lecturaActasEnMemoria.get("fileName"));
-            Actas acta = negocioService.finByCodigoBarra(codigobarra);
+            factoryservices = FactoryServiciosExternos.getInstance();
+            imagenCodigoBarra.setImage(factoryservices.Tess4jServiceImpl().leerCodigoDeBarras());
+            acta = negocioService.finByCodigoBarra(
+                    VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
             lbVaDepartamento.setText(acta.getDepartamento());
             lbVaprovincia.setText(acta.getProvincia());
             lbVaDistrito.setText(acta.getDistrito());
-        } catch (NotFoundException ex) {
-            ex.printStackTrace();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -130,10 +129,9 @@ public class LeerActasController implements Initializable {
         Tesseract tc = new Tesseract();
 
         //Configurar Tesseract
-        tc.setTessVariable("user_defined_dpi", "70");
-        tc.setDatapath(pathTesseract);
-        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
-
+//        tc.setTessVariable("user_defined_dpi", "70");
+//        tc.setDatapath(pathTesseract);
+//        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
         BufferedImage image = ImageIO.read(imageFile);
 
         BufferedImage imageCodBarras = image.getSubimage(1460, 110, 620, 140);       //CODIGO DE BARRAS
@@ -161,6 +159,7 @@ public class LeerActasController implements Initializable {
         File archivoRegionObservaciones = new File(path + "OBS-" + nombreSinExtension + ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
         VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
+        
         //--- archivoFirma1
         File archivoFirma1 = new File(path + "FI1-" + nombreSinExtension + ".png");
         ImageIO.write(Firma1, "png", archivoFirma1);
@@ -293,9 +292,9 @@ public class LeerActasController implements Initializable {
     private void registrarVotos() throws IOException {
         App.setRoot(null, "leerActasVotos");
     }
-    
+
     @FXML
-    private void abrirRecortarActa() throws IOException{
+    private void abrirRecortarActa() throws IOException {
         App.setRoot(null, "recortarActa");
     }
 

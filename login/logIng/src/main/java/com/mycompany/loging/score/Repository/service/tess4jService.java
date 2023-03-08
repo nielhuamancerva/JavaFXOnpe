@@ -8,16 +8,20 @@ package com.mycompany.loging.score.Repository.service;
 import com.google.zxing.NotFoundException;
 import com.mycompany.loging.score.model.ActasLeidas;
 import java.io.IOException;
+import javafx.scene.image.Image;
 import net.sourceforge.tess4j.TesseractException;
 
 /**
  *
  * @author CASSHERN
  */
-public interface tess4jService {
-     public ActasLeidas leerDocumentoRegion() throws TesseractException, IOException, NotFoundException, Exception ;
-     
-     public String leerCodigoDeBarras() throws Exception;
-     
-     public ActasLeidas validarFirma(String path);
+public interface Tess4jService {
+
+    public Image leerCodigoDeBarras() throws Exception;
+
+    public Image leerNumeroVotos() throws Exception;
+
+    public Boolean validarFirma(String signatureFile, Integer X, Integer Y, Integer H, Integer W) throws Exception;
+
+    public Image leerObservaciones() throws Exception;
 }

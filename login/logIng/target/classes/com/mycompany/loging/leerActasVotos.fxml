@@ -26,27 +26,27 @@
             </Label>
             <ImageView fx:id="imagenVotos" fitHeight="560.0" fitWidth="520.0" layoutX="92.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
-            <TextField layoutX="622.0" layoutY="252.0" prefHeight="51.0" prefWidth="97.0">
+            <TextField fx:id="voto1"  layoutX="622.0" layoutY="252.0" prefHeight="51.0" prefWidth="97.0">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <TextField layoutX="622.0" layoutY="349.0" prefHeight="51.0" prefWidth="97.0">
+            <TextField fx:id="voto2" layoutX="622.0" layoutY="349.0" prefHeight="51.0" prefWidth="97.0">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <TextField layoutX="625.0" layoutY="451.0" prefHeight="51.0" prefWidth="97.0">
+            <TextField fx:id="voto3" layoutX="625.0" layoutY="451.0" prefHeight="51.0" prefWidth="97.0">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <TextField layoutX="625.0" layoutY="550.0" prefHeight="51.0" prefWidth="97.0">
+            <TextField fx:id="voto4" layoutX="625.0" layoutY="550.0" prefHeight="51.0" prefWidth="97.0">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <TextField layoutX="625.0" layoutY="650.0" prefHeight="51.0" prefWidth="97.0">
+            <TextField fx:id="voto5" layoutX="625.0" layoutY="650.0" prefHeight="51.0" prefWidth="97.0">
                <font>
                   <Font size="24.0" />
                </font>

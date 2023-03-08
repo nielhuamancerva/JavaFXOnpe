@@ -5,6 +5,8 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
+import static com.mycompany.loging.endpoint.dashboard.LeerActasController.acta;
+import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
@@ -23,31 +25,32 @@ import javafx.scene.image.ImageView;
  */
 public class RegistrarFirmaController implements Initializable {
 
+    private FactoryServiciosExternos factoryservices;
+
     @FXML
     ImageView firma1, firma2, firma3;
     @FXML
-    private Button btnSiPresi;
-    @FXML
-    private Button btnSiSecre;
-    @FXML
-    private Button btnSiTercer;
-    @FXML
-    private Button btnNoPresi;
-    @FXML
-    private Button btnNoSecre;
-    @FXML
-    private Button btnNoTercer;
+    private Button btnSiPresi, btnSiSecre, btnSiTercer, btnNoPresi, btnNoSecre, btnNoTercer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image imgfirma1 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma1"));
-        firma1.setImage(imgfirma1);
-
-        Image imgfirma2 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma2"));
-        firma2.setImage(imgfirma2);
-
-        Image imgfirma3 = new Image(VariableGlobales.lecturaActasEnMemoria.get("firma3"));
-        firma3.setImage(imgfirma3);
+        factoryservices = FactoryServiciosExternos.getInstance();
+        try {
+            factoryservices.Tess4jServiceImpl().validarFirma( "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 150, 3150, 500, 300);
+            factoryservices.Tess4jServiceImpl().validarFirma( "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 804, 3150, 500, 300);
+            factoryservices.Tess4jServiceImpl().validarFirma( "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 1458, 3150, 500, 300);
+            
+            Image imgfirma1 = new Image( VariableGlobales.lecturaActasEnMemoria.get("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png"));
+            firma1.setImage(imgfirma1);
+            
+            Image imgfirma2 = new Image(VariableGlobales.lecturaActasEnMemoria.get("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png"));
+            firma2.setImage(imgfirma2);
+            
+            Image imgfirma3 = new Image(VariableGlobales.lecturaActasEnMemoria.get("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png"));
+            firma3.setImage(imgfirma3);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML

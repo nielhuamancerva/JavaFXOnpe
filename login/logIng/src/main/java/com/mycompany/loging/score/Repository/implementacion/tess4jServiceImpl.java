@@ -13,9 +13,8 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import static com.mycompany.loging.endpoint.dashboard.LeerActasController.acta;
 import static com.mycompany.loging.endpoint.dashboard.LeerActasController.leerNumeroVotos;
-import com.mycompany.loging.score.Repository.service.tess4jService;
 import com.mycompany.loging.score.model.ActasLeidas;
-import com.mycompany.loging.score.util.VariableGlobales;
+
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.File;
@@ -24,87 +23,30 @@ import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
+import com.mycompany.loging.score.Repository.service.Tess4jService;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 
 /**
  *
  * @author CASSHERN
  */
-public class tess4jServiceImpl implements tess4jService {
+public class Tess4jServiceImpl implements Tess4jService {
 
-        private static final int MAX_BLACK_VALUE = 382; // ((255 * 3) / 2) rounded down
-    
-    @Override
-    public ActasLeidas leerDocumentoRegion() throws TesseractException, IOException, NotFoundException, Exception {
-
-            ActasLeidas acta = new ActasLeidas();
-            String pathTesseract = VariableGlobales.lecturaActasEnMemoria.get("pathTesseract");
-            String path = VariableGlobales.lecturaActasEnMemoria.get("path");
-            String nombre = VariableGlobales.lecturaActasEnMemoria.get("fileName");
-
-            File imageFile = new File(path + nombre);
-            Tesseract tc = new Tesseract();
-
-            //Configurar Tesseract
-            tc.setTessVariable("user_defined_dpi", "70");
-            tc.setDatapath(pathTesseract);
-            tc.setTessVariable("tessedit_char_whitelist", "0123456789");
-
-            BufferedImage image = ImageIO.read(imageFile);
-
-            BufferedImage imageCodBarras = image.getSubimage(1460, 110, 620, 140);       //CODIGO DE BARRAS
-            BufferedImage regionLista = image.getSubimage(210, 880, 1800, 1780);         //REGION LISTA
-            BufferedImage regionObservaciones = image.getSubimage(210, 2640, 1800, 300); //REGION OBSERVACION
-            BufferedImage Firma1 = image.getSubimage(150, 3150, 500, 300);               //FIRMA 1
-            BufferedImage Firma2 = image.getSubimage(804, 3150, 500, 300);               //FIRMA 2
-            BufferedImage Firma3 = image.getSubimage(1458, 3150, 500, 300);              //FIRMA 3
-
-            String nombreArchivo = imageFile.getName();
-            int dotIndex = nombreArchivo.lastIndexOf(".");
-            String nombreSinExtension = nombreArchivo.substring(0, dotIndex);
-
-            //CREAMOS IMAGEN CODIGO DE BARRAS
-            //--- archivoCodigoBarras
-            File archivoCodigoBarras = new File(path + "BAR-" + nombreSinExtension + ".png");
-            ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
-            VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
-            /*leerNumeroVotos(regionLista, path, pathTesseract);*/
-            //--- archivoRegionLista
-            File archivoRegionLista = new File(path + "REG-" + nombreSinExtension + ".png");
-            ImageIO.write(regionLista, "png", archivoRegionLista);
-            VariableGlobales.lecturaActasEnMemoria.put("votos", archivoRegionLista.toURI().toString());
-            //--- archivoRegionObservaciones
-            File archivoRegionObservaciones = new File(path + "OBS-" + nombreSinExtension + ".png");
-            ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
-            VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
-            //--- archivoFirma1
-            File archivoFirma1 = new File(path + "FI1-" + nombreSinExtension + ".png");
-            ImageIO.write(Firma1, "png", archivoFirma1);
-            VariableGlobales.lecturaActasEnMemoria.put("firma1", archivoFirma1.toURI().toString());
-            //--- archivoFirma2
-            File archivoFirma2 = new File(path + "FI2-" + nombreSinExtension + ".png");
-            ImageIO.write(Firma2, "png", archivoFirma2);
-            VariableGlobales.lecturaActasEnMemoria.put("firma2", archivoFirma2.toURI().toString());
-            //--- archivoFirma3
-            File archivoFirma3 = new File(path + "FI3-" + nombreSinExtension + ".png");
-            ImageIO.write(Firma3, "png", archivoFirma3);
-            VariableGlobales.lecturaActasEnMemoria.put("firma3", archivoFirma3.toURI().toString());
-            //-------
-   
-
-           
-            /*acta.setFirmaPresidente(validarFirma(path + "FI1-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));
-            acta.setFirmaSecretario(validarFirma(path + "FI2-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));
-            acta.setFirmaTercerMiembro(validarFirma(path + "FI3-" + nombreSinExtension + ".png", MAX_BLACK_VALUE));*/
-
-            //     System.out.println(gson.toJson(acta));
-            return acta;
- 
-    }
+    private static final int MAX_BLACK_VALUE = 382; // ((255 * 3) / 2) rounded down
 
     @Override
-    public String leerCodigoDeBarras() throws Exception{
-    
-        File file = new File( VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+    public Image leerCodigoDeBarras() throws Exception {
+
+        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        BufferedImage imageOriginal = ImageIO.read(imageFile);
+
+        BufferedImage imageCodBarras = imageOriginal.getSubimage(1460, 110, 620, 140);
+
+        File archivoCodigoBarras = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "BAR-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
+        VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
+
+        File file = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "BAR-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
 
         BufferedImage image = ImageIO.read(file);
         // create binary bitmap from image
@@ -114,23 +56,91 @@ public class tess4jServiceImpl implements tess4jService {
         java.util.Map<DecodeHintType, Object> hints = new java.util.EnumMap<>(DecodeHintType.class);
         hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
         com.google.zxing.Result result = reader.decode(bitmap, hints);
-        acta.setCodigoBarras(result.getText());
-        return file.toURI().toString();
+
+        VariableGlobales.lecturaActasEnMemoria.put("codigoBarraResponse", result.getText());
+        //acta.setCodigoBarras(result.getText());
+
+        VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
+        Image img = new Image(archivoCodigoBarras.toURI().toString());
+        return img;
     }
 
     @Override
-    public ActasLeidas validarFirma(String signatureFile) {
-        
-        
-               try {
-            BufferedImage image = ImageIO.read(new File(signatureFile));
-            int bytesPerPixel = image.getColorModel().getPixelSize() / 8;
+    public Image leerNumeroVotos() throws Exception {
+        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        BufferedImage image = ImageIO.read(imageFile);
+        BufferedImage regionLista = image.getSubimage(210, 880, 1800, 1780);
 
-            byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        File archivoRegionLista = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "REG-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        ImageIO.write(regionLista, "png", archivoRegionLista);
+
+        Tesseract tc = new Tesseract();
+        tc.setOcrEngineMode(2);
+        //tc.setPageSegMode(PSM.SINGLE_CHAR);
+        tc.setTessVariable("user_defined_dpi", "2400");
+        tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
+        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
+
+        BufferedImage valor1 = regionLista.getSubimage(1514, 120, 200, 240);
+        BufferedImage valor2 = regionLista.getSubimage(1514, 440, 200, 240);
+        BufferedImage valor3 = regionLista.getSubimage(1514, 780, 200, 240);
+        BufferedImage valor4 = regionLista.getSubimage(1514, 1120, 200, 240);
+        BufferedImage valor5 = regionLista.getSubimage(1514, 1460, 200, 240);
+
+        File archivoValor1 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor1.png");
+        ImageIO.write(valor1, "png", archivoValor1);
+
+        File archivoValor2 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor2.png");
+        ImageIO.write(valor2, "png", archivoValor2);
+
+        File archivoValor3 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor3.png");
+        ImageIO.write(valor3, "png", archivoValor3);
+
+        File archivoValor4 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor4.png");
+        ImageIO.write(valor4, "png", archivoValor4);
+
+        File archivoValor5 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "archivoValor5.png");
+        ImageIO.write(valor5, "png", archivoValor5);
+
+        String result1 = tc.doOCR(valor1);
+        String result2 = tc.doOCR(valor2);
+        String result3 = tc.doOCR(valor3);
+        String result4 = tc.doOCR(valor4);
+        String result5 = tc.doOCR(valor5);
+
+        VariableGlobales.lecturaActasEnMemoria.put("Region1", result1);
+        VariableGlobales.lecturaActasEnMemoria.put("Region2", result2);
+        VariableGlobales.lecturaActasEnMemoria.put("Region3", result3);
+        VariableGlobales.lecturaActasEnMemoria.put("Region4", result4);
+        VariableGlobales.lecturaActasEnMemoria.put("Region5", result5);
+
+        Image img = new Image(archivoRegionLista.toURI().toString());
+        return img;
+    }
+
+    @Override
+    public Boolean validarFirma(String signatureFile, Integer X, Integer Y, Integer H, Integer W) throws Exception {
+        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        BufferedImage image = ImageIO.read(imageFile);
+
+        BufferedImage Firma = image.getSubimage(X, Y, H, W);
+
+        //--- archivoFirma1
+        File archivoFirma = new File(
+                    VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + signatureFile);
+        ImageIO.write(Firma, "png", archivoFirma);
+        VariableGlobales.lecturaActasEnMemoria.put(signatureFile, archivoFirma.toURI().toString());
+
+        try {
+            BufferedImage imageFinal = ImageIO.read(new File(
+                    VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") +signatureFile));
+            int bytesPerPixel = imageFinal.getColorModel().getPixelSize() / 8;
+
+            byte[] pixels = ((DataBufferByte) imageFinal.getRaster().getDataBuffer()).getData();
             int blackPixels = 0;
-            for (int h = 0; h < image.getHeight(); h++) {
-                int currentLine = h * image.getWidth() * bytesPerPixel;
-                for (int w = 0; w < (image.getWidth() * bytesPerPixel); w += bytesPerPixel) {
+            for (int h = 0; h < imageFinal.getHeight(); h++) {
+                int currentLine = h * imageFinal.getWidth() * bytesPerPixel;
+                for (int w = 0; w < (imageFinal.getWidth() * bytesPerPixel); w += bytesPerPixel) {
                     int blue = pixels[currentLine + w] & 0xFF;
                     int green = pixels[currentLine + w + 1] & 0xFF;
                     int red = pixels[currentLine + w + 2] & 0xFF;
@@ -138,8 +148,7 @@ public class tess4jServiceImpl implements tess4jService {
                     if (blue + green + red <= MAX_BLACK_VALUE) {
                         blackPixels++;
                         if (blackPixels >= MAX_BLACK_VALUE) {
-                            //System.out.println(true);
-                            return new ActasLeidas();
+                            return Boolean.TRUE;
                         }
                     }
                 }
@@ -148,7 +157,20 @@ public class tess4jServiceImpl implements tess4jService {
             e.printStackTrace();
         }
         //System.out.println(false);
-         return new ActasLeidas();
+        return Boolean.FALSE;
+    }
+
+    @Override
+    public Image leerObservaciones() throws Exception {
+
+        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        BufferedImage image = ImageIO.read(imageFile);
+        BufferedImage regionObservaciones = image.getSubimage(210, 2640, 1800, 300); //REGION OBSERVACION
+        File archivoRegionObservaciones = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "OBS-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
+        VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
+        Image img = new Image(archivoRegionObservaciones.toURI().toString());
+        return img;
     }
 
 }
