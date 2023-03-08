@@ -37,12 +37,6 @@ public class TransmisionController implements Initializable {
     @FXML
     private Button btnSiguiente;
 
-    private void initialize() {
-
-        dropShadowE.setTabEffect(btnRegresar);
-        dropShadowE.setTabEffect(btnSiguiente);
-    }
-
     public TransmisionController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
@@ -62,10 +56,15 @@ public class TransmisionController implements Initializable {
         lbArchivosEncontrados.setText(fileSeleccionado.getName());
         VariableGlobales.lecturaActasEnMemoria = new HashMap();
         VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSeleccionado.getName());
+
+        btnSiguiente.setDisable(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        dropShadowE.setTabEffect(btnRegresar);
+        dropShadowE.setTabEffect(btnSiguiente);
 
         try {
             CreacionTable yy = new CreacionTable();

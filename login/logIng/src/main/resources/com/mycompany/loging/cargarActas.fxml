@@ -49,7 +49,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnSiguiente" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Iniciar" textFill="WHITE">
+      <Button fx:id="btnSiguiente" disable="true" layoutX="878.0" layoutY="609.0" mnemonicParsing="false" onAction="#cargarActas" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Iniciar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

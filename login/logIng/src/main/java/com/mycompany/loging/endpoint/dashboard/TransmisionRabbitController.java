@@ -26,7 +26,7 @@ import javafx.scene.control.Button;
  */
 public class TransmisionRabbitController implements Initializable {
 
-    private static final String QUEUE_NAME = "prueba_cola08"; //nombre de la cola
+    private static final String QUEUE_NAME = "cola001"; //nombre de la cola
 
     private DropShadowE dropShadowE;
 
