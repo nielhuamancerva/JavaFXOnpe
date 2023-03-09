@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.google.zxing.NotFoundException;
-import com.mycompany.loging.score.util.VariablesGlobalesR;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -28,42 +23,25 @@ import javax.imageio.ImageIO;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
-/**
- * FXML Controller class
- *
- * @author LMedina
- */
 public class RecortarActaController implements Initializable {
-    
+ 
     @FXML
     Label lbMensaje;
-    
     @FXML
-    ImageView imgViewActa;
-    @FXML
-    ImageView imgViewScroll;
-    @FXML
-    ImageView imageViewRecorte;
-    
+    ImageView imgViewActa,imgViewScroll,imageViewRecorte;
     @FXML
     ScrollPane imgScrollPane;
     @FXML
-    AnchorPane imgAnchorPane;
-    
-    @FXML
-    AnchorPane imgRecorteAnchorPane;    
-    
-    //img scroll
+    AnchorPane imgAnchorPane,imgRecorteAnchorPane;
     double imgX=0,imgY=0,imgX2=0,imgY2=0,imgAncho=0,imgAlto=0;
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         lbMensaje.setText("Mensaje Para Recortar Acta");
         try {
-            TifToPng( VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
+            TifToPng( VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), 
+                    VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), 
+                    VariableGlobales.lecturaActasEnMemoria.get("fileName"));
             Image img = new Image(VariableGlobales.lecturaActasEnMemoria.get("TifToPng"));
             imgViewScroll.setImage(img);
         } catch (Exception e) {

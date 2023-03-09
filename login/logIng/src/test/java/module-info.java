@@ -1,4 +1,4 @@
-module com.mycompany.loging {
+module negocio {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
@@ -15,10 +15,11 @@ module com.mycompany.loging {
     requires jai.imageio.core;
     requires com.rabbitmq.client;
     requires java.sql;
+    requires org.junit.jupiter.api;
+    requires org.junit.jupiter.engine;
  
-
     
-    opens com.mycompany.loging to javafx.fxml;
+        opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;
     exports com.mycompany.loging.score.model;
     //expone endpoint de controller primary
@@ -28,9 +29,9 @@ module com.mycompany.loging {
     exports com.mycompany.loging.endpoint.login;
     opens com.mycompany.loging.endpoint.login to javafx.fxml;
     exports com.mycompany.loging.score.util;
+
     
+ 
   
     
 }
-
-

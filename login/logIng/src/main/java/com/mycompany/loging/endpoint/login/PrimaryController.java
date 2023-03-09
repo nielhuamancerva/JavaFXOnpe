@@ -1,7 +1,5 @@
 package com.mycompany.loging.endpoint.login;
-
 import com.mycompany.loging.App;
-import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.ValidadionesFormularios;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
@@ -12,18 +10,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-
 public class PrimaryController {
-
-    private NegocioService negocioService;
-    private ValidadionesFormularios validadionesFormularios;
-    private DropShadowE dropShadowE;
+    private final NegocioService negocioService;
+    private final ValidadionesFormularios validadionesFormularios;
+    private final DropShadowE dropShadowE;
     @FXML
     private Button btnIngresar;
     @FXML
@@ -31,10 +24,8 @@ public class PrimaryController {
 
     @FXML
     private void initialize() {
-
         dropShadowE.setTabEffect(btnIngresar);
         dropShadowE.setTabEffect(btnSalir);
-
     }
 
     public PrimaryController() {
@@ -49,7 +40,6 @@ public class PrimaryController {
     PasswordField passwordField;
     @FXML
     Label lbError;
-
     @FXML
     private void iniciandoSecion() throws Exception, IOException {
         lbError.setText("");
@@ -63,7 +53,6 @@ public class PrimaryController {
                 App.setRoot(null, "dashboard");
             } else {
                 lbError.setText("Usuario no esta Registrado");
-
             }
         }
     }

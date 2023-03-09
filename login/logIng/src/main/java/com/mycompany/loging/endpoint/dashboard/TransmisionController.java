@@ -20,23 +20,14 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyCode;
-
-/**
- *
- * @author LMedina
- */
 public class TransmisionController implements Initializable {
-
     private final NegocioService negocioService;
     private File fileSeleccionado;
     private DropShadowE dropShadowE;
-
     @FXML
     private Button btnRegresar;
     @FXML
     private Button btnSiguiente;
-
     public TransmisionController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
@@ -55,26 +46,19 @@ public class TransmisionController implements Initializable {
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         lbArchivosEncontrados.setText(fileSeleccionado.getName());
         VariableGlobales.lecturaActasEnMemoria = new HashMap();
-
         int dotIndex = fileSeleccionado.getPath().lastIndexOf(fileSeleccionado.getName());
         String pathFile = fileSeleccionado.getPath().substring(0, dotIndex);
         VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", "D:\\TESSORC\\tessdata");
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath());
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePath", pathFile);
         VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSeleccionado.getName());
-
-
         int dotNombreIndex = fileSeleccionado.getName().lastIndexOf(".");
         VariableGlobales.lecturaActasEnMemoria.put("fileNameSinExtension", fileSeleccionado.getName().substring(0, dotNombreIndex));
-
-
         btnSiguiente.setDisable(false);
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
 

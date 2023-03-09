@@ -1,12 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.loging.endpoint.dashboard;
-
 import com.mycompany.loging.App;
-
-import com.google.gson.Gson;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -23,18 +16,14 @@ import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.RescaleOp;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -47,13 +36,7 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 import net.sourceforge.tess4j.util.ImageHelper;
 
-/**
- * FXML Controller class
- *
- * @author LMedina
- */
 public class LeerActasController implements Initializable {
-
     private final NegocioService negocioService;
     private DropShadowE dropShadowE;
     
@@ -63,7 +46,6 @@ public class LeerActasController implements Initializable {
     private Button btnSiguiente;
     @FXML
     private Button btnRecortar;
-
 
     public LeerActasController() {
         this.negocioService = new NegocioServiceImpl();
@@ -79,25 +61,13 @@ public class LeerActasController implements Initializable {
     @FXML
     TextField txtHora;
     @FXML
-    Label lbFecha;
-
-    @FXML
-    Label lbVaDepartamento;
-    @FXML
-    Label lbVaprovincia;
-    @FXML
-    Label lbVaDistrito;
+    Label lbFecha,lbVaDepartamento,lbVaDistrito,lbVaprovincia;
     @FXML
     ImageView imagenCodigoBarra;
-
     private FactoryServiciosExternos factoryservices;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         try {
             dropShadowE.setTabEffect(btnCancelar);
             dropShadowE.setTabEffect(btnSiguiente);
@@ -144,10 +114,6 @@ public class LeerActasController implements Initializable {
         File imageFile = new File(path + nombre);
         Tesseract tc = new Tesseract();
 
-        //Configurar Tesseract
-//        tc.setTessVariable("user_defined_dpi", "70");
-//        tc.setDatapath(pathTesseract);
-//        tc.setTessVariable("tessedit_char_whitelist", "0123456789");
         BufferedImage image = ImageIO.read(imageFile);
 
         BufferedImage imageCodBarras = image.getSubimage(1460, 110, 620, 140);       //CODIGO DE BARRAS
