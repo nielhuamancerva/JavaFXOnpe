@@ -23,7 +23,7 @@ public class RegistrarObsController implements Initializable {
 
         factoryservices = FactoryServiciosExternos.getInstance();
         try {
-            factoryservices.Tess4jServiceImpl().leerObservaciones();
+            factoryservices.Tess4jServiceImpl().leerObservaciones(210, 2640, 1800, 300);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

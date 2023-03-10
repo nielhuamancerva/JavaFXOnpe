@@ -19,16 +19,10 @@ module negocio {
     requires org.junit.jupiter.engine;
  
     
-        opens com.mycompany.loging to javafx.fxml;
-    exports com.mycompany.loging;
-    exports com.mycompany.loging.score.model;
-    //expone endpoint de controller primary
-    exports com.mycompany.loging.endpoint.dashboard;
-    opens com.mycompany.loging.endpoint.dashboard to javafx.fxml;
-    //expone endpoint de controller secondary
-    exports com.mycompany.loging.endpoint.login;
-    opens com.mycompany.loging.endpoint.login to javafx.fxml;
-    exports com.mycompany.loging.score.util;
+     
+    exports negocio;
+   
+
 
     
  
