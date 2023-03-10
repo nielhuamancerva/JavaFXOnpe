@@ -13,7 +13,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import java.util.Objects;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
-public class PrimaryController {
+public class LoginController {
     private final NegocioService negocioService;
     private final ValidadionesFormularios validadionesFormularios;
     private final DropShadowE dropShadowE;
@@ -28,7 +28,7 @@ public class PrimaryController {
         dropShadowE.setTabEffect(btnSalir);
     }
 
-    public PrimaryController() {
+    public LoginController() {
         this.negocioService = new NegocioServiceImpl();
         this.validadionesFormularios = new ValidadionesFormularios();
         this.dropShadowE = new DropShadowE();

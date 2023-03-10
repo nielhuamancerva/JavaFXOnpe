@@ -1,22 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.loging.score.negocio;
 
-import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
-import com.mycompany.loging.score.Repository.service.ConexionMongo;
-import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.model.Actas;
 import java.io.IOException;
 import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
+import com.mycompany.loging.score.util.common.commonMappings;
+import com.mycompany.loging.score.util.constanst.Constansts;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import com.mycompany.loging.score.util.mapper.Mapper;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import javafx.collections.FXCollections;
+import java.io.File;
+import java.util.HashMap;
 import javafx.collections.ObservableList;
 
 /**
@@ -50,6 +44,23 @@ public class NegocioServiceImpl implements NegocioService {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.MongoService().conexionMongo();
         return mapping.castActas(factoryservices.MongoService().findActaByCodigoBarra(codigoBarra));
+    }
+
+    @Override
+    public String uploadFileOnMemory(File fileSelected) {
+        VariableGlobales.lecturaActasEnMemoria = new HashMap();
+        VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", Constansts.PATH_TESSERACT);
+        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSelected.getPath());
+        VariableGlobales.lecturaActasEnMemoria.put("fileNamePath", commonMappings.pathOfFile(fileSelected));
+        VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSelected.getName());
+        VariableGlobales.lecturaActasEnMemoria.put("fileNameSinExtension", commonMappings.nameOfFileWithoutExtension(fileSelected));
+        return fileSelected.getPath();
+    }
+
+    @Override
+    public void leerCodigoDeBarras(Integer CoordenaX, Integer CoordenaY, Integer Ancho, Integer Alto) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(CoordenaX, CoordenaY, Ancho, Alto);
     }
 
 }
