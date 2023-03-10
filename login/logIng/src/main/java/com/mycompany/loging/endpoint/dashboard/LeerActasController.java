@@ -85,7 +85,14 @@ public class LeerActasController implements Initializable {
         Actas acta;
         try {
             factoryservices = FactoryServiciosExternos.getInstance();
-            factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(1460, 110, 620, 140);
+            
+            
+            if("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))){
+                    factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(1460, 110, 620, 140);
+            }
+        
+            
+            
             Image imgRegion = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
             imagenCodigoBarra.setImage(imgRegion);
             acta = negocioService.finByCodigoBarra(

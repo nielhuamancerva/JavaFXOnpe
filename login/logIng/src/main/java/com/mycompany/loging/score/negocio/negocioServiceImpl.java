@@ -49,6 +49,7 @@ public class NegocioServiceImpl implements NegocioService {
     @Override
     public String uploadFileOnMemory(File fileSelected) {
         VariableGlobales.lecturaActasEnMemoria = new HashMap();
+        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", Constansts.PATH_TESSERACT);
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSelected.getPath());
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePath", commonMappings.pathOfFile(fileSelected));

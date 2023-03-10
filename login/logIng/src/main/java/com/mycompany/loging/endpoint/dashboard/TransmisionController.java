@@ -15,6 +15,7 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreacionTable;
 import com.mycompany.loging.score.util.DropShadowE;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import javafx.scene.control.Button;
 
 public class TransmisionController implements Initializable {
@@ -43,6 +44,7 @@ public class TransmisionController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
+        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         btnSiguiente.setDisable(false);
     }

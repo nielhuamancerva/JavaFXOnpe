@@ -85,6 +85,7 @@ public class RecortarActaController implements Initializable {
                 imageViewRecorte.setImage(imgRec);
                 
                 //llamando a funcion que recorta el acta
+                 VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","NO");
                 factoryservices = FactoryServiciosExternos.getInstance();
                 factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(Double.valueOf(Math.ceil(imgX)).intValue(), Double.valueOf(Math.ceil(imgY)).intValue(), Double.valueOf(Math.ceil(imgAncho)).intValue(), Double.valueOf(Math.ceil(imgAlto)).intValue());
                 
