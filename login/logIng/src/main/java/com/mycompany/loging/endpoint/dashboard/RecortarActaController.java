@@ -1,6 +1,8 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.google.zxing.NotFoundException;
+import com.mycompany.loging.App;
+import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -34,6 +36,9 @@ public class RecortarActaController implements Initializable {
     @FXML
     AnchorPane imgAnchorPane,imgRecorteAnchorPane;
     double imgX=0,imgY=0,imgX2=0,imgY2=0,imgAncho=0,imgAlto=0;
+    
+    //para el recorte del acta
+    private FactoryServiciosExternos factoryservices;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -78,13 +83,22 @@ public class RecortarActaController implements Initializable {
                 cargarRecorte(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
                 Image imgRec = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarraRecorte"));
                 imageViewRecorte.setImage(imgRec);
+                
+                //llamando a funcion que recorta el acta
+                factoryservices = FactoryServiciosExternos.getInstance();
+                factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(Double.valueOf(Math.ceil(imgX)).intValue(), Double.valueOf(Math.ceil(imgY)).intValue(), Double.valueOf(Math.ceil(imgAncho)).intValue(), Double.valueOf(Math.ceil(imgAlto)).intValue());
+                
             
             } catch (Exception e) {
                 System.out.println("Excepcion :"+e);
             }
         });
         //+++++
-   }   
+   } 
+    @FXML
+    private void confirmarRecorte() throws IOException{
+        App.setRoot(null, "leerActas");    
+    }
     
     private void TifToPng(String pathTesseract, String path, String nombre) throws TesseractException, IOException, NotFoundException, Exception{
         File imageFile = new File(path + nombre);

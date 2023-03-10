@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,20 +10,29 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RecortarActaController">
    <children>
-      <Button layoutX="1089.0" layoutY="723.0" mnemonicParsing="false" text="Confirmar" />
-      <Button layoutX="1005.0" layoutY="723.0" mnemonicParsing="false" text="Regresar" />
-      <Label layoutX="807.0" layoutY="36.0" text="Seleccione el Área a Recortar" />
-      <Label fx:id="lbMensaje" layoutX="1037.0" layoutY="36.0" text="cambiarmensaje" />
-      <AnchorPane fx:id="imgRecorteAnchorPane" layoutX="779.0" layoutY="272.0" prefHeight="200.0" prefWidth="400.0">
+      <Button fx:id="btnConfirmarrecorte" layoutX="1043.0" layoutY="698.0" mnemonicParsing="false" onAction="#confirmarRecorte" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Confirmar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+      <Button layoutX="901.0" layoutY="698.0" mnemonicParsing="false" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Regresar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+      <Label layoutX="907.0" layoutY="36.0" text="Seleccione el Área a Recortar" />
+      <Label fx:id="lbMensaje" layoutX="1068.0" layoutY="36.0" text="cambiarmensaje" />
+      <AnchorPane fx:id="imgRecorteAnchorPane" layoutX="873.0" layoutY="269.0" prefHeight="200.0" prefWidth="320.0">
          <children>
-            <ImageView fx:id="imageViewRecorte" fitHeight="200.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageViewRecorte" fitHeight="200.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="imgScrollPane" layoutX="36.0" layoutY="36.0" prefHeight="712.0" prefWidth="725.0">
+      <ScrollPane fx:id="imgScrollPane" layoutX="14.0" layoutY="36.0" prefHeight="712.0" prefWidth="850.0">
          <content>
             <ImageView fx:id="imgViewScroll" pickOnBounds="true" />
          </content>
       </ScrollPane>
-      <Button id="btnLimpiar" layoutX="917.0" layoutY="723.0" mnemonicParsing="false" text="Limpiar" />
+      <Button id="btnLimpiar" layoutX="1053.0" layoutY="492.0" mnemonicParsing="false" style="-fx-background-color: F7C04A;" text="Limpiar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>
