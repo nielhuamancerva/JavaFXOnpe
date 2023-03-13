@@ -14,43 +14,18 @@
          <children>
             <ImageView fitHeight="84.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
-            <Label layoutX="114.0" layoutY="109.0" text="2. Registrar Votos">
+            <Label layoutX="114.0" layoutY="63.0" text="2. Registrar Votos">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="114.0" layoutY="144.0" text="Registro el número de votos obtenidos en cada caso">
+            <Label layoutX="114.0" layoutY="106.0" text="Registro el número de votos obtenidos en cada caso">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fx:id="imagenVotos" fitHeight="560.0" fitWidth="520.0" layoutX="92.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="92.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
-            <TextField fx:id="voto1"  layoutX="622.0" layoutY="252.0" prefHeight="51.0" prefWidth="97.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto2" layoutX="622.0" layoutY="349.0" prefHeight="51.0" prefWidth="97.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto3" layoutX="625.0" layoutY="451.0" prefHeight="51.0" prefWidth="97.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto4" layoutX="625.0" layoutY="550.0" prefHeight="51.0" prefWidth="97.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto5" layoutX="625.0" layoutY="650.0" prefHeight="51.0" prefWidth="97.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
             <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="757.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
             <Button fx:id="btnRegresar" layoutX="889.0" layoutY="718.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
@@ -69,6 +44,25 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <TextField fx:id="voto2" editable="false" layoutX="616.0" layoutY="193.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto3" editable="false" layoutX="616.0" layoutY="225.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto4" editable="false" layoutX="616.0" layoutY="258.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto5" editable="false" layoutX="616.0" layoutY="291.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto10" editable="false" layoutX="616.0" layoutY="452.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto9" editable="false" layoutX="616.0" layoutY="419.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto8" editable="false" layoutX="616.0" layoutY="386.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto7" editable="false" layoutX="616.0" layoutY="354.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto6" editable="false" layoutX="616.0" layoutY="324.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto11" editable="false" layoutX="616.0" layoutY="485.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto12" editable="false" layoutX="616.0" layoutY="515.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto13" editable="false" layoutX="616.0" layoutY="547.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto14" editable="false" layoutX="616.0" layoutY="580.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto15" editable="false" layoutX="616.0" layoutY="613.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto19" editable="false" layoutX="616.0" layoutY="744.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto18" editable="false" layoutX="616.0" layoutY="711.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto17" editable="false" layoutX="616.0" layoutY="678.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto16" editable="false" layoutX="616.0" layoutY="646.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto1" editable="false" layoutX="616.0" layoutY="162.0" prefHeight="21.0" prefWidth="48.0" />
          </children>
       </AnchorPane>
    </children>

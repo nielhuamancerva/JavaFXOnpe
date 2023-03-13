@@ -29,6 +29,34 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     TextField voto1, voto2, voto3, voto4, voto5;
+    @FXML
+    private TextField voto10;
+    @FXML
+    private TextField voto9;
+    @FXML
+    private TextField voto8;
+    @FXML
+    private TextField voto7;
+    @FXML
+    private TextField voto6;
+    @FXML
+    private TextField voto11;
+    @FXML
+    private TextField voto12;
+    @FXML
+    private TextField voto13;
+    @FXML
+    private TextField voto14;
+    @FXML
+    private TextField voto15;
+    @FXML
+    private TextField voto19;
+    @FXML
+    private TextField voto18;
+    @FXML
+    private TextField voto17;
+    @FXML
+    private TextField voto16;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
