@@ -88,7 +88,7 @@ public class LeerActasController implements Initializable {
             
             
             if("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))){
-                    factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(1460, 110, 620, 140);
+                    factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(2000, 90, 780, 220);
             }
         
             
