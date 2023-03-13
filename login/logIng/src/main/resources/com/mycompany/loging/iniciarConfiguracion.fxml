@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.endpoint.dashboard.IniciarConfController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/logo_score.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="941.0" layoutY="58.0" text="XXXXXXXX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="673.0" layoutY="58.0" text="CENTRO DE COMPUTO:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbArchivosEncontrados" layoutX="178.0" layoutY="288.0" text="0 Archivos Encontrados">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="41.0" fitWidth="38.0" layoutX="121.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/carpeta.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="121.0" layoutY="179.0" text="Seleccione la Carpeta de Actas de Escrutinio">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField id="txtBuscar" layoutX="886.0" layoutY="296.0" />
+      <Label layoutX="780.0" layoutY="298.0" text="Busqueda">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableActas" layoutX="131.0" layoutY="335.0" prefHeight="200.0" prefWidth="904.0" />
+      <Button fx:id="btnCarga" layoutX="928.0" layoutY="659.0" mnemonicParsing="false" onAction="#CargaActaConfig" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Cargar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSalir" layoutX="818.0" layoutY="659.0" mnemonicParsing="false" onAction="#regresarDashboard" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Salir" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.ConfiguraActaController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/logo_score.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="62.0" layoutY="123.0" prefHeight="662.0" prefWidth="548.0" />
+      <Button layoutX="1006.0" layoutY="723.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Procesar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton1" layoutX="1015.0" layoutY="124.0" mnemonicParsing="false" onAction="#ActionBoton1" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Codigo QR" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton2" layoutX="1015.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionBoton2" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 1" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton3" layoutX="1015.0" layoutY="240.0" mnemonicParsing="false" onAction="#ActionBoton3" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region  2" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton4" layoutX="1015.0" layoutY="300.0" mnemonicParsing="false" onAction="#ActionBoton4" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 3" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton8" layoutX="1015.0" layoutY="539.0" mnemonicParsing="false" onAction="#ActionBoton8" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 3" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton7" layoutX="1015.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActionBoton7" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 2" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton6" layoutX="1015.0" layoutY="421.0" mnemonicParsing="false" onAction="#ActionBoton6" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 1" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton5" layoutX="1015.0" layoutY="360.0" mnemonicParsing="false" onAction="#ActionBoton5" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 4" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="844.0" layoutY="723.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Regresar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl1" layoutX="887.0" layoutY="132.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl2" layoutX="887.0" layoutY="188.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl3" layoutX="887.0" layoutY="248.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl4" layoutX="887.0" layoutY="308.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl5" layoutX="887.0" layoutY="368.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl6" layoutX="887.0" layoutY="426.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl7" layoutX="887.0" layoutY="487.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl8" layoutX="887.0" layoutY="547.0" prefHeight="28.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="742.0" layoutY="46.0" text="CENTRO DE COMPUTO:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1010.0" layoutY="46.0" text="XXXXXXXX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button id="btnElegirArchivos" fx:id="btnCargar" layoutX="623.0" layoutY="124.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="113.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Cargar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbArchivosEncontrados" layoutX="623.0" layoutY="178.0" text="0 Archivos Encontrados">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
