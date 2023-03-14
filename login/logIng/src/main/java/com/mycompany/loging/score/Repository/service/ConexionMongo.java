@@ -2,6 +2,7 @@ package com.mycompany.loging.score.Repository.service;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 
 /**
@@ -11,6 +12,8 @@ import org.bson.Document;
 public interface ConexionMongo {
 
     public MongoDatabase conexionMongo() throws Exception;
+
+    public UpdateResult saveConexionMongo(Document codigoBarra) throws Exception;
 
     public Document findCollection(String username, String password) throws Exception;
 

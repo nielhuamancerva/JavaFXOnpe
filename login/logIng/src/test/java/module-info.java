@@ -5,7 +5,6 @@ module negocio {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
-    requires gson;
     requires java.base;
     requires opencv;
     requires com.google.zxing;

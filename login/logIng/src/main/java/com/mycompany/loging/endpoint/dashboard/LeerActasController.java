@@ -82,24 +82,21 @@ public class LeerActasController implements Initializable {
         String mes = formatoMes.format(fehaActual);
         fechaFormatoCadena = "del " + dia + " de " + mes + " de " + anio + ", se inicio el ACTO DE ESCRUTINIO";
 
-        Actas acta;
+ 
         try {
             factoryservices = FactoryServiciosExternos.getInstance();
-            
-            
+
             if("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))){
                     factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(2000, 90, 780, 220);
             }
         
-            
-            
             Image imgRegion = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
             imagenCodigoBarra.setImage(imgRegion);
-            acta = negocioService.finByCodigoBarra(
+            VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
                     VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
-            lbVaDepartamento.setText(acta.getDepartamento());
-            lbVaprovincia.setText(acta.getProvincia());
-            lbVaDistrito.setText(acta.getDistrito());
+            lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
+            lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
+            lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
 
         } catch (Exception ex) {
             ex.printStackTrace();

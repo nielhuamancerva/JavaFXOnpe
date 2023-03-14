@@ -5,6 +5,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.UpdateResult;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import org.bson.Document;
 
@@ -15,7 +16,7 @@ import org.bson.Document;
 public class ConexionMongoImpl implements ConexionMongo {
 
     private MongoDatabase mongoDatabase;
-    
+
     @Override
     public MongoDatabase conexionMongo() throws Exception {
         // Crear un objeto MongoClient
@@ -52,6 +53,15 @@ public class ConexionMongoImpl implements ConexionMongo {
 
         MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
         return collection.find(Filters.eq("acta", codigoBarra)).first();
+    }
+
+    @Override
+    public UpdateResult saveConexionMongo(Document codigoBarra) throws Exception {
+        MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
+        
+        Document filter = new Document("actas",codigoBarra);
+        Document update = new Document(codigoBarra);
+        return collection.updateOne(filter,update);
     }
 
 }

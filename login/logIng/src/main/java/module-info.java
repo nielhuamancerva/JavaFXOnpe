@@ -5,7 +5,7 @@ module com.mycompany.loging {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
-    requires gson;
+    requires com.google.gson;
     requires java.base;
     requires opencv;
     requires com.google.zxing;
@@ -21,6 +21,7 @@ module com.mycompany.loging {
     opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;
     exports com.mycompany.loging.score.model;
+
     //expone endpoint de controller primary
     exports com.mycompany.loging.endpoint.dashboard;
     opens com.mycompany.loging.endpoint.dashboard to javafx.fxml;
