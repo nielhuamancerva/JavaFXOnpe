@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -29,16 +31,20 @@ public class RecortarActaController implements Initializable {
  
     @FXML
     Label lbMensaje;
+    ImageView imgViewActa;
     @FXML
-    ImageView imgViewActa,imgViewScroll,imageViewRecorte;
+    ImageView imgViewScroll,imageViewRecorte;
     @FXML
     ScrollPane imgScrollPane;
+    AnchorPane imgAnchorPane;
     @FXML
-    AnchorPane imgAnchorPane,imgRecorteAnchorPane;
+            AnchorPane imgRecorteAnchorPane;
     double imgX=0,imgY=0,imgX2=0,imgY2=0,imgAncho=0,imgAlto=0;
     
     //para el recorte del acta
     private FactoryServiciosExternos factoryservices;
+    @FXML
+    private Button btnConfirmarrecorte;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -144,6 +150,12 @@ public class RecortarActaController implements Initializable {
         ImageIO.write(imageCodBarrasRecorte, "png", archivoRecorteCodBarras);
         VariableGlobales.lecturaActasEnMemoria.put("codigoBarraRecorte", archivoRecorteCodBarras.toURI().toString());
         
+    }
+
+    @FXML
+    private void RegresarRecorte()throws IOException{
+                App.setRoot(null, "leerActas");    
+
     }
     
 }
