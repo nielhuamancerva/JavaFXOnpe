@@ -17,7 +17,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 
 /**
@@ -41,6 +50,14 @@ public class ConfiguraActaController implements Initializable {
     private Label lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8;
     @FXML
     private Label lbArchivosEncontrados;
+    
+    @FXML
+    ScrollPane scrollPaneActa;
+    
+    @FXML
+    ImageView imgViewActa;
+    private double imgX=0.0,imgY=0.0,imgX2=0.0, imgY2=0.0, imgAncho,imgAlto;
+    
 
     /**
      * Initializes the controller class.
@@ -55,6 +72,52 @@ public class ConfiguraActaController implements Initializable {
         VBox grupoLabel = new VBox();
         grupoLabel.getChildren().addAll(lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8);
         grupoLabel.setVisible(false);
+        
+        
+        imgViewActa.setOnScroll(event -> {
+            double delta = event.getDeltaY();
+            double scale = imgViewActa.getScaleX();
+            if (delta > 0) {
+                imgViewActa.setScaleX(scale * 1.1);
+                imgViewActa.setScaleY(scale * 1.1);
+            } else {
+                imgViewActa.setScaleX(scale / 1.1);
+                imgViewActa.setScaleY(scale / 1.1);
+            }           
+        });
+        imgViewActa.setOnMousePressed(event -> {
+            if (event.getButton() == MouseButton.SECONDARY) {// esto permite el arrastre de la imagen
+                scrollPaneActa.setPannable(true);
+            } else {
+                scrollPaneActa.setPannable(false);
+            }
+
+            if (event.getButton() == MouseButton.PRIMARY) {
+                imgX = event.getX();
+                imgY = event.getY();
+                Circle circle = new Circle(imgX, imgY, 10, Color.RED);
+                Pane overlayPane = new Pane(circle);
+                overlayPane.setMouseTransparent(true);
+                scrollPaneActa.setContent(new StackPane(imgViewActa, overlayPane));
+                System.out.println("inicio x:"+imgX+"||"+"inicio y:"+imgY);
+            }
+        });
+        imgViewActa.setOnMouseReleased(event ->{
+            imgX2=event.getX();
+            imgY2=event.getY();
+            imgAncho=imgX2-imgX;
+            imgAlto=imgY2-imgY;
+            Circle circle = new Circle(imgX2, imgY2, 10, Color.RED);
+            Rectangle rect = new Rectangle(imgAncho,imgAlto);
+            rect.setX(imgX);
+            rect.setY(imgY);
+            rect.setStroke(Color.BLUE);
+            rect.setFill(Color.TRANSPARENT);
+            Pane overlayPane = new Pane(circle,rect);
+            overlayPane.setMouseTransparent(true);
+            scrollPaneActa.setContent(new StackPane(imgViewActa,overlayPane));
+            System.out.println("fin x2:"+imgX2+"||"+"fin y2:"+imgY2);
+        });
 
     }
 
