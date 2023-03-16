@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.UpdateResult;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
+import com.mycompany.loging.score.model.Actas;
 import org.bson.Document;
 
 /**
@@ -56,11 +57,12 @@ public class ConexionMongoImpl implements ConexionMongo {
     }
 
     @Override
-    public UpdateResult saveConexionMongo(Document codigoBarra) throws Exception {
+    public UpdateResult updateDocument(Document codigoBarra) throws Exception {
+
         MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
         
-        Document filter = new Document("actas",codigoBarra);
-        Document update = new Document(codigoBarra);
+        Document filter = new Document("acta",codigoBarra.getString("acta"));
+        Document update = new Document("$set", new Document(codigoBarra));
         return collection.updateOne(filter,update);
     }
 

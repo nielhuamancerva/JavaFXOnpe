@@ -64,4 +64,11 @@ public class NegocioServiceImpl implements NegocioService {
         factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(CoordenaX, CoordenaY, Ancho, Alto);
     }
 
+    @Override
+    public void uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception {
+      factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.MongoService()
+                .updateDocument(mapping.actaCastToDocument(ActaReadOnMemory));
+    }
+
 }

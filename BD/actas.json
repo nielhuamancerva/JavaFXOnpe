@@ -1,8 +1,8 @@
 [{
   "_id": {
-    "$oid": "63ffb80ac2f812ba9cb01d06"
+    "$oid": "63ffb80ac2f812ba9cb01d09"
   },
-  "acta": "0170018700101",
+  "acta": "04459111L",
   "departamento": "AREQUIPA",
   "provincia": "CAYLLOMA",
   "distrito": "LARI",
@@ -20,9 +20,9 @@
   "id_acta": "123"
 },{
   "_id": {
-    "$oid": "63ffb80ac2f812ba9cb01d05"
+    "$oid": "63ffb80ac2f812ba9cb01d08"
   },
-  "acta": "0170018700102",
+  "acta": "04459112L",
   "departamento": "AREQUIPA",
   "provincia": "CAYLLOMA",
   "distrito": "LARI",

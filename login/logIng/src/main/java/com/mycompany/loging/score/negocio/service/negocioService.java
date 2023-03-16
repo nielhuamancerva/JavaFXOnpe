@@ -21,4 +21,6 @@ public interface NegocioService {
     public void leerCodigoDeBarras(Integer CoordenaX, Integer CoordenaY, Integer Ancho, Integer Alto) throws IOException, Exception;
 
     public String uploadFileOnMemory(File fileSelected);
+
+    public void uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception;
 }

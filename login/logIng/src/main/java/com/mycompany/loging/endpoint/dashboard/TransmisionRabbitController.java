@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
+import com.mycompany.loging.score.negocio.NegocioServiceImpl;
+import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import static com.mycompany.loging.score.util.constanst.VariableGlobales.lecturaActasEnMemoria;
@@ -19,11 +21,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import org.bson.Document;
 
 public class TransmisionRabbitController implements Initializable {
-
-
+    private final NegocioService negocioService;
     private static final String QUEUE_NAME = UUID.randomUUID().toString(); //nombre de la cola
     private DropShadowE dropShadowE;
     @FXML
@@ -32,7 +32,7 @@ public class TransmisionRabbitController implements Initializable {
     private Button btnRegresar;
 
     public TransmisionRabbitController() {
-
+        this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
     }
 
@@ -45,17 +45,16 @@ public class TransmisionRabbitController implements Initializable {
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.89.225");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
+        factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
         factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
-        String json = gson.toJson(VariableGlobales.lecturaActasEnMemoria);
-      
-
+        String json = gson.toJson(VariableGlobales.actasLeida);
+        negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida);
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();

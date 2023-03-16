@@ -29,7 +29,7 @@
       </Label>
       <ImageView fx:id="observacionesActa" fitHeight="111.0" fitWidth="934.0" layoutX="91.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <TextArea layoutX="91.0" layoutY="405.0" prefHeight="153.0" prefWidth="934.0" promptText="Ingrese las Observaciones">
+      <TextArea fx:id="textObservaciones" layoutX="91.0" layoutY="405.0" prefHeight="153.0" prefWidth="934.0" promptText="Ingrese las Observaciones">
          <font>
             <Font size="18.0" />
          </font>

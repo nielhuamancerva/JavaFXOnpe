@@ -1,10 +1,14 @@
 package com.mycompany.loging.endpoint.dashboard;
+
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class RegistrarFirmaController implements Initializable {
+
     private DropShadowE dropShadowE;
     boolean firmoP;
     boolean firmoS;
@@ -75,6 +80,20 @@ public class RegistrarFirmaController implements Initializable {
 
     @FXML
     private void verificaTransmite() throws IOException {
+        VariableGlobales.actasLeida.setFirma1(String.valueOf(firmoP));
+        VariableGlobales.actasLeida.setFirma2(String.valueOf(firmoS));
+        VariableGlobales.actasLeida.setFirma3(String.valueOf(firmoT));
+
+        // Selecciona el archivo a convertir
+        File file = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        // Lee el archivo en un array de bytes
+        FileInputStream fileInputStream = new FileInputStream(file);
+        byte[] bytes = new byte[(int) file.length()];
+        fileInputStream.read(bytes);
+
+        // Codifica los bytes en Base64
+      
+        VariableGlobales.actasLeida.setLista1(Base64.getEncoder().encodeToString(bytes));
         App.setRoot(null, "transmisionRabbit");
     }
 

@@ -15,13 +15,11 @@ module com.mycompany.loging {
     requires jai.imageio.core;
     requires com.rabbitmq.client;
     requires java.sql;
- 
 
-    
     opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;
     exports com.mycompany.loging.score.model;
-
+    opens com.mycompany.loging.score.model;
     //expone endpoint de controller primary
     exports com.mycompany.loging.endpoint.dashboard;
     opens com.mycompany.loging.endpoint.dashboard to javafx.fxml;
@@ -29,9 +27,5 @@ module com.mycompany.loging {
     exports com.mycompany.loging.endpoint.login;
     opens com.mycompany.loging.endpoint.login to javafx.fxml;
     exports com.mycompany.loging.score.util;
-    
-  
-    
+
 }
-
-

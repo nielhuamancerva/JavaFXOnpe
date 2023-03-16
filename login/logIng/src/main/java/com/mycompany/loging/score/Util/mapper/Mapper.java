@@ -39,6 +39,19 @@ public class Mapper {
         acta.setProvincia(ss.getString("provincia"));
         acta.setDistrito(ss.getString("distrito"));
         return acta;
+    }
 
+    public Document actaCastToDocument(Actas ss) {
+        Document document = new Document();
+        document.append("acta", ss.getActa());
+        document.append("departamento", ss.getDepartamento());
+        document.append("provincia", ss.getProvincia());
+        document.append("distrito", ss.getDistrito());
+        document.append("observaciones", ss.getObservaciones());
+        document.append("lista1", ss.getLista1());
+        document.append("firma1", ss.getFirma1());
+        document.append("firma2", ss.getFirma2());
+        document.append("firma3", ss.getFirma3());
+        return document;
     }
 }
