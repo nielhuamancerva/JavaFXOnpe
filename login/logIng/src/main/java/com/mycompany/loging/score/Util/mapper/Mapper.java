@@ -7,6 +7,12 @@ package com.mycompany.loging.score.util.mapper;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Transmision;
+import com.mycompany.loging.score.model.TransmisionHeader;
+import com.mycompany.loging.score.util.common.commonMappings;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -32,13 +38,21 @@ public class Mapper {
         return FXCollections.observableArrayList(listActas);
     }
 
-    public Actas castActas(Document ss) {
+    public Actas documentCastToActas(Document ss) {
         Actas acta = new Actas();
         acta.setActa(ss.getString("acta"));
         acta.setDepartamento(ss.getString("departamento"));
         acta.setProvincia(ss.getString("provincia"));
         acta.setDistrito(ss.getString("distrito"));
+        acta.setId_acta(ss.getString("id_acta"));
         return acta;
+    }
+
+    public Imagenes documentCastToImagen(Document ss) {
+        Imagenes imagen = new Imagenes();
+        imagen.setActa_id(ss.getString("acta_id"));
+        imagen.setImagen(ss.getString("imagen"));
+        return imagen;
     }
 
     public Document actaCastToDocument(Actas ss) {
@@ -53,5 +67,23 @@ public class Mapper {
         document.append("firma2", ss.getFirma2());
         document.append("firma3", ss.getFirma3());
         return document;
+    }
+
+    public Document imagenCastToDocument(Imagenes ss) throws IOException {
+
+        Document document = new Document();
+        document.append("acta_id", ss.getActa_id());
+        document.append("imagen", commonMappings.convertFileToBase64());
+        return document;
+    }
+
+    public Transmision dtoToTransmision(Actas ss) {
+        TransmisionHeader header = new TransmisionHeader();
+        
+        Transmision transmision = new Transmision();
+        transmision.setHeader(header);
+        transmision.setBody(ss);
+
+        return transmision;
     }
 }

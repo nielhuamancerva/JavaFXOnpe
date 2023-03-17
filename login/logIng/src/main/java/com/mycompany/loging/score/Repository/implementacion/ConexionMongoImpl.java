@@ -17,6 +17,7 @@ import org.bson.Document;
 public class ConexionMongoImpl implements ConexionMongo {
 
     private MongoDatabase mongoDatabase;
+    private MongoCollection<Document> mongoColletion;
 
     @Override
     public MongoDatabase conexionMongo() throws Exception {
@@ -57,13 +58,19 @@ public class ConexionMongoImpl implements ConexionMongo {
     }
 
     @Override
-    public UpdateResult updateDocument(Document codigoBarra) throws Exception {
+    public UpdateResult updateDocument(MongoCollection<Document> yy,Document codigoBarra,Document filter,Document update) throws Exception {
+        return yy.updateOne(filter, update);
+    }
 
-        MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
-        
-        Document filter = new Document("acta",codigoBarra.getString("acta"));
-        Document update = new Document("$set", new Document(codigoBarra));
-        return collection.updateOne(filter,update);
+    @Override
+    public MongoCollection<Document> getCollection(String tableOfMongo) throws Exception {
+        return mongoDatabase.getCollection(tableOfMongo);
+    }
+
+    @Override
+    public Document findDocumentBy(String filter_id,String codigo_id, String Table) throws Exception {  
+        MongoCollection<Document> collection = mongoDatabase.getCollection(Table);
+        return collection.find(Filters.eq(filter_id, codigo_id)).first();
     }
 
 }

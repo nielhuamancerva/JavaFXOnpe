@@ -1,7 +1,10 @@
 package com.mycompany.loging.score.negocio;
 
+import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Transmision;
 import java.io.IOException;
 import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
@@ -42,8 +45,10 @@ public class NegocioServiceImpl implements NegocioService {
     @Override
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
-        factoryservices.MongoService().conexionMongo();
-        return mapping.castActas(factoryservices.MongoService().findActaByCodigoBarra(codigoBarra));
+        Actas acta = mapping.documentCastToActas(factoryservices.UserService().findImageById(codigoBarra));
+        Imagenes imagen = mapping.documentCastToImagen(factoryservices.ImageServiceImpl().findImageById(acta.getId_acta()));
+        acta.setImagen(imagen);
+        return acta;
     }
 
     @Override
@@ -65,10 +70,12 @@ public class NegocioServiceImpl implements NegocioService {
     }
 
     @Override
-    public void uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception {
-      factoryservices = FactoryServiciosExternos.getInstance();
-        factoryservices.MongoService()
-                .updateDocument(mapping.actaCastToDocument(ActaReadOnMemory));
+    public Transmision uploadActaReadOnMemory(Actas actaReadOnMemory) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.ImageServiceImpl()
+                .saveImage(mapping.imagenCastToDocument(actaReadOnMemory.getImagen()));
+        factoryservices.ActaServiceImpl().saveImage(mapping.actaCastToDocument(actaReadOnMemory));
+        return mapping.dtoToTransmision(actaReadOnMemory);
     }
 
 }

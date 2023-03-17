@@ -53,8 +53,8 @@ public class TransmisionRabbitController implements Initializable {
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
-        String json = gson.toJson(VariableGlobales.actasLeida);
-        negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida);
+        String json = gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida));
+       
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();

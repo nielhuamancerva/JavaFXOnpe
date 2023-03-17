@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "63ffb80ac2f812ba9cb01d06"
+  },
+  "acta": "01700187O0101",
+  "departamento": "AREQUIPA",
+  "provincia": "CAYLLOMA",
+  "distrito": "LARI",
+  "hora": "",
+  "lista1": "",
+  "votosBlanco": "",
+  "votosNulos": "",
+  "votosImpugnados": "",
+  "votosEmitidos": "",
+  "observaciones": "",
+  "firma1": "",
+  "firma2": "",
+  "firma3": "",
+  "estado": "",
+  "id_acta": "1"
+},{
+  "_id": {
+    "$oid": "63ffb80ac2f812ba9cb01d05"
+  },
+  "acta": "0170018700102",
+  "departamento": "AREQUIPA",
+  "provincia": "CAYLLOMA",
+  "distrito": "LARI",
+  "hora": "",
+  "lista1": "",
+  "votosBlanco": "",
+  "votosNulos": "",
+  "votosImpugnados": "",
+  "votosEmitidos": "",
+  "observaciones": "",
+  "firma1": "",
+  "firma2": "",
+  "firma3": "",
+  "estado": "",
+  "id_acta": "2"
+},{
+  "_id": {
+    "$oid": "63ffb80ac2f812ba9cb01d05"
+  },
+  "acta": "04459111L",
+  "departamento": "LIMA",
+  "provincia": "LIMA",
+  "distrito": "BARRANCO",
+  "horaInicio": "",
+  "horaFin": "",
+  "lista1": "",
+  "votosBlanco": "",
+  "votosNulos": "",
+  "votosImpugnados": "",
+  "votosEmitidos": "",
+  "observaciones": "",
+  "firma1": "",
+  "firma2": "",
+  "firma3": "",
+  "estado": "",
+  "id_acta": "3"
+}]

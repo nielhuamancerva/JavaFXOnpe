@@ -3,7 +3,7 @@ package com.mycompany.loging.score.model;
 public class Actas {
 
     String _id;
-    String acta_id;
+    String id_acta;
     String acta;
     String departamento;
     String provincia;
@@ -19,6 +19,15 @@ public class Actas {
     String firma2;
     String firma3;
     String estado;
+    Imagenes imagen = new Imagenes();
+
+    public Imagenes getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Imagenes imagen) {
+        this.imagen = imagen;
+    }
 
     public String getId() {
         return _id;
@@ -28,12 +37,12 @@ public class Actas {
         this._id = _id;
     }
 
-    public String getActa_id() {
-        return acta_id;
+    public String getId_acta() {
+        return id_acta;
     }
 
-    public void setActa_id(String acta_id) {
-        this.acta_id = acta_id;
+    public void setId_acta(String id_acta) {
+        this.id_acta = id_acta;
     }
 
     public String getActa() {

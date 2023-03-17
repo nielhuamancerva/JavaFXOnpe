@@ -83,17 +83,6 @@ public class RegistrarFirmaController implements Initializable {
         VariableGlobales.actasLeida.setFirma1(String.valueOf(firmoP));
         VariableGlobales.actasLeida.setFirma2(String.valueOf(firmoS));
         VariableGlobales.actasLeida.setFirma3(String.valueOf(firmoT));
-
-        // Selecciona el archivo a convertir
-        File file = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
-        // Lee el archivo en un array de bytes
-        FileInputStream fileInputStream = new FileInputStream(file);
-        byte[] bytes = new byte[(int) file.length()];
-        fileInputStream.read(bytes);
-
-        // Codifica los bytes en Base64
-      
-        VariableGlobales.actasLeida.setLista1(Base64.getEncoder().encodeToString(bytes));
         App.setRoot(null, "transmisionRabbit");
     }
 

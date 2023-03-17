@@ -14,11 +14,16 @@ public class UserServiceImpl implements UserService {
     private FactoryServiciosExternos serviceFactory;
 
     @Override
-    public Document findByUsernameAndPassword(String username, String password) throws IOException, Exception{
+    public Document findByUsernameAndPassword(String username, String password) throws IOException, Exception {
         serviceFactory = FactoryServiciosExternos.getInstance();
         serviceFactory.MongoService().conexionMongo();
-        Document oUser= serviceFactory.MongoService().findCollection(username, password);
+        Document oUser = serviceFactory.MongoService().findCollection(username, password);
         return oUser;
+    }
+
+    @Override
+    public Document findImageById(String idActa) throws Exception {
+        return serviceFactory.MongoService().findDocumentBy("acta", idActa, "actas");
     }
 
 }

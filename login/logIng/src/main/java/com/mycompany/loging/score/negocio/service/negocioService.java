@@ -1,6 +1,8 @@
 package com.mycompany.loging.score.negocio.service;
 
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Transmision;
 import java.io.File;
 import java.io.IOException;
 import javafx.collections.ObservableList;
@@ -22,5 +24,5 @@ public interface NegocioService {
 
     public String uploadFileOnMemory(File fileSelected);
 
-    public void uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception;
+    public Transmision uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception;
 }

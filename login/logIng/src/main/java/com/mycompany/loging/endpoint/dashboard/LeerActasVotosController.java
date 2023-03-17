@@ -69,7 +69,7 @@ public class LeerActasVotosController implements Initializable {
         codigoBarra.setImage(img);
 
         try {
-            factoryservices.Tess4jServiceImpl().leerRegionNumeroVotos(210, 880, 1800, 1780);
+            factoryservices.Tess4jServiceImpl().leerRegionNumeroVotos(210, 1576, 2400, 2275);
             Image imgRegion = new Image(VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri"));
             imagenVotos.setImage(imgRegion);
             factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto1", 1514, 120, 200, 240);
