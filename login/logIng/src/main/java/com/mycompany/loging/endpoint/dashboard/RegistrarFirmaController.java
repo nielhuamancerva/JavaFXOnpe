@@ -43,11 +43,11 @@ public class RegistrarFirmaController implements Initializable {
 
         botonPresi.setStyle(estado1 ? "-fx-background-color: #2ECC71;" : "");
         otroBotonPresi.setStyle("");
-        botonPresi.getStyleClass().remove("boton-active");
+//        botonPresi.getStyleClass().remove("boton-active");
 
-        if (!estado1) {
-
-        }
+//        if (!estado1) {
+//
+//        }
 
     }
 
