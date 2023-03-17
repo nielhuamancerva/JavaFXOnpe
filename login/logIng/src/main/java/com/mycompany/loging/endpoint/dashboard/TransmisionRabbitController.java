@@ -87,6 +87,16 @@ public class TransmisionRabbitController implements Initializable {
         byte[] encryptedValue = cipher.doFinal(texto.getBytes(StandardCharsets.UTF_8));
         return Base64.getEncoder().encodeToString(encryptedValue);
     }
+    
+      public String decrypt(String encryptedValue) throws Exception {
+                  String ALGORITHM = "AES";
+        String KEY = "mySecretKey12345";
+        SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        byte[] decryptedValue = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
+        return new String(decryptedValue, StandardCharsets.UTF_8);
+    }
 
     @FXML
     private void regresarFirmas() throws IOException {
