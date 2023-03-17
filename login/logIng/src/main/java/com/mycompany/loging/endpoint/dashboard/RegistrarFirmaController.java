@@ -57,17 +57,9 @@ public class RegistrarFirmaController implements Initializable {
         dropShadowE.setTabEffect(btnRegresarObs);
         factoryservices = FactoryServiciosExternos.getInstance();
         try {
-//            firmoP = factoryservices.Tess4jServiceImpl().validarFirma("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 175, 4520, 780, 480);
-//            firmoS = factoryservices.Tess4jServiceImpl().validarFirma("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 1010, 4520, 780, 480);
-//            firmoT = factoryservices.Tess4jServiceImpl().validarFirma("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 1840, 4520, 780, 480);
-
-            firmoP = true;
-            firmoS = true;
-            firmoT = true;
-
-            System.out.println(firmoP);
-            System.out.println(firmoS);
-            System.out.println(firmoT);
+            firmoP = factoryservices.Tess4jServiceImpl().validarFirma("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 175, 4520, 780, 480);
+           firmoS = factoryservices.Tess4jServiceImpl().validarFirma("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 1010, 4520, 780, 480);
+           firmoT = factoryservices.Tess4jServiceImpl().validarFirma("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png", 1840, 4520, 780, 480);
 
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
