@@ -58,13 +58,7 @@
       </ImageView>
       <ImageView fx:id="firma3" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-<<<<<<< HEAD
       <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
-=======
-
-      <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
-
->>>>>>> e2325b8c80a0c8e1722056207c44eeb29e6c45d7
          <font>
             <Font size="24.0" />
          </font>
@@ -88,13 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-<<<<<<< HEAD
       <Button fx:id="btnNoPresi" layoutX="492.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
-=======
-
-      <Button fx:id="btnNoPresi" layoutX="492.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
-
->>>>>>> e2325b8c80a0c8e1722056207c44eeb29e6c45d7
          <font>
             <Font size="24.0" />
          </font>
