@@ -29,13 +29,9 @@ public class App extends Application {
     public static void setRoot(Stage stage ,String fxml) throws IOException {
      
         if(Objects.nonNull(stage)){
-<<<<<<< Updated upstream
-
+            
             scene = new Scene(loadFXML("login"));// "login" coambiar por login para iniciar  
 
-=======
-            scene = new Scene(loadFXML("configuraActa"));// "login" coambiar por login para iniciar  
->>>>>>> Stashed changes
             stage.setFullScreen(true);
             stage.setScene(scene);
             stage.show();
