@@ -25,7 +25,9 @@ public class RegistrarFirmaController implements Initializable {
     boolean firmoS;
     boolean firmoT;
     private FactoryServiciosExternos factoryservices;
+
     private boolean stButton1, stButton11, stButton2, stButton22, stButton3, stButton33 = false;
+
 
     @FXML
     ImageView firma1, firma2, firma3;
@@ -105,6 +107,7 @@ public class RegistrarFirmaController implements Initializable {
         App.setRoot(null, "transmisionRabbit");
     }
 
+
     private void ActionFirmoSi(ActionEvent event) {
 
 //        estadoBotton = !estadoBotton;
@@ -173,5 +176,6 @@ public class RegistrarFirmaController implements Initializable {
         stButton33 = !stButton33;
         cambiarEstadoBoton(btnNoTercer, btnSiTercer, stButton33);
     }
+    
 
 }
