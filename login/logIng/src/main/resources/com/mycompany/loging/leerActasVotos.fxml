@@ -44,25 +44,83 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="voto2" editable="false" layoutX="616.0" layoutY="193.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto3" editable="false" layoutX="616.0" layoutY="225.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto4" editable="false" layoutX="616.0" layoutY="258.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto5" editable="false" layoutX="616.0" layoutY="291.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto10" editable="false" layoutX="616.0" layoutY="452.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto9" editable="false" layoutX="616.0" layoutY="419.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto8" editable="false" layoutX="616.0" layoutY="386.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto7" editable="false" layoutX="616.0" layoutY="354.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto6" editable="false" layoutX="616.0" layoutY="324.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto11" editable="false" layoutX="616.0" layoutY="485.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto12" editable="false" layoutX="616.0" layoutY="515.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto13" editable="false" layoutX="616.0" layoutY="547.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto14" editable="false" layoutX="616.0" layoutY="580.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto15" editable="false" layoutX="616.0" layoutY="613.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto19" editable="false" layoutX="616.0" layoutY="744.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto18" editable="false" layoutX="616.0" layoutY="711.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto17" editable="false" layoutX="616.0" layoutY="678.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto16" editable="false" layoutX="616.0" layoutY="646.0" prefHeight="21.0" prefWidth="48.0" />
-            <TextField fx:id="voto1" editable="false" layoutX="616.0" layoutY="162.0" prefHeight="21.0" prefWidth="48.0" />
+            <TextField fx:id="voto2" layoutX="616.0" layoutY="184.0" prefHeight="13.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto3" layoutX="616.0" layoutY="203.0" prefHeight="10.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto4" layoutX="616.0" layoutY="221.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto5" layoutX="616.0" layoutY="242.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto10" layoutX="616.0" layoutY="345.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto9" layoutX="616.0" layoutY="325.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto8" layoutX="616.0" layoutY="305.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto7" layoutX="616.0" layoutY="284.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto6" layoutX="616.0" layoutY="263.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto11" layoutX="616.0" layoutY="365.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto12" layoutX="616.0" layoutY="385.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto13" layoutX="616.0" layoutY="406.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto14" layoutX="616.0" layoutY="427.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto15" layoutX="616.0" layoutY="448.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto19" layoutX="616.0" layoutY="532.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto18" layoutX="616.0" layoutY="511.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto17" layoutX="616.0" layoutY="490.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto16" layoutX="616.0" layoutY="469.0" prefHeight="21.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font></TextField>
+            <TextField fx:id="voto1" layoutX="616.0" layoutY="165.0" prefHeight="3.0" prefWidth="48.0">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>
