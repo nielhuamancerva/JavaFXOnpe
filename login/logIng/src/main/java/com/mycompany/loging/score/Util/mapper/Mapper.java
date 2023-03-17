@@ -78,10 +78,12 @@ public class Mapper {
     }
 
     public Transmision dtoToTransmision(Actas ss) {
+
         TransmisionHeader header = new TransmisionHeader();
         
         Transmision transmision = new Transmision();
         transmision.setHeader(header);
+    
         transmision.setBody(ss);
 
         return transmision;
