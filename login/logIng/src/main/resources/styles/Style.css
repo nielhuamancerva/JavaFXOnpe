@@ -26,8 +26,13 @@
     -fx-background-color:  #CB4335; /* #609966 */
 }
 
+.buttonFirmo{
+    -fx-background-color:  #F5B041; /* #609966 */
+
+}
+
 .boton-active{
-    -fx-background-color:  #2ECC71; /* #609966 */
+    -fx-background-color:  #F5B041; /* #609966 */
 }
 
 .boton-activeN{

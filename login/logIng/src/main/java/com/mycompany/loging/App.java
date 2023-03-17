@@ -29,7 +29,9 @@ public class App extends Application {
     public static void setRoot(Stage stage ,String fxml) throws IOException {
      
         if(Objects.nonNull(stage)){
+
             scene = new Scene(loadFXML("login"));// "login" coambiar por login para iniciar  
+
             stage.setFullScreen(true);
             stage.setScene(scene);
             stage.show();

@@ -58,7 +58,7 @@
       </ImageView>
       <ImageView fx:id="firma3" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
+      <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -66,7 +66,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnSiSecre" layoutX="345.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
+      <Button fx:id="btnSiSecre" layoutX="345.0" layoutY="455.0" mnemonicParsing="false" onAction="#ActionFirmoSiS" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -74,7 +74,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnSiTercer" layoutX="347.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
+      <Button fx:id="btnSiTercer" layoutX="347.0" layoutY="584.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -82,7 +82,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnNoPresi" layoutX="492.0" layoutY="331.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
+      <Button fx:id="btnNoPresi" layoutX="492.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -90,7 +90,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnNoSecre" layoutX="492.0" layoutY="455.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
+      <Button fx:id="btnNoSecre" layoutX="492.0" layoutY="455.0" mnemonicParsing="false" onAction="#ActionFirmoNoS" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
@@ -98,7 +98,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnNoTercer" layoutX="492.0" layoutY="584.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
+      <Button fx:id="btnNoTercer" layoutX="492.0" layoutY="584.0" mnemonicParsing="false" onAction="#ActionFirmoNoT" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="No Firmó">
          <font>
             <Font size="24.0" />
          </font>
