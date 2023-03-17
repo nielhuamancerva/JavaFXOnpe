@@ -51,8 +51,6 @@ public class ConexionMongoImpl implements ConexionMongo {
 
     @Override
     public Document findActaByCodigoBarra(String codigoBarra) throws Exception {
-        // Obtener la collecion de mongo
-
         MongoCollection<Document> collection = mongoDatabase.getCollection("actas");
         return collection.find(Filters.eq("acta", codigoBarra)).first();
     }

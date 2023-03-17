@@ -11,7 +11,9 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-
+import com.mycompany.consumidor.ConexionDB;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 /**
  *
  * @author RDeLaCruz
@@ -21,8 +23,15 @@ public class Consumidor {
     private final static String EXCHANGE_NAME = "SCORE_TRANSMISION";
     private final static String[] QUEUE_NAMES = {"cola_niel", "cola_rodrigo", "cola_luis", "cola_ricardo"};
     
-     public static void main(String[] args) throws IOException, TimeoutException {
+     public static void main(String[] args) throws IOException, TimeoutException, SQLException {
+                   String url = "jdbc:postgresql://localhost:5432/SCE";
+        String usuario = "postgres";
+        String contrasena = "niel";
 
+        //java.sql.Connection conexion = DriverManager.getConnection(url, usuario, contrasena);
+        java.sql.Connection conn = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/SCE", "postgres", "niel");
+/*
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         com.rabbitmq.client.Connection connection = factory.newConnection();
@@ -46,7 +55,9 @@ public class Consumidor {
             channel.basicConsume(queueName, true, consumer);
             
         }
-
+*/
     }
+     
+
     
 }
