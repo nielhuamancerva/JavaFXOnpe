@@ -14,15 +14,25 @@ public class ActaServiceImpl implements ActaService {
     private FactoryServiciosExternos serviceFactory;
 
     @Override
-    public void saveImage(Document codigoBarra) throws Exception{
+    public void saveImage(Document codigoBarra) throws Exception {
         serviceFactory = FactoryServiciosExternos.getInstance();
         serviceFactory.MongoService().conexionMongo();
-        MongoCollection<Document> yy = serviceFactory.MongoService().getCollection("actas");
-        
+
         Document filter = new Document("acta", codigoBarra.getString("acta"));
         Document update = new Document("$set", new Document(codigoBarra));
-        serviceFactory.MongoService().updateDocument(yy, codigoBarra, filter, update);
+        serviceFactory.MongoService().updateDocument(codigoBarra, filter, update, "actas");
 
     }
 
+    @Override
+    public Document findActaBy(String idActa) throws Exception {
+        serviceFactory = FactoryServiciosExternos.getInstance();
+        return serviceFactory.MongoService().findDocumentBy("acta", idActa, "actas");
+    }
+
+    @Override
+    public MongoCollection<Document> findAllCollection() throws Exception {
+        serviceFactory = FactoryServiciosExternos.getInstance();
+        return serviceFactory.MongoService().findAllCollecion("actas");
+    }
 }

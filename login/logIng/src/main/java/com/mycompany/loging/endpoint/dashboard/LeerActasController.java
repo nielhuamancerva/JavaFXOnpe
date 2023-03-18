@@ -2,19 +2,18 @@ package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
-import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.ActasLeidas;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
+import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,22 +28,14 @@ public class LeerActasController implements Initializable {
     private DropShadowE dropShadowE;
 
     @FXML
-    private Button btnCancelar;
-    @FXML
-    private Button btnSiguiente;
-    @FXML
-    private Button btnRecortar;
+    private Button btnCancelar, btnSiguiente, btnRecortar;
 
     public LeerActasController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
     }
 
-    private LocalTime horaSistema = LocalTime.now();
     public static ActasLeidas acta = new ActasLeidas();
-    private String fechaFormatoCadena = "";
-    int hora;
-    int minutos;
 
     @FXML
     TextField txtHora;
@@ -59,49 +50,22 @@ public class LeerActasController implements Initializable {
         try {
             dropShadowE.setTabEffect(btnCancelar);
             dropShadowE.setTabEffect(btnSiguiente);
-
-            calcularFecha();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        this.txtHora.setText(hora + ":" + minutos);
-        this.lbFecha.setText(fechaFormatoCadena);
-    }
-
-    private void calcularFecha() throws IOException {
-        hora = horaSistema.getHour();
-        minutos = horaSistema.getMinute();
-        /*--------------------*/
-        Date fehaActual = new Date();
-        SimpleDateFormat formatoAnio = new SimpleDateFormat("yyyy");
-        SimpleDateFormat formatoMes = new SimpleDateFormat("MMMM");
-        Calendar calendario = Calendar.getInstance();
-        calendario.setTime(fehaActual);
-        int dia = calendario.get(Calendar.DAY_OF_MONTH);
-        String anio = formatoAnio.format(fehaActual);
-        String mes = formatoMes.format(fehaActual);
-        fechaFormatoCadena = "del " + dia + " de " + mes + " de " + anio + ", se inicio el ACTO DE ESCRUTINIO";
-
- 
-        try {
-            factoryservices = FactoryServiciosExternos.getInstance();
-
-            if("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))){
-                    factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(2000, 90, 780, 220);
+            
+            if ("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))) {
+                negocioService.readAndCutBarcode(2000, 90, 780, 220);
             }
-        
-            Image imgRegion = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
-            imagenCodigoBarra.setImage(imgRegion);
+            
+            imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+            
             VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
                     VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
+            
             lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
             lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
             lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
-
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logger.getLogger(LeerActasController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     @FXML

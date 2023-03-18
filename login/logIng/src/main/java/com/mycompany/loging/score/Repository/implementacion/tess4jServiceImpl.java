@@ -17,10 +17,6 @@ import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.RescaleOp;
 import net.sourceforge.tess4j.util.ImageHelper;
 
-/**
- *
- * @author CASSHERN
- */
 public class Tess4jServiceImpl implements Tess4jService {
 
     private static final int MAX_BLACK_VALUE = 382; // ((255 * 3) / 2) rounded down
@@ -37,9 +33,7 @@ public class Tess4jServiceImpl implements Tess4jService {
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
         VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
 
-        File file = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "BAR-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
-
-        BufferedImage image = ImageIO.read(file);
+        BufferedImage image = ImageIO.read(archivoCodigoBarras);
         // create binary bitmap from image
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(new BufferedImageLuminanceSource(image)));
         // set decoding hints
@@ -47,7 +41,7 @@ public class Tess4jServiceImpl implements Tess4jService {
         java.util.Map<DecodeHintType, Object> hints = new java.util.EnumMap<>(DecodeHintType.class);
         hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
         com.google.zxing.Result result = reader.decode(bitmap, hints);
-
+       
         VariableGlobales.lecturaActasEnMemoria.put("codigoBarraResponse", result.getText());
         VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
 
@@ -86,15 +80,12 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         BufferedImage Firma = image.getSubimage(X, Y, H, W);
 
-        //--- archivoFirma1
-        File archivoFirma = new File(
-                VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + signatureFile);
+        File archivoFirma = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + signatureFile);
         ImageIO.write(Firma, "png", archivoFirma);
         VariableGlobales.lecturaActasEnMemoria.put(signatureFile, archivoFirma.toURI().toString());
 
         try {
-            BufferedImage imageFinal = ImageIO.read(new File(
-                    VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + signatureFile));
+            BufferedImage imageFinal = ImageIO.read(archivoFirma);
             int bytesPerPixel = imageFinal.getColorModel().getPixelSize() / 8;
 
             byte[] pixels = ((DataBufferByte) imageFinal.getRaster().getDataBuffer()).getData();
@@ -117,21 +108,17 @@ public class Tess4jServiceImpl implements Tess4jService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println(false);
         return Boolean.FALSE;
     }
 
     @Override
-    public Image leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception {
-
+    public void leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception {
         File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage image = ImageIO.read(imageFile);
         BufferedImage regionObservaciones = image.getSubimage(X, Y, H, W); //REGION OBSERVACION
         File archivoRegionObservaciones = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "OBS-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
         VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
-        Image img = new Image(archivoRegionObservaciones.toURI().toString());
-        return img;
     }
 
     @Override
@@ -142,6 +129,7 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         File archivoRegionLista = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "REG-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
         ImageIO.write(regionLista, "png", archivoRegionLista);
+        
         VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotos", archivoRegionLista.getPath());
         VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotosUri", archivoRegionLista.toURI().toString());
 

@@ -52,11 +52,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fx:id="firma1" fitHeight="106.0" fitWidth="217.0" layoutX="90.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="firma1" fitHeight="120.0" fitWidth="218.0" layoutX="90.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <ImageView fx:id="firma2" fitHeight="106.0" fitWidth="217.0" layoutX="89.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="firma2" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <ImageView fx:id="firma3" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="firma3" fitHeight="120.0" fitWidth="218.0" layoutX="89.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
       <Button fx:id="btnSiPresi" layoutX="347.0" layoutY="331.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="51.0" prefWidth="139.0" stylesheets="@../../../styles/Style.css" text="Firmó">
          <font>

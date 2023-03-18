@@ -25,11 +25,10 @@ public class ImageServiceImpl implements ImageService {
 
         serviceFactory = FactoryServiciosExternos.getInstance();
         serviceFactory.MongoService().conexionMongo();
-        MongoCollection<Document> yy = serviceFactory.MongoService().getCollection("imagenes");
 
         Document filter = new Document("acta_id", codigoBarra.getString("acta_id"));
         Document update = new Document("$set", new Document(codigoBarra));
-        serviceFactory.MongoService().updateDocument(yy, codigoBarra, filter, update);
+        serviceFactory.MongoService().updateDocument(codigoBarra, filter, update,"imagenes");
 
     }
 

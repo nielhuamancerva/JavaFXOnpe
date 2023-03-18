@@ -19,11 +19,7 @@ public class UserServiceImpl implements UserService {
         serviceFactory.MongoService().conexionMongo();
         Document oUser = serviceFactory.MongoService().findCollection(username, password);
         return oUser;
+        
+  
     }
-
-    @Override
-    public Document findImageById(String idActa) throws Exception {
-        return serviceFactory.MongoService().findDocumentBy("acta", idActa, "actas");
-    }
-
 }

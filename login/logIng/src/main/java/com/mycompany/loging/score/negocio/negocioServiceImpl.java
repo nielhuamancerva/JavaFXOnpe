@@ -14,6 +14,8 @@ import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import com.mycompany.loging.score.util.mapper.Mapper;
 import java.io.File;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 
 /**
@@ -39,13 +41,13 @@ public class NegocioServiceImpl implements NegocioService {
     public ObservableList<Actas> finAllActas() throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.MongoService().conexionMongo();
-        return mapping.castObservableListOfActas(factoryservices.MongoService().findAllCollecion("actas").find());
+        return mapping.castObservableListOfActas(factoryservices.ActaServiceImpl().findAllCollection().find());
     }
 
     @Override
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
-        Actas acta = mapping.documentCastToActas(factoryservices.UserService().findImageById(codigoBarra));
+        Actas acta = mapping.documentCastToActas(factoryservices.ActaServiceImpl().findActaBy(codigoBarra));
         Imagenes imagen = mapping.documentCastToImagen(factoryservices.ImageServiceImpl().findImageById(acta.getId_acta()));
         acta.setImagen(imagen);
         return acta;
@@ -64,18 +66,36 @@ public class NegocioServiceImpl implements NegocioService {
     }
 
     @Override
-    public void leerCodigoDeBarras(Integer CoordenaX, Integer CoordenaY, Integer Ancho, Integer Alto) throws IOException, Exception {
-        factoryservices = FactoryServiciosExternos.getInstance();
-        factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(CoordenaX, CoordenaY, Ancho, Alto);
-    }
-
-    @Override
     public Transmision uploadActaReadOnMemory(Actas actaReadOnMemory) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.ImageServiceImpl()
                 .saveImage(mapping.imagenCastToDocument(actaReadOnMemory.getImagen()));
         factoryservices.ActaServiceImpl().saveImage(mapping.actaCastToDocument(actaReadOnMemory));
         return mapping.dtoToTransmision(actaReadOnMemory);
+    }
+
+    @Override
+    public void readAndCutBarcode(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
+    }
+
+    @Override
+    public void readAndCutOrganizationsPolitical(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.Tess4jServiceImpl().leerRegionNumeroVotos(cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
+    }
+
+    @Override
+    public void readAndCutObservations(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.Tess4jServiceImpl().leerObservaciones(cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
+    }
+
+    @Override
+    public Boolean readAndCutsignature(String nameCandidate,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        return factoryservices.Tess4jServiceImpl().validarFirma(nameCandidate,cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
     }
 
 }

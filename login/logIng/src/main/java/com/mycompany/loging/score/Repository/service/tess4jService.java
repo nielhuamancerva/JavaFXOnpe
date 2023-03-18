@@ -1,5 +1,4 @@
 package com.mycompany.loging.score.Repository.service;
-import javafx.scene.image.Image;
 
 /**
  *
@@ -15,5 +14,5 @@ public interface Tess4jService {
 
     public Boolean validarFirma(String signatureFile, Integer X, Integer Y, Integer H, Integer W) throws Exception;
 
-    public Image leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception;
+    public void leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception;
 }

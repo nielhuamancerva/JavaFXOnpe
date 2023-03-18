@@ -11,5 +11,5 @@ public interface UserService {
 
     public Document findByUsernameAndPassword(String username, String password) throws IOException, Exception;
 
-    public Document findImageById(String idActa) throws Exception;
+
 }

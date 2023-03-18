@@ -20,9 +20,16 @@ public interface NegocioService {
 
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception;
 
-    public void leerCodigoDeBarras(Integer CoordenaX, Integer CoordenaY, Integer Ancho, Integer Alto) throws IOException, Exception;
-
     public String uploadFileOnMemory(File fileSelected);
 
     public Transmision uploadActaReadOnMemory(Actas ActaReadOnMemory) throws IOException, Exception;
+
+    public void readAndCutBarcode(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+
+    public void readAndCutOrganizationsPolitical(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+
+    public void readAndCutObservations(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+
+    public Boolean readAndCutsignature(String nameCandidate,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+
 }

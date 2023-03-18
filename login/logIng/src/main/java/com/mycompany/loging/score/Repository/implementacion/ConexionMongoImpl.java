@@ -56,17 +56,13 @@ public class ConexionMongoImpl implements ConexionMongo {
     }
 
     @Override
-    public UpdateResult updateDocument(MongoCollection<Document> yy,Document codigoBarra,Document filter,Document update) throws Exception {
-        return yy.updateOne(filter, update);
+    public UpdateResult updateDocument(Document codigoBarra, Document filter, Document update, String tableOfMongo) throws Exception {
+        MongoCollection<Document> collection = mongoDatabase.getCollection(tableOfMongo);
+        return collection.updateOne(filter, update);
     }
 
     @Override
-    public MongoCollection<Document> getCollection(String tableOfMongo) throws Exception {
-        return mongoDatabase.getCollection(tableOfMongo);
-    }
-
-    @Override
-    public Document findDocumentBy(String filter_id,String codigo_id, String Table) throws Exception {  
+    public Document findDocumentBy(String filter_id, String codigo_id, String Table) throws Exception {
         MongoCollection<Document> collection = mongoDatabase.getCollection(Table);
         return collection.find(Filters.eq(filter_id, codigo_id)).first();
     }
