@@ -105,82 +105,7 @@ public class ConfiguraActaController implements Initializable {
         lbl7.setVisible(false);
         lbl8.setVisible(false);
 
-        imgViewActa.setOnScroll(event -> {
-            double delta = event.getDeltaY();
-            double scale = imgViewActa.getScaleX();
-            if (delta > 0) {
-                imgViewActa.setScaleX(scale * 1.1);
-                imgViewActa.setScaleY(scale * 1.1);
-            } else {
-                imgViewActa.setScaleX(scale / 1.1);
-                imgViewActa.setScaleY(scale / 1.1);
-            }
-        });
-        imgViewActa.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton() == MouseButton.SECONDARY) {// esto permite el arrastre de la imagen
-                    scrollPaneActa.setPannable(true);
-                } else {
-                    scrollPaneActa.setPannable(false);
-                }
-
-                if (event.getButton() == MouseButton.PRIMARY) {
-                    imgX = event.getX();
-                    imgY = event.getY();
-                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXo", String.valueOf(event.getX()));
-                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYo", String.valueOf(event.getY()));
-
-                    Canvas canvas = new Canvas(imgViewActa.getImage().getWidth(), imgViewActa.getImage().getHeight());// capura el alto y ancho de la acta scaneada
-                    GraphicsContext gc = canvas.getGraphicsContext2D();
-                    gc.drawImage(imgViewActa.getImage(), 0, 0);
-
-                    gc.setFill(Color.RED);
-                    gc.setLineWidth(10);
-                    gc.fillOval(imgX, imgY, 10, 10);
-                    WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
-                    PixelWriter gcIw = ImW.getPixelWriter();
-                    canvas.snapshot(null, ImW);
-                    imgViewActa.setImage(ImW);
-                    scrollPaneActa.setContent(imgViewActa);
-                    System.out.println("inicio x:" + imgX + "||" + "inicio y:" + imgY);
-                }
-            }
-        });
-        imgViewActa.setOnMouseReleased(event -> {
-            imgX2 = event.getX();
-            imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYf", String.valueOf(event.getY()));
-            imgAncho = imgX2 - imgX;
-            imgAlto = imgY2 - imgY;
-            
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAncho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto));
-            
-           if (VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto)) == null) {
-                // El valor asignado es nulo
-              } else {
-                btnBoton1.setDisable(false);
-              }
-
-            //dibujando el rectangulo sobre la imagen
-            Canvas canvas = new Canvas(imgViewActa.getImage().getWidth(), imgViewActa.getImage().getHeight());// capura el alto y ancho de la acta scaneada
-            GraphicsContext gc = canvas.getGraphicsContext2D();
-            gc.drawImage(imgViewActa.getImage(), 0, 0);
-            gc.setStroke(Color.RED);
-            gc.setLineWidth(10);
-            gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
-            //Recreando la imagen
-            WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
-            PixelWriter gcIw = ImW.getPixelWriter();
-            canvas.snapshot(null, ImW);
-            imgViewActa.setImage(ImW);
-            scrollPaneActa.setContent(imgViewActa);
-//           
-//            scrollPaneActa.setContent();
-//            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
-        });
+        
 
     }
 
@@ -212,6 +137,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton1(ActionEvent event) {
 
         updateLabel(btnBoton1, lbl1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho")+VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        seterarEventosImageview(imgViewActa,scrollPaneActa);
 
 //        btnBoton1.setDisable(true);
 //        btnAdd1.setDisable(false);
@@ -334,7 +260,7 @@ public class ConfiguraActaController implements Initializable {
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
 
-//        btnBoton1.setDisable(false);
+        btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
         btnAdd1.setVisible(true);
         btnAdd1.setDisable(true);
@@ -462,6 +388,84 @@ public class ConfiguraActaController implements Initializable {
         btnAdd8.setDisable(true);
         btnProcesar.setDisable(false);
         System.out.println("hice click");
+    }
+    
+    private void seterarEventosImageview(ImageView imgV, ScrollPane spA){
+        //
+        
+        
+        
+        imgV.setOnScroll(event -> {
+            double delta = event.getDeltaY();
+            double scale = imgV.getScaleX();
+            if (delta > 0) {
+                imgV.setScaleX(scale * 1.1);
+                imgV.setScaleY(scale * 1.1);
+            } else {
+                imgV.setScaleX(scale / 1.1);
+                imgV.setScaleY(scale / 1.1);
+            }
+        });
+        imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.SECONDARY) {// esto permite el arrastre de la imagen
+                    spA.setPannable(true);
+                } else {
+                    spA.setPannable(false);
+                }
+
+                if (event.getButton() == MouseButton.PRIMARY) {
+                    imgX = event.getX();
+                    imgY = event.getY();
+                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXo", String.valueOf(event.getX()));
+                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYo", String.valueOf(event.getY()));
+
+                    Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
+                    GraphicsContext gc = canvas.getGraphicsContext2D();
+                    gc.drawImage(imgV.getImage(), 0, 0);
+
+                    gc.setFill(Color.RED);
+                    gc.setLineWidth(10);
+                    gc.fillOval(imgX, imgY, 10, 10);
+                    WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
+                    PixelWriter gcIw = ImW.getPixelWriter();
+                    canvas.snapshot(null, ImW);
+                    imgV.setImage(ImW);
+                    spA.setContent(imgV);
+                    System.out.println("inicio x:" + imgX + "||" + "inicio y:" + imgY);
+                }
+            }
+        });
+        imgV.setOnMouseReleased(event -> {
+            imgX2 = event.getX();
+            imgY2 = event.getY();
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXf", String.valueOf(event.getX()));
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYf", String.valueOf(event.getY()));
+            imgAncho = imgX2 - imgX;
+            imgAlto = imgY2 - imgY;
+            
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAncho", String.valueOf(imgAncho));
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto));
+            
+
+            //dibujando el rectangulo sobre la imagen
+            Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            gc.drawImage(imgV.getImage(), 0, 0);
+            gc.setStroke(Color.RED);
+            gc.setLineWidth(10);
+            gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+            //Recreando la imagen
+            WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
+            PixelWriter gcIw = ImW.getPixelWriter();
+            canvas.snapshot(null, ImW);
+            imgV.setImage(ImW);
+            spA.setContent(imgV);
+//           
+//            scrollPaneActa.setContent();
+//            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
+        });
     }
 
 }
