@@ -154,8 +154,15 @@ public class ConfiguraActaController implements Initializable {
             VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYf", String.valueOf(event.getY()));
             imgAncho = imgX2 - imgX;
             imgAlto = imgY2 - imgY;
+            
             VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAncho", String.valueOf(imgAncho));
             VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto));
+            
+           if (VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto)) == null) {
+                // El valor asignado es nulo
+              } else {
+                btnBoton1.setDisable(false);
+              }
 
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgViewActa.getImage().getWidth(), imgViewActa.getImage().getHeight());// capura el alto y ancho de la acta scaneada
@@ -327,7 +334,7 @@ public class ConfiguraActaController implements Initializable {
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
 
-        btnBoton1.setDisable(false);
+//        btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
         btnAdd1.setVisible(true);
         btnAdd1.setDisable(true);
