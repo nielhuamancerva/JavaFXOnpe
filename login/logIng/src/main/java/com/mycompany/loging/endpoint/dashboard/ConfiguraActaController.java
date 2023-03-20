@@ -491,4 +491,10 @@ public class ConfiguraActaController implements Initializable {
         scrollPaneActa.setContent(imgViewActa);
     }
 
+    @FXML
+    private void funcionProcesar() throws IOException {
+        //
+        App.setRoot(null, "leerActas");
+    }
+
 }
