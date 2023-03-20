@@ -63,6 +63,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     ImageView imgViewActa;
     private double imgX = 0.0, imgY = 0.0, imgX2 = 0.0, imgY2 = 0.0, imgAncho, imgAlto;
+    boolean bandImgLimpia;
 
     /**
      * Initializes the controller class.
@@ -116,10 +117,11 @@ public class ConfiguraActaController implements Initializable {
                     imgViewActa.setScaleX(scale / 1.1);
                     imgViewActa.setScaleY(scale / 1.1);
                 }
-        }
-
-            
+        }    
         });
+        //BANDERA PARA Limpiar la imagen
+        bandImgLimpia=false;
+        
 
     }
 
@@ -421,6 +423,10 @@ public class ConfiguraActaController implements Initializable {
                     imgY = event.getY();
                     VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Xo", String.valueOf(event.getX()));
                     VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Yo", String.valueOf(event.getY()));
+                    
+                    if(bandImgLimpia){
+                        imgLimpia();
+                    }
 
                     Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
                     GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -463,10 +469,20 @@ public class ConfiguraActaController implements Initializable {
             canvas.snapshot(null, ImW);
             imgV.setImage(ImW);
             spA.setContent(imgV);
+            
+            //bandera cambia de estado
+            bandImgLimpia=true;
 //           
 //            scrollPaneActa.setContent();
 //            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
         });
+    }
+    
+    private void imgLimpia(){
+        Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        //Image img = new Image(fileSeleccionado.toURI().toString());
+        imgViewActa.setImage(img);
+        scrollPaneActa.setContent(imgViewActa);
     }
 
 }
