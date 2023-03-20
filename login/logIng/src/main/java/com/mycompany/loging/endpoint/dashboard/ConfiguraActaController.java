@@ -107,7 +107,7 @@ public class ConfiguraActaController implements Initializable {
         lbl8.setVisible(false);
 
         imgViewActa.setOnScroll(event -> {// este evento ya esta cargado para la imagen
-            if(event.isControlDown()){
+            if (event.isControlDown()) {
                 double delta = event.getDeltaY();
                 double scale = imgViewActa.getScaleX();
                 if (delta > 0) {
@@ -117,15 +117,16 @@ public class ConfiguraActaController implements Initializable {
                     imgViewActa.setScaleX(scale / 1.1);
                     imgViewActa.setScaleY(scale / 1.1);
                 }
-        }    
+
+            }
+
         });
         //BANDERA PARA Limpiar la imagen
-        bandImgLimpia=false;
-        
+        bandImgLimpia = false;
 
     }
 
-    private void updateLabel(Button button, Label label, Button addButton, Button deleteButton, String text) {
+    private void updateLabel(Button button, Button addButton, Button deleteButton, String text) {
         //label.setText(text);
         button.setDisable(true);
         addButton.setDisable(false);
@@ -152,8 +153,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton1(ActionEvent event) {
 
-        updateLabel(btnBoton1, lbl1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho")+VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
-        seterarEventosImageview("codigoBarraCoordena",imgViewActa,scrollPaneActa);
+        updateLabel(btnBoton1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa);
 
 //        btnBoton1.setDisable(true);
 //        btnAdd1.setDisable(false);
@@ -167,8 +168,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton2(ActionEvent event) {
 
-        updateLabel(btnBoton2, lbl2, btnAdd2, btnDelete2, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-
+        updateLabel(btnBoton2, btnAdd2, btnDelete2, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa);
 //        btnBoton2.setDisable(true);
 //        btnAdd2.setDisable(false);
 //        btnDelete2.setDisable(false);
@@ -181,7 +182,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton3(ActionEvent event) {
 
-        updateLabel(btnBoton3, lbl3, btnAdd3, btnDelete3, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton3, btnAdd3, btnDelete3, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa);
 
 //        btnBoton3.setDisable(true);
 //        btnAdd3.setDisable(false);
@@ -195,7 +197,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton4(ActionEvent event) {
 
-        updateLabel(btnBoton4, lbl4, btnAdd4, btnDelete4, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton4, btnAdd4, btnDelete4, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("regionOrganizaciones", lbl3, imgViewActa, scrollPaneActa);
 
 //        btnBoton4.setDisable(true);
 //        btnAdd4.setDisable(false);
@@ -209,7 +212,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton5(ActionEvent event) {
 
-        updateLabel(btnBoton5, lbl5, btnAdd5, btnDelete5, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton5, btnAdd5, btnDelete5, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa);
 
 //        btnBoton5.setDisable(true);
 //        btnAdd5.setDisable(false);
@@ -223,7 +227,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton6(ActionEvent event) {
 
-        updateLabel(btnBoton6, lbl6, btnAdd6, btnDelete6, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton6, btnAdd6, btnDelete6, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa);
 
 //        btnBoton6.setDisable(true);
 //        btnAdd6.setDisable(false);
@@ -237,7 +242,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton7(ActionEvent event) {
 
-        updateLabel(btnBoton7, lbl7, btnAdd7, btnDelete7, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton7, btnAdd7, btnDelete7, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa);
 
 //        btnBoton7.setDisable(true);
 //        btnAdd7.setDisable(false);
@@ -251,8 +257,8 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton8(ActionEvent event) {
 
-        updateLabel(btnBoton8, lbl8, btnAdd8, btnDelete8, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-
+        updateLabel(btnBoton8, btnAdd8, btnDelete8, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa);
 //        btnBoton8.setDisable(true);
 //        btnAdd8.setDisable(false);
 //        btnDelete8.setDisable(false);
@@ -405,10 +411,10 @@ public class ConfiguraActaController implements Initializable {
         btnProcesar.setDisable(false);
         System.out.println("hice click");
     }
-    
-    private void seterarEventosImageview(String valorConfig,ImageView imgV, ScrollPane spA){
+
+    private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA) {
         //
- 
+
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -421,10 +427,10 @@ public class ConfiguraActaController implements Initializable {
                 if (event.getButton() == MouseButton.PRIMARY) {
                     imgX = event.getX();
                     imgY = event.getY();
-                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Xo", String.valueOf(event.getX()));
-                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Yo", String.valueOf(event.getY()));
-                    
-                    if(bandImgLimpia){
+
+                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xo", String.valueOf(event.getX()));
+                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yo", String.valueOf(event.getY()));
+                    if (bandImgLimpia) {
                         imgLimpia();
                     }
 
@@ -447,15 +453,15 @@ public class ConfiguraActaController implements Initializable {
         imgV.setOnMouseReleased(event -> {
             imgX2 = event.getX();
             imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Xf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Yf", String.valueOf(event.getY()));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
             imgAncho = imgX2 - imgX;
             imgAlto = imgY2 - imgY;
-            
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Ancho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Alto", String.valueOf(imgAlto));
-         
-             lbl1.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig+"Xo"));
+
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
+
+            label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
             GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -469,16 +475,16 @@ public class ConfiguraActaController implements Initializable {
             canvas.snapshot(null, ImW);
             imgV.setImage(ImW);
             spA.setContent(imgV);
-            
+
             //bandera cambia de estado
-            bandImgLimpia=true;
+            bandImgLimpia = true;
 //           
 //            scrollPaneActa.setContent();
 //            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
         });
     }
-    
-    private void imgLimpia(){
+
+    private void imgLimpia() {
         Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
