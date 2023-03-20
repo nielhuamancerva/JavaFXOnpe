@@ -392,19 +392,21 @@ public class ConfiguraActaController implements Initializable {
     
     private void seterarEventosImageview(ImageView imgV, ScrollPane spA){
         //
-        
-        
-        
+ 
         imgV.setOnScroll(event -> {
-            double delta = event.getDeltaY();
-            double scale = imgV.getScaleX();
-            if (delta > 0) {
-                imgV.setScaleX(scale * 1.1);
-                imgV.setScaleY(scale * 1.1);
-            } else {
-                imgV.setScaleX(scale / 1.1);
-                imgV.setScaleY(scale / 1.1);
-            }
+            if(event.isControlDown()){
+                double delta = event.getDeltaY();
+                double scale = imgV.getScaleX();
+                if (delta > 0) {
+                    imgV.setScaleX(scale * 1.1);
+                    imgV.setScaleY(scale * 1.1);
+                } else {
+                    imgV.setScaleX(scale / 1.1);
+                    imgV.setScaleY(scale / 1.1);
+                }
+        }
+
+            
         });
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
