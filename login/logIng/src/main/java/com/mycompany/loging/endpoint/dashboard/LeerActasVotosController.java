@@ -9,6 +9,7 @@ import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class LeerActasVotosController implements Initializable {
 
@@ -32,18 +34,29 @@ public class LeerActasVotosController implements Initializable {
     ImageView imagenVotos, codigoBarra;
 
     @FXML
-    private Button btnRegresar;
+    private Button btnRegresar, btnSiguiente;
+    
     @FXML
-    private Button btnSiguiente;
-
+    private TextField[] voto;
+    
     @FXML
-    TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
-            voto15, voto16, voto17, voto18, voto19;
+    VBox votoBox;
+    
+   @FXML
+   TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
+            voto15, voto16, voto17, voto18, voto19, voto20;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
+        
+//        voto = new TextField[20];
+//        for (int i = 0; i < voto.length ; i++) {
+//            voto[i] = new TextField();
+//            votoBox.getChildren().add(voto[i]);
+//            
+//        }
 
         codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
 
