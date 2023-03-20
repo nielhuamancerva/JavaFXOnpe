@@ -170,6 +170,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton2, btnAdd2, btnDelete2, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 //        btnBoton2.setDisable(true);
 //        btnAdd2.setDisable(false);
 //        btnDelete2.setDisable(false);
@@ -184,6 +185,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton3, btnAdd3, btnDelete3, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 
 //        btnBoton3.setDisable(true);
 //        btnAdd3.setDisable(false);
@@ -199,6 +201,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton4, btnAdd4, btnDelete4, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("regionOrganizaciones", lbl3, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 
 //        btnBoton4.setDisable(true);
 //        btnAdd4.setDisable(false);
@@ -214,6 +217,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton5, btnAdd5, btnDelete5, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 
 //        btnBoton5.setDisable(true);
 //        btnAdd5.setDisable(false);
@@ -229,6 +233,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton6, btnAdd6, btnDelete6, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 
 //        btnBoton6.setDisable(true);
 //        btnAdd6.setDisable(false);
@@ -244,6 +249,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton7, btnAdd7, btnDelete7, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 
 //        btnBoton7.setDisable(true);
 //        btnAdd7.setDisable(false);
@@ -259,6 +265,7 @@ public class ConfiguraActaController implements Initializable {
 
         updateLabel(btnBoton8, btnAdd8, btnDelete8, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
         seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false,false);
 //        btnBoton8.setDisable(true);
 //        btnAdd8.setDisable(false);
 //        btnDelete8.setDisable(false);
@@ -293,6 +300,10 @@ public class ConfiguraActaController implements Initializable {
 
     @FXML
     private void actionAdd1(ActionEvent event) {
+        
+        //evento para dehabilitar la seleccion de puntos
+        //desactivar eventos
+        activarEentoImgView(true,true);
 
         actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
 
@@ -311,7 +322,7 @@ public class ConfiguraActaController implements Initializable {
     private void actionAdd2(ActionEvent event) {
 
         actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
-
+        activarEentoImgView(true,true);
 //        lbl3.setVisible(true);
 //        btnBoton2.setDisable(true);
 //        btnAdd2.setDisable(true);
@@ -326,7 +337,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void actionAdd3(ActionEvent event) {
         actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
-
+        activarEentoImgView(true,true);
 //        lbl4.setVisible(true);
 //        btnBoton3.setDisable(true);
 //        btnAdd3.setDisable(true);
@@ -341,6 +352,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void actionAdd4(ActionEvent event) {
 
+        activarEentoImgView(true,true);
         actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
 
 //        lbl5.setVisible(true);
@@ -359,6 +371,7 @@ public class ConfiguraActaController implements Initializable {
     private void actionAdd5(ActionEvent event) {
         actionAddM(lbl6, btnBoton5, btnAdd5, btnBoton6, btnAdd6, btnAdd6, btnDelete6);
 
+        activarEentoImgView(true,true);
 //        lbl6.setVisible(true);
 //        btnBoton5.setDisable(true);
 //        btnAdd5.setDisable(true);
@@ -374,6 +387,7 @@ public class ConfiguraActaController implements Initializable {
     private void actionAdd6(ActionEvent event) {
         actionAddM(lbl7, btnBoton6, btnAdd6, btnBoton7, btnAdd7, btnAdd7, btnDelete7);
 
+        activarEentoImgView(true,true);
 //        lbl7.setVisible(true);
 //        btnBoton6.setDisable(true);
 //        btnAdd6.setDisable(true);
@@ -391,6 +405,7 @@ public class ConfiguraActaController implements Initializable {
 
         actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
 
+        activarEentoImgView(true,true);
 //        lbl8.setVisible(true);
 //        btnBoton7.setDisable(true);
 //        btnAdd7.setDisable(true);
@@ -406,11 +421,18 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void actionAdd8(ActionEvent event) {
 
+        activarEentoImgView(true,true);
         btnBoton8.setDisable(true);
         btnAdd8.setDisable(true);
         btnProcesar.setDisable(false);
         System.out.println("hice click");
     }
+      @FXML
+    private void funcionProcesar() throws IOException {
+        //
+        App.setRoot(null, "leerActas");
+    }
+
 
     private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA) {
         //
@@ -490,11 +512,13 @@ public class ConfiguraActaController implements Initializable {
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
     }
-
-    @FXML
-    private void funcionProcesar() throws IOException {
-        //
-        App.setRoot(null, "leerActas");
+    
+    private void activarEentoImgView(boolean ingview, boolean limpiarImg){
+        imgViewActa.setDisable(ingview);
+        if(limpiarImg){
+            imgLimpia();
+        }
     }
 
+  
 }
