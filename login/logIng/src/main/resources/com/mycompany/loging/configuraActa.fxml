@@ -17,11 +17,7 @@
       </ImageView>
       <ScrollPane fx:id="scrollPaneActa" layoutX="62.0" layoutY="123.0" prefHeight="662.0" prefWidth="548.0">
          <content>
-            <ImageView fx:id="imgViewActa" fitHeight="1051.0" fitWidth="799.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../imagenes/ActaPrueba.jpg" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="imgViewActa"  pickOnBounds="true" preserveRatio="true" />
          </content></ScrollPane>
       <Button fx:id="btnProcesar" layoutX="1006.0" layoutY="723.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Procesar" textFill="WHITE">
          <cursor>
@@ -121,7 +117,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button id="btnElegirArchivos" fx:id="btnCargar" layoutX="623.0" layoutY="124.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="113.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Cargar" textFill="WHITE">
+      <Button  fx:id="btnCargar" layoutX="623.0" layoutY="124.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="113.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Cargar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

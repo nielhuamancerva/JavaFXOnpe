@@ -13,14 +13,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -110,38 +116,63 @@ public class ConfiguraActaController implements Initializable {
                 imgViewActa.setScaleY(scale / 1.1);
             }
         });
-        imgViewActa.setOnMousePressed(event -> {
-            if (event.getButton() == MouseButton.SECONDARY) {// esto permite el arrastre de la imagen
-                scrollPaneActa.setPannable(true);
-            } else {
-                scrollPaneActa.setPannable(false);
-            }
+        imgViewActa.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.SECONDARY) {// esto permite el arrastre de la imagen
+                    scrollPaneActa.setPannable(true);
+                } else {
+                    scrollPaneActa.setPannable(false);
+                }
 
-            if (event.getButton() == MouseButton.PRIMARY) {
-                imgX = event.getX();
-                imgY = event.getY();
-                Circle circle = new Circle(imgX, imgY, 10, Color.RED);
-                Pane overlayPane = new Pane(circle);
-                overlayPane.setMouseTransparent(true);
-                scrollPaneActa.setContent(new StackPane(imgViewActa, overlayPane));
-                System.out.println("inicio x:" + imgX + "||" + "inicio y:" + imgY);
+                if (event.getButton() == MouseButton.PRIMARY) {
+                    imgX = event.getX();
+                    imgY = event.getY();
+                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXo", String.valueOf(event.getX()));
+                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYo", String.valueOf(event.getY()));
+
+                    Canvas canvas = new Canvas(imgViewActa.getImage().getWidth(), imgViewActa.getImage().getHeight());// capura el alto y ancho de la acta scaneada
+                    GraphicsContext gc = canvas.getGraphicsContext2D();
+                    gc.drawImage(imgViewActa.getImage(), 0, 0);
+
+                    gc.setFill(Color.RED);
+                    gc.setLineWidth(10);
+                    gc.fillOval(imgX, imgY, 10, 10);
+                    WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
+                    PixelWriter gcIw = ImW.getPixelWriter();
+                    canvas.snapshot(null, ImW);
+                    imgViewActa.setImage(ImW);
+                    scrollPaneActa.setContent(imgViewActa);
+                    System.out.println("inicio x:" + imgX + "||" + "inicio y:" + imgY);
+                }
             }
         });
         imgViewActa.setOnMouseReleased(event -> {
             imgX2 = event.getX();
             imgY2 = event.getY();
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXf", String.valueOf(event.getX()));
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYf", String.valueOf(event.getY()));
             imgAncho = imgX2 - imgX;
             imgAlto = imgY2 - imgY;
-            Circle circle = new Circle(imgX2, imgY2, 10, Color.RED);
-            Rectangle rect = new Rectangle(imgAncho, imgAlto);
-            rect.setX(imgX);
-            rect.setY(imgY);
-            rect.setStroke(Color.BLUE);
-            rect.setFill(Color.TRANSPARENT);
-            Pane overlayPane = new Pane(circle, rect);
-            overlayPane.setMouseTransparent(true);
-            scrollPaneActa.setContent(new StackPane(imgViewActa, overlayPane));
-            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAncho", String.valueOf(imgAncho));
+            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto));
+
+            //dibujando el rectangulo sobre la imagen
+            Canvas canvas = new Canvas(imgViewActa.getImage().getWidth(), imgViewActa.getImage().getHeight());// capura el alto y ancho de la acta scaneada
+            GraphicsContext gc = canvas.getGraphicsContext2D();
+            gc.drawImage(imgViewActa.getImage(), 0, 0);
+            gc.setStroke(Color.RED);
+            gc.setLineWidth(10);
+            gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+            //Recreando la imagen
+            WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
+            PixelWriter gcIw = ImW.getPixelWriter();
+            canvas.snapshot(null, ImW);
+            imgViewActa.setImage(ImW);
+            scrollPaneActa.setContent(imgViewActa);
+//           
+//            scrollPaneActa.setContent();
+//            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
         });
 
     }
@@ -173,7 +204,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton1(ActionEvent event) {
 
-        updateLabel(btnBoton1, lbl1, btnAdd1, btnDelete1, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton1, lbl1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho")+VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
 
 //        btnBoton1.setDisable(true);
 //        btnAdd1.setDisable(false);
@@ -290,6 +321,12 @@ public class ConfiguraActaController implements Initializable {
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
+
+        Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        //Image img = new Image(fileSeleccionado.toURI().toString());
+        imgViewActa.setImage(img);
+        scrollPaneActa.setContent(imgViewActa);
+
         btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
         btnAdd1.setVisible(true);
