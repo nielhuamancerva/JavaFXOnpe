@@ -53,7 +53,7 @@ public class ConfiguraActaController implements Initializable {
     private Button btnRegresar, btnBoton1, btnBoton2, btnBoton3, btnBoton4, btnBoton8, btnBoton7, btnBoton6, btnBoton5, btnCargar, btnProcesar, btnAdd1, btnAdd2, btnAdd3, btnAdd4, btnAdd5, btnAdd6, btnAdd7, btnAdd8, btnDelete1, btnDelete2, btnDelete3, btnDelete4, btnDelete5, btnDelete6, btnDelete7, btnDelete8;
 
     @FXML
-    private Label lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8;
+    Label lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8;
     @FXML
     private Label lbArchivosEncontrados;
 
@@ -124,7 +124,7 @@ public class ConfiguraActaController implements Initializable {
     }
 
     private void updateLabel(Button button, Label label, Button addButton, Button deleteButton, String text) {
-        label.setText(text);
+        //label.setText(text);
         button.setDisable(true);
         addButton.setDisable(false);
         deleteButton.setDisable(false);
@@ -151,7 +151,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton1(ActionEvent event) {
 
         updateLabel(btnBoton1, lbl1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho")+VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
-        seterarEventosImageview(imgViewActa,scrollPaneActa);
+        seterarEventosImageview("codigoBarraCoordena",imgViewActa,scrollPaneActa);
 
 //        btnBoton1.setDisable(true);
 //        btnAdd1.setDisable(false);
@@ -404,7 +404,7 @@ public class ConfiguraActaController implements Initializable {
         System.out.println("hice click");
     }
     
-    private void seterarEventosImageview(ImageView imgV, ScrollPane spA){
+    private void seterarEventosImageview(String valorConfig,ImageView imgV, ScrollPane spA){
         //
  
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -419,8 +419,8 @@ public class ConfiguraActaController implements Initializable {
                 if (event.getButton() == MouseButton.PRIMARY) {
                     imgX = event.getX();
                     imgY = event.getY();
-                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXo", String.valueOf(event.getX()));
-                    VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYo", String.valueOf(event.getY()));
+                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Xo", String.valueOf(event.getX()));
+                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Yo", String.valueOf(event.getY()));
 
                     Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
                     GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -441,15 +441,15 @@ public class ConfiguraActaController implements Initializable {
         imgV.setOnMouseReleased(event -> {
             imgX2 = event.getX();
             imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasXf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasYf", String.valueOf(event.getY()));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Xf", String.valueOf(event.getX()));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Yf", String.valueOf(event.getY()));
             imgAncho = imgX2 - imgX;
             imgAlto = imgY2 - imgY;
             
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAncho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put("BarraCoordenasAlto", String.valueOf(imgAlto));
-            
-
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Ancho", String.valueOf(imgAncho));
+            VariableGlobales.lecturaActasEnMemoria.put(valorConfig+"Alto", String.valueOf(imgAlto));
+         
+             lbl1.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig+"Xo"));
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
             GraphicsContext gc = canvas.getGraphicsContext2D();
