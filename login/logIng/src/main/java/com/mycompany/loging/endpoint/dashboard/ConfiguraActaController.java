@@ -144,6 +144,18 @@ public class ConfiguraActaController implements Initializable {
         deleteButton.setVisible(true);
     }
 
+    private void actionDelete(Label label1, Button btnButon1, Button addButton, Button btnDelete, Button btnButon2, Label label2, Label label3) {
+
+        label1.setVisible(false);
+        btnButon1.setVisible(false);
+        addButton.setVisible(false);
+        btnDelete.setVisible(false);
+        btnButon2.setDisable(false);
+        activarEentoImgView(false, false);
+        label2.setText(".....");
+        label3.setText(".....");
+    }
+
     @FXML
     private void regresaMenu() throws IOException {
         App.setRoot(null, "iniciarConfiguracion");
@@ -156,123 +168,67 @@ public class ConfiguraActaController implements Initializable {
         updateLabel(btnBoton1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa);
 
-//        btnBoton1.setDisable(true);
-//        btnAdd1.setDisable(false);
-//        btnDelete1.setDisable(false);
-//
-//        lbl1.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton2(ActionEvent event) {
 
-        updateLabel(btnBoton2, btnAdd2, btnDelete2, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton2, btnAdd2, btnDelete2, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
-//        btnBoton2.setDisable(true);
-//        btnAdd2.setDisable(false);
-//        btnDelete2.setDisable(false);
-//
-//        lbl2.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
+        activarEentoImgView(false, false);
     }
 
     @FXML
     private void ActionBoton3(ActionEvent event) {
 
-        updateLabel(btnBoton3, btnAdd3, btnDelete3, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton3, btnAdd3, btnDelete3, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
+        activarEentoImgView(false, false);
 
-//        btnBoton3.setDisable(true);
-//        btnAdd3.setDisable(false);
-//        btnDelete3.setDisable(false);
-//
-//        lbl3.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton4(ActionEvent event) {
 
-        updateLabel(btnBoton4, btnAdd4, btnDelete4, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-        seterarEventosImageview("regionOrganizaciones", lbl3, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
+        updateLabel(btnBoton4, btnAdd4, btnDelete4, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa);
+        activarEentoImgView(false, false);
 
-//        btnBoton4.setDisable(true);
-//        btnAdd4.setDisable(false);
-//        btnDelete4.setDisable(false);
-//
-//        lbl4.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton5(ActionEvent event) {
 
-        updateLabel(btnBoton5, btnAdd5, btnDelete5, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton5, btnAdd5, btnDelete5, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
+        activarEentoImgView(false, false);
 
-//        btnBoton5.setDisable(true);
-//        btnAdd5.setDisable(false);
-//        btnDelete5.setDisable(false);
-//
-//        lbl5.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton6(ActionEvent event) {
 
-        updateLabel(btnBoton6, btnAdd6, btnDelete6, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton6, btnAdd6, btnDelete6, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
+        activarEentoImgView(false, false);
 
-//        btnBoton6.setDisable(true);
-//        btnAdd6.setDisable(false);
-//        btnDelete6.setDisable(false);
-//
-//        lbl6.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton7(ActionEvent event) {
 
-        updateLabel(btnBoton7, btnAdd7, btnDelete7, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton7, btnAdd7, btnDelete7, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
+        activarEentoImgView(false, false);
 
-//        btnBoton7.setDisable(true);
-//        btnAdd7.setDisable(false);
-//        btnDelete7.setDisable(false);
-//
-//        lbl7.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
     }
 
     @FXML
     private void ActionBoton8(ActionEvent event) {
 
-        updateLabel(btnBoton8, btnAdd8, btnDelete8, "iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
+        updateLabel(btnBoton8, btnAdd8, btnDelete8, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
         seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa);
-        activarEentoImgView(false,false);
-//        btnBoton8.setDisable(true);
-//        btnAdd8.setDisable(false);
-//        btnDelete8.setDisable(false);
-//
-//        lbl8.setText("iX:x182.0 || iY: 50.0 \nfX:426.0 || fY:181.0");
-//
-//        System.out.println("click boton");
+        activarEentoImgView(false, false);
     }
 
     @FXML
@@ -300,104 +256,58 @@ public class ConfiguraActaController implements Initializable {
 
     @FXML
     private void actionAdd1(ActionEvent event) {
-        
+
         //evento para dehabilitar la seleccion de puntos
         //desactivar eventos
-        activarEentoImgView(true,true);
+        activarEentoImgView(true, true);
 
         actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
+        btnBoton2.setDisable(false);
 
-//        lbl2.setVisible(true);
-//        btnBoton1.setDisable(true);
-//        btnAdd1.setDisable(true);
-//        btnBoton2.setVisible(true);
-//        btnAdd2.setVisible(true);
-//        btnAdd2.setDisable(true);
-//        btnDelete2.setVisible(true);
-//
-//        System.out.println("hice click");
     }
 
     @FXML
     private void actionAdd2(ActionEvent event) {
 
         actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
-        activarEentoImgView(true,true);
-//        lbl3.setVisible(true);
-//        btnBoton2.setDisable(true);
-//        btnAdd2.setDisable(true);
-//        btnBoton3.setVisible(true);
-//        btnAdd3.setDisable(true);
-//        btnAdd3.setVisible(true);
-//        btnDelete3.setVisible(true);
-//
-//        System.out.println("hice click");
+        activarEentoImgView(true, true);
+        btnBoton3.setDisable(false);
+
     }
 
     @FXML
     private void actionAdd3(ActionEvent event) {
         actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
-        activarEentoImgView(true,true);
-//        lbl4.setVisible(true);
-//        btnBoton3.setDisable(true);
-//        btnAdd3.setDisable(true);
-//        btnBoton4.setVisible(true);
-//        btnAdd4.setDisable(true);
-//        btnAdd4.setVisible(true);
-//        btnDelete4.setVisible(true);
-//
-//        System.out.println("hice click");
+        activarEentoImgView(true, true);
+        btnBoton4.setDisable(false);
+
     }
 
     @FXML
     private void actionAdd4(ActionEvent event) {
 
-        activarEentoImgView(true,true);
+        activarEentoImgView(true, true);
         actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
+        btnBoton5.setDisable(false);
 
-//        lbl5.setVisible(true);
-//        btnBoton4.setDisable(true);
-//        btnAdd4.setDisable(true);
-//        btnBoton5.setVisible(true);
-//        btnAdd5.setVisible(true);
-//        btnAdd5.setDisable(true);
-//
-//        btnDelete5.setVisible(true);
-//
-//        System.out.println("hice click");
     }
 
     @FXML
     private void actionAdd5(ActionEvent event) {
         actionAddM(lbl6, btnBoton5, btnAdd5, btnBoton6, btnAdd6, btnAdd6, btnDelete6);
 
-        activarEentoImgView(true,true);
-//        lbl6.setVisible(true);
-//        btnBoton5.setDisable(true);
-//        btnAdd5.setDisable(true);
-//        btnBoton6.setVisible(true);
-//        btnAdd6.setVisible(true);
-//        btnAdd6.setDisable(true);
-//        btnDelete6.setVisible(true);
-//
-//        System.out.println("hice click");
+        activarEentoImgView(true, true);
+        btnBoton6.setDisable(false);
+
     }
 
     @FXML
     private void actionAdd6(ActionEvent event) {
         actionAddM(lbl7, btnBoton6, btnAdd6, btnBoton7, btnAdd7, btnAdd7, btnDelete7);
 
-        activarEentoImgView(true,true);
-//        lbl7.setVisible(true);
-//        btnBoton6.setDisable(true);
-//        btnAdd6.setDisable(true);
-//        btnBoton7.setVisible(true);
-//        btnAdd7.setVisible(true);
-//        btnAdd7.setDisable(true);
-//
-//        btnDelete7.setVisible(true);
-//
-//        System.out.println("hice click");
+        activarEentoImgView(true, true);
+        btnBoton7.setDisable(false);
+
     }
 
     @FXML
@@ -405,34 +315,26 @@ public class ConfiguraActaController implements Initializable {
 
         actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
 
-        activarEentoImgView(true,true);
-//        lbl8.setVisible(true);
-//        btnBoton7.setDisable(true);
-//        btnAdd7.setDisable(true);
-//        btnBoton8.setVisible(true);
-//        btnAdd8.setVisible(true);
-//        btnAdd8.setDisable(true);
-//
-//        btnDelete8.setVisible(true);
-//
-//        System.out.println("hice click");
+        activarEentoImgView(true, true);
+        btnBoton8.setDisable(false);
+
     }
 
     @FXML
     private void actionAdd8(ActionEvent event) {
 
-        activarEentoImgView(true,true);
+        activarEentoImgView(true, true);
         btnBoton8.setDisable(true);
         btnAdd8.setDisable(true);
         btnProcesar.setDisable(false);
         System.out.println("hice click");
     }
-      @FXML
+
+    @FXML
     private void funcionProcesar() throws IOException {
         //
         App.setRoot(null, "leerActas");
     }
-
 
     private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA) {
         //
@@ -512,13 +414,97 @@ public class ConfiguraActaController implements Initializable {
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
     }
-    
-    private void activarEentoImgView(boolean ingview, boolean limpiarImg){
+
+    private void activarEentoImgView(boolean ingview, boolean limpiarImg) {
         imgViewActa.setDisable(ingview);
-        if(limpiarImg){
+        if (limpiarImg) {
             imgLimpia();
         }
     }
 
-  
+    @FXML
+    private void ActionDeleteEvent8(ActionEvent event) {
+        actionDelete(lbl8, btnBoton8, btnAdd8, btnDelete8, btnBoton7, lbl7, lbl8);
+
+    }
+
+    @FXML
+    private void ActionDeleteEvent7(ActionEvent event) {
+        actionDelete(lbl7, btnBoton7, btnAdd7, btnDelete7, btnBoton6, lbl6, lbl7);
+
+    }
+
+    @FXML
+    private void ActionDeleteEvent6(ActionEvent event) {
+        actionDelete(lbl6, btnBoton6, btnAdd6, btnDelete6, btnBoton5, lbl5, lbl6);
+    }
+
+    @FXML
+    private void ActionDeleteEvent5(ActionEvent event) {
+
+        actionDelete(lbl5, btnBoton5, btnAdd5, btnDelete5, btnBoton4, lbl4, lbl5);
+
+//        lbl5.setVisible(false);
+//        btnBoton5.setVisible(false);
+//        btnAdd5.setVisible(false);
+//        btnDelete5.setVisible(false);
+//        btnBoton4.setDisable(false);
+//        activarEentoImgView(false, false);
+//        lbl3.setText(".....");
+//        lbl4.setText(".....");
+    }
+
+    @FXML
+    private void ActionDeleteEvent3(ActionEvent event) {
+
+        actionDelete(lbl3, btnBoton3, btnAdd3, btnDelete3, btnBoton2, lbl2, lbl3);
+
+//        lbl3.setVisible(false);
+//        btnBoton3.setVisible(false);
+//        btnAdd3.setVisible(false);
+//        btnDelete3.setVisible(false);
+//        btnBoton2.setDisable(false);
+//        activarEentoImgView(false, false);
+//        lbl2.setText(".....");
+//        lbl3.setText(".....");
+    }
+
+    @FXML
+    private void ActionDeleteEvent4(ActionEvent event) {
+
+        actionDelete(lbl4, btnBoton4, btnAdd4, btnDelete4, btnBoton3, lbl3, lbl4);
+
+//        lbl4.setVisible(false);
+//        btnBoton4.setVisible(false);
+//        btnAdd4.setVisible(false);
+//        btnDelete4.setVisible(false);
+//        btnBoton3.setDisable(false);
+//        activarEentoImgView(false, false);
+//        lbl3.setText(".....");
+//        lbl4.setText(".....");
+    }
+
+    @FXML
+    private void ActionDeleteEvent2(ActionEvent event) {
+
+        actionDelete(lbl2, btnBoton2, btnAdd2, btnDelete2, btnBoton1, lbl2, lbl1);
+
+//        lbl2.setVisible(false);
+//        btnBoton2.setVisible(false);
+//        btnAdd2.setVisible(false);
+//        btnDelete2.setVisible(false);
+//        btnBoton1.setDisable(false);
+//        activarEentoImgView(false, false);
+//        lbl2.setText(".....");
+//        lbl1.setText(".....");
+    }
+
+    @FXML
+    private void ActionDeleteEvent1(ActionEvent event) {
+        btnBoton1.setDisable(false);
+        lbl1.setText(".....");
+        activarEentoImgView(false, false);
+        
+    }
+
 }

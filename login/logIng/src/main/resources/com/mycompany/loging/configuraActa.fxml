@@ -32,31 +32,31 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBoton2" layoutX="946.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionBoton2" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 1" textFill="WHITE">
+      <Button fx:id="btnBoton2" layoutX="946.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionBoton2" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Hora Inicio" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBoton3" layoutX="946.0" layoutY="240.0" mnemonicParsing="false" onAction="#ActionBoton3" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region  2" textFill="WHITE">
+      <Button fx:id="btnBoton3" layoutX="946.0" layoutY="240.0" mnemonicParsing="false" onAction="#ActionBoton3" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Hora Fin" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBoton4" layoutX="946.0" layoutY="300.0" mnemonicParsing="false" onAction="#ActionBoton4" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 3" textFill="WHITE">
+      <Button fx:id="btnBoton4" layoutX="946.0" layoutY="300.0" mnemonicParsing="false" onAction="#ActionBoton4" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <Button fx:id="btnBoton8" layoutX="946.0" layoutY="539.0" mnemonicParsing="false" onAction="#ActionBoton8" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 3" textFill="WHITE">
@@ -64,7 +64,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <Button fx:id="btnBoton7" layoutX="946.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActionBoton7" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 2" textFill="WHITE">
@@ -72,7 +72,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <Button fx:id="btnBoton6" layoutX="946.0" layoutY="421.0" mnemonicParsing="false" onAction="#ActionBoton6" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Firma 1" textFill="WHITE">
@@ -80,15 +80,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnBoton5" layoutX="946.0" layoutY="360.0" mnemonicParsing="false" onAction="#ActionBoton5" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Region 4" textFill="WHITE">
+      <Button fx:id="btnBoton5" layoutX="946.0" layoutY="360.0" mnemonicParsing="false" onAction="#ActionBoton5" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Observaciones" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <Button fx:id="btnRegresar" layoutX="844.0" layoutY="723.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Regresar" textFill="WHITE">
@@ -194,7 +194,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete8" layoutX="1133.0" layoutY="538.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete8" layoutX="1133.0" layoutY="538.0" mnemonicParsing="false" onAction="#ActionDeleteEvent8" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -202,7 +202,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete7" layoutX="1133.0" layoutY="478.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete7" layoutX="1133.0" layoutY="478.0" mnemonicParsing="false" onAction="#ActionDeleteEvent7" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -210,7 +210,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete6" layoutX="1133.0" layoutY="420.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete6" layoutX="1133.0" layoutY="420.0" mnemonicParsing="false" onAction="#ActionDeleteEvent6" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -218,7 +218,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete5" layoutX="1133.0" layoutY="359.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete5" layoutX="1133.0" layoutY="359.0" mnemonicParsing="false" onAction="#ActionDeleteEvent5" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -226,7 +226,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete3" layoutX="1133.0" layoutY="239.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete3" layoutX="1133.0" layoutY="239.0" mnemonicParsing="false" onAction="#ActionDeleteEvent3" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -234,7 +234,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete4" layoutX="1133.0" layoutY="299.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete4" layoutX="1133.0" layoutY="299.0" mnemonicParsing="false" onAction="#ActionDeleteEvent4" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -242,7 +242,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete2" layoutX="1133.0" layoutY="179.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete2" layoutX="1133.0" layoutY="179.0" mnemonicParsing="false" onAction="#ActionDeleteEvent2" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -250,7 +250,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDelete1" layoutX="1133.0" layoutY="123.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
+      <Button fx:id="btnDelete1" layoutX="1133.0" layoutY="123.0" mnemonicParsing="false" onAction="#ActionDeleteEvent1" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="-" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
