@@ -50,11 +50,13 @@ public class LeerActasController implements Initializable {
         try {
             dropShadowE.setTabEffect(btnCancelar);
             dropShadowE.setTabEffect(btnSiguiente);
-            
             if ("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))) {
-                negocioService.readAndCutBarcode(2000, 90, 780, 220);
+                negocioService.readAndCutBarcode(
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Alto")));
             }
-            
             imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
             
             VariableGlobales.actasLeida = negocioService.finByCodigoBarra(

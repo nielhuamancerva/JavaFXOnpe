@@ -126,7 +126,7 @@ public class ConfiguraActaController implements Initializable {
 
     }
 
-    private void updateLabel(Button button, Button addButton, Button deleteButton, String text) {
+    private void updateLabel(Button button, Button addButton, Button deleteButton) {
         //label.setText(text);
         button.setDisable(true);
         addButton.setDisable(false);
@@ -165,7 +165,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton1(ActionEvent event) {
 
-        updateLabel(btnBoton1, btnAdd1, btnDelete1, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton1, btnAdd1, btnDelete1);
         seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa);
 
     }
@@ -173,7 +173,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton2(ActionEvent event) {
 
-        updateLabel(btnBoton2, btnAdd2, btnDelete2, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton2, btnAdd2, btnDelete2);
         seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
     }
@@ -181,7 +181,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton3(ActionEvent event) {
 
-        updateLabel(btnBoton3, btnAdd3, btnDelete3, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton3, btnAdd3, btnDelete3);
         seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
 
@@ -190,7 +190,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton4(ActionEvent event) {
 
-        updateLabel(btnBoton4, btnAdd4, btnDelete4, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton4, btnAdd4, btnDelete4);
         seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
 
@@ -199,7 +199,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton5(ActionEvent event) {
 
-        updateLabel(btnBoton5, btnAdd5, btnDelete5, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton5, btnAdd5, btnDelete5);
         seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
 
@@ -208,7 +208,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton6(ActionEvent event) {
 
-        updateLabel(btnBoton6, btnAdd6, btnDelete6, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton6, btnAdd6, btnDelete6);
         seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
 
@@ -217,7 +217,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton7(ActionEvent event) {
 
-        updateLabel(btnBoton7, btnAdd7, btnDelete7, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton7, btnAdd7, btnDelete7);
         seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
 
@@ -226,7 +226,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void ActionBoton8(ActionEvent event) {
 
-        updateLabel(btnBoton8, btnAdd8, btnDelete8, VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAncho") + VariableGlobales.lecturaActasEnMemoria.get("BarraCoordenasAlto"));
+        updateLabel(btnBoton8, btnAdd8, btnDelete8);
         seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa);
         activarEentoImgView(false, false);
     }
@@ -237,7 +237,6 @@ public class ConfiguraActaController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
 
         Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
@@ -333,6 +332,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void funcionProcesar() throws IOException {
         //
+          VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","SI");
         App.setRoot(null, "leerActas");
     }
 
@@ -352,8 +352,8 @@ public class ConfiguraActaController implements Initializable {
                     imgX = event.getX();
                     imgY = event.getY();
 
-                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xo", String.valueOf(event.getX()));
-                    VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yo", String.valueOf(event.getY()));
+                    VariableGlobales.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(event.getX())));
+                    VariableGlobales.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(event.getY())));
                     if (bandImgLimpia) {
                         imgLimpia();
                     }
@@ -377,15 +377,19 @@ public class ConfiguraActaController implements Initializable {
         imgV.setOnMouseReleased(event -> {
             imgX2 = event.getX();
             imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
-            imgAncho = imgX2 - imgX;
-            imgAlto = imgY2 - imgY;
+            VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
+            VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
+            imgAncho = Math.abs(imgX2 - imgX);
+            imgAlto = Math.abs(imgY2 - imgY);
 
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
+            VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
+            VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
 
-            label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
+            label.setText(VariableGlobales.configuracionActa.get(valorConfig + "Xo")+","+
+                    VariableGlobales.configuracionActa.get(valorConfig + "Yo")+","+
+                    VariableGlobales.configuracionActa.get(valorConfig + "Ancho")+","+
+                    VariableGlobales.configuracionActa.get(valorConfig + "Alto"));
+            
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
             GraphicsContext gc = canvas.getGraphicsContext2D();
