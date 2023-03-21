@@ -397,8 +397,8 @@ public class ConfiguraActaController implements Initializable {
 
             gc.drawImage(imgV.getImage(), 0, 0);
             gc.setFill(Color.color(0, 0, 0, 0.5));
-            gc.setStroke(Color.RED);
-            gc.setLineWidth(10);
+            //gc.setStroke(Color.RED);
+            //gc.setLineWidth(10);
             gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
             gc.fillRect(imgX, imgY, imgAncho, imgAlto);
             //Recreando la imagen
@@ -412,6 +412,10 @@ public class ConfiguraActaController implements Initializable {
         });
 
         imgV.setOnMouseReleased(event -> {
+            //seteando imagen limpia para ser graficada
+            Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            imgV.setImage(img);
+            //
             imgX2 = event.getX();
             imgY2 = event.getY();
             VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
