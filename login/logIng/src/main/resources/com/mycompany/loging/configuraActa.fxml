@@ -99,14 +99,14 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Label fx:id="lbl1" layoutX="798.0" layoutY="123.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl2" layoutX="798.0" layoutY="181.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl3" layoutX="798.0" layoutY="241.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl4" layoutX="798.0" layoutY="301.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl5" layoutX="798.0" layoutY="361.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl6" layoutX="798.0" layoutY="419.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl7" layoutX="798.0" layoutY="480.0" prefHeight="44.0" prefWidth="139.0" text="....." />
-      <Label fx:id="lbl8" layoutX="798.0" layoutY="540.0" prefHeight="44.0" prefWidth="139.0" text="....." />
+      <Label fx:id="lbl1" layoutX="798.0" layoutY="123.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl2" layoutX="798.0" layoutY="181.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl3" layoutX="798.0" layoutY="241.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl4" layoutX="798.0" layoutY="301.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl5" layoutX="798.0" layoutY="361.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl6" layoutX="798.0" layoutY="419.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl7" layoutX="798.0" layoutY="480.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label fx:id="lbl8" layoutX="798.0" layoutY="540.0" prefHeight="44.0" prefWidth="139.0" />
       <Label layoutX="742.0" layoutY="46.0" text="CENTRO DE COMPUTO:">
          <font>
             <Font size="24.0" />
@@ -258,5 +258,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
+      <Label fx:id="lbl9" layoutX="799.0" layoutY="582.0" prefHeight="44.0" prefWidth="139.0" />
    </children>
 </AnchorPane>
