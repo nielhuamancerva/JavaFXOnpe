@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
 public class RegistrarObsController implements Initializable {
 
     private final NegocioService negocioService;
-    
+
     @FXML
     ImageView observacionesActa, codigoBarra;
 
@@ -31,7 +31,12 @@ public class RegistrarObsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-            negocioService.readAndCutObservations(290, 3865, 2360, 350);
+            negocioService.readAndCutObservations(
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservaciones" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservaciones" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservaciones" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservaciones" + "Alto"))
+            );
         } catch (Exception ex) {
             ex.printStackTrace();
         }

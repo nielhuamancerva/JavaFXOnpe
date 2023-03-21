@@ -35,34 +35,40 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private Button btnRegresar, btnSiguiente;
-    
+
     @FXML
     private TextField[] voto;
-    
+
     @FXML
     VBox votoBox;
-    
-   @FXML
-   TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
+
+    @FXML
+    TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
             voto15, voto16, voto17, voto18, voto19, voto20;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
-        
+
 //        voto = new TextField[20];
 //        for (int i = 0; i < voto.length ; i++) {
 //            voto[i] = new TextField();
 //            votoBox.getChildren().add(voto[i]);
 //            
 //        }
-
         codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
 
         try {
-            negocioService.readAndCutOrganizationsPolitical(210, 1576, 2400, 2275);
-            imagenVotos.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
+            negocioService.readAndCutOrganizationsPolitical(
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Alto")));
+            
+            imagenVotos.setImage(
+                    CreateObject.image(
+                            VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
 
             /*factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto1", 1514, 120, 200, 240);
             factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto2", 1514, 440, 200, 240);

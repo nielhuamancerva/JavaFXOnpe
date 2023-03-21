@@ -44,6 +44,7 @@ public class TransmisionController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
+        System.out.println(fileSeleccionado);
         VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         btnSiguiente.setDisable(false);
