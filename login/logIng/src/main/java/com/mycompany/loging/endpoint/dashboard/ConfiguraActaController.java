@@ -127,10 +127,7 @@ public class ConfiguraActaController implements Initializable {
     }
 
     private void updateLabel(Button button, Button addButton, Button deleteButton) {
-<<<<<<< HEAD
-=======
-        //label.setText(text);
->>>>>>> 2b1bacf058430188785a0d59ef91f72e1b09da71
+
         button.setDisable(true);
         addButton.setDisable(false);
         deleteButton.setDisable(false);
@@ -334,7 +331,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void funcionProcesar() throws IOException {
         //
-          VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","SI");
+        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         App.setRoot(null, "leerActas");
     }
 
@@ -359,10 +356,6 @@ public class ConfiguraActaController implements Initializable {
                     if (bandImgLimpia) {
                         imgLimpia();
                     }
-                    
-                    
-                    
-                    
 
                     Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
                     GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -380,8 +373,8 @@ public class ConfiguraActaController implements Initializable {
                 }
             }
         });
-        
-         imgV.setOnMouseDragged(event -> {
+
+        imgV.setOnMouseDragged(event -> {
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
             GraphicsContext gc = canvas.getGraphicsContext2D();
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -397,26 +390,27 @@ public class ConfiguraActaController implements Initializable {
 
             label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
             //dibujando el rectangulo sobre la imagen
+            
+            //seteando imagen limpia para ser graficada
+            Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            imgV.setImage(img);
 
-            //gc.drawImage(imgV.getImage(), 0, 0);
+            gc.drawImage(imgV.getImage(), 0, 0);
+            gc.setFill(Color.color(0,0,0,0.5));            
             gc.setStroke(Color.RED);
             gc.setLineWidth(10);
             gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+            gc.fillRect(imgX, imgY, imgAncho, imgAlto);
             //Recreando la imagen
             WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
             PixelWriter gcIw = ImW.getPixelWriter();
             canvas.snapshot(null, ImW);
             imgV.setImage(ImW);
             spA.setContent(imgV);
-
-            //bandera cambia de estado
             bandImgLimpia = true;
-//           
-//            scrollPaneActa.setContent();
-//            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
+
         });
-    
-        
+
         imgV.setOnMouseReleased(event -> {
             imgX2 = event.getX();
             imgY2 = event.getY();
@@ -428,11 +422,11 @@ public class ConfiguraActaController implements Initializable {
             VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
             VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
 
-            label.setText(VariableGlobales.configuracionActa.get(valorConfig + "Xo")+","+
-                    VariableGlobales.configuracionActa.get(valorConfig + "Yo")+","+
-                    VariableGlobales.configuracionActa.get(valorConfig + "Ancho")+","+
-                    VariableGlobales.configuracionActa.get(valorConfig + "Alto"));
-            
+            label.setText(VariableGlobales.configuracionActa.get(valorConfig + "Xo") + ","
+                    + VariableGlobales.configuracionActa.get(valorConfig + "Yo") + ","
+                    + VariableGlobales.configuracionActa.get(valorConfig + "Ancho") + ","
+                    + VariableGlobales.configuracionActa.get(valorConfig + "Alto"));
+
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
             GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -551,7 +545,7 @@ public class ConfiguraActaController implements Initializable {
         btnBoton1.setDisable(false);
         lbl1.setText(".....");
         activarEentoImgView(false, false);
-        
+
     }
 
 }
