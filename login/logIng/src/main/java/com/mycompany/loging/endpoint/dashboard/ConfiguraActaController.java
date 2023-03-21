@@ -327,6 +327,7 @@ public class ConfiguraActaController implements Initializable {
     @FXML
     private void funcionProcesar() throws IOException {
         //
+        activarEentoImgView(false, false);
         VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         App.setRoot(null, "leerActas");
     }
@@ -493,14 +494,6 @@ public class ConfiguraActaController implements Initializable {
 
         actionDelete(lbl5, btnBoton5, btnAdd5);
 
-//        lbl5.setVisible(false);
-//        btnBoton5.setVisible(false);
-//        btnAdd5.setVisible(false);
-//        btnDelete5.setVisible(false);
-//        btnBoton4.setDisable(false);
-//        activarEentoImgView(false, false);
-//        lbl3.setText(".....");
-//        lbl4.setText(".....");
     }
 
     @FXML
@@ -508,14 +501,7 @@ public class ConfiguraActaController implements Initializable {
 
         actionDelete(lbl3, btnBoton3, btnAdd3);
 
-//        lbl3.setVisible(false);
-//        btnBoton3.setVisible(false);
-//        btnAdd3.setVisible(false);
-//        btnDelete3.setVisible(false);
-//        btnBoton2.setDisable(false);
-//        activarEentoImgView(false, false);
-//        lbl2.setText(".....");
-//        lbl3.setText(".....");
+
     }
 
     @FXML
@@ -523,39 +509,18 @@ public class ConfiguraActaController implements Initializable {
 
         actionDelete(lbl4, btnBoton4, btnAdd4);
 
-//        lbl4.setVisible(false);
-//        btnBoton4.setVisible(false);
-//        btnAdd4.setVisible(false);
-//        btnDelete4.setVisible(false);
-//        btnBoton3.setDisable(false);
-//        activarEentoImgView(false, false);
-//        lbl3.setText(".....");
-//        lbl4.setText(".....");
     }
 
     @FXML
     private void ActionDeleteEvent2(ActionEvent event) {
         actionDelete(lbl2, btnBoton2, btnAdd2);
 
-//        lbl2.setVisible(false);
-//        btnBoton2.setVisible(false);
-//        btnAdd2.setVisible(false);
-//        btnDelete2.setVisible(false);
-//        btnBoton1.setDisable(false);
-//        activarEentoImgView(false, false);
-//        lbl2.setText(".....");
-//        lbl1.setText(".....");
     }
 
     @FXML
     private void ActionDeleteEvent1(ActionEvent event) {
 
         actionDelete(lbl1, btnBoton1, btnAdd1);
-
-//        lbl1.setText(".....");
-//        btnBoton1.setDisable(false);
-//        btnAdd1.setDisable(true);
-//        activarEentoImgView(true, true);
     }
 
 }
