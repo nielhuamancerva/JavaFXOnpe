@@ -129,7 +129,7 @@ public class ConfiguraActaController implements Initializable {
     private void updateLabel(Button button, Button addButton, Button deleteButton) {
 
         button.setDisable(true);
-        addButton.setDisable(false);
+        addButton.setDisable(true);
         deleteButton.setDisable(false);
     }
 
@@ -166,7 +166,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton1(ActionEvent event) {
 
         updateLabel(btnBoton1, btnAdd1, btnDelete1);
-        seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa, btnAdd1);
 
     }
 
@@ -174,7 +174,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton2(ActionEvent event) {
 
         updateLabel(btnBoton2, btnAdd2, btnDelete2);
-        seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa, btnAdd2);
         activarEentoImgView(false, false);
     }
 
@@ -182,7 +182,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton3(ActionEvent event) {
 
         updateLabel(btnBoton3, btnAdd3, btnDelete3);
-        seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa, btnAdd3);
         activarEentoImgView(false, false);
 
     }
@@ -191,7 +191,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton4(ActionEvent event) {
 
         updateLabel(btnBoton4, btnAdd4, btnDelete4);
-        seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa, btnAdd4);
         activarEentoImgView(false, false);
     }
 
@@ -199,7 +199,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton5(ActionEvent event) {
 
         updateLabel(btnBoton5, btnAdd5, btnDelete5);
-        seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa, btnAdd5);
         activarEentoImgView(false, false);
 
     }
@@ -208,7 +208,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton6(ActionEvent event) {
 
         updateLabel(btnBoton6, btnAdd6, btnDelete6);
-        seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa, btnAdd6);
         activarEentoImgView(false, false);
 
     }
@@ -217,7 +217,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton7(ActionEvent event) {
 
         updateLabel(btnBoton7, btnAdd7, btnDelete7);
-        seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa, btnAdd7);
         activarEentoImgView(false, false);
 
     }
@@ -226,7 +226,7 @@ public class ConfiguraActaController implements Initializable {
     private void ActionBoton8(ActionEvent event) {
 
         updateLabel(btnBoton8, btnAdd8, btnDelete8);
-        seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa);
+        seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa, btnAdd8);
         activarEentoImgView(false, false);
     }
 
@@ -335,7 +335,7 @@ public class ConfiguraActaController implements Initializable {
         App.setRoot(null, "leerActas");
     }
 
-    private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA) {
+    private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA, Button btnAdd) {
         //
 
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -390,13 +390,13 @@ public class ConfiguraActaController implements Initializable {
 
             label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
             //dibujando el rectangulo sobre la imagen
-            
+
             //seteando imagen limpia para ser graficada
             Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgV.setImage(img);
 
             gc.drawImage(imgV.getImage(), 0, 0);
-            gc.setFill(Color.color(0,0,0,0.5));            
+            gc.setFill(Color.color(0, 0, 0, 0.5));
             gc.setStroke(Color.RED);
             gc.setLineWidth(10);
             gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
@@ -440,6 +440,7 @@ public class ConfiguraActaController implements Initializable {
             canvas.snapshot(null, ImW);
             imgV.setImage(ImW);
             spA.setContent(imgV);
+            btnAdd.setDisable(false);
 
             //bandera cambia de estado
             bandImgLimpia = true;
