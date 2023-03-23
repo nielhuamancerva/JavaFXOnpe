@@ -118,6 +118,8 @@ public class ConfiguraActaController implements Initializable {
                     imgViewActa.setScaleX(scale / 1.1);
                     imgViewActa.setScaleY(scale / 1.1);
                 }
+                scrollPaneActa.setVvalue(0.5);
+                scrollPaneActa.setHvalue(0.5);
 
             }
 
@@ -240,6 +242,8 @@ public class ConfiguraActaController implements Initializable {
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
+
+        encuadrarActa();
 
         btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
@@ -416,8 +420,8 @@ public class ConfiguraActaController implements Initializable {
             imgY2 = event.getY();
             VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
             VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
-            imgAncho = Math.abs(imgX2 - imgX);
-            imgAlto = Math.abs(imgY2 - imgY);
+            imgAncho = imgX2 - imgX;
+            imgAlto = imgY2 - imgY;
 
             VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
             VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
@@ -468,6 +472,27 @@ public class ConfiguraActaController implements Initializable {
         if (limpiarImg) {
             imgLimpia();
         }
+    }
+
+    private void encuadrarActa() {
+        //algoritmo para reducir la imagen sin perderlas coordenadas
+        int iteraciones = (int) Math.ceil(imgViewActa.getImage().getHeight() / scrollPaneActa.getHeight());
+        System.out.println("iteraciones a reducir" + iteraciones);
+
+        double scale = imgViewActa.getScaleX();
+        while (iteraciones > 0) {
+            imgViewActa.setScaleX(scale / 5);
+            imgViewActa.setScaleY(scale / 5);
+            iteraciones--;
+        }
+
+        scrollPaneActa.setVvalue(0.5);
+        scrollPaneActa.setHvalue(0.5);
+//        System.out.println("vista scr x:"+scrollPaneActa.getViewportBounds().getWidth());
+//        System.out.println("Tamaño del scr x:"+scrollPaneActa.getContent().getBoundsInLocal().getHeight());
+//        System.out.println("Tamaño de scroll:"+scrollPaneActa.getHvalue());
+
+        //finalgoritmo
     }
 
     @FXML
