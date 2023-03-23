@@ -73,8 +73,6 @@ public class Consumidor {
                     persona1.getBody().getImagen().setImagen("");
 
                     System.out.println("body" + gson.toJson(persona.getBody()));
-
-                
                     try {
                         java.sql.Connection conn = DriverManager.getConnection(
                                 "jdbc:postgresql://localhost:5432/SCE", "postgres", "admin");
