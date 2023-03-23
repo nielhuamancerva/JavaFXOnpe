@@ -11,6 +11,7 @@ import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import com.mycompany.consumidor.ConexionDB;
+import com.rabbitmq.client.BuiltinExchangeType;
 import java.io.StringReader;
 import static java.lang.System.console;
 import java.nio.charset.StandardCharsets;
@@ -39,12 +40,6 @@ public class Consumidor {
     private final static String[] QUEUE_NAMES = {"cola_niel", "cola_rodrigo", "cola_luis", "cola_ricardo"};
 
     public static void main(String[] args) throws IOException, TimeoutException, SQLException {
-        String url = "jdbc:postgresql://localhost:5432/SCE";
-        String usuario = "postgres";
-        String contrasena = "admin";
-
-//        java.sql.Connection conn = DriverManager.getConnection(
-//                "jdbc:postgresql://localhost:5432/SCE", "postgres", "admin");
 
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -63,30 +58,33 @@ public class Consumidor {
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     String message = new String(body, "UTF-8");
                     System.out.println(" ingreso de mensaje '" + message + "'");
-                    
-                       String decryptString = null;
+
+                    String decryptString = null;
                     try {
-                     
+
                         decryptString = decrypt(message);
                     } catch (Exception ex) {
                         Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                     System.out.println(" body cola descriptado '" + decryptString + "'");
+                    System.out.println(" body cola descriptado '" + decryptString + "'");
                     Gson gson = new Gson();
-                    Transmision persona = gson.fromJson(message, Transmision.class);
-                    Transmision persona1 = gson.fromJson(message, Transmision.class);
+                    Transmision persona = gson.fromJson(decryptString, Transmision.class);
+                    Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                     persona1.getBody().getImagen().setImagen("");
 
                     System.out.println("body" + gson.toJson(persona.getBody()));
-                   /*
-                    Statement stmt;
+
+                
                     try {
+                        java.sql.Connection conn = DriverManager.getConnection(
+                                "jdbc:postgresql://localhost:5432/SCE", "postgres", "admin");
+                        Statement stmt;
                         Random random = new Random();
                         stmt = conn.createStatement();
                         String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
                         PreparedStatement statement = conn.prepareStatement(sql);
 
-//                        JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
+                        //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                         System.out.println(persona1.getBody().getActa());
 
                         statement.setInt(1, random.nextInt(100));
@@ -95,7 +93,8 @@ public class Consumidor {
                         statement.setInt(4, 1);
 
                         statement.setObject(5, persona.getBody().getImagen().getImagen());
-//                        statement.setObject(5, jsonObject, Types.OTHER);
+                        //statement.setObject(5, jsonObject, Types.OTHER);
+                        //statement.setObject(5, persona1.getBody().getActa());
 
                         statement.executeUpdate();
 
@@ -106,7 +105,7 @@ public class Consumidor {
                     } catch (SQLException ex) {
                         Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-*/
+
                 }
             };
 

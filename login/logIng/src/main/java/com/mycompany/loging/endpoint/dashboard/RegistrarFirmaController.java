@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
 public class RegistrarFirmaController implements Initializable {
 
     private DropShadowE dropShadowE;
-    boolean firmoP,firmoS,firmoT;
+    boolean firmoP, firmoS, firmoT;
     private final NegocioService negocioService;
     private boolean stButton1, stButton11, stButton2, stButton22, stButton3, stButton33 = false;
 
@@ -87,80 +87,44 @@ public class RegistrarFirmaController implements Initializable {
         App.setRoot(null, "transmisionRabbit");
     }
 
-    private void cambiarEstadoBoton(Button botonPresi, Button otroBotonPresi, boolean estado1) {
-
-        botonPresi.setStyle(estado1 ? "-fx-background-color: #2ECC71;" : "");
-        otroBotonPresi.setStyle("");
+    private void cambiaStBtn(Button btn1, Button btn2) {
+        btn1.setStyle("-fx-background-color: #2ECC71;");
+        btn2.setStyle("");
+        btn2.getStyleClass().remove("boton-active");
+        btn2.getStyleClass().remove("boton-activeN");
 
     }
 
-    private void ActionFirmoSi(ActionEvent event) {
-
-//        estadoBotton = !estadoBotton;
-//        if (estadoBotton) {
-//            btnSiPresi.setStyle("-fx-background-color: #2ECC71;");
-//            btnNoPresi.setStyle("");
-//            btnNoPresi.getStyleClass().remove("boton-active");
-//        } else {
-//            btnSiPresi.setStyle("");
-//            btnSiPresi.getStyleClass().remove("boton-active");
-//        }
-    }
-
-    private void ActionFirmoNo(ActionEvent event) {
-
-//        estadoBottonN = !estadoBottonN;
-//        System.out.println(estadoBottonN);
-//
-//        if (estadoBottonN) {
-//            btnNoPresi.setStyle("-fx-background-color: #2ECC71;");
-//            btnSiPresi.setStyle("");
-//            btnSiPresi.getStyleClass().remove("boton-active");
-//        } else {
-//            btnNoPresi.setStyle("");
-//            btnNoPresi.getStyleClass().remove("boton-active");
-//        }
-    }
 
     @FXML
     private void ActionFirmoSiP(ActionEvent event) {
 
-        stButton1 = !stButton1;
-        cambiarEstadoBoton(btnSiPresi, btnNoPresi, stButton1);
+        cambiaStBtn(btnSiPresi, btnNoPresi);
     }
 
     @FXML
     private void ActionFirmoSiS(ActionEvent event) {
-
-        stButton2 = !stButton2;
-        cambiarEstadoBoton(btnSiSecre, btnNoSecre, stButton2);
-
+        cambiaStBtn(btnSiSecre, btnNoSecre);
     }
 
     @FXML
     private void ActionFirmoSiT(ActionEvent event) {
-
-        stButton3 = !stButton3;
-        cambiarEstadoBoton(btnSiTercer, btnNoTercer, stButton3);
-
+        cambiaStBtn(btnSiTercer, btnNoTercer);
     }
 
     @FXML
     private void ActionFirmoNoP(ActionEvent event) {
-        stButton11 = !stButton11;
-        cambiarEstadoBoton(btnNoPresi, btnSiPresi, stButton11);
+        cambiaStBtn(btnNoPresi, btnSiPresi);
     }
 
     @FXML
     private void ActionFirmoNoS(ActionEvent event) {
-        stButton22 = !stButton22;
-        cambiarEstadoBoton(btnNoSecre, btnSiSecre, stButton22);
+        cambiaStBtn(btnNoSecre, btnSiSecre);
     }
 
     @FXML
     private void ActionFirmoNoT(ActionEvent event) {
-        stButton33 = !stButton33;
-        cambiarEstadoBoton(btnNoTercer, btnSiTercer, stButton33);
+        cambiaStBtn(btnNoTercer, btnSiTercer);
     }
 
 }
