@@ -1,0 +1,41 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.button-orange{
+    -fx-background-color:  #F39C12;
+}
+
+.button-orange:hover{
+    -fx-background-color:  #D68910;
+}
+
+.button-green {
+    -fx-background-color:  #2ECC71; /* #609966 */
+}
+
+.button-green:hover{
+    -fx-background-color: #28B463; /* #28B463 */
+}
+
+.button-red{
+    -fx-background-color:  #E74C3C; /* #609966 */
+}
+.button-red:hover{
+    -fx-background-color:  #CB4335; /* #609966 */
+}
+
+.buttonFirmo{
+    -fx-background-color:  #F5B041; /* #609966 */
+
+}
+
+.boton-active{
+    -fx-background-color:  #E0F533; /* #609966 */
+}
+
+.boton-activeN{
+    -fx-background-color:  #E0F533; /* #609966 */
+}
+
