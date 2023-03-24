@@ -4,9 +4,12 @@
  */
 package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import onpe.com.pe.gestorconfiguracionactas.App;
 
 /**
  * FXML Controller class
@@ -21,6 +24,11 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    @FXML
+    private void switchToConfig() throws IOException {
+        App.setRoot(null, "configurarActa");
+    }
+
 }

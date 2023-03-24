@@ -1,3 +1,4 @@
+module-info.class
 onpe\com\pe\gestorconfiguracionactas\LoginController.class
 onpe\com\pe\gestorconfiguracionactas\App.class
-module-info.class
+onpe\com\pe\gestorconfiguracionactas\endpoint\DashboardController.class

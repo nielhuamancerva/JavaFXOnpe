@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * JavaFX App
@@ -14,16 +15,24 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-
+    private static Stage sc;
+    
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
-        stage.setScene(scene);
-        stage.show();
+        setRoot(stage, "login");
+        sc=stage;
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public static void setRoot(Stage stage ,String fxml) throws IOException {
+          if(Objects.nonNull(stage)){
+            scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
+            stage.setFullScreen(true);
+            stage.setScene(scene);
+            stage.show();
+        }else{
+            sc.setFullScreen(true);
+            scene.setRoot(loadFXML(fxml));
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
