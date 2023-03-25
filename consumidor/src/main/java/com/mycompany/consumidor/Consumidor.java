@@ -82,7 +82,7 @@ public class Consumidor {
                         java.sql.Connection conn = DriverManager.getConnection(
                                 "jdbc:postgresql://localhost:5432/SCE", "postgres", "admin");
                         Statement stmt;
-                        Random random = new Random();
+//                        Random random = new Random();
                         stmt = conn.createStatement();
                         String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
                         PreparedStatement statement = conn.prepareStatement(sql);
@@ -90,7 +90,7 @@ public class Consumidor {
                         //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                         System.out.println(persona1.getBody().getActa());
 
-                         statement.setInt(1, random.nextInt(100)); //tener en cuenta de los numeros random
+//                         statement.setInt(1, random.nextInt(100)); //tener en cuenta de los numeros random
  //                       statement.setInt(1, 111);
 
                         statement.setString(2, persona1.getBody().getActa());
