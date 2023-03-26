@@ -15,6 +15,8 @@ module com.mycompany.loging {
     requires jai.imageio.core;
     requires com.rabbitmq.client;
     requires java.sql;
+    requires com.jfoenix;
+    requires fontawesomefx;
 
     opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;

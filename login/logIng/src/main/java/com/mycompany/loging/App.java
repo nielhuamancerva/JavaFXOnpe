@@ -23,17 +23,18 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         //scene = new Scene(loadFXML("login"), 1200, 800);
         setRoot(stage, "login");
-        sc=stage;
+        sc = stage;
     }
 
-    public static void setRoot(Stage stage ,String fxml) throws IOException {
-     
-        if(Objects.nonNull(stage)){
+    public static void setRoot(Stage stage, String fxml) throws IOException {
+
+        if (Objects.nonNull(stage)) {
             scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
-            stage.setFullScreen(true);
+            stage.setFullScreen(true); //true
             stage.setScene(scene);
+
             stage.show();
-        }else{
+        } else {
             sc.setFullScreen(true);
             scene.setRoot(loadFXML(fxml));
         }
