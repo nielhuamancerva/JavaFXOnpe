@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.login.LoginFController">
+   <children>
+      <AnchorPane fx:id="userName" prefHeight="600.0" prefWidth="541.0" style="-fx-background-color: #004788;">
+         <children>
+            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="82.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/core.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="210.0" fitWidth="313.0" layoutX="102.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/Onpelogo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="674.0" layoutY="61.0" text="BIENVENIDO">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="647.0" layoutY="114.0" text="Accede con tu usuario">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="631.0" layoutY="205.0" text="Usuario">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="631.0" layoutY="280.0" text="Password">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordField" layoutX="631.0" layoutY="307.0" prefHeight="31.0" prefWidth="293.0" promptText="Ingrese su Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="btnIngresar" layoutX="688.0" layoutY="390.0" mnemonicParsing="false" onAction="#iniciandoSecion" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #004788;" text="INGRESAR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="userName" layoutX="631.0" layoutY="232.0" prefHeight="31.0" prefWidth="293.0" promptText="Ingrese su Usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
