@@ -1,4 +1,5 @@
 package com.mycompany.loging.endpoint.login;
+
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.ValidadionesFormularios;
@@ -12,8 +13,11 @@ import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import java.util.Objects;
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+
 public class LoginController {
+
     private final NegocioService negocioService;
     private final ValidadionesFormularios validadionesFormularios;
     private final DropShadowE dropShadowE;
@@ -40,6 +44,7 @@ public class LoginController {
     PasswordField passwordField;
     @FXML
     Label lbError;
+
     @FXML
     private void iniciandoSecion() throws Exception, IOException {
         lbError.setText("");
@@ -52,7 +57,15 @@ public class LoginController {
             if (Objects.nonNull(login)) {
                 App.setRoot(null, "dashboard");
             } else {
-                lbError.setText("Usuario no esta Registrado");
+
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Usuario no registrado");
+                alert.setHeaderText("El usuario ingresado no está registrado");
+                alert.setContentText("Por favor, verifique que ha ingresado correctamente sus datos");
+
+                alert.showAndWait();
+
+//                lbError.setText("Usuario no esta Registrado");
             }
         }
     }

@@ -1,3 +1,4 @@
+onpe\com\pe\gestorconfiguracionactas\LoginFController.class
 onpe\com\pe\gestorconfiguracionactas\core\business\BusinessService.class
 onpe\com\pe\gestorconfiguracionactas\core\repository\service\UserService.class
 onpe\com\pe\gestorconfiguracionactas\core\business\Impl\BusinessServiceImpl.class
@@ -14,6 +15,7 @@ onpe\com\pe\gestorconfiguracionactas\core\repository\service\MongoService.class
 onpe\com\pe\gestorconfiguracionactas\core\repository\service\SettingService.class
 onpe\com\pe\gestorconfiguracionactas\App.class
 onpe\com\pe\gestorconfiguracionactas\core\util\mapper\Mapper.class
+onpe\com\pe\gestorconfiguracionactas\endpoint\InicioMenuController.class
 onpe\com\pe\gestorconfiguracionactas\core\repository\impl\SettingServiceImpl.class
 onpe\com\pe\gestorconfiguracionactas\core\model\Setting.class
 onpe\com\pe\gestorconfiguracionactas\endpoint\DashboardController.class

@@ -1,6 +1,21 @@
 /*
  * Empty Stylesheet file.
  */
+/*Button{
+    -fx-text-fill: #ffffff;
+    -fx-text-alignment: center;
+    -fx-background-color: #637A92;
+    -fx-font-size: 24px;
+    -fx-padding: 10pt 30pt;
+    -fx-cursor: hand;
+}
+Button:hover{
+    -fx-background-color: #5173A3;
+}
+Button:pressed{
+    -fx-background-color: #518db3;
+}*/
+
 
 
 .button-orange{
@@ -38,4 +53,74 @@
 .boton-activeN{
     -fx-background-color:  #E0F533; /* #609966 */
 }
+
+.body_menu_inicio{
+    -fx-background-image: url("../imagenes/fondo_bg2.png");
+    -fx-background-size: 100%;
+}
+
+
+/*.boton_gen_mod{
+    -fx-background-color: #969696;
+    -fx-cursor: hand;
+    -fx-text-fill: #0091FE;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: top 15px left 20px;
+    -fx-line-spacing: -4;
+    -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
+    -fx-padding: 0pt 0pt -140pt 0;
+    -fx-text-fill: #FFF;
+    -fx-font-size: 11px;
+    -fx-border-width: 0px 0px 35px 0px;
+    -fx-border-color: #5A5A5A;
+    
+    
+}*/
+
+.btn_menu_inicio{
+    -fx-background-image: url('../imagenes/inicio_registro.jpg');
+}
+.btn_menu_inicio:hover{
+/*    -fx-background-size: 70%;
+    -fx-background-repeat: no-repeat;*/
+}
+
+
+
+
+.btn_menu_inicio_mod{
+       -fx-font-size: 25px;
+        -fx-background-position: bottom 40px right 5px;
+        -fx-border-width: 5px 5px 40px 5px;
+        -fx-border-color: #054d99;
+        -fx-border-style: solid;
+/*        -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+        -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);*/
+        -fx-padding: 0pt 0pt -170pt 0;
+        -fx-text-fill: #FFF;
+}
+
+.btn_menu_inicio_mod:hover{
+/*        -fx-font-size: 25px;
+        -fx-background-position: bottom 40px right 5px;
+        -fx-border-width: 5px 5px 40px 5px;
+        -fx-border-color: #054d99;
+        -fx-border-style: solid;*/
+        -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+        -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
+/*        -fx-padding: 0pt 0pt -170pt 0;
+        -fx-text-fill: #FFF;*/
+
+}
+/*.boton_gen_mod:hover{
+    -fx-font-size: 11px;
+    -fx-background-position: bottom 40px right 5px;
+    -fx-border-width: 5px 5px 40px 5px;
+    -fx-border-color: #054d99;
+    -fx-border-style: solid;
+    -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+    -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
+    -fx-padding: 0pt 0pt -170pt 0;
+    -fx-text-fill: #FFF;
+}*/
 

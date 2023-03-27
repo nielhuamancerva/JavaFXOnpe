@@ -4,11 +4,13 @@ C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\App.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\core\repository\FactoryService.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\endpoint\GestorActaController.java
+C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\endpoint\InicioMenuController.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\core\repository\impl\UserServiceImpl.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\core\repository\service\UserService.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\module-info.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\LoginController.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\endpoint\DashboardController.java
+C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\LoginFController.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\core\util\constants\Constants.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\core\repository\service\SettingService.java
 C:\Users\CASSHERN\Desktop\ONPE APP\JavaFXOnpe\GestorConfiguracionActas\src\main\java\onpe\com\pe\gestorconfiguracionactas\endpoint\ConfigurarActaController.java
