@@ -12,6 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
+import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
+import org.bson.Document;
 
 /**
  * FXML Controller class
@@ -20,6 +23,11 @@ import javafx.scene.control.PasswordField;
  */
 public class LoginController implements Initializable {
 
+    private final BusinessService businessService;
+    public LoginController() {
+        this.businessService = new BusinessServiceImpl();
+    }
+    
     @FXML
     TextField userName;
     @FXML
@@ -35,7 +43,12 @@ public class LoginController implements Initializable {
 
     @FXML
     private void iniciandoSecion() throws Exception, IOException {
-        App.setRoot(null, "dashboard");
+
+        Document document = businessService.findUserBy(userName.getText(), passwordField.getText());
+        if(!document.isEmpty()){
+              App.setRoot(null, "dashboard");
+        }
+      
     }
 
     @FXML

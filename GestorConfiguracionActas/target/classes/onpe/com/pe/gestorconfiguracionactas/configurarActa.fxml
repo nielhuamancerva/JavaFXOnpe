@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurarActaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurarActaController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +19,7 @@
          <content>
             <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
          </content></ScrollPane>
-      <Button fx:id="btnProcesar" layoutX="1006.0" layoutY="723.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
+      <Button fx:id="btnProcesar" layoutX="1006.0" layoutY="723.0" mnemonicParsing="false" onAction="#funcionProcesar" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -259,5 +259,11 @@
          </font>
       </Button>
       <Label fx:id="lbl9" layoutX="799.0" layoutY="582.0" prefHeight="44.0" prefWidth="139.0" />
+      <Label layoutX="638.0" layoutY="626.0" text="NOMBRE ELECCION : ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldEleccion" layoutX="881.0" layoutY="622.0" prefHeight="44.0" prefWidth="282.0" />
    </children>
 </AnchorPane>

@@ -45,7 +45,7 @@ public class TransmisionController implements Initializable {
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         System.out.println(fileSeleccionado);
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","SI");
+        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         btnSiguiente.setDisable(false);
     }
@@ -54,8 +54,9 @@ public class TransmisionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
-
+     
         try {
+               negocioService.loadSettingActa();
             CreacionTable yy = new CreacionTable();
             yy.viewActas(tableActas);
             tableActas.setItems(negocioService.finAllActas());

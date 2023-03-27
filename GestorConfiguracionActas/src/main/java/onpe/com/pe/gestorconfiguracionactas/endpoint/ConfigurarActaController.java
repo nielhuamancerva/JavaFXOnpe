@@ -4,10 +4,12 @@
  */
 package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +19,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -29,6 +32,7 @@ import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 
 /**
  * FXML Controller class
@@ -37,11 +41,12 @@ import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
  */
 public class ConfigurarActaController implements Initializable {
 
+    private Setting setting = new Setting();
     private double imgX = 0.0, imgY = 0.0, imgX2 = 0.0, imgY2 = 0.0, imgAncho, imgAlto;
     boolean bandImgLimpia;
     private File fileSeleccionado;
     private final BusinessService businessService;
-    
+
     public ConfigurarActaController() {
         this.businessService = new BusinessServiceImpl();
     }
@@ -60,9 +65,66 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     ImageView imgViewActa;
 
+    @FXML
+    TextField textFieldEleccion;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btnBoton1.setDisable(true);
+        btnAdd1.setVisible(false);
+        btnBoton2.setVisible(false);
+        btnAdd2.setVisible(false);
+        btnBoton3.setVisible(false);
+        btnAdd3.setVisible(false);
+        btnBoton4.setVisible(false);
+        btnAdd4.setVisible(false);
+        btnBoton5.setVisible(false);
+        btnAdd5.setVisible(false);
+        btnBoton6.setVisible(false);
+        btnAdd6.setVisible(false);
+        btnBoton7.setVisible(false);
+        btnAdd7.setVisible(false);
+        btnBoton8.setVisible(false);
+        btnAdd8.setVisible(false);
+        btnProcesar.setDisable(true);
+
+        btnDelete1.setVisible(false);
+        btnDelete2.setVisible(false);
+        btnDelete2.setDisable(true);
+        btnDelete3.setVisible(false);
+        btnDelete4.setVisible(false);
+        btnDelete5.setVisible(false);
+        btnDelete6.setVisible(false);
+        btnDelete7.setVisible(false);
+        btnDelete8.setVisible(false);
+
+        lbl2.setVisible(false);
+        lbl3.setVisible(false);
+        lbl4.setVisible(false);
+        lbl5.setVisible(false);
+        lbl6.setVisible(false);
+        lbl7.setVisible(false);
+        lbl8.setVisible(false);
+
+        imgViewActa.setOnScroll(event -> {// este evento ya esta cargado para la imagen
+            if (event.isControlDown()) {
+                double delta = event.getDeltaY();
+                double scale = imgViewActa.getScaleX();
+                if (delta > 0) {
+                    imgViewActa.setScaleX(scale * 1.1);
+                    imgViewActa.setScaleY(scale * 1.1);
+                } else {
+                    imgViewActa.setScaleX(scale / 1.1);
+                    imgViewActa.setScaleY(scale / 1.1);
+                }
+                scrollPaneActa.setVvalue(0.5);
+                scrollPaneActa.setHvalue(0.5);
+
+            }
+
+        });
+        //BANDERA PARA Limpiar la imagen
+        bandImgLimpia = false;
     }
 
     @FXML
@@ -271,8 +333,21 @@ public class ConfigurarActaController implements Initializable {
 
     @FXML
     private void regresaMenu() throws IOException {
-        App.setRoot(null, "iniciarConfiguracion");
+        App.setRoot(null, "dashboard");
 
+    }
+
+    @FXML
+    private void funcionProcesar() throws IOException, Exception {
+
+        //activarEentoImgView(false, false);
+        setting.setId_setting(UUID.randomUUID().toString());
+        setting.setName(textFieldEleccion.getText());
+        setting.setStatusSetting("0");
+        Gson gson = new Gson();
+        setting.setSetting(gson.toJson(VariableGlobales.configuracionActa));
+        businessService.saveSetting(setting);
+        App.setRoot(null, "configurarActa");
     }
 
     private void updateLabel(Button button, Button addButton, Button deleteButton) {
