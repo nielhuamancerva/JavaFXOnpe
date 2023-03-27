@@ -72,7 +72,7 @@ public class TransmisionController implements Initializable {
 
     @FXML
     private void regresarDashboard() throws IOException {
-        App.setRoot(null, "dashboard");
+        App.setRoot(null, "inicioMenu");
     }
 
 }

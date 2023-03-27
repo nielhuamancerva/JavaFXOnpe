@@ -4,6 +4,8 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -26,7 +28,10 @@ public class InicioMenuController implements Initializable {
     }    
 
     @FXML
-    private void switchToTransmision(ActionEvent event) {
+    private void switchToTransmision() throws IOException {
+        //App.setRoot("primary");
+        App.setRoot(null, "cargarActas");
+
     }
     
 }

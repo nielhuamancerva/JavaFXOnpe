@@ -23,13 +23,11 @@ public class LoginController {
     private final DropShadowE dropShadowE;
     @FXML
     private Button btnIngresar;
-    @FXML
-    private Button btnSalir;
+//    private Button btnSalir;
 
-    @FXML
     private void initialize() {
         dropShadowE.setTabEffect(btnIngresar);
-        dropShadowE.setTabEffect(btnSalir);
+//        dropShadowE.setTabEffect(btnSalir);
     }
 
     public LoginController() {
@@ -42,20 +40,19 @@ public class LoginController {
     TextField userName;
     @FXML
     PasswordField passwordField;
-    @FXML
-    Label lbError;
+//    Label lbError;
 
     @FXML
     private void iniciandoSecion() throws Exception, IOException {
-        lbError.setText("");
+//        lbError.setText("");
 
         String Msg = validadionesFormularios.login(userName.getText(), passwordField.getText());
-        lbError.setText(Msg);
+//        lbError.setText(Msg);
         if (Msg.equals("")) {
             Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
 
             if (Objects.nonNull(login)) {
-                App.setRoot(null, "dashboard");
+                App.setRoot(null, "inicioMenu");
             } else {
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -70,7 +67,6 @@ public class LoginController {
         }
     }
 
-    @FXML
     private void salirApp() throws Exception {
         Platform.exit();
         System.exit(0);

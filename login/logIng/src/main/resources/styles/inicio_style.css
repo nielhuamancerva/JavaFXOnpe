@@ -1,0 +1,10 @@
+
+.btnInicio{
+    -fx-background-color:  #004788;
+}
+
+.btnInicio:hover{
+    -fx-background-color:  #002446;
+}
+
+
