@@ -1,0 +1,32 @@
+.btn_txrx, .btn_txrx_azul, .btn_txrx_desabilitado, .btn_pausar, .btn_pausar_azul, .btn_pausar_desabilitado, 
+.btn_play, btn_play_azul, .btn_play_desabilitado, .btn_salir, btn_retransmision_sa {
+    -fx-pref-width: 73px;
+    -fx-pref-height: 83px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 14px;
+    -fx-text-fill: #001b3f;
+    -fx-padding: 0 0 -63 0;    
+    -fx-text-alignment: center;
+    -fx-background-repeat: no-repeat;
+}
+
+
+.btn_txrx_azul{   
+    -fx-pref-width: 115px;
+    -fx-background-image: url("../image/boton_transmitir_azul.png");   
+}
+
+.btn_pausar_azul{   
+    -fx-pref-width: 115px;
+    -fx-background-image: url("../image/boton_pausar_azul.png");   
+}
+
+.pane_recep_body{
+     -fx-border-width: 5px;
+     -fx-border-color: #ffffff;
+     
+/*    -fx-border-width: 5px;  */
+/*    -fx-font-size: 10px;
+    -fx-background-color:#001b3f;*/
+}
