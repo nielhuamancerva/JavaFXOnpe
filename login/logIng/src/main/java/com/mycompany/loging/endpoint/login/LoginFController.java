@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -22,23 +23,23 @@ import javafx.scene.layout.AnchorPane;
 public class LoginFController implements Initializable {
 
     @FXML
-    private AnchorPane userName;
+    private Button btnIngresar;
+    private TextField userName;
+    @FXML
+    private TextField userNam;
     @FXML
     private PasswordField passwordField;
-    @FXML
-    private Button btnIngresar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
     @FXML
     private void iniciandoSecion(ActionEvent event) {
-        
+
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Usuario no registrado");
         alert.setHeaderText("El usuario ingresado no está registrado");

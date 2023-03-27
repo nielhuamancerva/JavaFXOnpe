@@ -19,18 +19,41 @@ public class App extends Application {
     private static Scene scene;
     private static Stage sc;
 
+//    private double xPos;
+//    private double yPos;
+//    private double width;
+//    private double height;
+
     @Override
     public void start(Stage stage) throws IOException {
         //scene = new Scene(loadFXML("login"), 1200, 800);
         setRoot(stage, "login");
         sc = stage;
+        
+        // Guardamos la posición y el tamaño de la ventana
+//        stage.setOnHiding(event -> {
+//            xPos = stage.getX();
+//            yPos = stage.getY();
+//            width = stage.getWidth();
+//            height = stage.getHeight();
+//        });
+
+        // Restauramos la posición y el tamaño de la ventana
+//        stage.setOnShowing(event -> {
+//            stage.setX(xPos);
+//            stage.setY(yPos);
+//            stage.setWidth(width);
+//            stage.setHeight(height);
+//        });
+
+
     }
 
     public static void setRoot(Stage stage, String fxml) throws IOException {
 
         if (Objects.nonNull(stage)) {
             scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
-            stage.setFullScreen(true); //true
+            stage.setFullScreen(false); //true
             stage.setScene(scene);
 
             stage.show();

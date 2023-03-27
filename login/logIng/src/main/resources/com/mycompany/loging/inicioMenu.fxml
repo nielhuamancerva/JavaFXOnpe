@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" styleClass="body_menu_inicio" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.InicioMenuController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="52.0" prefWidth="1602.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="102.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/core.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="608.0" text="Suite de Computo Electoral  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-2.0" layoutY="773.0" prefHeight="33.0" prefWidth="1602.0" style="-fx-background-color: #004788;">
+         <children>
+            <SplitPane dividerPositions="0.17316341829085455, 0.388055972013993, 0.5867066466766616, 0.743503248375812, 0.8784357821089455" layoutY="-1.0" prefHeight="38.0" prefWidth="1602.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="238.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="9.0" layoutY="-2.0" text="ODPE: LIMA NORTE 1" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="308.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="8.0" layoutY="-2.0" text="Centro de Cómputo:  LN1-001" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="208.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="15.0" text="Usuario: LimaNorte001" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="15.0" text="Estación: 001" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="15.0" text="27/03/2023" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="15.0" text="12:00 PM" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="51.0" layoutY="72.0" prefHeight="66.0" prefWidth="1512.0" style="-fx-background-color: #011b40;">
+         <children>
+            <Label layoutX="431.0" layoutY="9.0" text="Elecciones Generales y Parlamento Andino 2025" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="142.0" layoutY="167.0" prefHeight="238.0" prefWidth="1328.0">
+         <children>
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="REGISTRO">
+               <styleClass>
+                  <String fx:value="btn_menu_inicio" />
+                  <String fx:value="btn_menu_inicio_mod" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="130.0" layoutY="432.0" prefHeight="238.0" prefWidth="1328.0" />
+   </children>
+</AnchorPane>
