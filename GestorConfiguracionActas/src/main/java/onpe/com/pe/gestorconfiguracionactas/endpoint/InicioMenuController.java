@@ -4,11 +4,13 @@
  */
 package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import onpe.com.pe.gestorconfiguracionactas.App;
 
 /**
  * FXML Controller class
@@ -23,10 +25,16 @@ public class InicioMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
-    private void switchToTransmision(ActionEvent event) {
+    private void ingresarConfiguracion() throws IOException {
+        App.setRoot(null, "configurarActa");
     }
-    
+
+    @FXML
+    private void ingresarGestor() throws IOException {
+        App.setRoot(null, "gestorActa");
+    }
+
 }

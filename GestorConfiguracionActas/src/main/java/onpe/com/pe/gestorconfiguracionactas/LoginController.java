@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
@@ -24,12 +25,15 @@ import org.bson.Document;
 public class LoginController implements Initializable {
 
     private final BusinessService businessService;
+    @FXML
+    private Button btnIngresar;
     public LoginController() {
         this.businessService = new BusinessServiceImpl();
     }
     
     @FXML
     TextField userName;
+    
     @FXML
     PasswordField passwordField;
 
@@ -46,12 +50,11 @@ public class LoginController implements Initializable {
 
         Document document = businessService.findUserBy(userName.getText(), passwordField.getText());
         if(!document.isEmpty()){
-              App.setRoot(null, "dashboard");
+              App.setRoot(null, "inicioMenu");
         }
       
     }
 
-    @FXML
     private void salirApp() throws Exception {
         Platform.exit();
         System.exit(0);

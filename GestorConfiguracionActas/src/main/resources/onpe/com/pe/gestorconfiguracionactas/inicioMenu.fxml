@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" styleClass="body_menu_inicio" stylesheets="@../../../../styles/dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.InicioMenuController">
+<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" styleClass="body_menu_inicio" stylesheets="@../../../../styles/dashboard.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.InicioMenuController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="773.0" prefHeight="33.0" prefWidth="1602.0" style="-fx-background-color: #004788;">
          <children>
@@ -74,7 +79,13 @@
          </children></AnchorPane>
       <AnchorPane layoutX="142.0" layoutY="167.0" prefHeight="238.0" prefWidth="1328.0">
          <children>
-            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="CONFIGURACIÓN">
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarConfiguracion" prefHeight="235.0" prefWidth="235.0" text="CONFIGURACIÓN">
+               <styleClass>
+                  <String fx:value="btn_menu_inicio" />
+                  <String fx:value="btn_menu_inicio_mod" />
+               </styleClass>
+            </Button>
+            <Button layoutX="301.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarGestor" prefHeight="235.0" prefWidth="235.0" text="GESTOR">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />

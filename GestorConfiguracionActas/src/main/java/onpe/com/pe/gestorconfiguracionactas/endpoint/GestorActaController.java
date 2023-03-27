@@ -61,7 +61,7 @@ public class GestorActaController implements Initializable {
 
     @FXML
     private void regresaMenu() throws IOException {
-        App.setRoot(null, "dashboard");
+        App.setRoot(null, "inicioMenu");
 
     }
 

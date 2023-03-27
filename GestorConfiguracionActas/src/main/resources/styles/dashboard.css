@@ -31,7 +31,7 @@
 }*/
 
 .btn_menu_inicio{
-    -fx-background-image: url('../onpe/com/pe/image/conf.png');
+    -fx-background-image: url('../onpe/com/pe/image/conf.jpg');
 }
 .btn_menu_inicio:hover{
 /*    -fx-background-size: 70%;
@@ -43,7 +43,7 @@
 
 .btn_menu_inicio_mod{
        -fx-font-size: 25px;
-        -fx-background-position: bottom 40px right 5px;
+        -fx-background-position: bottom 40px right 3px;
         -fx-border-width: 5px 5px 40px 5px;
         -fx-border-color: #054d99;
         -fx-border-style: solid;
