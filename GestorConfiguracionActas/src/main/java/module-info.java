@@ -7,10 +7,12 @@ module onpe.com.pe.gestorconfiguracionactas {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
-    
+    requires com.google.gson;
+    requires java.logging;
+
     opens onpe.com.pe.gestorconfiguracionactas to javafx.fxml;
     exports onpe.com.pe.gestorconfiguracionactas;
-    
+
     opens onpe.com.pe.gestorconfiguracionactas.endpoint to javafx.fxml;
 
 }

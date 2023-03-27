@@ -30,5 +30,10 @@ public class DashboardController implements Initializable {
     private void switchToConfig() throws IOException {
         App.setRoot(null, "configurarActa");
     }
+    
+    @FXML
+    private void switchToManagment() throws IOException {
+        App.setRoot(null, "gestorActa");
+    }
 
 }

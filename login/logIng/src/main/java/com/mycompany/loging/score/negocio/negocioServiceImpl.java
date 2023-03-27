@@ -1,5 +1,7 @@
 package com.mycompany.loging.score.negocio;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.model.Actas;
@@ -13,7 +15,9 @@ import com.mycompany.loging.score.util.constanst.Constansts;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import com.mycompany.loging.score.util.mapper.Mapper;
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
@@ -93,9 +97,28 @@ public class NegocioServiceImpl implements NegocioService {
     }
 
     @Override
-    public Boolean readAndCutsignature(String nameCandidate,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
+    public Boolean readAndCutsignature(String nameCandidate, Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
-        return factoryservices.Tess4jServiceImpl().validarFirma(nameCandidate,cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
+        return factoryservices.Tess4jServiceImpl().validarFirma(nameCandidate, cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
+    }
+
+    @Override
+    public void loadSettingActa() throws Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        Document document = factoryservices.SettingService().findSetting();
+        
+        Gson gson = new Gson();
+        Type type = new TypeToken<Map<String, Object>>() {
+        }.getType();
+        Map<String, Object> map = gson.fromJson(document.getString("setting"), type);
+        Map<String, String> stringMap = new HashMap<>();
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue().toString();
+            stringMap.put(key, value);
+        }
+        
+        VariableGlobales.configuracionActa = stringMap;
     }
 
 }

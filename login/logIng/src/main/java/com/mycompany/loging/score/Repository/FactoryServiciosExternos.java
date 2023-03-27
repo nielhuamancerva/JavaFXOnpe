@@ -7,12 +7,14 @@ package com.mycompany.loging.score.Repository;
 import com.mycompany.loging.score.Repository.implementacion.ActaServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.Repository.implementacion.ImageServiceImpl;
+import com.mycompany.loging.score.Repository.implementacion.SettingServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.UserServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.Tess4jServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.TransmisionServiceImpl;
 import com.mycompany.loging.score.Repository.service.ActaService;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import com.mycompany.loging.score.Repository.service.ImageService;
+import com.mycompany.loging.score.Repository.service.SettingService;
 import com.mycompany.loging.score.Repository.service.UserService;
 import com.mycompany.loging.score.Repository.service.Tess4jService;
 import com.mycompany.loging.score.Repository.service.TransmisionService;
@@ -30,6 +32,7 @@ public class FactoryServiciosExternos {
     private final ImageService imageService;
     private final TransmisionService transmisionService;
     private final ActaService actaService;
+    private final SettingService settingService;
 
     private FactoryServiciosExternos() {
         this.conexionMongo = new ConexionMongoImpl();
@@ -38,6 +41,7 @@ public class FactoryServiciosExternos {
         this.imageService = new ImageServiceImpl();
         this.transmisionService = new TransmisionServiceImpl();
         this.actaService = new ActaServiceImpl();
+        this.settingService = new SettingServiceImpl();
     }
 
     public static FactoryServiciosExternos getInstance() {
@@ -69,5 +73,9 @@ public class FactoryServiciosExternos {
 
     public ActaService ActaServiceImpl() {
         return this.actaService;
+    }
+    
+    public SettingService SettingService(){
+        return this.settingService;
     }
 }

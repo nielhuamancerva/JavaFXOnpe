@@ -32,4 +32,5 @@ public interface NegocioService {
 
     public Boolean readAndCutsignature(String nameCandidate,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
+    public void loadSettingActa() throws Exception;
 }
