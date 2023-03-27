@@ -8,8 +8,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -17,6 +21,13 @@ import javafx.fxml.Initializable;
  * @author NHuaman
  */
 public class LoginController implements Initializable {
+
+    @FXML
+    private Button btnIngresar;
+    @FXML
+    private TextField userName;
+    @FXML
+    private PasswordField passwordField;
 
     /**
      * Initializes the controller class.
@@ -26,14 +37,13 @@ public class LoginController implements Initializable {
         // TODO
     }
 
-    @FXML
-    private void iniciandoSecion() throws Exception, IOException {
-
-    }
-
-    @FXML
     private void salirApp() throws Exception {
         Platform.exit();
         System.exit(0);
     }
-}
+
+    @FXML
+    private void iniciandoSession() throws IOException {
+            App.setRoot(null, "inicioMenu");
+        }
+    }

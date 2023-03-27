@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import onpe.com.pe.transmisionscore.App;
 
 /**
@@ -18,6 +19,9 @@ import onpe.com.pe.transmisionscore.App;
  * @author RDeLaCruz
  */
 public class InicioMenuController implements Initializable {
+
+    @FXML
+    private Button btnTransmision;
 
     /**
      * Initializes the controller class.
@@ -28,8 +32,8 @@ public class InicioMenuController implements Initializable {
     }
 
     @FXML
-    public void ingresarTransmision() throws IOException {
-//        App.setRoot(null, "iniciarConfiguracion");
+    private void ingresarTransmision() throws IOException {
+        App.setRoot(null, "transmisionMq");
 
     }
 
