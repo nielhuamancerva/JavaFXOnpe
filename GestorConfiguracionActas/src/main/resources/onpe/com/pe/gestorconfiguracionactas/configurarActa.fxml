@@ -15,7 +15,7 @@
             <Image url="@../image/logo_score.png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrollPaneActa" layoutX="62.0" layoutY="123.0" prefHeight="662.0" prefWidth="548.0">
+      <ScrollPane fx:id="scrollPaneActa" layoutX="62.0" layoutY="105.0" prefHeight="680.0" prefWidth="540.0">
          <content>
             <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
          </content></ScrollPane>

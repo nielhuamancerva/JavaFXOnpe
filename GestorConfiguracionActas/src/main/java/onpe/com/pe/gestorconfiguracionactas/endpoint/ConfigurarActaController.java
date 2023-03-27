@@ -45,6 +45,7 @@ public class ConfigurarActaController implements Initializable {
     private double imgX = 0.0, imgY = 0.0, imgX2 = 0.0, imgY2 = 0.0, imgAncho, imgAlto;
     boolean bandImgLimpia;
     private File fileSeleccionado;
+    private Image img;
     private final BusinessService businessService;
 
     public ConfigurarActaController() {
@@ -135,12 +136,16 @@ public class ConfigurarActaController implements Initializable {
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         lbArchivosEncontrados.setText(businessService.uploadFileOnMemory(fileSeleccionado));
 
-        Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
 
-        encuadrarActa();
+        if ((int) imgViewActa.getImage().getHeight() > 4500) {
+            encuadrarActa(3);
+        } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
+            encuadrarActa(2);
+        }
         btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
         btnAdd1.setVisible(true);
@@ -373,8 +378,8 @@ public class ConfigurarActaController implements Initializable {
                     imgX = event.getX();
                     imgY = event.getY();
 
-                    VariableGlobales.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(event.getX())));
-                    VariableGlobales.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(event.getY())));
+                    //VariableGlobales.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(event.getX())));
+                    //VariableGlobales.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(event.getY())));
                     if (bandImgLimpia) {
                         imgLimpia();
                     }
@@ -397,56 +402,85 @@ public class ConfigurarActaController implements Initializable {
         });
 
         imgV.setOnMouseDragged(event -> {
-            Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
-            GraphicsContext gc = canvas.getGraphicsContext2D();
-            gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-            imgX2 = event.getX();
-            imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
-            imgAncho = imgX2 - imgX;
-            imgAlto = imgY2 - imgY;
+            if (event.getButton() == MouseButton.PRIMARY) {
+                Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
+                GraphicsContext gc = canvas.getGraphicsContext2D();
+                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+                imgX2 = event.getX();
+                imgY2 = event.getY();
+                VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
+                VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
+                imgAncho = imgX2 - imgX;
+                imgAlto = imgY2 - imgY;
 
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
+                VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
+                VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
 
-            label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
-            //dibujando el rectangulo sobre la imagen
+                label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
+                //dibujando el rectangulo sobre la imagen
 
-            //seteando imagen limpia para ser graficada
-            Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
-            imgV.setImage(img);
+                //seteando imagen limpia para ser graficada
+                //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+                imgV.setImage(img);
 
-            gc.drawImage(imgV.getImage(), 0, 0);
-            gc.setFill(Color.color(0, 0, 0, 0.5));
-            //gc.setStroke(Color.RED);
-            //gc.setLineWidth(10);
-            gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
-            gc.fillRect(imgX, imgY, imgAncho, imgAlto);
-            //Recreando la imagen
-            WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
-            PixelWriter gcIw = ImW.getPixelWriter();
-            canvas.snapshot(null, ImW);
-            imgV.setImage(ImW);
-            spA.setContent(imgV);
-            bandImgLimpia = true;
+                // el maximo de dos variables
+                double maxX = Math.max(imgX, imgX2);
+                double maxY = Math.max(imgY, imgY2);
+                double minX = Math.min(imgX, imgX2);
+                double minY = Math.min(imgY, imgY2);
+                //
+                double imgAncho2 = maxX - minX;
+                double imgAlto2 = maxY - minY;
+                ////
+
+                gc.drawImage(imgV.getImage(), 0, 0);
+                gc.setFill(Color.color(0, 0, 0, 0.5));
+                //gc.setStroke(Color.RED);
+                //gc.setLineWidth(10);
+                //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+                //gc.fillRect(imgX, imgY, imgAncho, imgAlto);
+                gc.strokeRect(minX, minY, imgAncho2, imgAlto2);
+                gc.fillRect(minX, minY, imgAncho2, imgAlto2);
+                //Recreando la imagen
+                WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
+                PixelWriter gcIw = ImW.getPixelWriter();
+                canvas.snapshot(null, ImW);
+                imgV.setImage(ImW);
+                spA.setContent(imgV);
+                bandImgLimpia = true;
+            }
 
         });
 
         imgV.setOnMouseReleased(event -> {
+            
+            if(event.getButton() == MouseButton.PRIMARY){
             //seteando imagen limpia para ser graficada
-            Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgV.setImage(img);
             //
             imgX2 = event.getX();
             imgY2 = event.getY();
             VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
             VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
-            imgAncho = imgX2 - imgX;
-            imgAlto = imgY2 - imgY;
 
-            VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
-            VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
+            //imgAncho = imgX2 - imgX;
+            //imgAlto = imgY2 - imgY;
+            // el maximo de dos variables
+            double maxX = Math.max(imgX, imgX2);
+            double maxY = Math.max(imgY, imgY2);
+            double minX = Math.min(imgX, imgX2);
+            double minY = Math.min(imgY, imgY2);
+            //
+            double imgAncho2 = maxX - minX;
+            double imgAlto2 = maxY - minY;
+            ////
+
+            VariableGlobales.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(minX)));
+            VariableGlobales.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(minY)));
+
+            VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho2)));
+            VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto2)));
 
             label.setText(VariableGlobales.configuracionActa.get(valorConfig + "Xo") + ","
                     + VariableGlobales.configuracionActa.get(valorConfig + "Yo") + ","
@@ -459,7 +493,8 @@ public class ConfigurarActaController implements Initializable {
             gc.drawImage(imgV.getImage(), 0, 0);
             gc.setStroke(Color.RED);
             gc.setLineWidth(10);
-            gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+            //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+            gc.strokeRect(minX, minY, imgAncho2, imgAlto2);
             //Recreando la imagen
             WritableImage ImW = new WritableImage((int) canvas.getWidth(), (int) canvas.getHeight());
             PixelWriter gcIw = ImW.getPixelWriter();
@@ -479,6 +514,7 @@ public class ConfigurarActaController implements Initializable {
 //           
 //            scrollPaneActa.setContent();
 //            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
+            }
         });
     }
 
@@ -490,7 +526,7 @@ public class ConfigurarActaController implements Initializable {
     }
 
     private void imgLimpia() {
-        Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
@@ -515,16 +551,25 @@ public class ConfigurarActaController implements Initializable {
         deleteButton.setVisible(true);
     }
 
-    private void encuadrarActa() {
+    private void encuadrarActa(int tipoHoja) {
         //algoritmo para reducir la imagen sin perderlas coordenadas
         int iteraciones = (int) Math.ceil(imgViewActa.getImage().getHeight() / scrollPaneActa.getHeight());
         System.out.println("iteraciones a reducir" + iteraciones);
 
         double scale = imgViewActa.getScaleX();
-        while (iteraciones > 0) {
-            imgViewActa.setScaleX(scale / 5);
-            imgViewActa.setScaleY(scale / 5);
-            iteraciones--;
+
+        if (tipoHoja == 3) {
+            while (iteraciones > 0) {
+                imgViewActa.setScaleX(scale / 8);
+                imgViewActa.setScaleY(scale / 8);
+                iteraciones--;
+            }
+        } else if (tipoHoja == 2) {
+            while (iteraciones + 2 > 0) {
+                imgViewActa.setScaleX(scale / 5);
+                imgViewActa.setScaleY(scale / 5);
+                iteraciones--;
+            }
         }
 
         scrollPaneActa.setVvalue(0.5);

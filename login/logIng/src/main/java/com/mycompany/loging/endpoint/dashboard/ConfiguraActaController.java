@@ -414,8 +414,7 @@ public class ConfiguraActaController implements Initializable {
             double minY=Math.min(imgY, imgY2);
             //
             double imgAncho2 = maxX-minX;
-            double imgAlto2 = maxY-minY;
-            
+            double imgAlto2 = maxY-minY;            
             ////
 
             gc.drawImage(imgV.getImage(), 0, 0);
@@ -456,8 +455,7 @@ public class ConfiguraActaController implements Initializable {
             double minY=Math.min(imgY, imgY2);
             //
             double imgAncho2 = maxX-minX;
-            double imgAlto2 = maxY-minY;
-            
+            double imgAlto2 = maxY-minY;            
             ////
             
             System.out.println("el punto menor (x,y)=("+minX+","+minY+")");
