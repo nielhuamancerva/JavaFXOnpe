@@ -51,7 +51,7 @@ import org.nd4j.linalg.lossfunctions.LossFunctions;
  *
  * @author JRoque
  */
-public class DeepLearningNew8 {
+public class LeeDataEntrenamiento {
     
     //private static MultiLayerNetwork restored;
     //private final static String IMAGEPATH = "samples/sample1.jpg";

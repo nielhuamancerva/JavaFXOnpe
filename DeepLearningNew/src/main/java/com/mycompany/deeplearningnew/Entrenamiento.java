@@ -26,7 +26,7 @@ import org.nd4j.linalg.dataset.api.preprocessor.NormalizerMinMaxScaler;
  *
  * @author JRoque
  */
-public class DeepLearningNew {
+public class Entrenamiento {
 
     private static final int SEED = 123;
     private static final int NUM_ITERATIONS = 1;
