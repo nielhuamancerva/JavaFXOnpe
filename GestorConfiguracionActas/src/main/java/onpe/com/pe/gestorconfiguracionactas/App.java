@@ -19,7 +19,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        setRoot(stage, "configurarActa");
+        setRoot(stage, "login");
         sc=stage;
     }
 

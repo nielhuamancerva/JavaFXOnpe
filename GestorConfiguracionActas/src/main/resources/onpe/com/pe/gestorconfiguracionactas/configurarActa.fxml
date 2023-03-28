@@ -18,7 +18,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnRegresar" layoutX="1163.0" layoutY="734.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Regresar" textFill="WHITE">
+      <Button fx:id="btnRegresar" layoutX="1188.0" layoutY="734.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Regresar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -361,5 +361,10 @@
             <TextField fx:id="textFieldEleccion" layoutX="77.0" layoutY="45.0" prefHeight="44.0" prefWidth="337.0" />
          </children>
       </AnchorPane>
+      <Button fx:id="btnRegiones" layoutX="1014.0" layoutY="734.0" mnemonicParsing="false" onAction="#verificarRegiones" styleClass="button-green" stylesheets="@../styles/Style.css" text="Regiones" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

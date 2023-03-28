@@ -160,8 +160,11 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton1(ActionEvent event) {
 
         updateLabel(btnBoton1, btnAdd1, btnDelete1);
+        //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
         seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, lbl2, ico_canc1, ico_check1);
+        //Enviar un string mas para guardar los datos en variables globales
         activarEentoImgView(false, false);
+        //enviar una variable para guardar los datos del QR
 
     }
 
@@ -358,6 +361,10 @@ public class ConfigurarActaController implements Initializable {
         businessService.saveSetting(setting);
         App.setRoot(null, "configurarActa");
     }
+    @FXML // funcion luis
+    private void verificarRegiones() throws IOException{
+        App.setRoot(null, "confirmarRegionesActa");
+    }
 
     private void updateLabel(Button button, Button addButton, Button deleteButton) {
 
@@ -465,8 +472,8 @@ public class ConfigurarActaController implements Initializable {
                 //
                 imgX2 = event.getX();
                 imgY2 = event.getY();
-                VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
-                VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
+                //VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
+                //VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
 
                 //imgAncho = imgX2 - imgX;
                 //imgAlto = imgY2 - imgY;
