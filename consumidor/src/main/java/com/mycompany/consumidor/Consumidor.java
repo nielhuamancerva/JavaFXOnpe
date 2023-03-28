@@ -90,9 +90,6 @@ public class Consumidor {
                         //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                         System.out.println(persona1.getBody().getActa());
 
-//                         statement.setInt(1, random.nextInt(100)); //tener en cuenta de los numeros random
- //                       statement.setInt(1, 111);
-
                         statement.setString(2, persona1.getBody().getActa());
                         statement.setDate(3, Date.valueOf(LocalDate.now()));
                         statement.setInt(4, 1);
@@ -103,7 +100,7 @@ public class Consumidor {
 
                         statement.executeUpdate();
 
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM tramasrecibidas");
+                        //ResultSet rs = stmt.executeQuery("SELECT * FROM tramasrecibidas");
                         
                         byte[] byteArray = Base64.getDecoder().decode(persona.getBody().getImagen().getImagen());
                       
@@ -113,9 +110,9 @@ public class Consumidor {
                               File ff = new File("D:\\carpe\\decode.png");
                               ImageIO.write(image, "png", ff);
                         
-                        while (rs.next()) {
-                            System.out.println(rs.getString("strama"));
-                        }
+//                        while (rs.next()) {
+//                            System.out.println(rs.getString("strama"));
+//                        }
                     } catch (SQLException ex) {
                         Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
                     }
