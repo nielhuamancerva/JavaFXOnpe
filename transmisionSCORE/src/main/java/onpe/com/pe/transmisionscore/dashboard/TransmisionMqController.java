@@ -23,7 +23,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Base64;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -117,12 +119,15 @@ public class TransmisionMqController implements Initializable {
                     Connection conn = FactoryService.ServicePostgreSQL().conexionPostgreSQL();
                     Statement stmt = conn.createStatement();
 
+                    Random random = new Random();
+                    
                     String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
                     PreparedStatement statement = conn.prepareStatement(sql);
 
                     //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                     System.out.println(persona1.getBody().getActa());
-
+                     statement.setInt(1, random.nextInt(1000));
+                   
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
                     statement.setInt(4, 1);
@@ -142,7 +147,7 @@ public class TransmisionMqController implements Initializable {
                 BufferedImage image;
                 try {
                     image = ImageIO.read(bis);
-                    File ff = new File("D:\\carpe\\decode.png");
+                    File ff = new File("D:\\carpe\\"+persona1.getBody().getActa()+".png");
                     ImageIO.write(image, "png", ff);
                 } catch (IOException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
