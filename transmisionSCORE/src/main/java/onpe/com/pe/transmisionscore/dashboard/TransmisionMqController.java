@@ -29,6 +29,8 @@ import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,6 +39,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.util.Duration;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.imageio.ImageIO;
@@ -50,7 +53,7 @@ import onpe.com.pe.transmisionscore.core.repository.FactoryServices;
  * @author RDeLaCruz
  */
 public class TransmisionMqController implements Initializable {
-    
+
     @FXML
     private Button btnRecepcionar;
     @FXML
@@ -69,9 +72,9 @@ public class TransmisionMqController implements Initializable {
     private Label lblMensaje;
     @FXML
     private TextArea txtAreaResultado;
-    
+
     private boolean isPressed = false;
-    
+
     private final static String EXCHANGE_NAME = "SCORE_TRANSMISION";
     private final static String[] QUEUE_NAMES = {"cola_niel", "cola_rodrigo", "cola_luis", "cola_ricardo"};
     private FactoryServices FactoryService;
@@ -83,21 +86,29 @@ public class TransmisionMqController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
+
     @FXML
     private void btnRecepcionar_OnAction(ActionEvent event) throws IOException, TimeoutException {
 
-//        progressBarRx1.setProgress(10/100);
         if (isPressed) {
+            lblMensaje.setText("Servidor Rabbit en Stop");
             btnRecepcionar.getStyleClass().add("btn_txrx_azul");
             btnRecepcionar.getStyleClass().remove("claseNueva");
             isPressed = false;
         } else {
+            lblMensaje.setText("Iniciando Rabbit......");
             btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
             btnRecepcionar.getStyleClass().add("claseNueva");
             isPressed = true;
+
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.ZERO, ActionEvent -> progressBarRx.setProgress(0)),
+                    new KeyFrame(Duration.seconds(5), ActionEvent -> progressBarRx.setProgress(1))
+            );
+            timeline.play();
+
         }
-        
+
         System.out.println(" inicio de rabbit ");
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -110,7 +121,7 @@ public class TransmisionMqController implements Initializable {
 //            channel.queueBind(queueName, EXCHANGE_NAME, queueName);
 //            System.out.println(" [*] Waiting for messages on queue '" + queueName + "'");
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-            
+
             String message = new String(delivery.getBody(), "UTF-8");
             System.out.println(" [x] Received '" + message + "'");
             Platform.runLater(() -> {
@@ -127,25 +138,25 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
                 System.out.println("body" + gson.toJson(persona.getBody()));
-                
+
                 FactoryService = FactoryServices.getInstance();
                 try {
                     Connection conn = FactoryService.ServicePostgreSQL().conexionPostgreSQL();
                     Statement stmt = conn.createStatement();
-                    
+
                     Random random = new Random();
-                    
+
                     String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
                     PreparedStatement statement = conn.prepareStatement(sql);
 
                     //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                     System.out.println(persona1.getBody().getActa());
                     statement.setInt(1, random.nextInt(1000));
-                    
+
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
                     statement.setInt(4, 1);
-                    
+
                     statement.setObject(5, persona.getBody().getImagen().getImagen());
                     //statement.setObject(5, jsonObject, Types.OTHER);
                     //statement.setObject(5, persona1.getBody().getActa());
@@ -154,9 +165,9 @@ public class TransmisionMqController implements Initializable {
                 } catch (SQLException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 byte[] byteArray = Base64.getDecoder().decode(persona.getBody().getImagen().getImagen());
-                
+
                 ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
                 BufferedImage image;
                 try {
@@ -166,9 +177,9 @@ public class TransmisionMqController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             });
-            
+
         };
 //            DefaultConsumer consumer = new DefaultConsumer(channel) {
 //                @Override
@@ -227,17 +238,17 @@ public class TransmisionMqController implements Initializable {
         });
 //        }
     }
-    
+
     @FXML
     private void btnPlayPause_OnAction(ActionEvent event
     ) {
     }
-    
+
     @FXML
     private void regresarInicio() throws IOException {
         App.setRoot(null, "inicioMenu");
     }
-    
+
     public String decrypt(String encryptedValue) throws Exception {
         String ALGORITHM = "AES";
         String KEY = "mySecretKey12345";
