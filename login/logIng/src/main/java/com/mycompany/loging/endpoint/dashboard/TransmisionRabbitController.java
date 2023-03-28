@@ -57,9 +57,13 @@ public class TransmisionRabbitController implements Initializable {
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.89.225");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
+//        factory.setHost("172.16.89.225");
+//        factory.setUsername("admin");
+//        factory.setPassword("admin");
+//        factory.setVirtualHost("/");
+        factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
         factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();

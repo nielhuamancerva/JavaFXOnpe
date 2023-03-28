@@ -14,15 +14,15 @@ import java.sql.SQLException;
  *
  * @author NHuaman
  */
-public class ServicePostgreSQLImpl implements ServicePostgreSQL{
+public class ServicePostgreSQLImpl implements ServicePostgreSQL {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/SCE";
     private static final String USER = "postgres";
     private static final String PASSWORD = "admin";
     private Connection connection;
-    
+
     @Override
-    public Connection conexionPostgreSQL() throws SQLException{
+    public Connection conexionPostgreSQL() throws SQLException {
         connection = DriverManager.getConnection(URL, USER, PASSWORD);
         return connection;
     }
@@ -32,7 +32,12 @@ public class ServicePostgreSQLImpl implements ServicePostgreSQL{
         PreparedStatement stmt = connection.prepareStatement(Query);
         return stmt.executeQuery();
     }
-    
-    
-    
+
+    @Override
+    public boolean save(String Query) throws SQLException {
+        PreparedStatement stmt = connection.prepareStatement(Query);
+        int rowsAffected= stmt.executeUpdate();
+        return rowsAffected>0;
+    }
+
 }

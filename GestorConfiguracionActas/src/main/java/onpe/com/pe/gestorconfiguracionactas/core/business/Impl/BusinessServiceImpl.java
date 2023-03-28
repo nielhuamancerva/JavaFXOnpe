@@ -24,8 +24,8 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public Document findUserBy(String username, String password) throws IOException, Exception {
-       factoryService = FactoryService.getInstance();
-       return factoryService.UserService().findByUsernameAndPassword(username,password);
+        factoryService = FactoryService.getInstance();
+        return factoryService.UserService().findByUsernameAndPassword(username, password);
     }
 
     @Override
@@ -69,7 +69,8 @@ public class BusinessServiceImpl implements BusinessService {
 
         Document document = factoryService.SettingService().findOneSettingByStatus();
 
-        if (document.isEmpty()) {
+        if (document==null) {
+
             document = factoryService.SettingService().findOneSettingName(setting);
             document.append("statusSetting", "1");
             factoryService.SettingService().updateStatusSetting(document);

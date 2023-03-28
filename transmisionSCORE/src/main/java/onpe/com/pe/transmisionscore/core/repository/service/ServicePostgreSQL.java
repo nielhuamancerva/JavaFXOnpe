@@ -13,7 +13,10 @@ import java.sql.SQLException;
  * @author NHuaman
  */
 public interface ServicePostgreSQL {
+
     public Connection conexionPostgreSQL() throws SQLException;
-    
-    public ResultSet select(String Query)throws SQLException;
+
+    public ResultSet select(String Query) throws SQLException;
+
+    public boolean save(String Query) throws SQLException;
 }
