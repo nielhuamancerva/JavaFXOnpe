@@ -64,7 +64,7 @@ public class ConfigurarActaController implements Initializable {
     ScrollPane scrollPaneActa;
 
     @FXML
-    ImageView imgViewActa;
+    ImageView imgViewActa, ico_check1, ico_canc1, ico_check2, ico_canc2, ico_canc3, ico_canc4, ico_canc5, ico_canc6, ico_canc7, ico_canc8, ico_check3, ico_check4, ico_check5, ico_check6, ico_check7, ico_check8;
 
     @FXML
     TextField textFieldEleccion;
@@ -152,6 +152,7 @@ public class ConfigurarActaController implements Initializable {
         btnAdd1.setDisable(true);
         btnDelete1.setVisible(true);
         btnDelete1.setDisable(true);
+        ico_canc1.setVisible(true);
 
     }
 
@@ -159,7 +160,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton1(ActionEvent event) {
 
         updateLabel(btnBoton1, btnAdd1, btnDelete1);
-        seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, lbl2);
+        seterarEventosImageview("codigoBarraCoordena", lbl1, imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, lbl2, ico_canc1, ico_check1);
         activarEentoImgView(false, false);
 
     }
@@ -168,15 +169,16 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton2(ActionEvent event) {
 
         updateLabel(btnBoton2, btnAdd2, btnDelete2);
-        seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa, btnAdd2, btnDelete2, lbl3);
+        seterarEventosImageview("horaInicio", lbl2, imgViewActa, scrollPaneActa, btnAdd2, btnDelete2, lbl3, ico_canc2, ico_check2);
         activarEentoImgView(false, false);
+
     }
 
     @FXML
     private void ActionBoton3(ActionEvent event) {
 
         updateLabel(btnBoton3, btnAdd3, btnDelete3);
-        seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa, btnAdd3, btnDelete3, lbl4);
+        seterarEventosImageview("horaFin", lbl3, imgViewActa, scrollPaneActa, btnAdd3, btnDelete3, lbl4, ico_canc3, ico_check3);
         activarEentoImgView(false, false);
     }
 
@@ -184,7 +186,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton4(ActionEvent event) {
 
         updateLabel(btnBoton4, btnAdd4, btnDelete4);
-        seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa, btnAdd4, btnDelete4, lbl5);
+        seterarEventosImageview("regionOrganizaciones", lbl4, imgViewActa, scrollPaneActa, btnAdd4, btnDelete4, lbl5, ico_canc4, ico_check4);
         activarEentoImgView(false, false);
     }
 
@@ -192,7 +194,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton5(ActionEvent event) {
 
         updateLabel(btnBoton5, btnAdd5, btnDelete5);
-        seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa, btnAdd5, btnDelete5, lbl6);
+        seterarEventosImageview("regionObservaciones", lbl5, imgViewActa, scrollPaneActa, btnAdd5, btnDelete5, lbl6, ico_canc5, ico_check5);
         activarEentoImgView(false, false);
     }
 
@@ -200,7 +202,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton6(ActionEvent event) {
 
         updateLabel(btnBoton6, btnAdd6, btnDelete6);
-        seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa, btnAdd6, btnDelete6, lbl7);
+        seterarEventosImageview("Firma1", lbl6, imgViewActa, scrollPaneActa, btnAdd6, btnDelete6, lbl7, ico_canc6, ico_check6);
         activarEentoImgView(false, false);
     }
 
@@ -208,7 +210,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton7(ActionEvent event) {
 
         updateLabel(btnBoton7, btnAdd7, btnDelete7);
-        seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa, btnAdd7, btnDelete7, lbl8);
+        seterarEventosImageview("Firma2", lbl7, imgViewActa, scrollPaneActa, btnAdd7, btnDelete7, lbl8, ico_canc7, ico_check7);
         activarEentoImgView(false, false);
     }
 
@@ -216,7 +218,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton8(ActionEvent event) {
 
         updateLabel(btnBoton8, btnAdd8, btnDelete8);
-        seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa, btnAdd8, btnDelete8, lbl9);
+        seterarEventosImageview("Firma3", lbl8, imgViewActa, scrollPaneActa, btnAdd8, btnDelete8, lbl9, ico_canc8, ico_check8);
         activarEentoImgView(false, false);
     }
 
@@ -226,6 +228,7 @@ public class ConfigurarActaController implements Initializable {
         activarEentoImgView(true, true);
         actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
         btnBoton2.setDisable(false);
+        ico_canc2.setVisible(true);
     }
 
     @FXML
@@ -234,6 +237,8 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
         activarEentoImgView(true, true);
         btnBoton3.setDisable(false);
+        ico_canc3.setVisible(true);
+
     }
 
     @FXML
@@ -241,6 +246,7 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
         activarEentoImgView(true, true);
         btnBoton4.setDisable(false);
+        ico_canc4.setVisible(true);
 
     }
 
@@ -250,6 +256,8 @@ public class ConfigurarActaController implements Initializable {
         activarEentoImgView(true, true);
         actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
         btnBoton5.setDisable(false);
+        ico_canc5.setVisible(true);
+
     }
 
     @FXML
@@ -258,6 +266,7 @@ public class ConfigurarActaController implements Initializable {
 
         activarEentoImgView(true, true);
         btnBoton6.setDisable(false);
+        ico_canc6.setVisible(true);
 
     }
 
@@ -267,6 +276,7 @@ public class ConfigurarActaController implements Initializable {
 
         activarEentoImgView(true, true);
         btnBoton7.setDisable(false);
+        ico_canc7.setVisible(true);
 
     }
 
@@ -276,6 +286,8 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
         activarEentoImgView(true, true);
         btnBoton8.setDisable(false);
+        ico_canc8.setVisible(true);
+
     }
 
     @FXML
@@ -290,50 +302,42 @@ public class ConfigurarActaController implements Initializable {
 
     @FXML
     private void ActionDeleteEvent8(ActionEvent event) {
-        actionDelete(lbl8, btnBoton8, btnAdd8);
-
+        actionDelete(lbl8, btnBoton8, btnAdd8, ico_check8, ico_canc8);
     }
 
     @FXML
     private void ActionDeleteEvent7(ActionEvent event) {
-        actionDelete(lbl7, btnBoton7, btnAdd7);
-
+        actionDelete(lbl7, btnBoton7, btnAdd7, ico_check7, ico_canc7);
     }
 
     @FXML
     private void ActionDeleteEvent6(ActionEvent event) {
-        actionDelete(lbl6, btnBoton6, btnAdd6);
-
+        actionDelete(lbl6, btnBoton6, btnAdd6, ico_check6, ico_canc6);
     }
 
     @FXML
     private void ActionDeleteEvent5(ActionEvent event) {
-
-        actionDelete(lbl5, btnBoton5, btnAdd5);
+        actionDelete(lbl5, btnBoton5, btnAdd5, ico_check5, ico_canc5);
     }
 
     @FXML
     private void ActionDeleteEvent4(ActionEvent event) {
-
-        actionDelete(lbl4, btnBoton4, btnAdd4);
+        actionDelete(lbl4, btnBoton4, btnAdd4, ico_check4, ico_canc4);
     }
 
     @FXML
     private void ActionDeleteEvent3(ActionEvent event) {
-
-        actionDelete(lbl3, btnBoton3, btnAdd3);
+        actionDelete(lbl3, btnBoton3, btnAdd3, ico_check3, ico_canc3);
     }
 
     @FXML
     private void ActionDeleteEvent2(ActionEvent event) {
-        actionDelete(lbl2, btnBoton2, btnAdd2);
-
+        actionDelete(lbl2, btnBoton2, btnAdd2, ico_check2, ico_canc2);
     }
 
     @FXML
     private void ActionDeleteEvent1(ActionEvent event) {
-
-        actionDelete(lbl1, btnBoton1, btnAdd1);
+        actionDelete(lbl1, btnBoton1, btnAdd1, ico_check1, ico_canc1);
     }
 
     @FXML
@@ -362,7 +366,7 @@ public class ConfigurarActaController implements Initializable {
         deleteButton.setDisable(true);
     }
 
-    private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA, Button btnAdd, Button btnDelete, Label label2) {
+    private void seterarEventosImageview(String valorConfig, Label label, ImageView imgV, ScrollPane spA, Button btnAdd, Button btnDelete, Label label2, ImageView img1, ImageView img2) {
         //
 
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -511,10 +515,14 @@ public class ConfigurarActaController implements Initializable {
 
                 //bandera cambia de estado
                 bandImgLimpia = true;
+                img1.setVisible(false);
+                img2.setVisible(true);
+
 //           
 //            scrollPaneActa.setContent();
 //            System.out.println("fin x2:" + imgX2 + "||" + "fin y2:" + imgY2);
             }
+
         });
     }
 
@@ -532,12 +540,13 @@ public class ConfigurarActaController implements Initializable {
         scrollPaneActa.setContent(imgViewActa);
     }
 
-    private void actionDelete(Label label1, Button btnButon1, Button addButton) {
+    private void actionDelete(Label label1, Button btnButon1, Button addButton, ImageView img1, ImageView img2) {
         label1.setText("");
         btnButon1.setDisable(false);
         addButton.setDisable(true);
         activarEentoImgView(true, true);
-
+        img1.setVisible(false);
+        img2.setVisible(true);
     }
 
     private void actionAddM(Label label, Button btnButon, Button addButton, Button btnButon2, Button addButton2, Button addButton21, Button deleteButton) {

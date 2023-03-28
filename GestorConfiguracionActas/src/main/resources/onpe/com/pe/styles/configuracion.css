@@ -1,0 +1,8 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.pane_recep_body{
+     -fx-border-width: 5px;
+     -fx-border-color: #ffffff;
+}
