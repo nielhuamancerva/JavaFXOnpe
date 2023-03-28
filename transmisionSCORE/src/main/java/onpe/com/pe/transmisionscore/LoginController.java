@@ -6,7 +6,11 @@ package onpe.com.pe.transmisionscore;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import onpe.com.pe.transmisionscore.core.repository.FactoryServices;
 
 /**
  * FXML Controller class
@@ -22,6 +27,7 @@ import javafx.scene.control.TextField;
  */
 public class LoginController implements Initializable {
 
+    private FactoryServices FactoryService;
     @FXML
     private Button btnIngresar;
     @FXML
@@ -35,6 +41,17 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        FactoryService = FactoryServices.getInstance();
+        try {
+            FactoryService.ServicePostgreSQL().conexionPostgreSQL();
+            ResultSet rs = FactoryService.ServicePostgreSQL().select("SELECT * FROM tramasrecibidas");
+                while (rs.next()) {
+                            System.out.println(rs.getString("strama"));
+                        }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     private void salirApp() throws Exception {
@@ -44,6 +61,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private void iniciandoSession() throws IOException {
-            App.setRoot(null, "inicioMenu");
-        }
+        App.setRoot(null, "inicioMenu");
     }
+}
