@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "64211166ecb6ef6a6570e267"
+  },
+  "id_setting": "d5f45dd7-5a2a-40e1-9322-9017075fc5d7",
+  "name": "ELECCIONES PRESIDENCIALES",
+  "setting": "{\"regionObservacionesXf\":\"2635\",\"codigoBarraCoordenaYf\":\"319\",\"horaInicioYf\":\"1295\",\"horaFinXf\":\"1027\",\"regionOrganizacionesXo\":\"320\",\"regionObservacionesAncho\":\"2345\",\"Firma3Yf\":\"5005\",\"regionObservacionesXo\":\"290\",\"Firma2Yf\":\"4985\",\"horaFinXo\":\"523\",\"regionOrganizacionesXf\":\"2610\",\"Firma1Ancho\":\"810\",\"Firma2Alto\":\"485\",\"codigoBarraCoordenaAncho\":\"760\",\"Firma1Yf\":\"4990\",\"Firma1Xo\":\"180\",\"Firma3Xo\":\"1845\",\"horaInicioAlto\":\"136\",\"Firma2Xo\":\"1020\",\"Firma2Ancho\":\"755\",\"codigoBarraCoordenaXo\":\"1989\",\"horaInicioYo\":\"1159\",\"horaFinAncho\":\"505\",\"regionOrganizacionesAncho\":\"2290\",\"regionObservacionesAlto\":\"355\",\"Firma1Alto\":\"500\",\"codigoBarraCoordenaXf\":\"2749\",\"horaFinAlto\":\"114\",\"Firma3Ancho\":\"775\",\"horaInicioXf\":\"950\",\"horaInicioAncho\":\"500\",\"regionObservacionesYf\":\"4225\",\"regionOrganizacionesYo\":\"1665\",\"codigoBarraCoordenaAlto\":\"215\",\"horaFinYf\":\"4332\",\"Firma2Xf\":\"1775\",\"Firma1Xf\":\"990\",\"regionObservacionesYo\":\"3870\",\"regionOrganizacionesYf\":\"3480\",\"Firma3Xf\":\"2620\",\"horaFinYo\":\"4218\",\"Firma2Yo\":\"4500\",\"regionOrganizacionesAlto\":\"1815\",\"Firma1Yo\":\"4490\",\"Firma3Alto\":\"500\",\"Firma3Yo\":\"4505\",\"codigoBarraCoordenaYo\":\"104\",\"horaInicioXo\":\"450\"}",
+  "statusSetting": "1"
+}]

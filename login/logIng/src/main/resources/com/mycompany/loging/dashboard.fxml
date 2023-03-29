@@ -82,22 +82,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView id="ivPuestaCero" fitHeight="240.0" fitWidth="240.0" layoutX="180.0" layoutY="464.0" onMouseClicked="#switchToConfig" pickOnBounds="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <image>
-                  <Image url="@../../../imagenes/conf.jpg" />
-               </image>
-            </ImageView>
-            <Label id="lbPuestaCero" layoutX="201.0" layoutY="567.0" text="CONFIGURACIÓN" textFill="WHITE" underline="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
    </children>

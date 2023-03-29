@@ -65,16 +65,21 @@ public class LeerActasVotosController implements Initializable {
                     Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Yo")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Ancho")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizaciones" + "Alto")));
-            
+
             imagenVotos.setImage(
                     CreateObject.image(
                             VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
 
-            System.out.println("bufferedValorVoto1 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-            System.out.println("bufferedValorVoto2 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-            System.out.println("bufferedValorVoto3 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-            System.out.println("bufferedValorVoto4 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-            System.out.println("bufferedValorVoto5 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+            voto1.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            voto2.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            voto3.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            voto4.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            voto5.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+            System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

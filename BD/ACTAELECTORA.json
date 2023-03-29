@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "65ffb80ac2f812ba9cb01d30"
+  },
+  "acta": "01700187O0101,
+  "departamento": "UCAYALI",
+  "provincia": "CORONEL PORTILLO",
+  "distrito": "MASISEA",
+  "horaInicio": "7:05 PM",
+  "horaFin": "8:00 PM",
+  "lista1": "",
+  "votosBlanco": "",
+  "votosNulos": "",
+  "votosImpugnados": "",
+  "votosEmitidos": "",
+  "observaciones": "",
+  "firma1": "",
+  "firma2": "",
+  "firma3": "",
+  "estado": "",
+  "id_acta": "20"
+}]
