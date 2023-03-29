@@ -9,5 +9,5 @@ package onpe.com.pe.gestorconfiguracionactas.core.util.constants;
  * @author NHuaman
  */
 public class Constants {
-    
+    public static String PATH_TESSERACT = "D:\\TESSORC\\tessdata";
 }

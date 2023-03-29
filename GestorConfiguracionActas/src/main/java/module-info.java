@@ -9,7 +9,9 @@ module onpe.com.pe.gestorconfiguracionactas {
     requires org.mongodb.driver.core;
     requires com.google.gson;
     requires java.logging;
-
+    requires jai.imageio.core;
+    requires java.desktop;
+    
     opens onpe.com.pe.gestorconfiguracionactas to javafx.fxml;
     exports onpe.com.pe.gestorconfiguracionactas;
 

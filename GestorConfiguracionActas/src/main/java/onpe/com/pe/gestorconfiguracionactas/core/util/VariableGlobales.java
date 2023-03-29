@@ -16,4 +16,6 @@ public class VariableGlobales {
     public static Map<String, String> lecturaActasEnMemoria = new HashMap();
 
     public static Map<String, String> configuracionActa = new HashMap();
+
+    public static Map<String, String> configuracionTess4j = new HashMap();
 }

@@ -69,7 +69,7 @@ public class BusinessServiceImpl implements BusinessService {
 
         Document document = factoryService.SettingService().findOneSettingByStatus();
 
-        if (document==null) {
+        if (document == null) {
 
             document = factoryService.SettingService().findOneSettingName(setting);
             document.append("statusSetting", "1");
@@ -81,6 +81,13 @@ public class BusinessServiceImpl implements BusinessService {
             document.append("statusSetting", "1");
             factoryService.SettingService().updateStatusSetting(document);
         }
+
+    }
+
+    @Override
+    public String readTitleActa(Integer x, Integer y, Integer h, Integer w) throws Exception {
+        factoryService = FactoryService.getInstance();
+        return factoryService.Tess4jService().readTitleActa(x, y, h, w);
 
     }
 

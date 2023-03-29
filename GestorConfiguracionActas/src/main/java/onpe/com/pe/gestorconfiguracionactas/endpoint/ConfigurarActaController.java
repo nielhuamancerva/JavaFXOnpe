@@ -53,7 +53,10 @@ public class ConfigurarActaController implements Initializable {
     }
 
     @FXML
-    private Button btnRegresar, btnBoton1, btnBoton2, btnBoton3, btnBoton4, btnBoton8, btnBoton7, btnBoton6, btnBoton5, btnCargar, btnProcesar, btnAdd1, btnAdd2, btnAdd3, btnAdd4, btnAdd5, btnAdd6, btnAdd7, btnAdd8, btnDelete1, btnDelete2, btnDelete3, btnDelete4, btnDelete5, btnDelete6, btnDelete7, btnDelete8;
+    private Button btnRegresar, btnAddTitle, btnBoton1, btnBoton2, btnBoton3, btnBoton4, btnBoton8,
+            btnBoton7, btnBoton6, btnBoton5, btnCargar, btnProcesar, btnAdd1, btnAdd2,
+            btnAdd3, btnAdd4, btnAdd5, btnAdd6, btnAdd7, btnAdd8, btnDelete1, btnDelete2,
+            btnDelete3, btnDelete4, btnDelete5, btnDelete6, btnDelete7, btnDelete8;
 
     @FXML
     Label lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9;
@@ -64,7 +67,8 @@ public class ConfigurarActaController implements Initializable {
     ScrollPane scrollPaneActa;
 
     @FXML
-    ImageView imgViewActa, ico_check1, ico_canc1, ico_check2, ico_canc2, ico_canc3, ico_canc4, ico_canc5, ico_canc6, ico_canc7, ico_canc8, ico_check3, ico_check4, ico_check5, ico_check6, ico_check7, ico_check8;
+    ImageView imgViewActa, ico_check1, ico_canc1, ico_check2, ico_canc2, ico_canc3, ico_canc4, ico_canc5, ico_canc6,
+            ico_canc7, ico_canc8, ico_check3, ico_check4, ico_check5, ico_check6, ico_check7, ico_check8;
 
     @FXML
     TextField textFieldEleccion;
@@ -153,6 +157,23 @@ public class ConfigurarActaController implements Initializable {
         btnDelete1.setVisible(true);
         btnDelete1.setDisable(true);
         ico_canc1.setVisible(true);
+
+    }
+
+    @FXML
+    private void actionAddTitle(ActionEvent event) throws Exception {
+
+        updateLabel(btnBoton1, btnAdd1, btnDelete1);
+        //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
+        seterarEventosImageview("title", lbl1, imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, lbl2, ico_canc1, ico_check1);
+        //Enviar un string mas para guardar los datos en variables globales
+        activarEentoImgView(false, false);
+        //enviar una variable para guardar los datos del QR
+        businessService.readTitleActa(
+                Integer.parseInt(VariableGlobales.configuracionActa.get("titleXo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("titleYo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("titleAncho")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("titleAlto")));
 
     }
 
@@ -361,8 +382,9 @@ public class ConfigurarActaController implements Initializable {
         businessService.saveSetting(setting);
         App.setRoot(null, "configurarActa");
     }
+
     @FXML // funcion luis
-    private void verificarRegiones() throws IOException{
+    private void verificarRegiones() throws IOException {
         App.setRoot(null, "confirmarRegionesActa");
     }
 
