@@ -23,13 +23,12 @@ public class App extends Application {
 //    private double yPos;
 //    private double width;
 //    private double height;
-
     @Override
     public void start(Stage stage) throws IOException {
         //scene = new Scene(loadFXML("login"), 1200, 800);
         setRoot(stage, "login");
         sc = stage;
-        
+
         // Guardamos la posición y el tamaño de la ventana
 //        stage.setOnHiding(event -> {
 //            xPos = stage.getX();
@@ -37,7 +36,6 @@ public class App extends Application {
 //            width = stage.getWidth();
 //            height = stage.getHeight();
 //        });
-
         // Restauramos la posición y el tamaño de la ventana
 //        stage.setOnShowing(event -> {
 //            stage.setX(xPos);
@@ -45,8 +43,6 @@ public class App extends Application {
 //            stage.setWidth(width);
 //            stage.setHeight(height);
 //        });
-
-
     }
 
     public static void setRoot(Stage stage, String fxml) throws IOException {

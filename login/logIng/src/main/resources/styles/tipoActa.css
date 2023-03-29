@@ -1,0 +1,22 @@
+
+
+.btn_box_shadow{
+    -fx-background-color: #3498db;
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 0);
+}
+
+.btn_box_shadow:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.boton-3d:pressed {
+    -fx-background-color: #1a5276;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,1), 15, 0, 0, 0);
+    -fx-translate-y: 2px;
+}

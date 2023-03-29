@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
  *
  * @author RDeLaCruz
  */
-public class InicioMenuController implements Initializable {
+public class TipoActaController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -25,13 +25,17 @@ public class InicioMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
-    private void switchToTransmision() throws IOException {
-        //App.setRoot("primary");
-        App.setRoot(null, "tipoActa");
+    private void actionActainstalacion() throws IOException {
+        App.setRoot(null, "cargarActaInstalacion");
+    }
+
+    @FXML
+    private void actionActaEscrutinio() throws IOException {
+        App.setRoot(null, "cargarActaEscrutinio");
 
     }
-    
+
 }

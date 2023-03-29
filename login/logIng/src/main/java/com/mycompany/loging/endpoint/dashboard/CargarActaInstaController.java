@@ -18,7 +18,7 @@ import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import javafx.scene.control.Button;
 
-public class TransmisionController implements Initializable {
+public class CargarActaInstaController implements Initializable {
 
     private final NegocioService negocioService;
     private File fileSeleccionado;
@@ -28,7 +28,7 @@ public class TransmisionController implements Initializable {
     @FXML
     private Button btnSiguiente;
 
-    public TransmisionController() {
+    public CargarActaInstaController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
     }
@@ -72,7 +72,7 @@ public class TransmisionController implements Initializable {
 
     @FXML
     private void regresarDashboard() throws IOException {
-        App.setRoot(null, "inicioMenu");
+        App.setRoot(null, "tipoActa");
     }
 
 }
