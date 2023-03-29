@@ -149,17 +149,18 @@ public class TransmisionMqController implements Initializable {
                     String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
                     PreparedStatement statement = conn.prepareStatement(sql);
 
-                    //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
                     System.out.println(persona1.getBody().getActa());
                     statement.setInt(1, random.nextInt(1000));
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
                     statement.setInt(4, 1);
 
                     statement.setObject(5, persona.getBody().getImagen().getImagen());
-                    //statement.setObject(5, jsonObject, Types.OTHER);
-                    //statement.setObject(5, persona1.getBody().getActa());
+
 
                     statement.executeUpdate();
                 } catch (SQLException ex) {
