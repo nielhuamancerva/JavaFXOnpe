@@ -1,0 +1,17 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background-color: #E0E0E0;
+}
+
+.border-negro{
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+}
+
+.border-negro-x2{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}

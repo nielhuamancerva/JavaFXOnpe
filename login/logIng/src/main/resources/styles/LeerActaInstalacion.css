@@ -1,0 +1,13 @@
+.img-body-qr{
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+}
+.button-recortar{
+    -fx-background-color:#ffffff;
+    -fx-border-color: black;
+}
+
+.body-recorta{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}
