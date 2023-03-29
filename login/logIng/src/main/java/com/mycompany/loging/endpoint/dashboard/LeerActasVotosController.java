@@ -87,7 +87,7 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private void regresarLeerActas() throws IOException {
-        App.setRoot(null, "leerActas");
+        App.setRoot(null, "leerActaEscrutinio");
     }
 
     @FXML

@@ -22,7 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class LeerActasController implements Initializable {
+public class LeerActaEscrutinioController implements Initializable {
 
     private final NegocioService negocioService;
     private DropShadowE dropShadowE;
@@ -30,7 +30,7 @@ public class LeerActasController implements Initializable {
     @FXML
     private Button btnCancelar, btnSiguiente, btnRecortar;
 
-    public LeerActasController() {
+    public LeerActaEscrutinioController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
     }
@@ -66,13 +66,13 @@ public class LeerActasController implements Initializable {
             lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
             lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
         } catch (Exception ex) {
-            Logger.getLogger(LeerActasController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LeerActaEscrutinioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
     private void regresarInicio() throws IOException {
-        App.setRoot(null, "cargarActas");
+        App.setRoot(null, "cargarActaEscrutinio");
     }
 
     @FXML

@@ -67,7 +67,7 @@ public class CargarActaEscrutiController implements Initializable {
 
     @FXML
     public void cargarActas() throws IOException {
-        App.setRoot(null, "leerActas");
+        App.setRoot(null, "leerActaEscrutinio");
     }
 
     @FXML

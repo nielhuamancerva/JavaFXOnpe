@@ -67,7 +67,7 @@ public class CargarActaInstaController implements Initializable {
 
     @FXML
     public void cargarActas() throws IOException {
-        App.setRoot(null, "leerActas");
+        App.setRoot(null, "leerActaInstalacion");
     }
 
     @FXML

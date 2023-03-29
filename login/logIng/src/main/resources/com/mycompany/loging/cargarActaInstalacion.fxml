@@ -8,14 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.CargarActaInstaController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.endpoint.dashboard.CargarActaInstaController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../imagenes/logo_score.png" />
          </image>
       </ImageView>
-      <Label layoutX="91.0" layoutY="149.0" text="Seleccione la Carpeta de Actas de Escrutinio">
+      <Label layoutX="91.0" layoutY="149.0" text="Seleccione la Carpeta de Actas de instalación y Sufragio">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
