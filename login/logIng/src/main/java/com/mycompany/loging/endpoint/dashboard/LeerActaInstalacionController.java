@@ -77,7 +77,7 @@ public class LeerActaInstalacionController implements Initializable {
 
     @FXML
     private void registrarVotos() throws IOException {
-        App.setRoot(null, "leerActasVotos");
+        App.setRoot(null, "leerActasVotosInstalacion");
     }
 
     @FXML

@@ -151,10 +151,6 @@ public class TransmisionMqController implements Initializable {
 
                     System.out.println(persona1.getBody().getActa());
                     statement.setInt(1, random.nextInt(1000));
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
                     statement.setInt(4, 1);

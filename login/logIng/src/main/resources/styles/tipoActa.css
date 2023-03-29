@@ -20,3 +20,32 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,1), 15, 0, 0, 0);
     -fx-translate-y: 2px;
 }
+
+.pane_tipo_body{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+
+    /*    -fx-border-width: 5px;  */
+    /*    -fx-font-size: 10px;
+        -fx-background-color:#001b3f;*/
+}
+
+.button-Salir{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    -fx-text-fill: back;
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../imagenes/salir_ventana_off.png');
+    -fx-background-size:60px;
+}
+.button-Salir:hover{
+    -fx-background-image: url('../imagenes/salir_ventana_on.png');
+    -fx-background-size:60px;
+}
