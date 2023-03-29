@@ -70,16 +70,11 @@ public class LeerActasVotosController implements Initializable {
                     CreateObject.image(
                             VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
 
-            /*factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto1", 1514, 120, 200, 240);
-            factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto2", 1514, 440, 200, 240);
-            factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto3", 1514, 780, 200, 240);
-            factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto4", 1514, 1120, 200, 240);
-            factoryservices.Tess4jServiceImpl().leerNumeroVotos("voto5", 1514, 1460, 200, 240);
-            voto1.setText(VariableGlobales.lecturaActasEnMemoria.get("voto1"));
-            voto2.setText(VariableGlobales.lecturaActasEnMemoria.get("voto2"));
-            voto3.setText(VariableGlobales.lecturaActasEnMemoria.get("voto3"));
-            voto4.setText(VariableGlobales.lecturaActasEnMemoria.get("voto4"));
-            voto5.setText(VariableGlobales.lecturaActasEnMemoria.get("voto5"));*/
+            System.out.println("bufferedValorVoto1 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            System.out.println("bufferedValorVoto2 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            System.out.println("bufferedValorVoto3 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            System.out.println("bufferedValorVoto4 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            System.out.println("bufferedValorVoto5 "+VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

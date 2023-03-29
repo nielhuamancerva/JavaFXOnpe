@@ -15,6 +15,7 @@ import net.sourceforge.tess4j.Tesseract;
 import com.mycompany.loging.score.Repository.service.Tess4jService;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.awt.image.RescaleOp;
+import java.util.HashMap;
 import net.sourceforge.tess4j.util.ImageHelper;
 
 public class Tess4jServiceImpl implements Tess4jService {
@@ -49,16 +50,17 @@ public class Tess4jServiceImpl implements Tess4jService {
 
     @Override
     public void leerNumeroVotos(String nombreVoto, Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotos"));
-        BufferedImage image = ImageIO.read(imageFile);
-
+        File fileImageRegionVotos = new File(VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotos"));
+        BufferedImage image = ImageIO.read(fileImageRegionVotos);
+        BufferedImage valor1 = image.getSubimage(X, Y, H, W);
+        
         Tesseract tc = new Tesseract();
         tc.setOcrEngineMode(2);
         tc.setTessVariable("user_defined_dpi", "2400");
         tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
 
-        BufferedImage valor1 = image.getSubimage(X, Y, H, W);
+
         File archivoValor1 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + nombreVoto + ".png");
         ImageIO.write(valor1, "png", archivoValor1);
 
@@ -133,6 +135,42 @@ public class Tess4jServiceImpl implements Tess4jService {
         VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotos", archivoRegionLista.getPath());
         VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotosUri", archivoRegionLista.toURI().toString());
 
+        
+            Tesseract tc = new Tesseract();
+            tc.setOcrEngineMode(2);
+            tc.setTessVariable("user_defined_dpi", "70");
+            tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
+            tc.setTessVariable("tessedit_char_whitelist", "0123456789");
+        
+    
+            
+            int numeroMaximoFila = 5;
+            int altoImagen = regionLista.getHeight();
+            int anchoImagen = regionLista.getWidth();
+            int y=0;
+            int altoImagenRecortada = (altoImagen/numeroMaximoFila);
+            
+            for(int i=0;i<=(numeroMaximoFila-1);i++){
+                BufferedImage bufferedOrganizacion = regionLista.getSubimage(0, y, anchoImagen, altoImagenRecortada);
+                //tc.doOCR(preprocesarImagen2(bufferedOrganizacion, "xxxxx"+i, path));
+                // coordenada imagen (100,200,300,400)
+                BufferedImage bufferedOrganizacionCortada = bufferedOrganizacion.getSubimage(anchoImagen-220, 0, 220, altoImagenRecortada);
+                String textoPartidoA = tc.doOCR(preprocesarImagenRegionVoto(bufferedOrganizacionCortada, "bufferedValorVoto"+i, VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), 1.61f, 1.9f));
+                
+                y+=(altoImagenRecortada);
+                
+                String[] numeros = textoPartidoA.trim().split("\n");
+                VariableGlobales.lecturaActasEnMemoria.put("bufferedValorVoto"+i, numeros[0]);
+            }
+    }
+    
+        private static BufferedImage preprocesarImagenRegionVoto(BufferedImage bufferedImagen, String nombre, String path, float scaleFactor, float offset) throws IOException {
+        bufferedImagen = ImageHelper.convertImageToGrayscale(bufferedImagen); // Convertir la imagen a escala de grises
+        RescaleOp rescale = new RescaleOp(scaleFactor, offset, null);
+        BufferedImage contraste = rescale.filter(bufferedImagen, null);
+        File archivoValor55 = new File(path + nombre + ".png");
+        ImageIO.write(contraste, "png", archivoValor55);
+        return contraste;
     }
 
 }
