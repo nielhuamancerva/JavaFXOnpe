@@ -46,10 +46,17 @@ public class ConfirmarRegionesActasController implements Initializable {
     ImageView imgViewActaMarcada;
     
      //cancelando
-    @FXML
-    public void botonCancelar() throws IOException {
-        App.setRoot(null, "configurarActa");
-    }
+//    @FXML
+//    public void botonCancelar() throws IOException {
+//        App.setRoot(null, "configurarActa");
+//        String cargarActa,ruta;
+//        VariableGlobales.configuracionActa.put("confirmarActa","1");//esto para cargar el acta
+//        cargarActa = VariableGlobales.configuracionActa.get("confirmarActa");
+//        ruta = VariableGlobales.configuracionActa.get("fileNamePathOriginal");
+//        VariableGlobales.configuracionActa.clear();
+//        VariableGlobales.configuracionActa.put("fileNamePathOriginal",ruta);
+//        VariableGlobales.configuracionActa.put("confirmarActa",cargarActa);
+//    }
 
     @FXML
     private void confirmarRegion() throws IOException {
