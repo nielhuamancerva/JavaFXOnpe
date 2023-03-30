@@ -358,7 +358,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <TextField fx:id="textFieldEleccion" layoutX="77.0" layoutY="45.0" prefHeight="44.0" prefWidth="337.0" />
+            <TextField fx:id="textFieldEleccion" editable="false" layoutX="77.0" layoutY="45.0" prefHeight="44.0" prefWidth="337.0" />
             <Button fx:id="btnAddTitle" layoutX="423.0" layoutY="46.0" mnemonicParsing="false" onAction="#actionAddTitle" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
