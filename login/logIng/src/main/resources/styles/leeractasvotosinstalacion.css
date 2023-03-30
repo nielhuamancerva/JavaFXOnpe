@@ -44,9 +44,9 @@
 }
 
 .btn_no_firmo_off:hover {
-    -fx-background-image: url("../image/btn_no_firm_on.jpg"); 
+    -fx-background-image: url("../imagenes/btn_no_firm_on.jpg"); 
 }
 
 .btn_no_firmo_on{
-    -fx-background-image: url("../image/btn_no_firm_activo.jpg"); 
+    -fx-background-image: url("../imagenes/btn_no_firm_activo.jpg"); 
 }

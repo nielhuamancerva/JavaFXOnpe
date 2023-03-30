@@ -4,9 +4,14 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -15,6 +20,11 @@ import javafx.fxml.Initializable;
  */
 public class LeerActasVotosInstaController implements Initializable {
 
+    @FXML
+    private Button btnSiguiente;
+    @FXML
+    private Button btnRegresar;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +32,15 @@ public class LeerActasVotosInstaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void registrarObs()throws IOException{
+        
+    }
+
+    @FXML
+    private void regresarLeerActas() throws IOException{
+        App.setRoot(null, "leerActaInstalacion");
+    }
     
 }
