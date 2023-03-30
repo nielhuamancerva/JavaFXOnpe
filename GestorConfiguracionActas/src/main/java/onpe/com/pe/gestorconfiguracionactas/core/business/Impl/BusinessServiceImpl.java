@@ -88,7 +88,6 @@ public class BusinessServiceImpl implements BusinessService {
     public String readTitleActa(Integer x, Integer y, Integer h, Integer w) throws Exception {
         factoryService = FactoryService.getInstance();
         return factoryService.Tess4jService().readTitleActa(x, y, h, w);
-
     }
 
 }

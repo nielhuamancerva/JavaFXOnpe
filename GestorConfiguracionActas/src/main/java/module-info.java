@@ -11,6 +11,7 @@ module onpe.com.pe.gestorconfiguracionactas {
     requires java.logging;
     requires jai.imageio.core;
     requires java.desktop;
+    requires tess4j;
     
     opens onpe.com.pe.gestorconfiguracionactas to javafx.fxml;
     exports onpe.com.pe.gestorconfiguracionactas;
