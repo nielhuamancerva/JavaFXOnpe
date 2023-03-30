@@ -37,10 +37,10 @@ public class LeerActaEscrutinioController implements Initializable {
 
     public static ActasLeidas acta = new ActasLeidas();
 
-    @FXML
     TextField txtHora;
+    Label lbFecha;
     @FXML
-    Label lbFecha, lbVaDepartamento, lbVaDistrito, lbVaprovincia;
+    Label lbVaDepartamento, lbVaDistrito, lbVaprovincia;
     @FXML
     ImageView imagenCodigoBarra;
     private FactoryServiciosExternos factoryservices;

@@ -15,3 +15,38 @@
     -fx-border-width: 2px;
     -fx-border-color: black;
 }
+
+.btn_firmo_off, .btn_asistio_on, .btn_no_firmo_off, .btn_no_firmo_on, .btn_no_asistio_pre_sel_off {
+    -fx-pref-width: 66px;
+    -fx-pref-height: 59px;
+}
+
+.btn_firmo_off:focused, .btn_firmo_on:focused, .btn_no_firmo_off:focused, .btn_no_firmo_on:focused, .btn_no_asistio_pre_sel_off:focused{
+    -fx-background-color: -fx-faint-focus-color, -fx-focus-color, -fx-control-inner-background;     
+    -fx-background-insets: -1.4, -1.0, 1;
+    -fx-background-radius: 2, 0, 0;
+}
+
+.btn_firmo_off{
+    -fx-background-image: url("../imagenes/btn_firmo_off.jpg"); 
+}
+
+.btn_firmo_off:hover {
+    -fx-background-image: url("../imagenes/btn_firmo_on.jpg"); 
+}
+
+.btn_firmo_on{
+    -fx-background-image: url("../imagenes/btn_firmo_activo.jpg"); 
+}
+
+.btn_no_firmo_off{
+    -fx-background-image: url("../imagenes/btn_no_firm_off.jpg"); 
+}
+
+.btn_no_firmo_off:hover {
+    -fx-background-image: url("../image/btn_no_firm_on.jpg"); 
+}
+
+.btn_no_firmo_on{
+    -fx-background-image: url("../image/btn_no_firm_activo.jpg"); 
+}
