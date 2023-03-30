@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -130,6 +131,62 @@ public class ConfigurarActaController implements Initializable {
         });
         //BANDERA PARA Limpiar la imagen
         bandImgLimpia = false;
+
+        //HACER UNA FUNCION PARA VERIFICAR Y CARGAR LOS BOTONES QUE YA ESTAN SETEADOS
+        if (VariableGlobales.configuracionActa.get("confirmarActa") != null) {
+            if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) {
+                ico_canc1.setVisible(false);
+                ico_check1.setVisible(true);
+                actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
+            }
+            if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) {
+                ico_canc2.setVisible(false);
+                ico_check2.setVisible(true);
+                actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
+            }
+            if (VariableGlobales.configuracionActa.get("horaFinXo") != null) {
+                ico_canc3.setVisible(false);
+                ico_check3.setVisible(true);
+                actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
+            }
+            if (VariableGlobales.configuracionActa.get("regionOrganizacionesXo") != null) {
+                ico_canc4.setVisible(false);
+                ico_check4.setVisible(true);
+                actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
+            }
+            if (VariableGlobales.configuracionActa.get("regionObservacionesXo") != null) {
+                ico_canc5.setVisible(false);
+                ico_check5.setVisible(true);
+                actionAddM(lbl6, btnBoton5, btnAdd5, btnBoton6, btnAdd6, btnAdd6, btnDelete6);
+            }
+            if (VariableGlobales.configuracionActa.get("Firma1Xo") != null) {
+                ico_canc6.setVisible(false);
+                ico_check6.setVisible(true);
+                actionAddM(lbl7, btnBoton6, btnAdd6, btnBoton7, btnAdd7, btnAdd7, btnDelete7);
+            }
+            if (VariableGlobales.configuracionActa.get("Firma2Xo") != null) {
+                ico_canc7.setVisible(false);
+                ico_check7.setVisible(true);
+                actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
+            }
+            if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) {
+                ico_canc8.setVisible(false);
+                ico_check8.setVisible(true);
+            }
+            // cargando acta
+            img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            imgViewActa.setImage(img);
+            scrollPaneActa.setContent(imgViewActa);
+            // encuadrando acta
+            if ((int) imgViewActa.getImage().getHeight() > 4500) {
+                encuadrarActa(3);
+            } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
+                encuadrarActa(2);
+                System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
+            }
+
+        }
+
     }
 
     @FXML
@@ -143,12 +200,19 @@ public class ConfigurarActaController implements Initializable {
         img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
+
+        //verifica si el acta
+        transformarScrollPane();
+
+        //scrollPaneActa.setTranslateY();
+        //set bounds para posicion
         scrollPaneActa.setContent(imgViewActa);
 
         if ((int) imgViewActa.getImage().getHeight() > 4500) {
             encuadrarActa(3);
         } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
             encuadrarActa(2);
+            System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
         }
         btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
@@ -367,6 +431,7 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     private void regresaMenu() throws IOException {
         App.setRoot(null, "inicioMenu");
+        VariableGlobales.configuracionActa.remove("confirmarActa");
 
     }
 
@@ -386,6 +451,19 @@ public class ConfigurarActaController implements Initializable {
     @FXML // funcion luis
     private void verificarRegiones() throws IOException {
         App.setRoot(null, "confirmarRegionesActa");
+    }
+
+    public void transformarScrollPane() {
+        double anchoImg = scrollPaneActa.getWidth();
+        double altoImg = scrollPaneActa.getHeight();
+
+        //Point2D pos = new scrollPaneActa.lo
+        if (imgViewActa.getImage().getWidth() > imgViewActa.getImage().getHeight()) {
+            scrollPaneActa.setPrefHeight(anchoImg);
+            scrollPaneActa.setPrefWidth(altoImg);
+//            System.out.println("vertical bounds:"+scrollPaneActa.getBoundsInLocal().getWidth()+"||"+scrollPaneActa.getBoundsInLocal().getHeight());
+        }
+
     }
 
     private void updateLabel(Button button, Button addButton, Button deleteButton) {
@@ -579,20 +657,18 @@ public class ConfigurarActaController implements Initializable {
         double scale = imgViewActa.getScaleX();
 
         if (tipoHoja == 3) {
-            while (iteraciones > 0) {
-                imgViewActa.setScaleX(scale / 8);
-                imgViewActa.setScaleY(scale / 8);
-                iteraciones--;
-            }
+
+            imgViewActa.setScaleX(scale / 8);
+            imgViewActa.setScaleY(scale / 8);
         } else if (tipoHoja == 2) {
-            while (iteraciones + 2 > 0) {
-                imgViewActa.setScaleX(scale / 5);
-                imgViewActa.setScaleY(scale / 5);
-                iteraciones--;
-            }
+
+            imgViewActa.setScaleX(scale / 5.6);
+            imgViewActa.setScaleY(scale / 5.6);
+
         }
 
         scrollPaneActa.setVvalue(0.5);
         scrollPaneActa.setHvalue(0.5);
     }
+
 }

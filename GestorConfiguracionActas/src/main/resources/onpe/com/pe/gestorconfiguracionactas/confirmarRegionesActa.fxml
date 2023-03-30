@@ -15,11 +15,21 @@
             <Image url="@../image/logo_score.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgViewActaMarcada" fitHeight="716.0" fitWidth="551.0" layoutX="226.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgViewActaMarcada" fitHeight="716.0" fitWidth="551.0" layoutX="61.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="364.0" layoutY="12.0" text="Regiones Selecionadas">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="btnConfirmar" layoutX="690.0" layoutY="723.0" mnemonicParsing="false" onAction="#confirmarRegion" styleClass="button-green" stylesheets="@../styles/Style.css" text="Confirmar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button id="btnCanselar" layoutX="850.0" layoutY="723.0" mnemonicParsing="false" onAction="#botonCancelar"  styleClass="button-red" stylesheets="@../styles/Style.css" text="Canselar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

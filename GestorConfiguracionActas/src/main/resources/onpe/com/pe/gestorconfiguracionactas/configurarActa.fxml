@@ -41,12 +41,12 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <Label fx:id="lbArchivosEncontrados" layoutX="607.0" layoutY="147.0" text="0 Archivos Encontrados">
+      <Label fx:id="lbArchivosEncontrados" layoutX="748.0" layoutY="147.0" text="0 Archivos Encontrados">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="957.0" layoutY="204.0" prefHeight="502.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane layoutX="1007.0" layoutY="204.0" prefHeight="502.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #011b40;">
                <children>
@@ -339,7 +339,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="btnCargar" layoutX="607.0" layoutY="91.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="217.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Cargar Documento" textFill="WHITE">
+      <Button fx:id="btnCargar" layoutX="769.0" layoutY="91.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="217.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Cargar Documento" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -347,7 +347,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="957.0" layoutY="80.0" prefHeight="101.0" prefWidth="489.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane layoutX="1004.0" layoutY="80.0" prefHeight="101.0" prefWidth="489.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #C1C8E5;">
                <children>
