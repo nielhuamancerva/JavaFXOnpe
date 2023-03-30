@@ -138,6 +138,9 @@ public class ConfigurarActaController implements Initializable {
                 ico_canc1.setVisible(false);
                 ico_check1.setVisible(true);
                 actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
+                btnAdd1.setVisible(true);
+                btnDelete1.setVisible(true);
+                btnDelete2.setDisable(false);
             }
             if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) {
                 ico_canc2.setVisible(false);
@@ -431,7 +434,9 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     private void regresaMenu() throws IOException {
         App.setRoot(null, "inicioMenu");
-        VariableGlobales.configuracionActa.remove("confirmarActa");
+        
+        //VariableGlobales.configuracionActa.remove("confirmarActa");
+        VariableGlobales.configuracionActa.clear();
 
     }
 
