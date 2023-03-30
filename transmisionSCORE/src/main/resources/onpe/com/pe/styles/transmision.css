@@ -48,3 +48,10 @@
     /*    -fx-font-size: 10px;
         -fx-background-color:#001b3f;*/
 }
+/*.ProgressBar .bar{Ñ
+    -fx-border-color: #FFA500;
+}
+
+.ProgressBar:indeterminate .bar{
+    -fx-border-color: #FFA500;
+}*/

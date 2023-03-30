@@ -57,15 +57,11 @@ public class TransmisionMqController implements Initializable {
     @FXML
     private Button btnRecepcionar;
     @FXML
-    private Button btnPlayPause;
-    @FXML
     private ProgressBar progressBarRx;
     @FXML
     private Button btnCancelar;
     @FXML
     private Button btnRecepcionar1;
-    @FXML
-    private Button btnPlayPause1;
     @FXML
     private ProgressBar progressBarRx1;
     @FXML
@@ -84,7 +80,7 @@ public class TransmisionMqController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       progressBarRx.setStyle("-fx-accent: #78F93C;");
     }
 
     @FXML
@@ -101,13 +97,8 @@ public class TransmisionMqController implements Initializable {
             btnRecepcionar.getStyleClass().add("claseNueva");
             isPressed = true;
 
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.ZERO, ActionEvent -> progressBarRx.setProgress(0)),
-                    new KeyFrame(Duration.seconds(5), ActionEvent -> progressBarRx.setProgress(1))
-            );
-            timeline.play();
-
         }
+        
 
         System.out.println(" inicio de rabbit ");
         ConnectionFactory factory = new ConnectionFactory();
@@ -137,7 +128,9 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona = gson.fromJson(decryptString, Transmision.class);
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
-                System.out.println("body" + gson.toJson(persona.getBody()));
+                
+                txtAreaResultado.setText("body" + gson.toJson(persona.getBody()));
+//                System.out.println("body" + gson.toJson(persona.getBody()));
 
                 FactoryService = FactoryServices.getInstance();
                 try {
@@ -157,7 +150,6 @@ public class TransmisionMqController implements Initializable {
 
                     statement.setObject(5, persona.getBody().getImagen().getImagen());
 
-
                     statement.executeUpdate();
                 } catch (SQLException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
@@ -174,7 +166,9 @@ public class TransmisionMqController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                
+                updateProgressBar();
+                
             });
 
         };
@@ -231,14 +225,11 @@ public class TransmisionMqController implements Initializable {
 //                }
 //            };
 //            channel.basicConsume(queueName, true, consumer);
+
+        
         channel.basicConsume("cola_niel", true, deliverCallback, consumerTag -> {
         });
 //        }
-    }
-
-    @FXML
-    private void btnPlayPause_OnAction(ActionEvent event
-    ) {
     }
 
     @FXML
@@ -255,4 +246,26 @@ public class TransmisionMqController implements Initializable {
         byte[] decryptedValue = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
         return new String(decryptedValue, StandardCharsets.UTF_8);
     }
+
+    private void updateProgressBar() {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, ActionEvent -> progressBarRx.setProgress(0)),
+                new KeyFrame(Duration.millis(500), ActionEvent -> progressBarRx.setProgress(1)),
+                new KeyFrame(Duration.millis(2000), ActionEvent -> progressBarRx.setProgress(0))
+        );
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+
+//    private void updateProgressBar() {
+//        Timeline timeline = new Timeline(
+//                new KeyFrame(Duration.ZERO, ActionEvent -> (progressBarRx.progressPropertyz(), 0)),
+//        new KeyFrame(Duration.millis(500), new ActionEvent(progressBarRx.progressProperty(), 1))
+//        ,
+//                new KeyFrame(Duration.millis(2000), new ActionEvent(progressBarRx.progressProperty(), 0))
+//        );
+//
+//        timeline.setCycleCount(1);
+//        timeline.play();
+//    }
 }
