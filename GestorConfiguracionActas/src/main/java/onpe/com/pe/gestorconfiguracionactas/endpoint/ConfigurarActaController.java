@@ -73,8 +73,6 @@ public class ConfigurarActaController implements Initializable {
     private Button btnRegresar, btnAddTitle, btnCargar, btnProcesar;
 
     @FXML
-    Label lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9;
-    @FXML
     private Label lbArchivosEncontrados;
 
     @FXML
@@ -86,13 +84,14 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     TextField textFieldEleccion;
 
-    private ImageView[] ImageViewTrueOrFalse = new ImageView[arrayNombresModulos.length+1];
-    private Button[] buttonEventConfi = new Button[arrayNombresModulos.length+1];
-    private Button[] buttonEventAdd = new Button[arrayNombresModulos.length+1];
-    private Button[] buttonEventDelete = new Button[arrayNombresModulos.length+1];
+    private ImageView[] ImageViewTrueOrFalse = new ImageView[arrayNombresModulos.length + 1];
+    private Button[] buttonEventConfi = new Button[arrayNombresModulos.length + 1];
+    private Button[] buttonEventAdd = new Button[arrayNombresModulos.length + 1];
+    private Button[] buttonEventDelete = new Button[arrayNombresModulos.length + 1];
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        btnAddTitle.setDisable(true);
         btnProcesar.setDisable(true);
         int i = 0;
         String[] array = {"Codigo QR", "Hora Inicio", "Hora Fin", "Region", "Observaciones", "Firma 1", "Firma 2", "Firma 3"};
@@ -158,7 +157,7 @@ public class ConfigurarActaController implements Initializable {
                 }
             });
 
-            if (u < 7) {
+            if (u < arrayNombresModulos.length-1) {
                 Button bteventNexts = buttonEventConfi[u + 1];
                 ImageView Viewnext = ImageViewTrueOrFalse[u + 1];
 
@@ -207,70 +206,28 @@ public class ConfigurarActaController implements Initializable {
         //BANDERA PARA Limpiar la imagen
         bandImgLimpia = false;
 
-        
-         for (int restar = 0; restar <= buttonEventConfi.length - 1; restar++) {
+        for (int restar = 0; restar <= buttonEventConfi.length - 1; restar++) {
             if (VariableGlobales.configuracionActa.get(restar + "Xo") != null) {
-               
 
+                buttonEventAdd[restar].setVisible(true);
+                buttonEventAdd[restar].setDisable(true);
+                buttonEventConfi[restar].setVisible(true);
+                buttonEventConfi[restar].setDisable(true);
+                buttonEventAdd[restar].setDisable(true);
+                buttonEventDelete[restar].setVisible(true);
+                buttonEventDelete[restar].setDisable(false);
+
+                Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.check.png").toExternalForm());
+                ImageViewTrueOrFalse[restar].setImage(imageCreate);
+                ImageViewTrueOrFalse[restar].setFitWidth(41);
+                ImageViewTrueOrFalse[restar].setFitHeight(44);
+                ImageViewTrueOrFalse[restar].setVisible(true);
             }
         }
-        
-        
+
         //HACER UNA FUNCION PARA VERIFICAR Y CARGAR LOS BOTONES QUE YA ESTAN SETEADOS
         if (VariableGlobales.configuracionActa.get("confirmarActa") != null) {
-            if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) {
-//                ico_canc1.setVisible(false);
-//                ico_check1.setVisible(true);
-//                actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
-//                btnAdd1.setVisible(true);
-//                btnDelete1.setVisible(true);
-//                btnDelete2.setDisable(false);
-            }
-            if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) {
-//                ico_canc2.setVisible(false);
-//                ico_check2.setVisible(true);
-//                actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
-            }
-            if (VariableGlobales.configuracionActa.get("horaFinXo") != null) {
-//                ico_canc3.setVisible(false);
-//                ico_check3.setVisible(true);
-//                actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
-            }
-            if (VariableGlobales.configuracionActa.get("regionOrganizacionesXo") != null) {
-//                ico_canc4.setVisible(false);
-//                ico_check4.setVisible(true);
-//                actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
-            }
-            if (VariableGlobales.configuracionActa.get("regionObservacionesXo") != null) {
-//                ico_canc5.setVisible(false);
-//                ico_check5.setVisible(true);
-//                actionAddM(lbl6, btnBoton5, btnAdd5, btnBoton6, btnAdd6, btnAdd6, btnDelete6);
-            }
-            if (VariableGlobales.configuracionActa.get("Firma1Xo") != null) {
-//                ico_canc6.setVisible(false);
-//                ico_check6.setVisible(true);
-//                actionAddM(lbl7, btnBoton6, btnAdd6, btnBoton7, btnAdd7, btnAdd7, btnDelete7);
-            }
-            if (VariableGlobales.configuracionActa.get("Firma2Xo") != null) {
-//                ico_canc7.setVisible(false);
-//                ico_check7.setVisible(true);
-//                actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
-            }
-            if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) {
-//                ico_canc8.setVisible(false);
-//                ico_check8.setVisible(true);
 
-                activarEentoImgView(true, true);
-//                btnBoton8.setDisable(true);
-//                btnAdd8.setDisable(true);
-                btnProcesar.setDisable(false);
-                System.out.println("hice click");
-            }
-            
-            //habilitando boton cargar documento y boton guardar 
-            btnCargar.setDisable(true);
-            btnProcesar.setDisable(false);
-            // cargando acta
             img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgViewActa.setImage(img);
             scrollPaneActa.setContent(imgViewActa);
@@ -296,14 +253,12 @@ public class ConfigurarActaController implements Initializable {
         lbArchivosEncontrados.setText(businessService.uploadFileOnMemory(fileSeleccionado));
 
         img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
-        //Image img = new Image(fileSeleccionado.toURI().toString());
+
         imgViewActa.setImage(img);
 
         //verifica si el acta
         transformarScrollPane();
 
-        //scrollPaneActa.setTranslateY();
-        //set bounds para posicion
         scrollPaneActa.setContent(imgViewActa);
 
         if ((int) imgViewActa.getImage().getHeight() > 4500) {
@@ -312,15 +267,14 @@ public class ConfigurarActaController implements Initializable {
             encuadrarActa(2);
             System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
         }
-      
+        btnAddTitle.setDisable(false);
 
     }
 
     @FXML
     private void actionAddTitle(ActionEvent event) throws Exception {
 
-
-       seterarEventosImageview("100", imgViewActa, scrollPaneActa, new Button(),  new Button(), new ImageView());
+        seterarEventosImageview("100", imgViewActa, scrollPaneActa, new Button(), new Button(), new ImageView());
 
         activarEentoImgView(false, false);
 
@@ -330,7 +284,6 @@ public class ConfigurarActaController implements Initializable {
     private void regresaMenu() throws IOException {
         App.setRoot(null, "inicioMenu");
 
-        //VariableGlobales.configuracionActa.remove("confirmarActa");
         VariableGlobales.configuracionActa.clear();
 
     }
@@ -499,42 +452,31 @@ public class ConfigurarActaController implements Initializable {
                 spA.setContent(imgV);
 
                 if (VariableGlobales.configuracionActa.get(valorConfig + "Xo").equals("")) {
-
                     btnAdd.setDisable(true);
                     img1check.setVisible(false);
-
-//                    img2cancel.setVisible(true);
-//                } else {
-//                    btnAdd.setDisable(false);
-//                    img1check.setVisible(true);
-//                    img2cancel.setVisible(false);
-//=======
                     btnAdd.setVisible(true);
                     btnAdd.setDisable(true);
                     img1check.setVisible(false);
-//                    img2cancel.setVisible(true);
 
                 } else {
-                         System.out.println(Integer.parseInt(valorConfig) + 1);
-                                   System.out.println(String.valueOf(Integer.parseInt(valorConfig) + 1));
-                                   System.out.println(VariableGlobales.configuracionActa.get(String.valueOf(Integer.parseInt(valorConfig) + 1)+ "Xo"));
+                    System.out.println(Integer.parseInt(valorConfig) + 1);
+                    System.out.println(String.valueOf(Integer.parseInt(valorConfig) + 1));
+                    System.out.println(VariableGlobales.configuracionActa.get(String.valueOf(Integer.parseInt(valorConfig) + 1) + "Xo"));
 
-                    
                     btnDelete.setVisible(true);
                     btnAdd.setVisible(true);
-              
+
                     img1check.setVisible(true);
                     Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.check.png").toExternalForm());
                     img1check.setImage(imageCreate);
-                    if(VariableGlobales.configuracionActa.get(String.valueOf(Integer.parseInt(valorConfig) + 1)+ "Xo") != null){
-                          btnAdd.setDisable(true);
-                    }else
-                    {
-                              btnAdd.setDisable(false);
+                    if (VariableGlobales.configuracionActa.get(String.valueOf(Integer.parseInt(valorConfig) + 1) + "Xo") != null) {
+                        btnAdd.setDisable(true);
+                    } else {
+                        btnAdd.setDisable(false);
                     }
                 }
-                     System.out.println(valorConfig);
-                if (buttonEventConfi[buttonEventConfi.length-2].getId().equals(valorConfig)) {
+                System.out.println(valorConfig);
+                if (buttonEventConfi[buttonEventConfi.length - 2].getId().equals(valorConfig)) {
                     btnProcesar.setDisable(false);
                     btnAdd.setVisible(false);
                 }
@@ -543,15 +485,14 @@ public class ConfigurarActaController implements Initializable {
                 //bandera cambia de estado
                 bandImgLimpia = true;
 
-
-                if(valorConfig.equals("100")){
+                if (valorConfig.equals("100")) {
                     try {
                         textFieldEleccion.setText(businessService.readTitleActa(
                                 Integer.parseInt(VariableGlobales.configuracionActa.get("100Xo")),
                                 Integer.parseInt(VariableGlobales.configuracionActa.get("100Yo")),
                                 Integer.parseInt(VariableGlobales.configuracionActa.get("100Ancho")),
                                 Integer.parseInt(VariableGlobales.configuracionActa.get("100Alto"))));
-                              buttonEventConfi[0].setVisible(true);
+                        buttonEventConfi[0].setVisible(true);
                     } catch (Exception ex) {
                         Logger.getLogger(ConfigurarActaController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -569,22 +510,20 @@ public class ConfigurarActaController implements Initializable {
     }
 
     private void imgLimpia() {
-        //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
-        //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
     }
 
     private void actionDelete(Button nombreButton, ImageView imgcheck) {
-        System.out.println("eliminando"+nombreButton.getId());
-          System.out.println(VariableGlobales.configuracionActa.get(nombreButton.getId()+ "Xo"));
-      VariableGlobales.configuracionActa.put(nombreButton.getId()+ "Xo", null);
+        System.out.println("eliminando" + nombreButton.getId());
+        System.out.println(VariableGlobales.configuracionActa.get(nombreButton.getId() + "Xo"));
+        VariableGlobales.configuracionActa.put(nombreButton.getId() + "Xo", null);
         Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.cancelar.png").toExternalForm());
         imgcheck.setImage(imageCreate);
         activarEentoImgView(true, true);
         nombreButton.setDisable(false);
         btnProcesar.setDisable(true);
-        
+
     }
 
     private void encuadrarActa(int tipoHoja) {

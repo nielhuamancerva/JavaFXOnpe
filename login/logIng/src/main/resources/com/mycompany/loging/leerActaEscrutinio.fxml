@@ -58,7 +58,7 @@
                                 <Label fx:id="lbVaDistrito" layoutX="301.0" layoutY="249.0" text="Label" />
                                 <Pane layoutX="40.0" layoutY="343.0" prefHeight="90.0" prefWidth="499.0" styleClass="pane_tipo_body">
                                     <children>
-                                        <ImageView fitHeight="87.0" fitWidth="490.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                                        <ImageView fx:id="imagenHoraInicio" fitHeight="87.0" fitWidth="490.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
                                     </children>
                                 </Pane>
                                 <Label layoutX="40.0" layoutY="316.0" text="Hora de Inicio del Escrutinio">
@@ -73,16 +73,16 @@
                                 </Label>
                                 <Pane layoutX="40.0" layoutY="471.0" prefHeight="104.0" prefWidth="499.0" styleClass="pane_tipo_body">
                                     <children>
-                                        <ImageView fitHeight="97.0" fitWidth="490.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+                                        <ImageView fx:id="imagenHoraFin" fitHeight="97.0" fitWidth="490.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
                                     </children>
                                 </Pane>
-                                    <TextField fx:id="txtHoraInicio" layoutX="779.0" layoutY="343.0" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
+                                    <TextField fx:id="txtHoraInicio" layoutX="779.0" layoutY="343.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
 
                                         <font>
                                             <Font size="24.0" />
                                         </font>
                                     </TextField>
-                                        <TextField fx:id="txtHoraFin" layoutX="779.0" layoutY="491.0" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
+                                        <TextField fx:id="txtHoraFin" layoutX="779.0" layoutY="491.0" onKeyPressed="#horaFinahandleOnKeyPressed" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
 
                                             <font>
                                                 <Font size="24.0" />
@@ -91,6 +91,7 @@
                                        
                             </children>
                         </Pane>
+
                     </children>
                 </AnchorPane>
                 <Button fx:id="btnCancelar" layoutX="1407.0" layoutY="930.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="64.0" prefWidth="170.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Cancelar" textFill="WHITE">
@@ -133,4 +134,6 @@
         <URL value="@../../../styles/LeerActaInstalacion.css" />
         <URL value="@../../../styles/Style.css" />
     </stylesheets>
+
+                   
 </VBox>

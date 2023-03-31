@@ -50,7 +50,7 @@ public class LeerActaEscrutinioController implements Initializable {
     @FXML
     Label lbVaDepartamento, lbVaDistrito, lbVaprovincia;
     @FXML
-    ImageView imagenCodigoBarra;
+    ImageView imagenCodigoBarra,imagenHoraInicio,imagenHoraFin;
     private FactoryServiciosExternos factoryservices;
 
     @Override
@@ -64,16 +64,30 @@ public class LeerActaEscrutinioController implements Initializable {
                         Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Yo")),
                         Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Ancho")),
                         Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Alto")));
+
+                negocioService.readAndCutHoraInicio("H1",
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
+
+                negocioService.readAndCutHoraInicio("H2",
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Alto")));
             }
             imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
-            
+            imagenHoraInicio.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H1")));
+            imagenHoraFin.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H2")));
+
             VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
                     VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
-            
+
             lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
             lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
             lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
-            if(txtHoraInicio.getText().trim().equals("") || txtHoraFin.getText().trim().equals("")){
+            if (txtHoraInicio.getText().trim().equals("") || txtHoraFin.getText().trim().equals("")) {
                 btnSiguiente.setDisable(true);
             }
 
@@ -84,43 +98,41 @@ public class LeerActaEscrutinioController implements Initializable {
                     txtHoraInicio.setText(oldValue);
                 }
             });
-            
+
             txtHoraFin.setTextFormatter(new TextFormatter<>(new DateTimeStringConverter(format), format.parse("00:00")));
             txtHoraFin.textProperty().addListener((observable, oldValue, newValue) -> {
                 if (!newValue.matches("[0-9:]*")) {
                     txtHoraFin.setText(oldValue);
                 }
             });
-            
-            
-            
+
         } catch (Exception ex) {
             Logger.getLogger(LeerActaEscrutinioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
-    private void horaIniciohandleOnKeyPressed(KeyEvent event)throws IOException{
+    private void horaIniciohandleOnKeyPressed(KeyEvent event) throws IOException {
         //System.out.println("Pressed key text: " + event.getText());
         //System.out.println("Pressed key code: " + event.getCode());
-        if(event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraFin.getText().trim().equals("") || txtHoraFin.getText().trim().equals("00:00")){
+        if (event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraFin.getText().trim().equals("") || txtHoraFin.getText().trim().equals("00:00")) {
             btnSiguiente.setDisable(true);
-        }else{
+        } else {
             btnSiguiente.setDisable(false);
         }
     }
-    
+
     @FXML
-    private void horaFinahandleOnKeyPressed(KeyEvent event)throws IOException{
+    private void horaFinahandleOnKeyPressed(KeyEvent event) throws IOException {
         //System.out.println("Pressed key text: " + event.getText());
         //System.out.println("Pressed key code: " + event.getCode());
-        if(event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraInicio.getText().trim().equals("") || txtHoraInicio.getText().trim().equals("00:00")){
+        if (event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraInicio.getText().trim().equals("") || txtHoraInicio.getText().trim().equals("00:00")) {
             btnSiguiente.setDisable(true);
-        }else{
+        } else {
             btnSiguiente.setDisable(false);
         }
     }
-    
+
     @FXML
     private void regresarInicio() throws IOException {
         App.setRoot(null, "cargarActaEscrutinio");

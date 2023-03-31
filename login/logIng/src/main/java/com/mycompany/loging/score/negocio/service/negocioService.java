@@ -30,7 +30,10 @@ public interface NegocioService {
 
     public void readAndCutObservations(Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
-    public Boolean readAndCutsignature(String nameCandidate,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+    public Boolean readAndCutsignature(String nameCandidate, Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
     public void loadSettingActa() throws Exception;
+
+    public void readAndCutHoraInicio(String nameFile,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+
 }

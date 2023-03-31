@@ -10,9 +10,11 @@ public interface Tess4jService {
 
     public void leerRegionNumeroVotos(Integer X, Integer Y, Integer H, Integer W) throws Exception;
 
-    public void leerNumeroVotos(String nombreVoto,Integer X, Integer Y, Integer H, Integer W) throws Exception;
+    public void leerNumeroVotos(String nombreVoto, Integer X, Integer Y, Integer H, Integer W) throws Exception;
 
     public Boolean validarFirma(String signatureFile, Integer X, Integer Y, Integer H, Integer W) throws Exception;
 
     public void leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception;
+
+    public void leerHora(String nameReadTime,Integer X, Integer Y, Integer H, Integer W) throws Exception;
 }
