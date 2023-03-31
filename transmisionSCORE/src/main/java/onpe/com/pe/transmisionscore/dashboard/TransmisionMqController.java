@@ -22,6 +22,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -80,7 +82,7 @@ public class TransmisionMqController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       progressBarRx.setStyle("-fx-accent: #78F93C;");
+        progressBarRx.setStyle("-fx-accent: #78F93C;");
     }
 
     @FXML
@@ -98,7 +100,13 @@ public class TransmisionMqController implements Initializable {
             isPressed = true;
 
         }
-        
+
+        // Definir el formato deseado
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        // Obtener la fecha y hora actual
+        LocalDateTime fechaHoraActual = LocalDateTime.now();
+        // Formatear la fecha y hora actual con el formato deseado
+        String fechaHoraFormateada = fechaHoraActual.format(formato);
 
         System.out.println(" inicio de rabbit ");
         ConnectionFactory factory = new ConnectionFactory();
@@ -128,8 +136,7 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona = gson.fromJson(decryptString, Transmision.class);
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
-                
-                txtAreaResultado.setText("body" + gson.toJson(persona.getBody()));
+
 //                System.out.println("body" + gson.toJson(persona.getBody()));
 
                 FactoryService = FactoryServices.getInstance();
@@ -151,6 +158,9 @@ public class TransmisionMqController implements Initializable {
                     statement.setObject(5, persona.getBody().getImagen().getImagen());
 
                     statement.executeUpdate();
+                    
+                    txtAreaResultado.setText("Se recibio la cola el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + fechaHoraFormateada);
+
                 } catch (SQLException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -166,9 +176,9 @@ public class TransmisionMqController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 updateProgressBar();
-                
+
             });
 
         };
@@ -226,7 +236,6 @@ public class TransmisionMqController implements Initializable {
 //            };
 //            channel.basicConsume(queueName, true, consumer);
 
-        
         channel.basicConsume("cola_niel", true, deliverCallback, consumerTag -> {
         });
 //        }

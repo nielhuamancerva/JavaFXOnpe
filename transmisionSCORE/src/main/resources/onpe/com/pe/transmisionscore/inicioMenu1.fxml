@@ -14,25 +14,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body_menu_inicio" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.InicioMenuController">
+<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" styleClass="body_menu_inicio" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.InicioMenuController">
    <children>
-      <AnchorPane layoutX="-2.0" prefHeight="75.0" prefWidth="1922.0" style="-fx-background-color: #000000;">
+      <AnchorPane layoutX="-2.0" layoutY="773.0" prefHeight="33.0" prefWidth="1602.0" style="-fx-background-color: #004788;">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="254.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/core.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="747.0" layoutY="14.0" text="Suite de Computo Electoral  " textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="32.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="1043.0" prefHeight="33.0" prefWidth="1920.0" style="-fx-background-color: #004788;">
-         <children>
-            <SplitPane dividerPositions="0.1732776617954071, 0.3883089770354906, 0.5866388308977035, 0.7437369519832986, 0.8935281837160751" layoutY="-1.0" prefHeight="38.0" prefWidth="1918.0">
+            <SplitPane dividerPositions="0.17316341829085455, 0.388055972013993, 0.5867066466766616, 0.743503248375812, 0.8784357821089455" layoutY="-1.0" prefHeight="38.0" prefWidth="1602.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="238.0" style="-fx-background-color: #004788;">
                      <children>
@@ -91,18 +77,9 @@
               </items>
             </SplitPane>
          </children></AnchorPane>
-      <AnchorPane layoutX="50.0" layoutY="107.0" prefHeight="66.0" prefWidth="1821.0" style="-fx-background-color: #011b40;">
+      <AnchorPane layoutX="142.0" layoutY="167.0" prefHeight="238.0" prefWidth="1328.0">
          <children>
-            <Label layoutX="592.0" layoutY="13.0" text="Elecciones Generales y Parlamento Andino 2025" textFill="WHITE">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="142.0" layoutY="237.0" prefHeight="238.0" prefWidth="1328.0">
-         <children>
-            <Button fx:id="btnTransmision" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarTransmision" prefHeight="235.0" prefWidth="235.0" text="Transmision">
+            <Button fx:id="btnTransmision" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarTransmision" prefHeight="235.0" prefWidth="235.0" text="Transmisión">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />
@@ -110,6 +87,29 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="142.0" layoutY="517.0" prefHeight="238.0" prefWidth="1328.0" />
+      <AnchorPane layoutX="130.0" layoutY="432.0" prefHeight="238.0" prefWidth="1328.0" />
+      <AnchorPane prefHeight="52.0" prefWidth="1602.0" style="-fx-background-color: #000000;">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="102.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../login/logIng/src/main/resources/imagenes/core.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="608.0" text="Suite de Computo Electoral  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="38.0" layoutY="70.0" prefHeight="66.0" prefWidth="1512.0" style="-fx-background-color: #011b40;">
+         <children>
+            <Label layoutX="431.0" layoutY="9.0" text="Elecciones Generales y Parlamento Andino 2025" textFill="WHITE">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
