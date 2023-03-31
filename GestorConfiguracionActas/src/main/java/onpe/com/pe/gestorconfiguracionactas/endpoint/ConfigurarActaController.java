@@ -524,7 +524,7 @@ public class ConfigurarActaController implements Initializable {
                     }
                 }
                      System.out.println(valorConfig);
-                if (valorConfig.equals("7")) {
+                if (buttonEventConfi[buttonEventConfi.length-2].getId().equals(valorConfig)) {
                     btnProcesar.setDisable(false);
                     btnAdd.setVisible(false);
                 }
