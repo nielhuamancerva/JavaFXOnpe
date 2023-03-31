@@ -18,7 +18,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnRegresar" layoutX="693.0" layoutY="721.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Regresar" textFill="WHITE">
+      <Button fx:id="btnRegresar" layoutX="693.0" layoutY="721.0" mnemonicParsing="false" onAction="#limpiarModulo" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Limpiar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -36,7 +36,7 @@
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #011b40;">
                <children>
-                  <Label layoutX="16.0" layoutY="4.0" text="CONFIGURACIÓN DE REGIONES DE UN ACTA ELECTORAL" textFill="WHITE">
+                  <Label layoutX="58.0" layoutY="1.0" text="NOMBRE DE REGIONES  DEL ACTA ELECTORAL" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -52,7 +52,7 @@
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #C1C8E5;">
                <children>
-                  <Label layoutX="113.0" layoutY="4.0" text="NOMBRE DE LA ELECCION : ">
+                  <Label layoutX="113.0" layoutY="4.0" text="INGRESE NÚMERO DE REGIONES : ">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
