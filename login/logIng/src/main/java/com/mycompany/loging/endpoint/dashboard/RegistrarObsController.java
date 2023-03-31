@@ -32,10 +32,10 @@ public class RegistrarObsController implements Initializable {
 
         try {
             negocioService.readAndCutObservations(
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Alto"))
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Alto"))
             );
         } catch (Exception ex) {
             ex.printStackTrace();

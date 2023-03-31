@@ -42,22 +42,22 @@ public class RegistrarFirmaController implements Initializable {
         try {
             firmoP = negocioService.readAndCutsignature(
                     "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1"  + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6"  + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Alto")));
             firmoS = negocioService.readAndCutsignature(
                     "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Alto")));
             firmoT = negocioService.readAndCutsignature(
                     "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("8" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("8" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("8" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("8" + "Alto")));
 
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
