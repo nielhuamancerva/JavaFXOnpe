@@ -61,10 +61,10 @@ public class LeerActasVotosController implements Initializable {
 
         try {
             negocioService.readAndCutOrganizationsPolitical(
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Alto")));
 
             imagenVotos.setImage(
                     CreateObject.image(
