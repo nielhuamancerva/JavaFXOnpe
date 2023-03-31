@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -9,94 +10,86 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../styles/LeerActaInstalacion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActaEscrutinioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActaEscrutinioController">
    <children>
-      <AnchorPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #E0E0E0;">
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
          <children>
-            <AnchorPane layoutX="90.0" layoutY="69.0" prefHeight="449.0" prefWidth="1737.0">
+            <AnchorPane layoutX="172.0" layoutY="212.0" prefHeight="657.0" prefWidth="1569.0">
                <children>
-                  <AnchorPane prefHeight="60.0" prefWidth="1736.0" style="-fx-background-color: #004788;">
+                  <AnchorPane prefHeight="60.0" prefWidth="1576.0" style="-fx-background-color: #004788;">
                      <children>
-                        <Label layoutX="703.0" layoutY="1.0" prefHeight="53.0" prefWidth="330.0" text="Leer Acta de Escrutinio" textFill="WHITE">
+                        <Label layoutX="703.0" layoutY="1.0" prefHeight="53.0" prefWidth="330.0" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Pane layoutY="59.0" prefHeight="848.0" prefWidth="1737.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
+                  <Pane layoutY="59.0" prefHeight="598.0" prefWidth="1577.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
                      <children>
                         <Button fx:id="btnRecortar" layoutX="374.0" layoutY="59.0" mnemonicParsing="false" onAction="#abrirRecortarActa" prefHeight="51.0" prefWidth="184.0" style="-fx-border-color: black;" styleClass="button-recortar" text="Recortar Manualmente">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Pane layoutX="40.0" layoutY="21.0" prefHeight="129.0" prefWidth="287.0" styleClass="img-body-qr">
+                        <Pane layoutX="40.0" layoutY="30.0" prefHeight="104.0" prefWidth="287.0" styleClass="pane_tipo_body">
                            <children>
-                              <ImageView fx:id="imagenCodigoBarra" fitHeight="113.0" fitWidth="253.0" layoutX="17.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imagenCodigoBarra" fitHeight="113.0" fitWidth="253.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             </ImageView>
                            </children>
                         </Pane>
-                        <Label id="lbDepartamento" layoutX="59.0" layoutY="199.0" text="Departamento">
+                        <Label id="lbDepartamento" layoutX="58.0" layoutY="169.0" text="Departamento">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label id="lbProvincia" layoutX="56.0" layoutY="241.0" text="Provincia">
+                        <Label id="lbProvincia" layoutX="58.0" layoutY="205.0" text="Provincia">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label id="lbDistrito" layoutX="56.0" layoutY="286.0" text="Distrito">
+                        <Label id="lbDistrito" layoutX="58.0" layoutY="244.0" text="Distrito">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lbVaDepartamento" layoutX="301.0" layoutY="246.0" text="Label" />
-                        <Label fx:id="lbVaprovincia" layoutX="301.0" layoutY="204.0" text="Label" />
-                        <Label fx:id="lbVaDistrito" layoutX="301.0" layoutY="291.0" text="Label" />
-                        <Button fx:id="btnSiguiente" layoutX="1454.0" layoutY="738.0" mnemonicParsing="false" onAction="#registrarVotos" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="btnCancelar" layoutX="1231.0" layoutY="738.0" mnemonicParsing="false" onAction="#regresarInicio" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Cancelar" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Pane layoutX="48.0" layoutY="433.0" prefHeight="113.0" prefWidth="499.0" styleClass="img-body-qr">
+                        <Label fx:id="lbVaDepartamento" layoutX="301.0" layoutY="210.0" text="Label" />
+                        <Label fx:id="lbVaprovincia" layoutX="301.0" layoutY="174.0" text="Label" />
+                        <Label fx:id="lbVaDistrito" layoutX="301.0" layoutY="249.0" text="Label" />
+                        <Pane layoutX="40.0" layoutY="343.0" prefHeight="90.0" prefWidth="499.0" styleClass="pane_tipo_body">
                            <children>
-                              <ImageView fitHeight="104.0" fitWidth="490.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="87.0" fitWidth="490.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
-                        <Label layoutX="57.0" layoutY="397.0" text="Hora de Inicio del Escrutinio">
+                        <Label layoutX="40.0" layoutY="316.0" text="Hora de Inicio del Escrutinio">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="56.0" layoutY="570.0" text="Hora Fin del Escrutinio">
+                        <Label layoutX="47.0" layoutY="444.0" text="Hora Fin del Escrutinio">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="48.0" layoutY="606.0" prefHeight="113.0" prefWidth="499.0" styleClass="img-body-qr">
+                        <Pane layoutX="40.0" layoutY="471.0" prefHeight="104.0" prefWidth="499.0" styleClass="pane_tipo_body">
                            <children>
-                              <ImageView fitHeight="104.0" fitWidth="490.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.0" fitWidth="490.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
+<<<<<<< Updated upstream
                         <TextField fx:id="txtHoraInicio" onKeyPressed="#horaIniciohandleOnKeyPressed" layoutX="860.0" layoutY="453.0" prefHeight="73.0" prefWidth="163.0">
+=======
+                        <TextField layoutX="779.0" layoutY="343.0" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
+>>>>>>> Stashed changes
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
+<<<<<<< Updated upstream
                         <TextField fx:id="txtHoraFin" onKeyPressed="#horaFinahandleOnKeyPressed" layoutX="860.0" layoutY="626.0" prefHeight="73.0" prefWidth="163.0">
+=======
+                        <TextField layoutX="779.0" layoutY="491.0" prefHeight="73.0" prefWidth="163.0" styleClass="pane_tipo_body">
+>>>>>>> Stashed changes
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -105,7 +98,44 @@
                   </Pane>
                </children>
             </AnchorPane>
+            <Button fx:id="btnCancelar" layoutX="1407.0" layoutY="930.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="64.0" prefWidth="170.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSiguiente" layoutX="1621.0" layoutY="930.0" mnemonicParsing="false" onAction="#registrarVotos" prefHeight="65.0" prefWidth="170.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <AnchorPane layoutX="167.0" layoutY="104.0" prefHeight="45.0" prefWidth="1583.0" styleClass="border-titulo">
+               <children>
+                  <Pane layoutY="-5.0" prefHeight="51.0" prefWidth="1583.0">
+                     <children>
+                        <Label layoutX="539.0" layoutY="8.0" prefHeight="35.0" prefWidth="564.0" text="MODULO DE LECTURA DE ACTA DE ESCRUTINIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <styleClass>
+                        <String fx:value="border-titulo" />
+                        <String fx:value="background-prymary" />
+                     </styleClass>
+                  </Pane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../../../styles/LeerActaInstalacion.css" />
+      <URL value="@../../../styles/Style.css" />
+   </stylesheets>
 </VBox>

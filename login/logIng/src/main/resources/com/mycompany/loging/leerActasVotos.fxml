@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -8,68 +10,105 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
          <children>
-            <ImageView fitHeight="84.0" fitWidth="227.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-            </ImageView>
-            <Label layoutX="114.0" layoutY="63.0" text="2. Registrar Votos">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="114.0" layoutY="106.0" text="Registro el número de votos obtenidos en cada caso">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="92.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-            </ImageView>
-            <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="757.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-            </ImageView>
-            <Button fx:id="btnRegresar" layoutX="889.0" layoutY="718.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="btnSiguiente" layoutX="1010.0" layoutY="718.0" mnemonicParsing="false" onAction="#registrarObs" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <TextField fx:id="voto1" alignment="CENTER" layoutX="616.0" layoutY="161.0" prefHeight="104.0" prefWidth="71.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto2" alignment="CENTER" layoutX="616.0" layoutY="265.0" prefHeight="104.0" prefWidth="71.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto3" alignment="CENTER" layoutX="616.0" layoutY="366.0" prefHeight="104.0" prefWidth="71.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto4" alignment="CENTER" layoutX="616.0" layoutY="470.0" prefHeight="98.0" prefWidth="71.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="voto5" alignment="CENTER" layoutX="616.0" layoutY="568.0" prefHeight="98.0" prefWidth="71.0" promptText="96">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
+            <AnchorPane layoutX="169.0" layoutY="161.0" prefHeight="657.0" prefWidth="1569.0">
+               <children>
+                  <AnchorPane prefHeight="60.0" prefWidth="1576.0" style="-fx-background-color: #004788;">
+                     <children>
+                        <Label layoutX="703.0" layoutY="1.0" prefHeight="53.0" prefWidth="330.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutY="59.0" prefHeight="744.0" prefWidth="1576.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
+                     <children>
+                        <Pane layoutX="125.0" layoutY="62.0" prefHeight="651.0" prefWidth="564.0" styleClass="pane_tipo_body">
+                           <children>
+                              <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="125.0" layoutY="21.0" text="Registro el número de votos obtenidos en cada caso">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnSiguiente" layoutX="1306.0" layoutY="643.0" mnemonicParsing="false" onAction="#registrarObs" prefHeight="65.0" prefWidth="170.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnRegresar" layoutX="1104.0" layoutY="643.0" mnemonicParsing="false" onAction="#regresarLeerActas" prefHeight="64.0" prefWidth="170.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextField fx:id="voto5" alignment="CENTER" layoutX="717.0" layoutY="483.0" prefHeight="98.0" prefWidth="71.0" promptText="96" styleClass="pane_tipo_body">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="voto4" alignment="CENTER" layoutX="717.0" layoutY="387.0" prefHeight="98.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="voto3" alignment="CENTER" layoutX="717.0" layoutY="285.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="voto2" alignment="CENTER" layoutX="717.0" layoutY="183.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="voto1" alignment="CENTER" layoutX="717.0" layoutY="81.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <AnchorPane layoutX="1134.0" layoutY="29.0" prefHeight="104.0" prefWidth="330.0" styleClass="pane_tipo_body">
+                           <children>
+                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="34.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="169.0" layoutY="88.0" prefHeight="45.0" prefWidth="1583.0" styleClass="border-titulo">
+               <children>
+                  <Pane layoutY="-5.0" prefHeight="51.0" prefWidth="1583.0">
+                     <children>
+                        <Label layoutX="488.0" layoutY="8.0" prefHeight="35.0" prefWidth="608.0" text="MODULO DE REGISTRAR VOTOS - ACTA ESCRUTINIO" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <styleClass>
+                        <String fx:value="border-titulo" />
+                        <String fx:value="background-prymary" />
+                     </styleClass>
+                  </Pane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../../../styles/LeerActaInstalacion.css" />
+      <URL value="@../../../styles/Style.css" />
+   </stylesheets>
 </VBox>

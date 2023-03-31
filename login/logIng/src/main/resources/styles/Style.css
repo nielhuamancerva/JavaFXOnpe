@@ -16,6 +16,33 @@ Button:pressed{
     -fx-background-color: #518db3;
 }*/
 
+.border-titulo{
+    -fx-border-width: 2 0 2 0;
+    -fx-border-color: #E0F533;
+}
+
+.background-prymary{
+    -fx-background-color: #001b3f; /* azul oscuro */
+}
+
+.background-secundary{
+    -fx-background-color: #004788; /* azul */
+}
+.background-success{
+    -fx-background-color: #77B0E5; /* celeste */
+}
+
+.background-white{
+    -fx-background-color: white; /* azul oscuro */
+}
+
+
+
+.body-general{
+    -fx-background-image: url("../imagenes/body_modulos.png");
+    -fx-background-size: 100%;
+}
+
 
 .pane_tipo_body{
     -fx-border-width: 2px;
