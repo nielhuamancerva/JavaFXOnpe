@@ -21,4 +21,8 @@ public class CommonMappings {
         int dotIndex = pathFile.getPath().lastIndexOf(pathFile.getName());
         return pathFile.getPath().substring(0, dotIndex);
     }
+    
+    public static boolean valiadarSoloNumeros(String cadenas){
+        return cadenas.matches("\\d");
+    }
 }

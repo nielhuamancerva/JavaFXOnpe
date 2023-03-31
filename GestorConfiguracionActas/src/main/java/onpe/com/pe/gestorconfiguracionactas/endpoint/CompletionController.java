@@ -20,6 +20,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.arrayNombresModulos;
+import onpe.com.pe.gestorconfiguracionactas.core.util.commonmappings.CommonMappings;
 
 /**
  * FXML Controller class
@@ -43,7 +44,7 @@ public class CompletionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ingresarInicializador
         textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent->{
-            if(!isNumeric(keyEvent.getCharacter())){
+            if(!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())){
                 keyEvent.consume();            
             }        
         });        
@@ -120,8 +121,5 @@ public class CompletionController implements Initializable {
     private void insertar(String s, Integer unidad) {
         arrayNombresModulos[unidad] = s;
         
-    }
-    private boolean isNumeric(String caracter){
-        return caracter.matches("\\d");
     }
 }
