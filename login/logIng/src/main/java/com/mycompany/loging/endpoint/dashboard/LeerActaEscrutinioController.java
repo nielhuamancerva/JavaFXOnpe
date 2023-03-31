@@ -52,16 +52,6 @@ public class LeerActaEscrutinioController implements Initializable {
     @FXML
     ImageView imagenCodigoBarra;
     private FactoryServiciosExternos factoryservices;
-    /*
-    private final Pattern pattern = Pattern.compile("^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$");
-    private final UnaryOperator<TextFormatter.Change> filter = c -> {
-        if (pattern.matcher(c.getControlNewText()).matches()) {
-            return c;
-        } else {
-            return null;
-        }
-    };*/
-    //private final LocalTimeStringConverter timeConverter = new LocalTimeStringConverter();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
