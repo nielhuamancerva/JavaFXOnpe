@@ -37,4 +37,9 @@ public class InicioMenuController implements Initializable {
         App.setRoot(null, "gestorActa");
     }
 
+    @FXML
+    private void ingresarInicializador() throws IOException {
+        App.setRoot(null, "completion");
+    }
+
 }

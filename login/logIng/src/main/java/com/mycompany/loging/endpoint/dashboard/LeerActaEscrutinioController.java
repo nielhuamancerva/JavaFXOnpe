@@ -70,10 +70,10 @@ public class LeerActaEscrutinioController implements Initializable {
             dropShadowE.setTabEffect(btnSiguiente);
             if ("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))) {
                 negocioService.readAndCutBarcode(
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Xo")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Yo")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Ancho")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Alto")));
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Alto")));
             }
             imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
             

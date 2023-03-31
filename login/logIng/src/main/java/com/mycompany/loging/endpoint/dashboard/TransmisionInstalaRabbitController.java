@@ -29,7 +29,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-public class TransmisionRabbitController implements Initializable {
+public class TransmisionInstalaRabbitController implements Initializable {
 
     private final NegocioService negocioService;
     private static final String QUEUE_NAME = "cola_niel"; //nombre de la cola
@@ -43,7 +43,7 @@ public class TransmisionRabbitController implements Initializable {
     @FXML
     private Button btnRegresar;
 
-    public TransmisionRabbitController() {
+    public TransmisionInstalaRabbitController() {
         this.negocioService = new NegocioServiceImpl();
         this.dropShadowE = new DropShadowE();
     }
@@ -76,6 +76,7 @@ public class TransmisionRabbitController implements Initializable {
 
         channel.close();
         connection.close();
+        
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmación de transmisión");
         alert.setHeaderText("¡Transmisión exitosa!");

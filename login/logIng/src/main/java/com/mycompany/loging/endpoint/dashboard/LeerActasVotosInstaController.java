@@ -31,16 +31,16 @@ public class LeerActasVotosInstaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-    @FXML
-    private void registrarObs()throws IOException{
-        
     }
 
     @FXML
-    private void regresarLeerActas() throws IOException{
+    private void registrarObs() throws IOException {
+        App.setRoot(null, "transmisionIntalaRabbit");
+    }
+
+    @FXML
+    private void regresarLeerActas() throws IOException {
         App.setRoot(null, "leerActaInstalacion");
     }
-    
+
 }

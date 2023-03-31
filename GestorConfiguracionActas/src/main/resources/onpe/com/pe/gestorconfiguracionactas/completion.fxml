@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" style="-fx-background-color: #E0E0E0;" styleClass="mainFxmlClass" stylesheets="@../styles/configuracion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.CompletionController">
+   <children>
+      <Button fx:id="btnProcesar" layoutX="466.0" layoutY="719.0" mnemonicParsing="false" onAction="#funcionProcesar" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="693.0" layoutY="721.0" mnemonicParsing="false" onAction="#regresaMenu" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Regresar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl9" layoutX="799.0" layoutY="582.0" prefHeight="44.0" prefWidth="139.0" />
+      <ImageView fitHeight="66.0" fitWidth="217.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../login/logIng/src/main/resources/imagenes/core.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="conteninerSetting" layoutX="431.0" layoutY="205.0" prefHeight="502.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #011b40;">
+               <children>
+                  <Label layoutX="16.0" layoutY="4.0" text="CONFIGURACIÓN DE REGIONES DE UN ACTA ELECTORAL" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <VBox fx:id="conteninerSettingButton" layoutX="190.0" layoutY="59.0" prefHeight="421.0" prefWidth="145.0" />
+            <VBox fx:id="conteninerSettingButtonAdd" layoutX="25.0" layoutY="57.0" prefHeight="421.0" prefWidth="64.0" />
+            <VBox fx:id="conteninerSettingButtonDelete" layoutX="96.0" layoutY="59.0" prefHeight="421.0" prefWidth="64.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="429.0" layoutY="68.0" prefHeight="101.0" prefWidth="489.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #C1C8E5;">
+               <children>
+                  <Label layoutX="113.0" layoutY="4.0" text="NOMBRE DE LA ELECCION : ">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TextField fx:id="textFieldEleccion" layoutX="77.0" layoutY="45.0" prefHeight="44.0" prefWidth="337.0" />
+            <Button fx:id="btnAddTitle" layoutX="423.0" layoutY="46.0" mnemonicParsing="false" onAction="#actionAddModulos" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
