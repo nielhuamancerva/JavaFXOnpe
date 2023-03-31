@@ -12,8 +12,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 public class RegistrarFirmaController implements Initializable {
 
@@ -21,11 +24,16 @@ public class RegistrarFirmaController implements Initializable {
     boolean firmoP, firmoS, firmoT;
     private final NegocioService negocioService;
     private boolean stButton1, stButton11, stButton2, stButton22, stButton3, stButton33 = false;
+    private boolean siButton1, siButton2, siButton3, noButton1, noButton2, noButton3 = false;
+    private ImageView[] ImageViewTrueOrFalse = new ImageView[3];
 
     @FXML
     ImageView firma1, firma2, firma3;
     @FXML
     private Button btnSiPresi, btnNoPresi, btnSiSecre, btnSiTercer, btnNoSecre, btnNoTercer;
+
+    @FXML
+    VBox buttones;
 
     @FXML
     private Button btnVerificaTransmision, btnRegresarObs;
@@ -42,7 +50,7 @@ public class RegistrarFirmaController implements Initializable {
         try {
             firmoP = negocioService.readAndCutsignature(
                     "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("5"  + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Xo")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Yo")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Ancho")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Alto")));
@@ -69,6 +77,20 @@ public class RegistrarFirmaController implements Initializable {
             firma1.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
             firma2.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
             firma3.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+
+            btnVerificaTransmision.setDisable(true);
+            for (int i = 0; i < 3; i++) {
+                ImageViewTrueOrFalse[i] = new ImageView();
+                Image imageCreate = new Image(getClass().getResource("/imagenes/ico.cancelar.png").toExternalForm());
+                ImageViewTrueOrFalse[i].setImage(imageCreate);
+                ImageViewTrueOrFalse[i].setFitWidth(38);
+                ImageViewTrueOrFalse[i].setFitHeight(38);
+                ImageViewTrueOrFalse[i].setVisible(true);
+                buttones.setMargin(ImageViewTrueOrFalse[i], new Insets(10, 0, 80, 0));
+                buttones.getChildren().addAll(ImageViewTrueOrFalse[i]);
+
+            }
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -93,8 +115,8 @@ public class RegistrarFirmaController implements Initializable {
         btn2.getStyleClass().remove("boton-active");
         btn2.getStyleClass().remove("boton-activeN");
 
+        ActivarBoton(btn1);
     }
-
 
     @FXML
     private void ActionFirmoSiP(ActionEvent event) {
@@ -127,4 +149,41 @@ public class RegistrarFirmaController implements Initializable {
         cambiaStBtn(btnNoTercer, btnSiTercer);
     }
 
+    private void ActivarBoton(Button btn1) {
+        if (btn1.getId().equals("btnSiPresi")) {
+            siButton1 = true;
+            Image imageCreate = new Image(getClass().getResource("/imagenes/ico.check.png").toExternalForm());
+            ImageViewTrueOrFalse[0].setImage(imageCreate);
+            ImageViewTrueOrFalse[0].setVisible(true);
+        } else if (btn1.getId().equals("btnNoPresi")) {
+            siButton1 = true;
+            Image imageCreate = new Image(getClass().getResource("/imagenes/ico.check.png").toExternalForm());
+            ImageViewTrueOrFalse[0].setImage(imageCreate);
+            ImageViewTrueOrFalse[0].setVisible(true);
+
+        } else if (btn1.getId().equals("btnSiSecre")) {
+            ImageViewTrueOrFalse[1].setVisible(true);
+            Image imageCreate = new Image(getClass().getResource("/imagenes/ico.check.png").toExternalForm());
+            ImageViewTrueOrFalse[1].setImage(imageCreate);
+            ImageViewTrueOrFalse[1].setVisible(true);
+            siButton2 = true;
+        } else if (btn1.getId().equals("btnNoSecre")) {
+            siButton2 = true;
+        } else if (btn1.getId().equals("btnSiTercer")) {
+            ImageViewTrueOrFalse[2].setVisible(true);
+            Image imageCreate = new Image(getClass().getResource("/imagenes/ico.check.png").toExternalForm());
+            ImageViewTrueOrFalse[2].setImage(imageCreate);
+            ImageViewTrueOrFalse[2].setVisible(true);
+            siButton2 = true;
+            siButton3 = true;
+        } else if (btn1.getId().equals("btnNoTercer")) {
+            siButton3 = true;
+        }
+
+        if (siButton1 && siButton2 && siButton3) {
+            btnVerificaTransmision.setDisable(false);
+        } else {
+            btnVerificaTransmision.setDisable(true);
+        }
+    }
 }

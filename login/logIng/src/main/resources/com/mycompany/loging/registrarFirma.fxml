@@ -88,6 +88,8 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
+                  
+                  <VBox fx:id="buttones" layoutX="675.0" layoutY="238.0" prefHeight="333.0" prefWidth="183.0" />
                   <Button fx:id="btnSiTercer" layoutX="356.0" layoutY="516.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="51.0" prefWidth="139.0" text="Firmó">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -96,6 +98,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
+                  
                </children>
             </Pane>
          </children>
