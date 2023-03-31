@@ -28,14 +28,13 @@ import onpe.com.pe.gestorconfiguracionactas.core.util.commonmappings.CommonMappi
  * @author CASSHERN
  */
 public class CompletionController implements Initializable {
-    
+
     @FXML
     VBox conteninerSettingButton, conteninerSettingButtonAdd, conteninerSettingButtonDelete;
     @FXML
     TextField textFieldEleccion;
     @FXML
-    Button btnAddTitle;
-    
+    Button btnAddTitle, btnProcesar,btnRegresar;
 
     /**
      * Initializes the controller class.
@@ -44,42 +43,44 @@ public class CompletionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ingresarInicializador
         btnAddTitle.setDisable(true);
-        textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent->{
-            if(!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())){
-                keyEvent.consume(); 
+        btnProcesar.setDisable(true);
+        textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent -> {
+            if (!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
+                keyEvent.consume();
             }
-            if(CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())){
+            if (CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
                 btnAddTitle.setDisable(false);
+                
             }
-        });        
+        });
     }
-    
+
     @FXML
     private void funcionProcesar() throws IOException, Exception {
         App.setRoot(null, "inicioMenu");
     }
-    
+
     @FXML
     private void actionAddTitle(ActionEvent event) throws Exception {
-        
+
     }
-    
+
     @FXML
     private void regresaMenu() throws IOException {
         for (int y = 0; y < arrayNombresModulos.length; y++) {
             System.out.println(arrayNombresModulos[y]);
         }
         App.setRoot(null, "inicioMenu");
-        
+
     }
-    
+
     final String[] arrayNombr2 = arrayNombresModulos;
-    
+
     @FXML
     private void actionAddModulos(ActionEvent event) throws Exception {
         TextField[] buttonEventConfi = new TextField[Integer.parseInt(textFieldEleccion.getText())];
         Button[] buttonEventAdd = new Button[Integer.parseInt(textFieldEleccion.getText())];
-        
+
         for (int i = 0; i <= buttonEventConfi.length - 1; i++) {
             buttonEventConfi[i] = new TextField("i" + i);
             buttonEventConfi[i].setId(String.valueOf(i));
@@ -87,7 +88,7 @@ public class CompletionController implements Initializable {
             buttonEventConfi[i].getStyleClass().add("button-initializa");
             conteninerSettingButton.getChildren().addAll(buttonEventConfi[i]);
             conteninerSettingButton.setMargin(buttonEventConfi[i], new Insets(10, 0, 0, 0));
-            
+
             buttonEventAdd[i] = new Button("+");
             buttonEventAdd[i].setId("buttonAdd" + i);
             buttonEventAdd[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
@@ -96,34 +97,40 @@ public class CompletionController implements Initializable {
             conteninerSettingButtonAdd.getChildren().addAll(buttonEventAdd[i]);
             arrayNombresModulos = new String[buttonEventConfi.length];
         }
-        
+
         for (int u = 0; u <= buttonEventConfi.length - 1; u++) {
-            
+
             TextField textField = buttonEventConfi[u];
             Button btAdds = buttonEventAdd[u];
-            
+
             Integer uu = u;
             buttonEventAdd[u].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    
+
                     insertar(textField.getText(), uu);
                     btAdds.setDisable(true);
                     textField.setDisable(true);
+                    if (uu == buttonEventConfi.length - 1) {
+                        btnProcesar.setDisable(false);
+                    }
                 }
-                
+
             });
-            
+
         }
         btnAddTitle.setDisable(true);
+        textFieldEleccion.setDisable(true);
+        btnRegresar.setDisable(true);
     }
+
     @FXML
-    private void limpiarModulo() throws IOException{
-         App.setRoot(null, "completion");
+    private void limpiarModulo() throws IOException {
+        App.setRoot(null, "completion");
     }
-    
+
     private void insertar(String s, Integer unidad) {
         arrayNombresModulos[unidad] = s;
-        
+
     }
 }

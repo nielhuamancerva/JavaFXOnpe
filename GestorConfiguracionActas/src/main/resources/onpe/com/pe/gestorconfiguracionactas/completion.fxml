@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" style="-fx-background-color: #E0E0E0;" styleClass="mainFxmlClass" stylesheets="@../styles/configuracion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.CompletionController">
    <children>
-      <Button fx:id="btnProcesar" layoutX="466.0" layoutY="719.0" mnemonicParsing="false" onAction="#funcionProcesar" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
+      <Button fx:id="btnProcesar" layoutX="787.0" layoutY="719.0" mnemonicParsing="false" onAction="#funcionProcesar" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -18,7 +18,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btnRegresar" layoutX="693.0" layoutY="721.0" mnemonicParsing="false" onAction="#limpiarModulo" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Limpiar" textFill="WHITE">
+      <Button fx:id="btnRegresar" layoutX="627.0" layoutY="719.0" mnemonicParsing="false" onAction="#limpiarModulo" prefHeight="51.0" prefWidth="139.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="Limpiar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -70,5 +70,10 @@
             </Button>
          </children>
       </AnchorPane>
+      <Button fx:id="btnRegresar" layoutX="473.0" layoutY="719.0" mnemonicParsing="false" onAction="#funcionProcesar" styleClass="button-orange" stylesheets="@../styles/Style.css" text="Regresar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
