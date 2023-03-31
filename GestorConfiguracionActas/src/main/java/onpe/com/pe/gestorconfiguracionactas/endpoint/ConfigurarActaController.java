@@ -16,6 +16,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
+import javafx.geometry.Insets;
+
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
@@ -32,6 +34,8 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import onpe.com.pe.gestorconfiguracionactas.App;
@@ -57,6 +61,10 @@ public class ConfigurarActaController implements Initializable {
     public ConfigurarActaController() {
         this.businessService = new BusinessServiceImpl();
     }
+    @FXML
+    VBox conteninerSettingButton, conteninerSettingButtonAdd, conteninerSettingButtonDelete, conteninerSettingTrueOrFalse;
+    @FXML
+    AnchorPane buttonSetting;
 
     @FXML
     private Button btnRegresar, btnAddTitle, btnBoton1, btnBoton2, btnBoton3, btnBoton4, btnBoton8,
@@ -73,49 +81,97 @@ public class ConfigurarActaController implements Initializable {
     ScrollPane scrollPaneActa;
 
     @FXML
-    ImageView imgViewActa, ico_check1, ico_canc1, ico_check2, ico_canc2, ico_canc3, ico_canc4, ico_canc5, ico_canc6,
-            ico_canc7, ico_canc8, ico_check3, ico_check4, ico_check5, ico_check6, ico_check7, ico_check8;
+    ImageView imgViewActa;
 
     @FXML
     TextField textFieldEleccion;
 
+    private ImageView[] ImageViewTrueOrFalse = new ImageView[8];
+    private Button[] buttonEventConfi = new Button[8];
+    private Button[] buttonEventAdd = new Button[8];
+    private Button[] buttonEventDelete = new Button[8];
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnBoton1.setDisable(true);
-        btnAdd1.setVisible(false);
-        btnBoton2.setVisible(false);
-        btnAdd2.setVisible(false);
-        btnBoton3.setVisible(false);
-        btnAdd3.setVisible(false);
-        btnBoton4.setVisible(false);
-        btnAdd4.setVisible(false);
-        btnBoton5.setVisible(false);
-        btnAdd5.setVisible(false);
-        btnBoton6.setVisible(false);
-        btnAdd6.setVisible(false);
-        btnBoton7.setVisible(false);
-        btnAdd7.setVisible(false);
-        btnBoton8.setVisible(false);
-        btnAdd8.setVisible(false);
-        btnProcesar.setDisable(true);
+        int i = 0;
+        String[] array = {"Codigo QR", "Hora Inicio", "Hora Fin", "Region", "Observaciones", "Firma 1", "Firma 2", "Firma 3"};
 
-        btnDelete1.setVisible(false);
-        btnDelete2.setVisible(false);
-        btnDelete2.setDisable(true);
-        btnDelete3.setVisible(false);
-        btnDelete4.setVisible(false);
-        btnDelete5.setVisible(false);
-        btnDelete6.setVisible(false);
-        btnDelete7.setVisible(false);
-        btnDelete8.setVisible(false);
+        for (String str : array) {
+            buttonEventConfi[i] = new Button(str);
+            buttonEventConfi[i].setId("ButtonEvent" + i);
+            buttonEventConfi[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventConfi[i].getStyleClass().add("button-initializa");
+            conteninerSettingButton.getChildren().addAll(buttonEventConfi[i]);
+            conteninerSettingButton.setMargin(buttonEventConfi[i], new Insets(10, 0, 0, 0));
 
-        lbl2.setVisible(false);
-        lbl3.setVisible(false);
-        lbl4.setVisible(false);
-        lbl5.setVisible(false);
-        lbl6.setVisible(false);
-        lbl7.setVisible(false);
-        lbl8.setVisible(false);
+            buttonEventAdd[i] = new Button("+");
+            buttonEventAdd[i].setId("buttonAdd" + i);
+            buttonEventAdd[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventAdd[i].getStyleClass().add("button-initializa-button-add");
+            conteninerSettingButtonAdd.setMargin(buttonEventAdd[i], new Insets(10, 0, 0, 0));
+            conteninerSettingButtonAdd.getChildren().addAll(buttonEventAdd[i]);
+
+            buttonEventDelete[i] = new Button("-");
+            buttonEventDelete[i].setId("buttonDelete" + i);
+            buttonEventDelete[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventDelete[i].getStyleClass().add("button-initializa-button-delete");
+            conteninerSettingButtonDelete.setMargin(buttonEventDelete[i], new Insets(10, 0, 0, 0));
+            conteninerSettingButtonDelete.getChildren().addAll(buttonEventDelete[i]);
+
+            ImageViewTrueOrFalse[i] = new ImageView();
+            Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.cancelar.png").toExternalForm());
+            ImageViewTrueOrFalse[i].setImage(imageCreate);
+            ImageViewTrueOrFalse[i].setFitWidth(41);
+            ImageViewTrueOrFalse[i].setFitHeight(44);
+            conteninerSettingTrueOrFalse.setMargin(ImageViewTrueOrFalse[i], new Insets(10, 0, 0, 0));
+            conteninerSettingTrueOrFalse.getChildren().addAll(ImageViewTrueOrFalse[i]);
+
+            ImageViewTrueOrFalse[i].setVisible(false);
+            buttonEventConfi[0].setDisable(false);
+            buttonEventConfi[i].setVisible(false);
+            buttonEventAdd[i].setVisible(false);
+            buttonEventDelete[i].setVisible(false);
+            i++;
+        }
+
+        for (int u = 0; u < 7; u++) {
+            Button btevents = buttonEventConfi[u];
+            Button bteventNexts = buttonEventConfi[u + 1];
+            Button btAdds = buttonEventAdd[u];
+            Button btDeletes = buttonEventDelete[u];
+            ImageView View = ImageViewTrueOrFalse[u];
+            ImageView Viewnext = ImageViewTrueOrFalse[u+1];
+            buttonEventConfi[u].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    System.out.println("ingresnado al evento");
+                    btevents.setDisable(true);
+                    updateLabel(btnBoton1, btnAdd1, btnDelete1);
+                    //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
+                    seterarEventosImageview(btevents.getText(), imgViewActa, scrollPaneActa, btAdds, btDeletes, View);
+                    //Enviar un string mas para guardar los datos en variables globales
+                    activarEentoImgView(false, false);
+                    //enviar una variable para guardar los datos del QR
+
+                }
+            });
+
+            buttonEventAdd[u].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.cancelar.png").toExternalForm());
+                    Viewnext.setImage(imageCreate);
+                    Viewnext.setVisible(true);
+                    bteventNexts.setVisible(true);
+                    activarEentoImgView(true, true);
+                    //actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
+                    btnBoton2.setDisable(false);
+
+                   
+
+                }
+            });
+        }
 
         imgViewActa.setOnScroll(event -> {// este evento ya esta cargado para la imagen
             if (event.isControlDown()) {
@@ -140,46 +196,46 @@ public class ConfigurarActaController implements Initializable {
         //HACER UNA FUNCION PARA VERIFICAR Y CARGAR LOS BOTONES QUE YA ESTAN SETEADOS
         if (VariableGlobales.configuracionActa.get("confirmarActa") != null) {
             if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) {
-                ico_canc1.setVisible(false);
-                ico_check1.setVisible(true);
+//                ico_canc1.setVisible(false);
+//                ico_check1.setVisible(true);
                 actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
                 btnAdd1.setVisible(true);
                 btnDelete1.setVisible(true);
                 btnDelete2.setDisable(false);
             }
             if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) {
-                ico_canc2.setVisible(false);
-                ico_check2.setVisible(true);
+//                ico_canc2.setVisible(false);
+//                ico_check2.setVisible(true);
                 actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
             }
             if (VariableGlobales.configuracionActa.get("horaFinXo") != null) {
-                ico_canc3.setVisible(false);
-                ico_check3.setVisible(true);
+//                ico_canc3.setVisible(false);
+//                ico_check3.setVisible(true);
                 actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
             }
             if (VariableGlobales.configuracionActa.get("regionOrganizacionesXo") != null) {
-                ico_canc4.setVisible(false);
-                ico_check4.setVisible(true);
+//                ico_canc4.setVisible(false);
+//                ico_check4.setVisible(true);
                 actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
             }
             if (VariableGlobales.configuracionActa.get("regionObservacionesXo") != null) {
-                ico_canc5.setVisible(false);
-                ico_check5.setVisible(true);
+//                ico_canc5.setVisible(false);
+//                ico_check5.setVisible(true);
                 actionAddM(lbl6, btnBoton5, btnAdd5, btnBoton6, btnAdd6, btnAdd6, btnDelete6);
             }
             if (VariableGlobales.configuracionActa.get("Firma1Xo") != null) {
-                ico_canc6.setVisible(false);
-                ico_check6.setVisible(true);
+//                ico_canc6.setVisible(false);
+//                ico_check6.setVisible(true);
                 actionAddM(lbl7, btnBoton6, btnAdd6, btnBoton7, btnAdd7, btnAdd7, btnDelete7);
             }
             if (VariableGlobales.configuracionActa.get("Firma2Xo") != null) {
-                ico_canc7.setVisible(false);
-                ico_check7.setVisible(true);
+//                ico_canc7.setVisible(false);
+//                ico_check7.setVisible(true);
                 actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
             }
             if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) {
-                ico_canc8.setVisible(false);
-                ico_check8.setVisible(true);
+//                ico_canc8.setVisible(false);
+//                ico_check8.setVisible(true);
                 
                 activarEentoImgView(true, true);
                 btnBoton8.setDisable(true);
@@ -232,14 +288,16 @@ public class ConfigurarActaController implements Initializable {
             encuadrarActa(2);
             System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
         }
+        buttonEventConfi[0].setVisible(true);
+
+        /* 
         btnBoton1.setDisable(false);
         btnCargar.setDisable(true);
         btnAdd1.setVisible(true);
         btnAdd1.setDisable(true);
         btnDelete1.setVisible(true);
         btnDelete1.setDisable(true);
-        ico_canc1.setVisible(true);
-
+        ico_canc1.setVisible(true);*/
     }
 
     @FXML
@@ -247,7 +305,7 @@ public class ConfigurarActaController implements Initializable {
 
         // updateLabel(btnBoton1, btnAdd1, btnDelete1);
         //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
-        seterarEventosImageview("title", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_canc1, ico_check1);
+//        seterarEventosImageview("title", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_canc1, ico_check1);
         //Enviar un string mas para guardar los datos en variables globales
         activarEentoImgView(false, false);
         //enviar una variable para guardar los datos del QR
@@ -263,7 +321,11 @@ public class ConfigurarActaController implements Initializable {
 
         updateLabel(btnBoton1, btnAdd1, btnDelete1);
         //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
-        seterarEventosImageview("codigoBarraCoordena", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_check1, ico_canc1);
+
+    
+
+//        seterarEventosImageview("codigoBarraCoordena", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_check1, ico_canc1);
+
         //Enviar un string mas para guardar los datos en variables globales
         activarEentoImgView(false, false);
         //enviar una variable para guardar los datos del QR
@@ -274,7 +336,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton2(ActionEvent event) {
 
         updateLabel(btnBoton2, btnAdd2, btnDelete2);
-        seterarEventosImageview("horaInicio", imgViewActa, scrollPaneActa, btnAdd2, btnDelete2, ico_check2, ico_canc2);
+
+//        seterarEventosImageview("horaInicio", imgViewActa, scrollPaneActa, btnAdd2, btnDelete2, ico_check2, ico_canc2);
+
         activarEentoImgView(false, false);
 
     }
@@ -283,7 +347,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton3(ActionEvent event) {
 
         updateLabel(btnBoton3, btnAdd3, btnDelete3);
-        seterarEventosImageview("horaFin", imgViewActa, scrollPaneActa, btnAdd3, btnDelete3, ico_check3, ico_canc3);
+
+//        seterarEventosImageview("horaFin", imgViewActa, scrollPaneActa, btnAdd3, btnDelete3, ico_check3, ico_canc3);
+
         activarEentoImgView(false, false);
     }
 
@@ -291,7 +357,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton4(ActionEvent event) {
 
         updateLabel(btnBoton4, btnAdd4, btnDelete4);
-        seterarEventosImageview("regionOrganizaciones", imgViewActa, scrollPaneActa, btnAdd4, btnDelete4, ico_check4, ico_canc4);
+
+//        seterarEventosImageview("regionOrganizaciones", imgViewActa, scrollPaneActa, btnAdd4, btnDelete4, ico_check4, ico_canc4);
+
         activarEentoImgView(false, false);
     }
 
@@ -299,7 +367,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton5(ActionEvent event) {
 
         updateLabel(btnBoton5, btnAdd5, btnDelete5);
-        seterarEventosImageview("regionObservaciones", imgViewActa, scrollPaneActa, btnAdd5, btnDelete5, ico_check5, ico_canc5);
+
+//        seterarEventosImageview("regionObservaciones", imgViewActa, scrollPaneActa, btnAdd5, btnDelete5, ico_check5, ico_canc5);
+
         activarEentoImgView(false, false);
     }
 
@@ -307,7 +377,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton6(ActionEvent event) {
 
         updateLabel(btnBoton6, btnAdd6, btnDelete6);
-        seterarEventosImageview("Firma1", imgViewActa, scrollPaneActa, btnAdd6, btnDelete6, ico_check6, ico_canc6);
+
+//        seterarEventosImageview("Firma1", imgViewActa, scrollPaneActa, btnAdd6, btnDelete6, ico_check6, ico_canc6);
+
         activarEentoImgView(false, false);
     }
 
@@ -315,7 +387,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton7(ActionEvent event) {
 
         updateLabel(btnBoton7, btnAdd7, btnDelete7);
-        seterarEventosImageview("Firma2", imgViewActa, scrollPaneActa, btnAdd7, btnDelete7, ico_check7, ico_canc7);
+
+//        seterarEventosImageview("Firma2", imgViewActa, scrollPaneActa, btnAdd7, btnDelete7, ico_check7, ico_canc7);
+
         activarEentoImgView(false, false);
     }
 
@@ -323,7 +397,9 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton8(ActionEvent event) {
 
         updateLabel(btnBoton8, btnAdd8, btnDelete8);
-        seterarEventosImageview("Firma3", imgViewActa, scrollPaneActa, btnAdd8, btnDelete8, ico_check8, ico_canc8);
+
+//        seterarEventosImageview("Firma3", imgViewActa, scrollPaneActa, btnAdd8, btnDelete8, ico_check8, ico_canc8);
+
         activarEentoImgView(false, false);
     }
 
@@ -333,7 +409,7 @@ public class ConfigurarActaController implements Initializable {
         activarEentoImgView(true, true);
         actionAddM(lbl2, btnBoton1, btnAdd1, btnBoton2, btnAdd2, btnAdd2, btnDelete2);
         btnBoton2.setDisable(false);
-        ico_canc2.setVisible(true);
+//        ico_canc2.setVisible(true);
     }
 
     @FXML
@@ -342,7 +418,7 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl3, btnBoton2, btnAdd2, btnBoton3, btnAdd3, btnAdd3, btnDelete3);
         activarEentoImgView(true, true);
         btnBoton3.setDisable(false);
-        ico_canc3.setVisible(true);
+//        ico_canc3.setVisible(true);
 
     }
 
@@ -351,7 +427,7 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl4, btnBoton3, btnAdd3, btnBoton4, btnAdd4, btnAdd4, btnDelete4);
         activarEentoImgView(true, true);
         btnBoton4.setDisable(false);
-        ico_canc4.setVisible(true);
+//        ico_canc4.setVisible(true);
 
     }
 
@@ -361,7 +437,7 @@ public class ConfigurarActaController implements Initializable {
         activarEentoImgView(true, true);
         actionAddM(lbl5, btnBoton4, btnAdd4, btnBoton5, btnAdd5, btnAdd5, btnDelete5);
         btnBoton5.setDisable(false);
-        ico_canc5.setVisible(true);
+//        ico_canc5.setVisible(true);
 
     }
 
@@ -371,7 +447,7 @@ public class ConfigurarActaController implements Initializable {
 
         activarEentoImgView(true, true);
         btnBoton6.setDisable(false);
-        ico_canc6.setVisible(true);
+//        ico_canc6.setVisible(true);
 
     }
 
@@ -381,7 +457,7 @@ public class ConfigurarActaController implements Initializable {
 
         activarEentoImgView(true, true);
         btnBoton7.setDisable(false);
-        ico_canc7.setVisible(true);
+//        ico_canc7.setVisible(true);
 
     }
 
@@ -391,7 +467,7 @@ public class ConfigurarActaController implements Initializable {
         actionAddM(lbl8, btnBoton7, btnAdd7, btnBoton8, btnAdd8, btnAdd8, btnDelete8);
         activarEentoImgView(true, true);
         btnBoton8.setDisable(false);
-        ico_canc8.setVisible(true);
+//        ico_canc8.setVisible(true);
 
     }
 
@@ -408,42 +484,46 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     private void ActionDeleteEvent8(ActionEvent event) {
 
-        actionDelete("Firma3Xo", btnBoton8, btnAdd8, ico_check8, ico_canc8);
+
+//        actionDelete("Firma3Xo", btnBoton8, btnAdd8, ico_check8, ico_canc8);
+
     }
 
     @FXML
     private void ActionDeleteEvent7(ActionEvent event) {
-        actionDelete("Firma2Xo", btnBoton7, btnAdd7, ico_check7, ico_canc7);
+//        actionDelete("Firma2Xo", btnBoton7, btnAdd7, ico_check7, ico_canc7);
     }
 
     @FXML
     private void ActionDeleteEvent6(ActionEvent event) {
-        actionDelete("Firma1Xo", btnBoton6, btnAdd6, ico_check6, ico_canc6);
+//        actionDelete("Firma1Xo", btnBoton6, btnAdd6, ico_check6, ico_canc6);
     }
 
     @FXML
     private void ActionDeleteEvent5(ActionEvent event) {
-        actionDelete("regionObservacionesXo", btnBoton5, btnAdd5, ico_check5, ico_canc5);
+//        actionDelete("regionObservacionesXo", btnBoton5, btnAdd5, ico_check5, ico_canc5);
     }
 
     @FXML
     private void ActionDeleteEvent4(ActionEvent event) {
-        actionDelete("regionOrganizacionesXo", btnBoton4, btnAdd4, ico_check4, ico_canc4);
+//        actionDelete("regionOrganizacionesXo", btnBoton4, btnAdd4, ico_check4, ico_canc4);
     }
 
     @FXML
     private void ActionDeleteEvent3(ActionEvent event) {
-        actionDelete("horaFinXo", btnBoton3, btnAdd3, ico_check3, ico_canc3);
+//        actionDelete("horaFinXo", btnBoton3, btnAdd3, ico_check3, ico_canc3);
     }
 
     @FXML
     private void ActionDeleteEvent2(ActionEvent event) {
-        actionDelete("horaInicioXo", btnBoton2, btnAdd2, ico_check2, ico_canc2);
+//        actionDelete("horaInicioXo", btnBoton2, btnAdd2, ico_check2, ico_canc2);
     }
 
     @FXML
     private void ActionDeleteEvent1(ActionEvent event) {
-        actionDelete("codigoBarraCoordenaXo", btnBoton1, btnAdd1, ico_check1, ico_canc1);
+
+//        actionDelete("codigoBarraCoordenaXo", btnBoton1, btnAdd1, ico_check1, ico_canc1);
+
     }
 
     @FXML
@@ -509,7 +589,7 @@ public class ConfigurarActaController implements Initializable {
         deleteButton.setDisable(true);
     }
 
-    private void seterarEventosImageview(String valorConfig, ImageView imgV, ScrollPane spA, Button btnAdd, Button btnDelete, ImageView img1check, ImageView img2cancel) {
+    private void seterarEventosImageview(String valorConfig, ImageView imgV, ScrollPane spA, Button btnAdd, Button btnDelete, ImageView img1check) {
         //
 
         imgV.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -628,14 +708,30 @@ public class ConfigurarActaController implements Initializable {
                 spA.setContent(imgV);
 
                 if (VariableGlobales.configuracionActa.get(valorConfig + "Xo").equals("")) {
+
                     btnAdd.setDisable(true);
                     img1check.setVisible(false);
-                    img2cancel.setVisible(true);
+//                    img2cancel.setVisible(true);
+
+//                } else {
+//                    btnAdd.setDisable(false);
+//                    img1check.setVisible(true);
+//                    img2cancel.setVisible(false);
+//=======
+                    btnAdd.setVisible(true);
+                    btnAdd.setDisable(true);
+                    img1check.setVisible(false);
+//                    img2cancel.setVisible(true);
 
                 } else {
+                    btnDelete.setVisible(true);
+                    btnAdd.setVisible(true);
                     btnAdd.setDisable(false);
                     img1check.setVisible(true);
-                    img2cancel.setVisible(false);
+                    Image imageCreate = new Image(getClass().getResource("/onpe/com/pe/image/ico.check.png").toExternalForm());
+                    img1check.setImage(imageCreate);
+//                    img2cancel.setVisible(false);
+
                 }
                 btnDelete.setDisable(false);
 

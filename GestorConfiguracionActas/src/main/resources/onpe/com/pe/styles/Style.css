@@ -13,7 +13,37 @@
 
 .button-green {
     -fx-background-color:  #2ECC71; /* #609966 */
+
 }
+
+.button-initializa {
+    -fx-background-color:  #2ECC71; /* #609966 */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44px;
+    -fx-pref-width: 130px;
+    -fx-font-size:15px;
+}
+
+.button-initializa-button-add {
+    -fx-background-color:  #2ECC71; /* #609966 */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-height: 41px;
+    -fx-pref-width: 44px;
+    -fx-font-size:15px;
+}
+
+.button-initializa-button-delete {
+    -fx-background-color:  #E74C3C; /* #609966 */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-height: 41px;
+    -fx-pref-width: 44px;
+    -fx-font-size:15px;
+}
+
+
 
 .button-green:hover{
     -fx-background-color: #28B463; /* #28B463 */

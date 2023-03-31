@@ -46,7 +46,11 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="1007.0" layoutY="204.0" prefHeight="502.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
+
+
+
+      <AnchorPane fx:id="conteninerSetting" layoutX="957.0" layoutY="204.0" prefHeight="502.0" prefWidth="476.0" style="-fx-background-color: #ffffff;">
+
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #011b40;">
                <children>
@@ -57,286 +61,10 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button fx:id="btnBoton1" layoutX="228.0" layoutY="56.0" mnemonicParsing="false" onAction="#ActionBoton1" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Codigo QR" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd1" layoutX="382.0" layoutY="56.0" mnemonicParsing="false" onAction="#actionAdd1" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete1" layoutX="433.0" layoutY="56.0" mnemonicParsing="false" onAction="#ActionDeleteEvent1" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton2" layoutX="228.0" layoutY="110.0" mnemonicParsing="false" onAction="#ActionBoton2" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Hora Inicio" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton3" layoutX="228.0" layoutY="165.0" mnemonicParsing="false" onAction="#ActionBoton3" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Hora Fin" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton4" layoutX="228.0" layoutY="220.0" mnemonicParsing="false" onAction="#ActionBoton4" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Region" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton8" layoutX="228.0" layoutY="440.0" mnemonicParsing="false" onAction="#ActionBoton8" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 3" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton7" layoutX="228.0" layoutY="385.0" mnemonicParsing="false" onAction="#ActionBoton7" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 2" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton6" layoutX="228.0" layoutY="330.0" mnemonicParsing="false" onAction="#ActionBoton6" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 1" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnBoton5" layoutX="228.0" layoutY="275.0" mnemonicParsing="false" onAction="#ActionBoton5" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Observaciones" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd2" layoutX="382.0" layoutY="110.0" mnemonicParsing="false" onAction="#actionAdd2" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd4" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" onAction="#actionAdd4" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd3" layoutX="382.0" layoutY="165.0" mnemonicParsing="false" onAction="#actionAdd3" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd5" layoutX="382.0" layoutY="275.0" mnemonicParsing="false" onAction="#actionAdd5" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd6" layoutX="382.0" layoutY="330.0" mnemonicParsing="false" onAction="#actionAdd6" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd7" layoutX="382.0" layoutY="385.0" mnemonicParsing="false" onAction="#actionAdd7" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnAdd8" layoutX="382.0" layoutY="440.0" mnemonicParsing="false" onAction="#actionAdd8" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete8" layoutX="433.0" layoutY="440.0" mnemonicParsing="false" onAction="#ActionDeleteEvent8" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete7" layoutX="433.0" layoutY="385.0" mnemonicParsing="false" onAction="#ActionDeleteEvent7" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete6" layoutX="433.0" layoutY="330.0" mnemonicParsing="false" onAction="#ActionDeleteEvent6" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete5" layoutX="433.0" layoutY="275.0" mnemonicParsing="false" onAction="#ActionDeleteEvent5" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete3" layoutX="433.0" layoutY="165.0" mnemonicParsing="false" onAction="#ActionDeleteEvent3" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete4" layoutX="433.0" layoutY="220.0" mnemonicParsing="false" onAction="#ActionDeleteEvent4" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnDelete2" layoutX="433.0" layoutY="110.0" mnemonicParsing="false" onAction="#ActionDeleteEvent2" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
-            <Label fx:id="lbl1" layoutX="78.0" layoutY="60.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl2" layoutX="75.0" layoutY="110.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl3" layoutX="75.0" layoutY="165.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl4" layoutX="75.0" layoutY="220.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl5" layoutX="75.0" layoutY="275.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl7" layoutX="75.0" layoutY="385.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl6" layoutX="75.0" layoutY="330.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <Label fx:id="lbl8" layoutX="75.0" layoutY="440.0" opacity="0.0" prefHeight="44.0" prefWidth="139.0" visible="false" />
-            <ImageView fx:id="ico_canc1" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check1" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check2" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc2" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc3" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc4" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc5" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc6" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc7" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_canc8" fitHeight="44.0" fitWidth="41.0" layoutX="107.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.cancelar.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check3" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check4" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check5" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check6" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check7" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="ico_check8" fitHeight="41.0" fitWidth="43.0" layoutX="107.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../image/ico.check.png" />
-               </image>
-            </ImageView>
+            <VBox fx:id="conteninerSettingButton" layoutX="190.0" layoutY="45.0" prefHeight="421.0" prefWidth="145.0" />
+            <VBox fx:id="conteninerSettingButtonAdd" layoutX="343.0" layoutY="45.0" prefHeight="421.0" prefWidth="64.0" />
+            <VBox fx:id="conteninerSettingButtonDelete" layoutX="414.0" layoutY="45.0" prefHeight="421.0" prefWidth="64.0" />
+            <VBox fx:id="conteninerSettingTrueOrFalse" layoutX="23.0" layoutY="45.0" prefHeight="421.0" prefWidth="64.0" />
          </children>
       </AnchorPane>
       <Button fx:id="btnCargar" layoutX="769.0" layoutY="91.0" mnemonicParsing="false" onAction="#elegirFichero" prefHeight="44.0" prefWidth="217.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Cargar Documento" textFill="WHITE">
@@ -372,6 +100,198 @@
       <Button fx:id="btnRegiones" layoutX="1014.0" layoutY="734.0" mnemonicParsing="false" onAction="#verificarRegiones" styleClass="button-green" stylesheets="@../styles/Style.css" text="Regiones" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton1" layoutX="804.0" layoutY="254.0" mnemonicParsing="false" onAction="#ActionBoton1" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Codigo QR" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton2" layoutX="804.0" layoutY="308.0" mnemonicParsing="false" onAction="#ActionBoton2" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Hora Inicio" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton3" layoutX="804.0" layoutY="363.0" mnemonicParsing="false" onAction="#ActionBoton3" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Hora Fin" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton4" layoutX="804.0" layoutY="418.0" mnemonicParsing="false" onAction="#ActionBoton4" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Region" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton8" layoutX="804.0" layoutY="638.0" mnemonicParsing="false" onAction="#ActionBoton8" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 3" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton7" layoutX="804.0" layoutY="583.0" mnemonicParsing="false" onAction="#ActionBoton7" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 2" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton6" layoutX="804.0" layoutY="528.0" mnemonicParsing="false" onAction="#ActionBoton6" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Firma 1" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBoton5" layoutX="804.0" layoutY="473.0" mnemonicParsing="false" onAction="#ActionBoton5" prefHeight="44.0" prefWidth="130.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Observaciones" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd1" layoutX="1456.0" layoutY="239.0" mnemonicParsing="false" onAction="#actionAdd1" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete1" layoutX="1507.0" layoutY="239.0" mnemonicParsing="false" onAction="#ActionDeleteEvent1" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd2" layoutX="1456.0" layoutY="293.0" mnemonicParsing="false" onAction="#actionAdd2" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd4" layoutX="1456.0" layoutY="403.0" mnemonicParsing="false" onAction="#actionAdd4" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd3" layoutX="1456.0" layoutY="348.0" mnemonicParsing="false" onAction="#actionAdd3" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd5" layoutX="1456.0" layoutY="458.0" mnemonicParsing="false" onAction="#actionAdd5" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd6" layoutX="1456.0" layoutY="513.0" mnemonicParsing="false" onAction="#actionAdd6" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd7" layoutX="1456.0" layoutY="568.0" mnemonicParsing="false" onAction="#actionAdd7" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAdd8" layoutX="1456.0" layoutY="623.0" mnemonicParsing="false" onAction="#actionAdd8" prefHeight="44.0" prefWidth="41.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="+" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete8" layoutX="1507.0" layoutY="623.0" mnemonicParsing="false" onAction="#ActionDeleteEvent8" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete7" layoutX="1507.0" layoutY="568.0" mnemonicParsing="false" onAction="#ActionDeleteEvent7" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete6" layoutX="1507.0" layoutY="513.0" mnemonicParsing="false" onAction="#ActionDeleteEvent6" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete5" layoutX="1507.0" layoutY="458.0" mnemonicParsing="false" onAction="#ActionDeleteEvent5" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete3" layoutX="1507.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionDeleteEvent3" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete4" layoutX="1507.0" layoutY="403.0" mnemonicParsing="false" onAction="#ActionDeleteEvent4" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete2" layoutX="1507.0" layoutY="293.0" mnemonicParsing="false" onAction="#ActionDeleteEvent2" prefHeight="44.0" prefWidth="41.0" styleClass="button-red" stylesheets="@../styles/Style.css" text="-" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
    </children>
