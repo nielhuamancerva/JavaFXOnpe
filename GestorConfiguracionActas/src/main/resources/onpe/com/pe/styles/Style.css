@@ -17,8 +17,8 @@
 }
 
 .button-initializa {
-    -fx-background-color:  #2ECC71; /* #609966 */
-    -fx-text-fill: white;
+    -fx-background-color:  #E5E7E9; /* #609966 */
+    -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-pref-height: 41px;
     -fx-pref-width: 130px;
