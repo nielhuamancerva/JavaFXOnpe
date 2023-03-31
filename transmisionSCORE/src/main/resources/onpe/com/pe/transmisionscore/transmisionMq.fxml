@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #E0E0E0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.TransmisionMqController">
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.TransmisionMqController">
    <children>
       <Pane layoutX="454.0" layoutY="198.0" prefHeight="684.0" prefWidth="1013.0" styleClass="pane_recep_body">
          <children>
@@ -51,7 +51,7 @@
                </font></TextArea>
          </children>
       </Pane>
-      <Button fx:id="btnCancelar" layoutX="1650.0" layoutY="971.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="69.0" prefWidth="215.0" styleClass="button-red" stylesheets="@../../../../../../../../login/logIng/src/main/resources/styles/Style.css" text="Salir" textFill="WHITE">
+      <Button fx:id="btnCancelar" layoutX="1565.0" layoutY="934.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="69.0" prefWidth="215.0" styleClass="button-red" stylesheets="@../../../../../../../../login/logIng/src/main/resources/styles/Style.css" text="Salir" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -59,11 +59,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="392.0" layoutX="20.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/core.png" />
-         </image>
-      </ImageView>
    </children>
    <stylesheets>
       <URL value="@../styles/transmision.css" />

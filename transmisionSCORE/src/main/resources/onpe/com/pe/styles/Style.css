@@ -107,3 +107,9 @@
     -fx-padding: 0pt 0pt -170pt 0;
     -fx-text-fill: #FFF;
 }*/
+
+.body-general{
+    -fx-background-image: url("../image/body_modulos.png");
+    -fx-background-size: 100%;
+}
+
