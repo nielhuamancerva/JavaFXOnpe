@@ -10,17 +10,24 @@ import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.util.converter.DateTimeStringConverter;
+import javafx.util.converter.LocalTimeStringConverter;
 
 public class LeerActaEscrutinioController implements Initializable {
 
@@ -37,7 +44,8 @@ public class LeerActaEscrutinioController implements Initializable {
 
     public static ActasLeidas acta = new ActasLeidas();
 
-    TextField txtHora;
+    @FXML
+    TextField txtHora, txtHoraInicio, txtHoraFin;
     Label lbFecha;
     @FXML
     Label lbVaDepartamento, lbVaDistrito, lbVaprovincia;
@@ -65,11 +73,54 @@ public class LeerActaEscrutinioController implements Initializable {
             lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
             lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
             lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
+            if(txtHoraInicio.getText().trim().equals("") || txtHoraFin.getText().trim().equals("")){
+                btnSiguiente.setDisable(true);
+            }
+
+            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            txtHoraInicio.setTextFormatter(new TextFormatter<>(new DateTimeStringConverter(format), format.parse("00:00")));
+            txtHoraInicio.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue.matches("[0-9:]*")) {
+                    txtHoraInicio.setText(oldValue);
+                }
+            });
+            
+            txtHoraFin.setTextFormatter(new TextFormatter<>(new DateTimeStringConverter(format), format.parse("00:00")));
+            txtHoraFin.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!newValue.matches("[0-9:]*")) {
+                    txtHoraFin.setText(oldValue);
+                }
+            });
+            
+            
+            
         } catch (Exception ex) {
             Logger.getLogger(LeerActaEscrutinioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    @FXML
+    private void horaIniciohandleOnKeyPressed(KeyEvent event)throws IOException{
+        //System.out.println("Pressed key text: " + event.getText());
+        //System.out.println("Pressed key code: " + event.getCode());
+        if(event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraFin.getText().trim().equals("") || txtHoraFin.getText().trim().equals("00:00")){
+            btnSiguiente.setDisable(true);
+        }else{
+            btnSiguiente.setDisable(false);
+        }
+    }
+    
+    @FXML
+    private void horaFinahandleOnKeyPressed(KeyEvent event)throws IOException{
+        //System.out.println("Pressed key text: " + event.getText());
+        //System.out.println("Pressed key code: " + event.getCode());
+        if(event.getText().trim().equals("") || event.getText().trim().equals("00:00") || txtHoraInicio.getText().trim().equals("") || txtHoraInicio.getText().trim().equals("00:00")){
+            btnSiguiente.setDisable(true);
+        }else{
+            btnSiguiente.setDisable(false);
+        }
+    }
+    
     @FXML
     private void regresarInicio() throws IOException {
         App.setRoot(null, "cargarActaEscrutinio");

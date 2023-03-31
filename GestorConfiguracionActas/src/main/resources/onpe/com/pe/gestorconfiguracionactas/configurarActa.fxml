@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" style="-fx-background-color: #E0E0E0;" styleClass="mainFxmlClass" stylesheets="@../styles/configuracion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurarActaController">
+<AnchorPane fx:id="AnchorPane" prefHeight="807.0" prefWidth="1600.0" style="-fx-background-color: #E0E0E0;" styleClass="mainFxmlClass" stylesheets="@../styles/configuracion.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurarActaController">
    <children>
       <Button fx:id="btnProcesar" layoutX="1109.0" layoutY="718.0" mnemonicParsing="false" onAction="#funcionProcesar" prefHeight="51.0" prefWidth="139.0" styleClass="button-green" stylesheets="@../styles/Style.css" text="Guardar" textFill="WHITE">
          <cursor>

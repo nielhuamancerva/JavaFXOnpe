@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.arrayNombresModulos;
@@ -31,6 +32,9 @@ public class CompletionController implements Initializable {
     VBox conteninerSettingButton, conteninerSettingButtonAdd, conteninerSettingButtonDelete;
     @FXML
     TextField textFieldEleccion;
+    @FXML
+    Button btnAddTitle;
+    
 
     /**
      * Initializes the controller class.
@@ -38,11 +42,16 @@ public class CompletionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ingresarInicializador
+        textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent->{
+            if(!isNumeric(keyEvent.getCharacter())){
+                keyEvent.consume();            
+            }        
+        });        
     }
     
     @FXML
     private void funcionProcesar() throws IOException, Exception {
-        
+        App.setRoot(null, "inicioMenu");
     }
     
     @FXML
@@ -101,10 +110,18 @@ public class CompletionController implements Initializable {
             });
             
         }
+        btnAddTitle.setDisable(true);
+    }
+    @FXML
+    private void limpiarModulo() throws IOException{
+         App.setRoot(null, "completion");
     }
     
     private void insertar(String s, Integer unidad) {
         arrayNombresModulos[unidad] = s;
         
+    }
+    private boolean isNumeric(String caracter){
+        return caracter.matches("\\d");
     }
 }
