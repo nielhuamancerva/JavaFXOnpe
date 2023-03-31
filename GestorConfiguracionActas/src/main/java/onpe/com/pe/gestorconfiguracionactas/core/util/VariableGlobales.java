@@ -4,6 +4,8 @@
  */
 package onpe.com.pe.gestorconfiguracionactas.core.util;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,4 +20,6 @@ public class VariableGlobales {
     public static Map<String, String> configuracionActa = new HashMap();
 
     public static Map<String, String> configuracionTess4j = new HashMap();
+    
+    public static String[] arrayNombresModulos;
 }

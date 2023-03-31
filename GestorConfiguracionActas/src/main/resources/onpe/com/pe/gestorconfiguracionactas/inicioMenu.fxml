@@ -91,6 +91,12 @@
                   <String fx:value="btn_menu_inicio_mod" />
                </styleClass>
             </Button>
+            <Button layoutX="616.0" layoutY="3.0" mnemonicParsing="false" onAction="#ingresarInicializador" prefHeight="235.0" prefWidth="235.0" text="INICIALIZAR">
+               <styleClass>
+                  <String fx:value="btn_menu_inicio" />
+                  <String fx:value="btn_menu_inicio_mod" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="130.0" layoutY="432.0" prefHeight="238.0" prefWidth="1328.0" />
