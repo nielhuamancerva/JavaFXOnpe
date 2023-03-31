@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.UUID;
 import javafx.event.ActionEvent;
@@ -17,10 +18,14 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -175,7 +180,16 @@ public class ConfigurarActaController implements Initializable {
             if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) {
                 ico_canc8.setVisible(false);
                 ico_check8.setVisible(true);
+                
+                activarEentoImgView(true, true);
+                btnBoton8.setDisable(true);
+                btnAdd8.setDisable(true);
+                btnProcesar.setDisable(false);
+                System.out.println("hice click");
             }
+            //habilitando boton cargar documento y boton guardar 
+            btnCargar.setDisable(true);
+            btnProcesar.setDisable(false);
             // cargando acta
             img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgViewActa.setImage(img);
@@ -186,6 +200,7 @@ public class ConfigurarActaController implements Initializable {
             } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
                 encuadrarActa(2);
                 System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
+
             }
 
         }
@@ -230,7 +245,7 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     private void actionAddTitle(ActionEvent event) throws Exception {
 
-       // updateLabel(btnBoton1, btnAdd1, btnDelete1);
+        // updateLabel(btnBoton1, btnAdd1, btnDelete1);
         //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
         seterarEventosImageview("title", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_canc1, ico_check1);
         //Enviar un string mas para guardar los datos en variables globales
@@ -248,7 +263,7 @@ public class ConfigurarActaController implements Initializable {
 
         updateLabel(btnBoton1, btnAdd1, btnDelete1);
         //manda un string  para guardar las coordenads del codigo de barras el hashmap y poder recuperarlas
-        seterarEventosImageview("codigoBarraCoordena", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_check1,ico_canc1);
+        seterarEventosImageview("codigoBarraCoordena", imgViewActa, scrollPaneActa, btnAdd1, btnDelete1, ico_check1, ico_canc1);
         //Enviar un string mas para guardar los datos en variables globales
         activarEentoImgView(false, false);
         //enviar una variable para guardar los datos del QR
@@ -259,7 +274,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton2(ActionEvent event) {
 
         updateLabel(btnBoton2, btnAdd2, btnDelete2);
-        seterarEventosImageview("horaInicio", imgViewActa, scrollPaneActa, btnAdd2, btnDelete2,ico_check2, ico_canc2 );
+        seterarEventosImageview("horaInicio", imgViewActa, scrollPaneActa, btnAdd2, btnDelete2, ico_check2, ico_canc2);
         activarEentoImgView(false, false);
 
     }
@@ -268,7 +283,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton3(ActionEvent event) {
 
         updateLabel(btnBoton3, btnAdd3, btnDelete3);
-        seterarEventosImageview("horaFin", imgViewActa, scrollPaneActa, btnAdd3, btnDelete3,ico_check3, ico_canc3);
+        seterarEventosImageview("horaFin", imgViewActa, scrollPaneActa, btnAdd3, btnDelete3, ico_check3, ico_canc3);
         activarEentoImgView(false, false);
     }
 
@@ -276,7 +291,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton4(ActionEvent event) {
 
         updateLabel(btnBoton4, btnAdd4, btnDelete4);
-        seterarEventosImageview("regionOrganizaciones", imgViewActa, scrollPaneActa, btnAdd4, btnDelete4,ico_check4, ico_canc4);
+        seterarEventosImageview("regionOrganizaciones", imgViewActa, scrollPaneActa, btnAdd4, btnDelete4, ico_check4, ico_canc4);
         activarEentoImgView(false, false);
     }
 
@@ -284,7 +299,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton5(ActionEvent event) {
 
         updateLabel(btnBoton5, btnAdd5, btnDelete5);
-        seterarEventosImageview("regionObservaciones", imgViewActa, scrollPaneActa, btnAdd5, btnDelete5,ico_check5, ico_canc5);
+        seterarEventosImageview("regionObservaciones", imgViewActa, scrollPaneActa, btnAdd5, btnDelete5, ico_check5, ico_canc5);
         activarEentoImgView(false, false);
     }
 
@@ -292,7 +307,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton6(ActionEvent event) {
 
         updateLabel(btnBoton6, btnAdd6, btnDelete6);
-        seterarEventosImageview("Firma1", imgViewActa, scrollPaneActa, btnAdd6, btnDelete6,ico_check6, ico_canc6);
+        seterarEventosImageview("Firma1", imgViewActa, scrollPaneActa, btnAdd6, btnDelete6, ico_check6, ico_canc6);
         activarEentoImgView(false, false);
     }
 
@@ -300,7 +315,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton7(ActionEvent event) {
 
         updateLabel(btnBoton7, btnAdd7, btnDelete7);
-        seterarEventosImageview("Firma2", imgViewActa, scrollPaneActa, btnAdd7, btnDelete7,ico_check7, ico_canc7);
+        seterarEventosImageview("Firma2", imgViewActa, scrollPaneActa, btnAdd7, btnDelete7, ico_check7, ico_canc7);
         activarEentoImgView(false, false);
     }
 
@@ -308,7 +323,7 @@ public class ConfigurarActaController implements Initializable {
     private void ActionBoton8(ActionEvent event) {
 
         updateLabel(btnBoton8, btnAdd8, btnDelete8);
-        seterarEventosImageview("Firma3", imgViewActa, scrollPaneActa, btnAdd8, btnDelete8,ico_check8, ico_canc8);
+        seterarEventosImageview("Firma3", imgViewActa, scrollPaneActa, btnAdd8, btnDelete8, ico_check8, ico_canc8);
         activarEentoImgView(false, false);
     }
 
@@ -392,7 +407,7 @@ public class ConfigurarActaController implements Initializable {
 
     @FXML
     private void ActionDeleteEvent8(ActionEvent event) {
-        
+
         actionDelete("Firma3Xo", btnBoton8, btnAdd8, ico_check8, ico_canc8);
     }
 
@@ -428,13 +443,13 @@ public class ConfigurarActaController implements Initializable {
 
     @FXML
     private void ActionDeleteEvent1(ActionEvent event) {
-        actionDelete("codigoBarraCoordenaXo",btnBoton1, btnAdd1, ico_check1, ico_canc1);
+        actionDelete("codigoBarraCoordenaXo", btnBoton1, btnAdd1, ico_check1, ico_canc1);
     }
 
     @FXML
     private void regresaMenu() throws IOException {
         App.setRoot(null, "inicioMenu");
-        
+
         //VariableGlobales.configuracionActa.remove("confirmarActa");
         VariableGlobales.configuracionActa.clear();
 
@@ -450,7 +465,23 @@ public class ConfigurarActaController implements Initializable {
         Gson gson = new Gson();
         setting.setSetting(gson.toJson(VariableGlobales.configuracionActa));
         businessService.saveSetting(setting);
-        App.setRoot(null, "configurarActa");
+        VariableGlobales.configuracionActa.remove("confirmarActa");// eliminar el datoa temporal cuando se de guardar
+        //App.setRoot(null, "configurarActa");
+        System.out.println("hola");
+        
+        //habriendo confirmacion
+        //Dialog dialog = new TextInputDialog("aqui va texto");
+        Alert dialog = new Alert(Alert.AlertType.CONFIRMATION);
+        //dialog.setTitle("Desea continuar");
+        dialog.setHeaderText("Los Datos Fueron Guardados Correctamente");
+        dialog.setContentText("¿Desea Salir?");
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(result.get() == ButtonType.OK){
+            App.setRoot(null, "dashboard");
+        }
+        
+        
+        
     }
 
     @FXML // funcion luis
@@ -597,20 +628,19 @@ public class ConfigurarActaController implements Initializable {
                 spA.setContent(imgV);
 
                 if (VariableGlobales.configuracionActa.get(valorConfig + "Xo").equals("")) {
-                 btnAdd.setDisable(true);
-                img1check.setVisible(false);
-                img2cancel.setVisible(true);
-                    
+                    btnAdd.setDisable(true);
+                    img1check.setVisible(false);
+                    img2cancel.setVisible(true);
+
                 } else {
-                btnAdd.setDisable(false);
-                img1check.setVisible(true);
-                img2cancel.setVisible(false);
+                    btnAdd.setDisable(false);
+                    img1check.setVisible(true);
+                    img2cancel.setVisible(false);
                 }
                 btnDelete.setDisable(false);
 
                 //bandera cambia de estado
                 bandImgLimpia = true;
-
 
 //           
 //            scrollPaneActa.setContent();
@@ -635,12 +665,13 @@ public class ConfigurarActaController implements Initializable {
     }
 
     private void actionDelete(String nombreButton, Button btnButon1, Button addButton, ImageView img1, ImageView img2) {
-       VariableGlobales.configuracionActa.put(nombreButton,"");
+        VariableGlobales.configuracionActa.put(nombreButton, "");
         btnButon1.setDisable(false);
         addButton.setDisable(true);
         activarEentoImgView(true, true);
         img1.setVisible(false);
         img2.setVisible(true);
+        btnProcesar.setDisable(true);
     }
 
     private void actionAddM(Label label, Button btnButon, Button addButton, Button btnButon2, Button addButton2, Button addButton21, Button deleteButton) {
