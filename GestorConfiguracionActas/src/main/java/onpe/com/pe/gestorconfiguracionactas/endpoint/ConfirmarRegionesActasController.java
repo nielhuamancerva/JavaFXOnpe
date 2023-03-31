@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
@@ -24,6 +25,7 @@ import javafx.scene.text.FontWeight;
 import onpe.com.pe.gestorconfiguracionactas.App;
 
 import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
+import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.arrayNombresModulos;
 
 /**
  * FXML Controller class
@@ -41,27 +43,14 @@ public class ConfirmarRegionesActasController implements Initializable {
         cargarRegionesActa();
 
     }
-
+    private Button[] buttonEventConfi = new Button[arrayNombresModulos.length + 1];
     @FXML
     ImageView imgViewActaMarcada;
-    
-     //cancelando
-//    @FXML
-//    public void botonCancelar() throws IOException {
-//        App.setRoot(null, "configurarActa");
-//        String cargarActa,ruta;
-//        VariableGlobales.configuracionActa.put("confirmarActa","1");//esto para cargar el acta
-//        cargarActa = VariableGlobales.configuracionActa.get("confirmarActa");
-//        ruta = VariableGlobales.configuracionActa.get("fileNamePathOriginal");
-//        VariableGlobales.configuracionActa.clear();
-//        VariableGlobales.configuracionActa.put("fileNamePathOriginal",ruta);
-//        VariableGlobales.configuracionActa.put("confirmarActa",cargarActa);
-//    }
 
     @FXML
     private void confirmarRegion() throws IOException {
         //EN ESTA FUNCION SE VERFICARAN LAS REGIONES PINTADAS Y SI NO TIENE VALOR NO SE PINTA PARA EVITAR LA EXCEPCION
-        VariableGlobales.configuracionActa.put("confirmarActa","1");
+        VariableGlobales.configuracionActa.put("confirmarActa", "1");
         App.setRoot(null, "configurarActa");
     }
 
@@ -79,68 +68,35 @@ public class ConfirmarRegionesActasController implements Initializable {
         gc.setStroke(Color.RED);
         gc.setLineWidth(10);
 
-        if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAlto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAlto")));
-        }
-        if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAlto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAlto")));
-        }
-        if (VariableGlobales.configuracionActa.get("horaFinXo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAlto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAlto")));
-        }
-        if (VariableGlobales.configuracionActa.get("regionOrganizacionesXo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAlto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAlto")));
-        }
-        if (VariableGlobales.configuracionActa.get("regionObservacionesXo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAlto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAlto")));
-        }
-        if (VariableGlobales.configuracionActa.get("Firma1Xo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Alto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Alto")));
-        }
-        if (VariableGlobales.configuracionActa.get("Firma2Xo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Alto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Alto")));
-        }
-        if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) {
-            gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Alto")));
-            gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Alto")));
+        for (int u = 0; u <= buttonEventConfi.length - 1; u++) {
+            if (VariableGlobales.configuracionActa.get(u + "Xo") != null) {
+                gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Alto")));
+
+                gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Xo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get(u + "Alto")));
+
+            }
         }
 
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAlto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAlto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAlto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAlto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAlto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Alto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Alto")));
-//        gc.strokeRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Alto")));
-        //rellenando los rectangulos con transparente
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaAlto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioAlto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinAlto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesAlto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesXo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesYo")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAncho")), Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesAlto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Alto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Alto")));
-//        gc.fillRect(Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Xo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Yo")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Ancho")), Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Alto")));
-        // carganado texto por regiones
-        gc.setFill(Color.WHITE);
-        gc.setFont(Font.font("Arial", FontWeight.BOLD, 80));
-        if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) gc.fillText("Codigo de Barras", Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo")) + 100, Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordenaYo")) + 130);
-        if (VariableGlobales.configuracionActa.get("horaInicioXo") != null) gc.fillText("Hora Inicio", Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioXo")) + 60, Integer.parseInt(VariableGlobales.configuracionActa.get("horaInicioYo")) + 100);
-        if (VariableGlobales.configuracionActa.get("horaFinXo") != null) gc.fillText("Hora Fin", Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinXo")) + 60, Integer.parseInt(VariableGlobales.configuracionActa.get("horaFinYo")) + 100);
-        if (VariableGlobales.configuracionActa.get("regionOrganizacionesXo") != null) gc.fillText("Region Organizaciones", Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesXo")) + 700, Integer.parseInt(VariableGlobales.configuracionActa.get("regionOrganizacionesYo")) + 100);
-        if (VariableGlobales.configuracionActa.get("regionObservacionesXo") != null) gc.fillText("Region Observaciones", Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesXo")) + 700, Integer.parseInt(VariableGlobales.configuracionActa.get("regionObservacionesYo")) + 100);
-        if (VariableGlobales.configuracionActa.get("Firma1Xo") != null) gc.fillText("Firma 1", Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Xo")) + 150, Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1Yo")) + 130);
-        if (VariableGlobales.configuracionActa.get("Firma2Xo") != null) gc.fillText("Firma 2", Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Xo")) + 150, Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2Yo")) + 130);
-        if (VariableGlobales.configuracionActa.get("Firma3Xo") != null) gc.fillText("Firma 3", Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Xo")) + 150, Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3Yo")) + 130);
-////        
+        for (int k = 0; k <= arrayNombresModulos.length - 1; k++) {
+            if (VariableGlobales.configuracionActa.get(k + "Xo") != null) {
+                gc.setFill(Color.GOLD);
+                gc.setFont(Font.font("Arial", FontWeight.BOLD, 80));
+                
+                   gc.fillText(arrayNombresModulos[k], 
+                           Integer.parseInt(VariableGlobales.configuracionActa.get(k + "Xo")),
+                           Integer.parseInt(VariableGlobales.configuracionActa.get(k + "Yo")));
+        
+
+            }
+        }
+
+    
         for (Map.Entry<String, String> entry : VariableGlobales.configuracionActa.entrySet()) {
             String clave = entry.getKey();
             String valor = entry.getValue();
@@ -158,5 +114,4 @@ public class ConfirmarRegionesActasController implements Initializable {
 
     }
 
-   
 }

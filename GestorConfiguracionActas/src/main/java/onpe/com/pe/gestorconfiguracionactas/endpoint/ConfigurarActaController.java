@@ -207,6 +207,15 @@ public class ConfigurarActaController implements Initializable {
         //BANDERA PARA Limpiar la imagen
         bandImgLimpia = false;
 
+        
+         for (int restar = 0; restar <= buttonEventConfi.length - 1; restar++) {
+            if (VariableGlobales.configuracionActa.get(restar + "Xo") != null) {
+               
+
+            }
+        }
+        
+        
         //HACER UNA FUNCION PARA VERIFICAR Y CARGAR LOS BOTONES QUE YA ESTAN SETEADOS
         if (VariableGlobales.configuracionActa.get("confirmarActa") != null) {
             if (VariableGlobales.configuracionActa.get("codigoBarraCoordenaXo") != null) {
@@ -257,6 +266,7 @@ public class ConfigurarActaController implements Initializable {
                 btnProcesar.setDisable(false);
                 System.out.println("hice click");
             }
+            
             //habilitando boton cargar documento y boton guardar 
             btnCargar.setDisable(true);
             btnProcesar.setDisable(false);

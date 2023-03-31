@@ -42,22 +42,22 @@ public class RegistrarFirmaController implements Initializable {
         try {
             firmoP = negocioService.readAndCutsignature(
                     "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma1" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1"  + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
             firmoS = negocioService.readAndCutsignature(
                     "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma2" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
             firmoT = negocioService.readAndCutsignature(
                     "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("Firma3" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
 
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
