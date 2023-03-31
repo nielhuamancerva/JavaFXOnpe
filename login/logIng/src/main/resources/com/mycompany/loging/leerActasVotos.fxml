@@ -27,11 +27,6 @@
                   </AnchorPane>
                   <Pane layoutY="59.0" prefHeight="744.0" prefWidth="1576.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
                      <children>
-                        <Pane layoutX="125.0" layoutY="62.0" prefHeight="651.0" prefWidth="564.0" styleClass="pane_tipo_body">
-                           <children>
-                              <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </Pane>
                         <Label layoutX="125.0" layoutY="21.0" text="Registro el número de votos obtenidos en cada caso">
                            <font>
                               <Font size="24.0" />
@@ -78,11 +73,16 @@
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <AnchorPane layoutX="1134.0" layoutY="29.0" prefHeight="104.0" prefWidth="330.0" styleClass="pane_tipo_body">
+                        <Pane layoutX="1124.0" layoutY="25.0" prefHeight="112.0" prefWidth="364.0" styleClass="pane_tipo_body">
                            <children>
-                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="34.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="51.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
-                        </AnchorPane>
+                        </Pane>
+                        <Pane layoutX="120.0" layoutY="80.0" prefHeight="614.0" prefWidth="526.0" styleClass="pane_tipo_body">
+                           <children>
+                              <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                </children>
