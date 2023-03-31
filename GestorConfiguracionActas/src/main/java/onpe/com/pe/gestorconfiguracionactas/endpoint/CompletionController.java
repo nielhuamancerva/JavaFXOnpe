@@ -43,10 +43,14 @@ public class CompletionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ingresarInicializador
+        btnAddTitle.setDisable(true);
         textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent->{
             if(!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())){
-                keyEvent.consume();            
-            }        
+                keyEvent.consume(); 
+            }
+            if(CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())){
+                btnAddTitle.setDisable(false);
+            }
         });        
     }
     

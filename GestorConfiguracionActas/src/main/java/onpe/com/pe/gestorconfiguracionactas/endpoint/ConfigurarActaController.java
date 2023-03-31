@@ -357,7 +357,7 @@ public class ConfigurarActaController implements Initializable {
         dialog.setContentText("¿Desea Salir?");
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.get() == ButtonType.OK) {
-            App.setRoot(null, "dashboard");
+            App.setRoot(null, "inicioMenu");
         }
 
     }

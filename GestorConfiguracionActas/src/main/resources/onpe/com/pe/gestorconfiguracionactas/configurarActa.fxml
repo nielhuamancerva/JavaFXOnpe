@@ -54,7 +54,7 @@
          <children>
             <AnchorPane prefHeight="35.0" prefWidth="489.0" style="-fx-background-color: #011b40;">
                <children>
-                  <Label layoutX="16.0" layoutY="4.0" text="CONFIGURACIÓN DE REGIONES DE UN ACTA ELECTORAL" textFill="WHITE">
+                  <Label layoutX="50.0" layoutY="5.0" text="NOMBRE DE REGIONES DE UN ACTA ELECTORAL" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
