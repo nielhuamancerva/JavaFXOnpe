@@ -16,55 +16,55 @@
 
 <StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.LoginController">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="anchoPaneLogin">
+      <AnchorPane id="AnchorPane" fx:id="anchoPaneLogin" prefHeight="600.0" prefWidth="994.0">
          <children>
-            <AnchorPane prefHeight="444.0" prefWidth="402.0" style="-fx-background-color: #004788;">
+            <AnchorPane prefHeight="600.0" prefWidth="541.0" style="-fx-background-color: #004788;">
                <children>
-                  <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="19.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="82.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/core.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="210.0" fitWidth="313.0" layoutX="52.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="210.0" fitWidth="313.0" layoutX="102.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/Onpelogo.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="402.0" layoutY="2.0" prefHeight="444.0" prefWidth="317.0">
+            <AnchorPane layoutX="542.0" layoutY="3.0" prefHeight="594.0" prefWidth="450.0">
                <children>
-                  <Label layoutX="57.0" layoutY="170.0" text="Usuario">
+                  <Label layoutX="94.0" layoutY="216.0" text="Usuario">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnIngresar" layoutX="94.0" layoutY="355.0" mnemonicParsing="false" onAction="#iniciandoSecion" style="-fx-background-color: #004788;" text="INGRESAR" textFill="WHITE">
+                  <Button fx:id="btnIngresar" layoutX="151.0" layoutY="401.0" mnemonicParsing="false" onAction="#iniciandoSecion" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #004788;" text="INGRESAR" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Label layoutX="23.0" layoutY="79.0" text="Accede con tu usuario">
+                  <Label layoutX="110.0" layoutY="125.0" text="Accede con tu usuario">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="60.0" layoutY="26.0" text="BIENVENIDO">
+                  <Label layoutX="137.0" layoutY="72.0" text="BIENVENIDO">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="55.0" layoutY="245.0" text="Password">
+                  <Label layoutX="94.0" layoutY="291.0" text="Password">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="userName" layoutX="58.0" layoutY="197.0" promptText="Ingrese su Usuario">
+                  <TextField fx:id="userName" layoutX="94.0" layoutY="243.0" prefHeight="34.0" prefWidth="274.0" promptText="Ingrese su Usuario">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="passwordField" layoutX="55.0" layoutY="272.0" promptText="Ingrese su Password">
+                  <PasswordField fx:id="passwordField" layoutX="94.0" layoutY="318.0" prefHeight="40.0" prefWidth="274.0" promptText="Ingrese su Password">
                      <font>
                         <Font size="18.0" />
                      </font>
