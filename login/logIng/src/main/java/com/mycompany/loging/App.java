@@ -23,7 +23,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         //scene = new Scene(loadFXML("login"), 1200, 800);
         //pantalla por defecto (1920 * 1080)
-        setRoot(stage, "login");
+        setRoot(stage, "plantilla");
         sc = stage;
     }
 

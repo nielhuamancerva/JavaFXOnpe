@@ -4,24 +4,32 @@
  */
 package onpe.com.pe.transmisionscore.dashboard;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import onpe.com.pe.transmisionscore.App;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
  * @author RDeLaCruz
  */
-public class InicioMenuController implements Initializable {
+public class SeguimientoActaController implements Initializable {
 
     @FXML
-    private Button btnTransmision;
+    private AnchorPane anchorPane;
+    @FXML
+    private Button btnRegresar;
+    @FXML
+    private Button btnContinuar;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
 
     /**
      * Initializes the controller class.
@@ -29,22 +37,18 @@ public class InicioMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }    
+
+    @FXML
+    private void ActionRegresar(ActionEvent event) {
     }
 
     @FXML
-    private void ingresarTransmision() throws IOException {
-        App.setRoot(null, "transmisionMq");
-
+    private void actionContinuar(ActionEvent event) {
     }
 
     @FXML
-    private void ingresarSeguimientoActa()throws  IOException{
-         App.setRoot(null, "seguimientoActa");
+    private void actionSalir(ActionEvent event) {
     }
-
-    @FXML
-    private void ingresarSeguimientoTransmision() throws  IOException{
-         App.setRoot(null, "seguimientoTransmision");
-    }
-
+    
 }
