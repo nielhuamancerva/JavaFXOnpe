@@ -28,5 +28,7 @@ public interface BusinessService {
 
     public void uploadSettingToIsActived(String eleccion) throws Exception;
 
-    public String readTitleActa(Integer x, Integer y, Integer h, Integer w)throws Exception;
+    public String readTitleActa(Integer x, Integer y, Integer h, Integer w) throws Exception;
+
+    public ObservableList<String> findAllSections() throws Exception;
 }

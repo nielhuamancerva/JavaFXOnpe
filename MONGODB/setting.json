@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "642b412d1f600b60cb967f79"
+  },
+  "id_setting": "36551cf8-3b5c-4ead-9adf-2c19b40f1f38",
+  "name": "NIEL ELECCION",
+  "setting": "[\"Codigo Barra\",\"Inicio Escrutinio\",\"Fin Escrutinio\",\"Regiones\",\"Observaciones\",\"Firma1\",\"Firma2\",\"Firma3\"]",
+  "statusSetting": "0"
+}]

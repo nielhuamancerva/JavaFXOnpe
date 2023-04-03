@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.UUID;
+import java.util.logging.Level;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -46,7 +48,14 @@ public class ConfigurationDocController implements Initializable {
     private TextField titleDocumentSetting;
 
     @FXML
-    private VBox containerSettingModule;
+    private VBox containerSettingModule, containerDocumentsModule;
+
+    ArrayList<Integer> list = new ArrayList<>();
+    ArrayList<String> listCount = new ArrayList<>();
+    TextField[] buttonEventConfi = new TextField[1];
+    Button[] buttonEventAdd = new Button[1];
+    Button[] buttonEventEdit = new Button[1];
+    Button[] buttonEventDelete = new Button[1];
 
     /**
      * Initializes the controller class.
@@ -54,16 +63,39 @@ public class ConfigurationDocController implements Initializable {
     @Override
 
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
 
-    TextField[] buttonEventConfiini = new TextField[0];
-    ArrayList<Integer> list = new ArrayList<>();
-    ArrayList<String> listCount = new ArrayList<>();
-    TextField[] buttonEventConfi = new TextField[1];
-    Button[] buttonEventAdd = new Button[1];
-    Button[] buttonEventEdit = new Button[1];
-    Button[] buttonEventDelete = new Button[1];
+        try {
+            Label[] labelText = new Label[businessService.findAllSections().size()];
+            for (int i = 0; i < businessService.findAllSections().size(); i++) {
+                Button buttonEventDocumentDelete = new Button();
+                buttonEventDocumentDelete.setId("buttonAdd" + i);
+                buttonEventDocumentDelete.setLayoutX(10);
+                buttonEventDocumentDelete.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                buttonEventDocumentDelete.getStyleClass().add("button-eliminar");
+
+                 Button buttonEventDocumentEdit = new Button();
+                buttonEventDocumentEdit.setId("buttonAdd" + i);
+                buttonEventDocumentEdit.setLayoutX(60);
+                buttonEventDocumentEdit.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                buttonEventDocumentEdit.getStyleClass().add("button-editar");
+                
+                labelText[i] = new Label(businessService.findAllSections().get(i));
+                labelText[i].setLayoutX(130);
+                labelText[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                labelText[i].getStyleClass().add("text-initializa");
+                AnchorPane conteninerDocuments = new AnchorPane();
+                conteninerDocuments.getChildren().addAll(labelText[i], buttonEventDocumentDelete, buttonEventDocumentEdit);
+
+
+
+                containerDocumentsModule.getChildren().addAll(conteninerDocuments);
+                containerDocumentsModule.setMargin(conteninerDocuments, new Insets(10, 0, 0, 0));
+
+            }
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(GestorActaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @FXML
     private void actionAddModulos(ActionEvent event) throws Exception {
@@ -73,7 +105,7 @@ public class ConfigurationDocController implements Initializable {
             buttonEventConfi[i].setId(String.valueOf(list.size()));
 
             buttonEventConfi[i].setLayoutX(10);
-//            buttonEventConfi[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+//          buttonEventConfi[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
             buttonEventConfi[i].getStyleClass().add("button-initializa");
 
             buttonEventAdd[i] = new Button();
@@ -100,28 +132,24 @@ public class ConfigurationDocController implements Initializable {
             containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
             containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
 
-            
-                        TextField textField = buttonEventConfi[i];
+            TextField textField = buttonEventConfi[i];
             Button btAdds = buttonEventAdd[i];
 
             buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     listCount.add(textField.getText());
-                    //  insertar(textField.getText(), uu);
+
                     btAdds.setDisable(true);
                     textField.setDisable(true);
-//                    if (uu == buttonEventConfi.length - 1) {
-//                        btnProcesar.setDisable(false);
-//                    }
+                    if (Integer.parseInt(textField.getId()) == list.size() - 1) {
+                        btnGuardar.setDisable(false);
+                    }
                 }
 
             });
         }
 
-
-
-        btnRegresar.setDisable(true);
         list.add(1);
     }
 
@@ -131,7 +159,8 @@ public class ConfigurationDocController implements Initializable {
     }
 
     @FXML
-    private void actionRegresar(ActionEvent event) {
+    private void actionRegresar(ActionEvent event) throws IOException {
+        App.setRoot(null, "inicioMenu");
     }
 
     @FXML

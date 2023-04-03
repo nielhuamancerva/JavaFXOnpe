@@ -90,4 +90,12 @@ public class BusinessServiceImpl implements BusinessService {
         return factoryService.Tess4jService().readTitleActa(x, y, h, w);
     }
 
+    @Override
+    public ObservableList<String> findAllSections() throws Exception {
+      factoryService = FactoryService.getInstance();
+        return factoryService.SettingService().findAllSetting().stream()
+                .map(s -> s.getName().toUpperCase())
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));   
+    }
+
 }
