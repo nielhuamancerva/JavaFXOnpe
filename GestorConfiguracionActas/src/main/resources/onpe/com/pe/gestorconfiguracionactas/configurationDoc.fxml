@@ -10,31 +10,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurationDocController">
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurationDocController">
    <children>
-      <Pane layoutX="-3.0" layoutY="2.0" styleClass="pane_tipo_body">
+      <Pane layoutX="-3.0" layoutY="-6.0" prefHeight="1090.0" prefWidth="1923.0" styleClass="pane_tipo_body">
          <children>
             <AnchorPane layoutX="14.0" layoutY="68.0">
                <children>
-                  <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Configurar Documentos" />
+                  <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Configurar Documentos">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
                   <Line endX="300.0" layoutX="132.0" layoutY="60.0" startX="-100.0" strokeWidth="3.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1.0" layoutY="158.0">
+            <AnchorPane layoutX="1.0" layoutY="158.0" prefHeight="98.0" prefWidth="825.0">
                <children>
                   <Label layoutX="37.0" layoutY="23.0" text="Documento">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="24.0" />
                      </font></Label>
-                  <ComboBox fx:id="cobDocumentos" layoutX="225.0" layoutY="13.0" />
+                  <ComboBox fx:id="cobDocumentos" layoutX="240.0" layoutY="20.0" prefHeight="49.0" prefWidth="580.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="880.0" layoutY="107.0">
+            <AnchorPane layoutX="1571.0" layoutY="562.0">
                <children>
-                  <Pane layoutX="-3.0" styleClass="pane_tipo_body">
+                  <Pane layoutX="-267.0" layoutY="-260.0" prefHeight="771.0" prefWidth="604.0" styleClass="pane_tipo_body">
                      <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="336.0" styleClass="pane_tipo_body">
+                        <AnchorPane prefHeight="45.0" prefWidth="604.0" styleClass="pane_tipo_body">
                            <children>
                               <Label layoutX="26.0" layoutY="6.0" text="Documentos Electorales">
                                  <font>
@@ -43,26 +45,29 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="242.0" layoutY="444.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
+                        <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="504.0" layoutY="684.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
                      </children>
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="28.0" layoutY="245.0" prefHeight="77.0" prefWidth="367.0">
+            <AnchorPane layoutX="28.0" layoutY="265.0" prefHeight="77.0" prefWidth="367.0">
                <children>
                   <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" styleClass="button-add" />
                   <Label layoutX="101.0" layoutY="35.0" text="Agregar Sección" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="541.0">
+            <AnchorPane layoutX="80.0" layoutY="973.0">
                <children>
-                  <Button fx:id="btnRegresar" layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionRegresar" styleClass="button-retroceder" text="Regresar">
+                  <Button fx:id="btnRegresar" layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="49.0" prefWidth="148.0" styleClass="button-retroceder" text="Regresar">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnGuardar" layoutX="264.0" layoutY="9.0" mnemonicParsing="false" onAction="#actionGuardar" styleClass="button-grabar" text="Guardar" />
-                  <Button fx:id="btnContinuar" layoutX="518.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionContinuar" styleClass="button-continuar" text="Continuar" />
+                  <Button fx:id="btnGuardar" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="49.0" prefWidth="136.0" styleClass="button-grabar" text="Guardar">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btnContinuar" layoutX="518.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="49.0" prefWidth="144.0" styleClass="button-continuar" text="Continuar" />
                   <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="438.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/grabar-on.png" />

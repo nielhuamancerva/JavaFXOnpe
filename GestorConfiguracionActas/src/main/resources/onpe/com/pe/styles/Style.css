@@ -71,6 +71,7 @@
     -fx-background-color:red;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
+    -fx-font-size: 24px;
 }
 
 .button-grabar{
@@ -78,6 +79,7 @@
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
     -fx-text-alignment: left;
+    -fx-font-size: 24px;
 }
 
 .button-continuar{
@@ -85,6 +87,7 @@
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
     -fx-text-alignment: left;
+    -fx-font-size: 24px;
 }
 
 
