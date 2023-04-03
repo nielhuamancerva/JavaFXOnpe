@@ -22,4 +22,7 @@ public class VariableGlobales {
     public static Map<String, String> configuracionTess4j = new HashMap();
     
     public static String[] arrayNombresModulos;
+    
+    public static ArrayList<String> listCount = new ArrayList<>();
+    
 }
