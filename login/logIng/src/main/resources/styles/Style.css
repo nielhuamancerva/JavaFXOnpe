@@ -64,18 +64,12 @@ Button:pressed{
     -fx-background-color:red;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
-    -fx-font-size: 24px;
-    -fx-min-width: 217px;
-    -fx-min-height: 63px;
 }
 
 .button-grabar{
  -fx-background-color:#05ff00;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
-    -fx-font-size: 24px;
-    -fx-min-width: 217px;
-    -fx-min-height: 63px;
     -fx-text-alignment: left;
 }
 
@@ -83,9 +77,6 @@ Button:pressed{
  -fx-background-color:#05ff00;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
-    -fx-font-size: 24px;
-    -fx-min-width: 217px;
-    -fx-min-height: 63px;
     -fx-text-alignment: left;
 }
 

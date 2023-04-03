@@ -30,7 +30,8 @@ public class InicioMenuController implements Initializable {
     @FXML
     private void switchToTransmision() throws IOException {
         //App.setRoot("primary");
-        App.setRoot(null, "tipoActa");
+        //App.setRoot(null, "tipoActa");
+        App.setRoot(null, "verificaFirmas");
 
     }
     

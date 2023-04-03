@@ -24,10 +24,6 @@ import onpe.com.pe.gestorconfiguracionactas.App;
 public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
-    private Button btnRegresar;
-    @FXML
-    private Button btnGuardar;
-    @FXML
     private ComboBox<?> cboDocumentos;
     @FXML
     private Button ico_activar;
@@ -44,14 +40,10 @@ public class ConfiguraSeccionesController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void actionRegresar() throws IOException{
         App.setRoot(null, "configurationDoc");
     }
 
-    @FXML
-    private void actionGuardar(ActionEvent event) {
-    }
 
     private void actionContinuar()throws IOException{
         App.setRoot(null, "validarSeccion");

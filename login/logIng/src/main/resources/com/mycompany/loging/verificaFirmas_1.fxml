@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.endpoint.dashboard.VerificaFirmasController">
+   <stylesheets>
+      <URL value="@../../../styles/Style.css" />
+      <URL value="@../../../styles/verificafirmas.css" />
+   </stylesheets>
+   <children>
+      <Pane layoutX="31.0" layoutY="42.0" prefHeight="896.0" prefWidth="1858.0" styleClass="pane_tipo_body">
+         <children>
+            <AnchorPane layoutX="1.0" minHeight="50.0" prefHeight="50.0" prefWidth="1855.0">
+               <styleClass>
+                  <String fx:value="ancho-cabecera-body" />
+                  <String fx:value="background-prymary" />
+               </styleClass>
+            </AnchorPane>
+            <AnchorPane layoutX="14.0" layoutY="68.0" prefHeight="90.0" prefWidth="435.0">
+               <children>
+                  <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Procesar Acta" />
+                  <Line endX="200.0" layoutX="135.0" layoutY="61.0" startX="-100.0" strokeWidth="3.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1.0" layoutY="158.0" prefHeight="66.0" prefWidth="760.0">
+               <children>
+                  <Label layoutX="37.0" layoutY="23.0" prefHeight="21.0" prefWidth="188.0" text="Seleccionar Documento" />
+                  <ComboBox layoutX="225.0" layoutY="18.0" prefHeight="31.0" prefWidth="489.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

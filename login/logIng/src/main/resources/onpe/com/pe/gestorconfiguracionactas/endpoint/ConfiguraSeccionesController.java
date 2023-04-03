@@ -2,10 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package com.mycompany.loging.endpoint.dashboard;
+package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
-import com.mycompany.loging.App;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,7 +21,7 @@ import javafx.scene.input.KeyEvent;
  *
  * @author rdela
  */
-public class VerificaFirmasController implements Initializable {
+public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
     private ComboBox<?> cboDocumentos;
@@ -61,10 +59,6 @@ public class VerificaFirmasController implements Initializable {
     private Button btnSiTercer;
     @FXML
     private Button btnNoTercer;
-    @FXML
-    private Button btnRegresar;
-    @FXML
-    private Button btnContinuar;
 
     /**
      * Initializes the controller class.
@@ -72,7 +66,7 @@ public class VerificaFirmasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
+    }    
 
     @FXML
     private void horaIniciohandleOnKeyPressed(KeyEvent event) {
@@ -101,16 +95,5 @@ public class VerificaFirmasController implements Initializable {
     @FXML
     private void ActionFirmoNoT(ActionEvent event) {
     }
-
-    @FXML
-    private void actionRegresar() throws IOException {
-        App.setRoot(null, "inicioMenu");
-    }
-
-    @FXML
-    private void actionContinuar() throws IOException {
-        App.setRoot(null, "leerActasVotos");
-
-    }
-
+    
 }
