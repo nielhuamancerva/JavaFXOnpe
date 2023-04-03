@@ -1,0 +1,552 @@
+[33mcommit 0eb438209f3c2a94e52cc24fe7337454a3157cb2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 14 15:55:54 2023 -0500
+
+    feat: regreso button recorte
+
+[33mcommit a34d2a1a03cbb4e8c7ee3f7203ea483df68f31ce[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Tue Mar 14 15:48:43 2023 -0500
+
+    feat: transmison on json
+
+[33mcommit 00d6c1ef89eef59bf53fca1429e8d2a28470e8ee[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 13 17:45:10 2023 -0500
+
+    feat: configuraActaController
+
+[33mcommit 2b312ffb7368c19e8d3dc1165620275b4574ecd2[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Mon Mar 13 10:35:43 2023 -0500
+
+    fixd:agregando firmas y codigo de barras:2023-03-13
+
+[33mcommit 0d0245c9a38a5b66b790b4119a6016fb79784274[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 13 09:59:53 2023 -0500
+
+    ricardo 130323 Interface update
+
+[33mcommit b93c699f762b3a5042b868e450723e57efccb40f[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Fri Mar 10 18:57:22 2023 -0500
+
+    fits: Implementacion de transmisionControllerRabbitMQ
+
+[33mcommit 2ac8b8585f128679a6d1cec863454f89577921ba[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 10 15:38:04 2023 -0500
+
+    feat:recortarActaController with cursor
+
+[33mcommit 4a87c5773210a961a146b587586e2477a75bf002[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 10 12:00:38 2023 -0500
+
+    refactor: that class negocioServiceImpl
+
+[33mcommit a6279d84aa1f47449fc3ed09a94ed0e1dcb09dc2[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Fri Mar 10 11:42:22 2023 -0500
+
+    mdando funcion a boton recorte:2023-03-10
+
+[33mcommit e62f9710509a8de56cc93fa1bbe4ec1ff41490ae[m
+Author: nielhuaman <nhuamancerva@gmail.com>
+Date:   Fri Mar 10 07:34:20 2023 -0500
+
+    refactor: improvement on serviceTess4j to decoupling
+
+[33mcommit a0485cd9e2960d10b14535aca021bee713a06845[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Thu Mar 9 17:37:30 2023 -0500
+
+    style:clear of trash import on to controller and class
+
+[33mcommit 82dc4110beea0a9f555761203d4af4752e32c697[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Wed Mar 8 16:12:34 2023 -0500
+
+    ricardo 08032023 mejora buttons style a class
+
+[33mcommit 37e623b7c6b0b76d9e3c1f243308d74204b3d029[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Wed Mar 8 15:36:18 2023 -0500
+
+    ricardo: 08032023 colores firma active
+
+[33mcommit d3171c84c9eca34727266427b001952cf57bb4d1[m
+Merge: 2146deb 0a775ff
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 8 15:29:56 2023 -0500
+
+    Merge branch 'main' of https://github.com/nielhuamancerva/JavaFXOnpe
+
+[33mcommit 2146deb6a9425f37959a1c1d611791bb6001d475[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 8 15:27:00 2023 -0500
+
+    cargar imagen de recorte de acta:2023-03-08
+
+[33mcommit 0a775ffa742fba6c959563cbb5891a58a6811e55[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 8 14:55:42 2023 -0500
+
+    refactor: tess4jService to optimizacion of software
+
+[33mcommit 2ef75c3aa2a40f38ef0c5ad263e0107a84b63f09[m
+Author: Jaime R. Roque Moreno <JRoque@onpe.gob.pe>
+Date:   Wed Mar 8 11:55:18 2023 -0500
+
+    Modificar Metodo leerNumeroVotos
+
+[33mcommit cb90d67a384ac8b8a235b40eedd872b3889058d7[m
+Merge: bab310f d729d14
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 8 11:47:05 2023 -0500
+
+    refactor: tess4jservice to controler
+
+[33mcommit bab310f99a2e9af7220a8b6cc2ea03131e25d89c[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 8 11:41:58 2023 -0500
+
+    refactor: tess4jservice to controler
+
+[33mcommit 0b5070cd9e7e9eb4b7ce583ae0d4799504c85bf4[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 8 11:41:31 2023 -0500
+
+    refactor: tess4jservice to controler
+
+[33mcommit d729d149b758095c62431e0bbbcadba8c90d41ad[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Wed Mar 8 11:02:47 2023 -0500
+
+    ricardo: 08032023 btn disable empty image
+
+[33mcommit 94c70cdc6ed75d4fb3d4aa6dc86046d85fd54b88[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Wed Mar 8 10:50:26 2023 -0500
+
+    ricardo: 08032023 transmision rabbit
+
+[33mcommit d0ae65d81783d98ca7e5b461f1718fe34d942315[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 17:44:28 2023 -0500
+
+    ricardo: 07032023 view transmision
+
+[33mcommit b846f519dc3e5af6e144a1ce4e42ea40ca88ae6c[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 16:25:03 2023 -0500
+
+    ricardo: 07032123 add view transmisionRabbit butons shadows
+
+[33mcommit a88bda1660d5378bd6f60578cda9b749ce78c5b5[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Tue Mar 7 15:28:54 2023 -0500
+
+    imagen recorte carga:2023-03-07
+
+[33mcommit b29eebdc3c141cd3209b1c6d14951fe777a12045[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Tue Mar 7 14:38:45 2023 -0500
+
+    recortando area de acta:07-03-2023
+
+[33mcommit d0d70f81102c6ec8b7a735bb188d7f35f920d1a1[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Tue Mar 7 14:33:05 2023 -0500
+
+    feat:update estructure folder on project
+
+[33mcommit fdd9ad7f8633d38e7a2c4c69d3cc643722fe2455[m
+Merge: 02d3c9c 64a6423
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Tue Mar 7 14:28:35 2023 -0500
+
+    Merge branch 'main' of https://github.com/nielhuamancerva/JavaFXOnpe
+
+[33mcommit 02d3c9c48513843925c47a287acaee64314e7ac6[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Tue Mar 7 14:28:09 2023 -0500
+
+    feat:update estructure folder on project
+
+[33mcommit 7ab542c5d481eec1815d522c8493e428058b298e[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Tue Mar 7 14:26:49 2023 -0500
+
+    feat:update estructure folder on project
+
+[33mcommit 64a64232715c548734152cc4eade0c6cecbf4267[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 11:45:58 2023 -0500
+
+    ricardo: 07032023 util decorador shadow
+
+[33mcommit 68d3479429a9eca58585f5a72a9fc99aee58b174[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 11:16:30 2023 -0500
+
+    ricardo
+
+[33mcommit d905aea9b324ccbf9368a086d886d1ad4c6f12c1[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Tue Mar 7 10:50:04 2023 -0500
+
+    recortando region de acta :07-03-2023
+
+[33mcommit 898ddbc093ac8675fdf8a388e7a3b858895cb294[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 09:36:04 2023 -0500
+
+    ricardo: 07032023 mejoras hover buttons
+
+[33mcommit 50414134c5a4038128741fef1f6c615d0596c254[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Tue Mar 7 09:26:10 2023 -0500
+
+    ricardo: 07032023 firma button color
+
+[33mcommit bb07cdb1b40fa91b2cee74ed3cae4e8df9c1a2f9[m
+Author: nielhuaman <nhuamancerva@gmail.com>
+Date:   Mon Mar 6 23:52:05 2023 -0500
+
+    refactor: class negocio and service
+
+[33mcommit ea7904aed6c66d74bb0020476d26acdb1828624c[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 6 18:01:45 2023 -0500
+
+    ricardo: 06032023 firmas hover
+
+[33mcommit 5c2fb7b62018fa7db6150272ba89cd8df9e5964e[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Mar 6 16:32:16 2023 -0500
+
+    feat: registarfirmas, registarobs, leeractas y leeractasvotos controller inicializable with imagen
+
+[33mcommit 2780fb9aaacfc6f7a4f5387c3b82d7dc02c14733[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Mar 6 16:31:57 2023 -0500
+
+    feat: registarfirmas, registarobs, leeractas y leeractasvotos controller inicializable with imagen
+
+[33mcommit 8bcc4815f350ecf752f46d6a84435725882f0d6c[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Mar 6 16:13:33 2023 -0500
+
+    feat: variable global of TESSRACT
+
+[33mcommit 146843cfe7a0660c099d1bf4209dc26983f7cd19[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Mar 6 15:19:36 2023 -0500
+
+    feat: conexion beetwen controller leeractas and transmision
+
+[33mcommit f4bfe47e28451f938b58706e60871d1dfc324019[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 6 14:01:46 2023 -0500
+
+    ricardo: 06032023 view obs y firma
+
+[33mcommit a8c73ada346d4e26fca994d4944b9220b805928a[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 6 12:28:49 2023 -0500
+
+    ricardo: 06032023 add style hover
+
+[33mcommit 1aa7f12e813bfb79f2734bb3d82a4f5888309477[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 6 09:22:15 2023 -0500
+
+    ricardo: 06_03_23 focus
+
+[33mcommit 0fa13fe8a5e55def0d54beb548501dd47e575a6d[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Mon Mar 6 09:09:38 2023 -0500
+
+    ricardo 06_03_2023: cursor
+
+[33mcommit 47954a2316c66e1303cc986bb2ff72b672d4623a[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Fri Mar 3 16:51:19 2023 -0500
+
+    ricardo: 03_03_23 login
+
+[33mcommit 1204c5f737bd0765935bf0e4617a5fbfdb7368f2[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 3 16:21:36 2023 -0500
+
+    db: score
+
+[33mcommit f40c0ab9c400408a8635c5c472abc81875474433[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Fri Mar 3 15:54:48 2023 -0500
+
+    agregando codigo de barras:2023-03-03
+
+[33mcommit 587b2ba9c4488c390e453deda1eec4a951554515[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 3 15:17:22 2023 -0500
+
+    codigo barra
+
+[33mcommit 0f3f5cdad330f33ba7105deab8c81ecfc76796d2[m
+Merge: fbe03c0 9fe846b
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 3 15:15:52 2023 -0500
+
+    new
+
+[33mcommit 9fe846ba418a28878656cab5a3eebcc92660a138[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Fri Mar 3 15:12:11 2023 -0500
+
+    ricardo: 03_03_23 logo
+
+[33mcommit 8a9b6d0770f22c4ddf3dd0db8d43ba36a84fcbd6[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Fri Mar 3 15:07:23 2023 -0500
+
+    ricardo: 03_03_23 retroceso btn
+
+[33mcommit 191e773464e8ae441e5ed27430fbece9eb1260ff[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Fri Mar 3 14:59:07 2023 -0500
+
+    ricardo: 03_03_2023 botones
+
+[33mcommit 2cd229efe61aa30a9624f2174c3d920dd7abc970[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Fri Mar 3 10:26:20 2023 -0500
+
+    Agregando confirmacion:03-03-2023
+
+[33mcommit fbe03c0cf3d8485ca5c1d6f8a4175acf3910670e[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Fri Mar 3 09:37:57 2023 -0500
+
+    cargaActas: load of all actas on transmisioncontroller
+
+[33mcommit 94c2fd21071741faaad2799866de8d28bd80166d[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Thu Mar 2 15:23:17 2023 -0500
+
+    mejorando agregando boton con funcionaliad:02-03-2023
+
+[33mcommit b6d66c7bc509e6d2f3ae71f3007c162ad551acfd[m
+Merge: 4f5de8e 9ba9755
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Thu Mar 2 15:18:42 2023 -0500
+
+    yy
+
+[33mcommit 4f5de8e8aab82b30fa5b19275ca66cf4824769d9[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Thu Mar 2 15:16:09 2023 -0500
+
+    creaciontableview: transmicion controller
+
+[33mcommit 9ba975520dc57eb2f650431d726ce85fc88e4f37[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Thu Mar 2 15:10:56 2023 -0500
+
+    mejorando ventanas:02-03-2023
+
+[33mcommit ec02baf15cef375d9ac544e613a84ba98ea374e1[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Thu Mar 2 11:08:48 2023 -0500
+
+    ricardo: interface colors
+
+[33mcommit 613aabb5b1cf1df3512582fcd9f2f4952ec5bba9[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Thu Mar 2 10:48:06 2023 -0500
+
+    ricardo: boton color login
+
+[33mcommit 81885ffe94f9a5ddd11f1a5bc275c1f0decb22e3[m
+Author: nielhuaman <nhuamancerva@gmail.com>
+Date:   Wed Mar 1 23:27:02 2023 -0500
+
+    tableViewresponsibe: controllerTransmision
+
+[33mcommit dd3b27a2713b9bb1f5f0b8cc7e6e0b6b6a12787f[m
+Author: ricckis <33463381+ricckis@users.noreply.github.com>
+Date:   Wed Mar 1 16:53:59 2023 -0500
+
+    ricardo: interfaz
+
+[33mcommit 704ca71dc612a6a69f0fd9a4d00fb5885240e430[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 16:46:46 2023 -0500
+
+    nuevos intefaces:01-10-2023
+
+[33mcommit 91231d5f82f21913ffad19e52e5b06b133fe2683[m
+Merge: 4734396 333a3cd
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 16:46:01 2023 -0500
+
+    Merge branch 'main' of https://github.com/nielhuamancerva/JavaFXOnpe
+
+[33mcommit 473439621ee626029454d6530eb7639c0824cba7[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 16:45:30 2023 -0500
+
+    nuevos intefaces:01-10-2023
+
+[33mcommit 333a3cd470433f0328ea9816319bb62e5d65a6b4[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 1 15:11:51 2023 -0500
+
+    rename:negocioserviceimpl
+
+[33mcommit fe2fa3201c22eb0367fd8861b907d9fc95e45eff[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 15:07:24 2023 -0500
+
+    corrigiendo error:01-10-2023
+
+[33mcommit 1ee447ea063ca12b556388f3706b3b5eea721962[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 1 11:45:07 2023 -0500
+
+    msgOnForm: controller login
+
+[33mcommit a77def823ae69f963526c331abab5a92e5b458b4[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 1 11:34:51 2023 -0500
+
+    validaciones: formularios
+
+[33mcommit 921712f42e34ac99ebf2ae24fe815f069b33c690[m
+Merge: ef73699 caaf374
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 11:31:09 2023 -0500
+
+    last
+
+[33mcommit ef73699560d46737d9aaff018d80cb4736b4fbdb[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 11:22:30 2023 -0500
+
+    panel leer actas:2023-03-01
+
+[33mcommit caaf374f843e17be41e9b07077b2e59a642ca339[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Wed Mar 1 10:14:52 2023 -0500
+
+    validaciones: login
+
+[33mcommit 14af0f1c00e72cd5099b56263ea9e87fe327d91d[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 10:11:27 2023 -0500
+
+    panel transmision:2023-03-01
+
+[33mcommit 5a39b0830f2d39c4d16f12eb96b59f69e0b10fbc[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Wed Mar 1 09:25:24 2023 -0500
+
+    dashboard:01-03-2023
+
+[33mcommit 33e4bfffc18c3f8c64fcf77bb35f4d4356ab9810[m
+Author: nielhuaman <nhuamancerva@gmail.com>
+Date:   Wed Mar 1 00:53:10 2023 -0500
+
+    refactor:01032023 add implement busnis
+
+[33mcommit 23811e4d51dd5a2ce21c7d133d0163fdd2e3ab1d[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Tue Feb 28 12:49:35 2023 -0500
+
+    login mejoarado:28-02.2023
+
+[33mcommit 8dd1d2730024decf58f1936135e5f12ca9e21c71[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Tue Feb 28 09:38:59 2023 -0500
+
+    entidades:28/02/2023
+
+[33mcommit 5a5dd2e1ebdac68077af2b373019bd28d858f311[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Feb 27 16:57:58 2023 -0500
+
+    javafx con mongo
+
+[33mcommit 58d42fd9efce9ea2dc1cec9189e5d3d60c2a59f5[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Feb 27 16:01:07 2023 -0500
+
+    project run
+
+[33mcommit aa66e70a6d7d214c003c7a6a137e43645f5c3afe[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Feb 27 13:01:06 2023 -0500
+
+    conexion:270223 mongo
+
+[33mcommit 589aae3f9d5671eb79c07b3a9b2a5e47d022ec78[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Mon Feb 27 12:21:15 2023 -0500
+
+    proyecto
+
+[33mcommit 5215d8ac9579d54b9d27b467541595883daeb9c1[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Feb 27 12:17:33 2023 -0500
+
+    fdf
+
+[33mcommit c544fc77ae6ea7ced23018d7bd5e160fa52889ed[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Mon Feb 27 12:14:53 2023 -0500
+
+    esqueleto:27-02-2023
+
+[33mcommit d30c7e143a5b1dce20728125b6f71e1960748611[m
+Author: nielhuamancerva <49344320+nielhuamancerva@users.noreply.github.com>
+Date:   Mon Feb 27 12:05:05 2023 -0500
+
+    Create README.md
+
+[33mcommit d8ba95037ebf61deddafc462651d7bb9b3288226[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Mon Feb 27 11:59:24 2023 -0500
+
+    test:
+
+[33mcommit 6c2c356e608016dd8a9d7b09189c3172185e963b[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Mon Feb 27 11:52:11 2023 -0500
+
+    esqueleto:27-02-2023
+
+[33mcommit 906c2f070830830b936fbaabe82dbef0a0b8eaad[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Mon Feb 27 11:50:05 2023 -0500
+
+    eliminado
+
+[33mcommit b7205373c2e1b88ea16a03736ef07bd6d45b6e44[m
+Author: Luis Medina Machaca <LMedina@onpe.gob.pe>
+Date:   Fri Feb 24 16:05:46 2023 -0500
+
+    subinedo login by luis
+
+[33mcommit 7cd75bf5bdbb283aa058a27c24611e8a22e1f92c[m
+Author: nielhuaman <nhuamancerva@gmail.com>
+Date:   Fri Feb 24 08:06:57 2023 -0500
+
+    ss
+
+[33mcommit 9d92db55617d0bcfd7de2c2fb28d585e63785b07[m
+Author: Niel A. Huaman Cerva <NHuaman@onpe.gob.pe>
+Date:   Thu Feb 23 17:05:06 2023 -0500
+
+    onpe:23022023 project inicialization

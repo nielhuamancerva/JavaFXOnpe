@@ -43,6 +43,58 @@
     -fx-font-size:15px;
 }
 
+.subtitulo-body{
+    -fx-font-size: 24px;
+    -fx-font-weight:bold;
+}
+
+
+
+.body-general{
+    -fx-background-image: url("../image/body_modulos.png");
+    -fx-background-size: 100%;
+}
+
+
+.pane_tipo_body{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+    -fx-background-color:white;
+}
+
+.ancho-cabecera-body{
+    -fx-min-width: 1855px;
+    -fx-min-height: 50px;
+}
+
+.button-retroceder{
+    -fx-background-color:red;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight:bold;
+    -fx-font-size: 24px;
+    -fx-min-width: 217px;
+    -fx-min-height: 63px;
+}
+
+.button-grabar{
+ -fx-background-color:#05ff00;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight:bold;
+    -fx-font-size: 24px;
+    -fx-min-width: 217px;
+    -fx-min-height: 63px;
+    -fx-text-alignment: left;
+}
+
+.button-continuar{
+ -fx-background-color:#05ff00;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight:bold;
+    -fx-font-size: 24px;
+    -fx-min-width: 217px;
+    -fx-min-height: 63px;
+    -fx-text-alignment: left;
+}
 
 
 .button-green:hover{

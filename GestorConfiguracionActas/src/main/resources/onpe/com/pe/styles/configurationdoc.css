@@ -1,0 +1,76 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.button-add{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    -fx-text-fill: back;
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-size:60px;
+}
+.button-add:hover{
+    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-size:60px;
+}
+
+
+.button-guardar{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    -fx-text-fill: back;
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/grabar-on.png');
+    -fx-background-size:30px;
+}
+
+.button-editar{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    -fx-text-fill: back;
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/editar-on.png');
+    -fx-background-size:30px;
+}
+
+.button-eliminar{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    -fx-text-fill: back;
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/ico-delete.png');
+    -fx-background-size:30px;
+}
