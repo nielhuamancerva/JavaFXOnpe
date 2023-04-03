@@ -46,6 +46,7 @@ public class ConfigurationDocController implements Initializable {
     private void actionGuardar(ActionEvent event) {
     }
 
+    @FXML
     private void actionContinuar() throws IOException{
         
 //        App.setRoot(null, "configuraSecciones");

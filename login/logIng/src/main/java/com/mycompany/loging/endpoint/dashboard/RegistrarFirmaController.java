@@ -174,7 +174,7 @@ public class RegistrarFirmaController implements Initializable {
             Image imageCreate = new Image(getClass().getResource("/imagenes/ico.check.png").toExternalForm());
             ImageViewTrueOrFalse[2].setImage(imageCreate);
             ImageViewTrueOrFalse[2].setVisible(true);
-            siButton2 = true;
+            //siButton2 = true;
             siButton3 = true;
         } else if (btn1.getId().equals("btnNoTercer")) {
             siButton3 = true;
