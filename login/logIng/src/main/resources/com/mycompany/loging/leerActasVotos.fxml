@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
@@ -10,13 +11,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
    <children>
-      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
+      <AnchorPane>
          <children>
-            <AnchorPane layoutX="169.0" layoutY="161.0" prefHeight="657.0" prefWidth="1569.0">
+            <AnchorPane layoutX="169.0" layoutY="161.0">
                <children>
-                  <AnchorPane prefHeight="60.0" prefWidth="1576.0" style="-fx-background-color: #004788;">
+                  <AnchorPane style="-fx-background-color: #004788;">
                      <children>
                         <Label layoutX="703.0" layoutY="1.0" prefHeight="53.0" prefWidth="330.0" textFill="WHITE">
                            <font>
@@ -25,14 +26,14 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Pane layoutY="59.0" prefHeight="744.0" prefWidth="1576.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
+                  <Pane layoutY="59.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
                      <children>
                         <Label layoutX="125.0" layoutY="21.0" text="Registro el número de votos obtenidos en cada caso">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnSiguiente" layoutX="1306.0" layoutY="643.0" mnemonicParsing="false" onAction="#registrarObs" prefHeight="65.0" prefWidth="170.0" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+                        <Button fx:id="btnSiguiente" layoutX="798.0" layoutY="614.0" mnemonicParsing="false" onAction="#registrarObs" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -40,7 +41,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnRegresar" layoutX="1104.0" layoutY="643.0" mnemonicParsing="false" onAction="#regresarLeerActas" prefHeight="64.0" prefWidth="170.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+                        <Button fx:id="btnRegresar" layoutX="678.0" layoutY="611.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -73,23 +74,27 @@
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <Pane layoutX="1124.0" layoutY="25.0" prefHeight="112.0" prefWidth="364.0" styleClass="pane_tipo_body">
+                        <Pane layoutX="845.0" layoutY="25.0" prefHeight="112.0" prefWidth="364.0" styleClass="pane_tipo_body">
                            <children>
                               <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="51.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
-                        <Pane layoutX="120.0" layoutY="80.0" prefHeight="614.0" prefWidth="526.0" styleClass="pane_tipo_body">
-                           <children>
-                              <ImageView fx:id="imagenVotos" fitHeight="612.0" fitWidth="520.0" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </Pane>
+                        <ScrollPane layoutX="120.0" layoutY="80.0" prefViewportHeight="614.0" prefViewportWidth="526.0">
+                           <content>
+                              <Pane layoutX="120.0" layoutY="80.0" prefHeight="614.0" prefWidth="526.0" styleClass="pane_tipo_body">
+                                 <children>
+                                    <ImageView fx:id="imagenVotos" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </Pane>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="169.0" layoutY="88.0" prefHeight="45.0" prefWidth="1583.0" styleClass="border-titulo">
+            <AnchorPane layoutX="169.0" layoutY="88.0" styleClass="border-titulo">
                <children>
-                  <Pane layoutY="-5.0" prefHeight="51.0" prefWidth="1583.0">
+                  <Pane layoutY="-5.0">
                      <children>
                         <Label layoutX="488.0" layoutY="8.0" prefHeight="35.0" prefWidth="608.0" text="MODULO DE REGISTRAR VOTOS - ACTA ESCRUTINIO" textFill="WHITE">
                            <font>

@@ -46,6 +46,8 @@ import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.arrayNombresModulos;
+import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.listCount;
+
 
 /**
  * FXML Controller class
@@ -84,19 +86,17 @@ public class ConfigurarActaController implements Initializable {
     @FXML
     TextField textFieldEleccion;
 
-    private ImageView[] ImageViewTrueOrFalse = new ImageView[arrayNombresModulos.length + 1];
-    private Button[] buttonEventConfi = new Button[arrayNombresModulos.length + 1];
-    private Button[] buttonEventAdd = new Button[arrayNombresModulos.length + 1];
-    private Button[] buttonEventDelete = new Button[arrayNombresModulos.length + 1];
+    private ImageView[] ImageViewTrueOrFalse = new ImageView[listCount.size()+1];
+    private Button[] buttonEventConfi = new Button[listCount.size()+1];
+    private Button[] buttonEventAdd = new Button[listCount.size()+1];
+    private Button[] buttonEventDelete = new Button[listCount.size()+1];
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddTitle.setDisable(true);
         btnProcesar.setDisable(true);
         int i = 0;
-        String[] array = {"Codigo QR", "Hora Inicio", "Hora Fin", "Region", "Observaciones", "Firma 1", "Firma 2", "Firma 3"};
-
-        for (String str : arrayNombresModulos) {
+        for (String str : listCount) {
             buttonEventConfi[i] = new Button(str);
             buttonEventConfi[i].setId(String.valueOf(i));
             buttonEventConfi[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
@@ -135,7 +135,7 @@ public class ConfigurarActaController implements Initializable {
         }
 
         int u = 0;
-        for (String str : arrayNombresModulos) {
+        for (String str : listCount) {
             Button btevents = buttonEventConfi[u];
 
             Button btAdds = buttonEventAdd[u];
@@ -157,7 +157,7 @@ public class ConfigurarActaController implements Initializable {
                 }
             });
 
-            if (u < arrayNombresModulos.length-1) {
+            if (u < listCount.size()-1) {
                 Button bteventNexts = buttonEventConfi[u + 1];
                 ImageView Viewnext = ImageViewTrueOrFalse[u + 1];
 

@@ -23,7 +23,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        setRoot(stage, "login");
+        setRoot(stage, "configurationDoc");
         sc = stage;
     }
 
@@ -32,7 +32,7 @@ public class App extends Application {
 
             scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
 
-          
+         
             stage.setScene(scene);
             stage.show();
         } else {

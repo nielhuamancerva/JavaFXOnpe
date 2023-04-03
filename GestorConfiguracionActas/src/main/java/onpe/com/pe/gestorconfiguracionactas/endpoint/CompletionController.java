@@ -8,6 +8,7 @@ package onpe.com.pe.gestorconfiguracionactas.endpoint;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +21,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.arrayNombresModulos;
+import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.listCount;
+
 import onpe.com.pe.gestorconfiguracionactas.core.util.commonmappings.CommonMappings;
 
 /**
@@ -34,7 +37,7 @@ public class CompletionController implements Initializable {
     @FXML
     TextField textFieldEleccion;
     @FXML
-    Button btnAddTitle, btnProcesar,btnRegresar;
+    Button btnAddTitle, btnProcesar, btnRegresar;
 
     /**
      * Initializes the controller class.
@@ -42,17 +45,17 @@ public class CompletionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ingresarInicializador
-        btnAddTitle.setDisable(true);
-        btnProcesar.setDisable(true);
-        textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent -> {
-            if (!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
-                keyEvent.consume();
-            }
-            if (CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
-                btnAddTitle.setDisable(false);
-                
-            }
-        });
+//        btnAddTitle.setDisable(true);
+//        btnProcesar.setDisable(true);
+//        textFieldEleccion.addEventFilter(KeyEvent.KEY_TYPED, keyEvent -> {
+//            if (!CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
+//                keyEvent.consume();
+//            }
+//            if (CommonMappings.valiadarSoloNumeros(keyEvent.getCharacter())) {
+//                btnAddTitle.setDisable(false);
+//                
+//            }
+//        });
     }
 
     @FXML
@@ -67,23 +70,24 @@ public class CompletionController implements Initializable {
 
     @FXML
     private void regresaMenu() throws IOException {
-        for (int y = 0; y < arrayNombresModulos.length; y++) {
-            System.out.println(arrayNombresModulos[y]);
-        }
+
         App.setRoot(null, "inicioMenu");
 
     }
+    TextField[] buttonEventConfiini = new TextField[0];
+     ArrayList<Integer> list = new ArrayList<>();
 
-    final String[] arrayNombr2 = arrayNombresModulos;
+  
 
     @FXML
     private void actionAddModulos(ActionEvent event) throws Exception {
-        TextField[] buttonEventConfi = new TextField[Integer.parseInt(textFieldEleccion.getText())];
-        Button[] buttonEventAdd = new Button[Integer.parseInt(textFieldEleccion.getText())];
 
-        for (int i = 0; i <= buttonEventConfi.length - 1; i++) {
-            buttonEventConfi[i] = new TextField("i" + i);
-            buttonEventConfi[i].setId(String.valueOf(i));
+        TextField[] buttonEventConfi = new TextField[1];
+        Button[] buttonEventAdd = new Button[1];
+
+        for (int i = 0; i < buttonEventConfi.length; i++) {
+            buttonEventConfi[i] = new TextField(String.valueOf(list.size()));
+            buttonEventConfi[i].setId(String.valueOf(list.size()));
             buttonEventConfi[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
             buttonEventConfi[i].getStyleClass().add("button-initializa");
             conteninerSettingButton.getChildren().addAll(buttonEventConfi[i]);
@@ -95,33 +99,34 @@ public class CompletionController implements Initializable {
             buttonEventAdd[i].getStyleClass().add("button-initializa-button-add");
             conteninerSettingButtonAdd.setMargin(buttonEventAdd[i], new Insets(10, 0, 0, 0));
             conteninerSettingButtonAdd.getChildren().addAll(buttonEventAdd[i]);
-            arrayNombresModulos = new String[buttonEventConfi.length];
+
         }
 
-        for (int u = 0; u <= buttonEventConfi.length - 1; u++) {
+        for (int u = 0; u < buttonEventConfi.length; u++) {
 
             TextField textField = buttonEventConfi[u];
             Button btAdds = buttonEventAdd[u];
 
-            Integer uu = u;
+
             buttonEventAdd[u].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-
-                    insertar(textField.getText(), uu);
+                    listCount.add(textField.getText());
+                  //  insertar(textField.getText(), uu);
                     btAdds.setDisable(true);
-                    textField.setDisable(true);
-                    if (uu == buttonEventConfi.length - 1) {
-                        btnProcesar.setDisable(false);
-                    }
+//                    textField.setDisable(true);
+//                    if (uu == buttonEventConfi.length - 1) {
+//                        btnProcesar.setDisable(false);
+//                    }
                 }
 
             });
 
         }
-        btnAddTitle.setDisable(true);
-        textFieldEleccion.setDisable(true);
-        btnRegresar.setDisable(true);
+//        btnAddTitle.setDisable(true);
+//        textFieldEleccion.setDisable(true);
+//        btnRegresar.setDisable(true);
+list.add(1);
     }
 
     @FXML
@@ -129,8 +134,5 @@ public class CompletionController implements Initializable {
         App.setRoot(null, "completion");
     }
 
-    private void insertar(String s, Integer unidad) {
-        arrayNombresModulos[unidad] = s;
 
-    }
 }
