@@ -18,7 +18,7 @@
                <children>
                   <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Configurar Documentos">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="23.0" />
                      </font></Label>
                   <Line endX="300.0" layoutX="132.0" layoutY="60.0" startX="-100.0" strokeWidth="3.0" />
                </children>
@@ -29,60 +29,74 @@
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <ComboBox fx:id="cobDocumentos" layoutX="240.0" layoutY="20.0" prefHeight="49.0" prefWidth="580.0" />
+                  <ComboBox fx:id="cobDocumentos" layoutX="240.0" layoutY="20.0" prefHeight="49.0" prefWidth="713.0" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1571.0" layoutY="562.0">
-               <children>
-                  <Pane layoutX="-267.0" layoutY="-260.0" prefHeight="771.0" prefWidth="604.0" styleClass="pane_tipo_body">
-                     <children>
-                        <AnchorPane prefHeight="45.0" prefWidth="604.0" styleClass="pane_tipo_body">
-                           <children>
-                              <Label layoutX="26.0" layoutY="6.0" text="Documentos Electorales">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="504.0" layoutY="684.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
+            <AnchorPane layoutX="1571.0" layoutY="562.0" />
             <AnchorPane layoutX="28.0" layoutY="265.0" prefHeight="77.0" prefWidth="367.0">
                <children>
                   <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" styleClass="button-add" />
-                  <Label layoutX="101.0" layoutY="35.0" text="Agregar Sección" />
+                  <Label layoutX="99.0" layoutY="30.0" text="Agregar Sección">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="80.0" layoutY="973.0">
+            <AnchorPane layoutX="159.0" layoutY="1005.0">
                <children>
-                  <Button fx:id="btnRegresar" layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="49.0" prefWidth="148.0" styleClass="button-retroceder" text="Regresar">
+                  <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnGuardar" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="49.0" prefWidth="136.0" styleClass="button-grabar" text="Guardar">
+                  <Button fx:id="btnGuardar" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="51.0" prefWidth="213.0" styleClass="button-grabar" text="Guardar">
                      <font>
                         <Font size="24.0" />
                      </font></Button>
-                  <Button fx:id="btnContinuar" layoutX="518.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="49.0" prefWidth="144.0" styleClass="button-continuar" text="Continuar" />
-                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="438.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="btnContinuar" layoutX="499.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="51.0" prefWidth="203.0" styleClass="button-continuar" text="Continuar" />
+                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="403.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/grabar-on.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="696.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="667.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/continue.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="ico_grabar" defaultButton="true" layoutX="616.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-guardar" />
-            <Button fx:id="ico_editar" defaultButton="true" layoutX="665.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-editar" />
-            <Button fx:id="ico_eliminar" defaultButton="true" layoutX="708.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-eliminar" />
+            <ScrollPane layoutX="184.0" layoutY="358.0" prefHeight="578.0" prefWidth="514.0">
+               <content>
+                  <Pane prefHeight="563.0" prefWidth="513.0">
+                     <children>
+                        <Label layoutX="91.0" layoutY="40.0" text="Código de Barras">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="ico_eliminar" defaultButton="true" layoutX="365.0" layoutY="41.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-eliminar" />
+                        <Button fx:id="ico_grabar" defaultButton="true" layoutX="416.0" layoutY="40.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-guardar" />
+                        <Button fx:id="ico_editar" defaultButton="true" layoutX="462.0" layoutY="40.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="55.0" styleClass="button-editar" />
+                     </children>
+                  </Pane>
+               </content>
+            </ScrollPane>
+            <Pane layoutX="1258.0" layoutY="288.0" prefHeight="771.0" prefWidth="604.0" styleClass="pane_tipo_body">
+               <children>
+                  <AnchorPane prefHeight="45.0" prefWidth="604.0" styleClass="pane_tipo_body">
+                     <children>
+                        <Label layoutX="26.0" layoutY="6.0" text="Documentos Electorales">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane layoutX="1.0" layoutY="45.0" prefHeight="628.0" prefWidth="602.0" />
+                  <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="504.0" layoutY="693.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
