@@ -16,7 +16,8 @@ module negocio {
     requires java.sql;
     requires org.junit.jupiter.api;
     requires org.junit.jupiter.engine;
- 
+
+
     
      
     exports negocio;
