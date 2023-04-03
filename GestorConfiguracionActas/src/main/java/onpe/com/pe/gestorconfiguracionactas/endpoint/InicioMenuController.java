@@ -40,7 +40,7 @@ public class InicioMenuController implements Initializable {
 
     @FXML
     private void ingresarInicializador() throws IOException {
-        App.setRoot(null, "completion");
+        App.setRoot(null, "configurationDoc");
     }
 
 }
