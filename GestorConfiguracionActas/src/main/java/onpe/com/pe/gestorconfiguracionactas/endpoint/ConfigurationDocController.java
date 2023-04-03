@@ -22,23 +22,13 @@ import onpe.com.pe.gestorconfiguracionactas.App;
 public class ConfigurationDocController implements Initializable {
 
     @FXML
-    private ComboBox<?> cobDocumentos;
-    @FXML
-    private Button btnAddDocumentos;
-    @FXML
-    private Button btnAddSeccion;
-    @FXML
     private Button btnRegresar;
     @FXML
     private Button btnGuardar;
     @FXML
-    private Button btnContinuar;
+    private ComboBox<?> cboDocumentos;
     @FXML
-    private Button ico_grabar;
-    @FXML
-    private Button ico_editar;
-    @FXML
-    private Button ico_eliminar;
+    private Button ico_activar;
 
     /**
      * Initializes the controller class.
@@ -56,10 +46,9 @@ public class ConfigurationDocController implements Initializable {
     private void actionGuardar(ActionEvent event) {
     }
 
-    @FXML
     private void actionContinuar() throws IOException{
         
-        App.setRoot(null, "configuraSecciones");
+//        App.setRoot(null, "configuraSecciones");
         
         
     }

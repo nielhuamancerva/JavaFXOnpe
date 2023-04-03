@@ -10,7 +10,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfiguraSeccionesController">
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfiguraSeccionesController">
    <children>
       <Pane layoutX="31.0" layoutY="42.0" prefHeight="896.0" prefWidth="1858.0" styleClass="pane_tipo_body">
          <children>
@@ -84,7 +85,7 @@
       </Pane>
    </children>
    <stylesheets>
-      <URL value="@../styles/configurationdoc.css" />
+      <URL value="@../styles/configurasecciones.css />
       <URL value="@../styles/Style.css" />
    </stylesheets>
 </AnchorPane>

@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.pane_recep_body{
+     -fx-border-width: 3px;
+     -fx-border-color: #054d99;
+}
