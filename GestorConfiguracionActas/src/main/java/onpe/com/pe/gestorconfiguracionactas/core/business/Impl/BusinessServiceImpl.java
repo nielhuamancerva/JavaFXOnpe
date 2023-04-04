@@ -6,6 +6,7 @@ package onpe.com.pe.gestorconfiguracionactas.core.business.Impl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +19,7 @@ import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Sections;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.FactoryService;
+import onpe.com.pe.gestorconfiguracionactas.core.util.mapper.Mapper;
 
 public class BusinessServiceImpl implements BusinessService {
 
@@ -119,11 +121,26 @@ public class BusinessServiceImpl implements BusinessService {
     public void uploadSections(String idSetings, String coordenadas) throws Exception {
         factoryService = FactoryService.getInstance();
         factoryService.SettingService().findAllSetting();
-           
-    
-
         factoryService.SectionsService().updateSections(idSetings,coordenadas);
- 
+    }
+
+    public List<String> findSettingForNameEleccion(String nameEleccion) throws Exception {
+                factoryService = FactoryService.getInstance();
+        return factoryService.SettingService().findAllSetting().stream()
+                .filter(t -> t.getName().equals(nameEleccion))
+                .map(s -> s.getSetting())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void updateSetting(String nameEleccion, String array) throws Exception {
+      factoryService = FactoryService.getInstance();
+     Setting setting = factoryService.SettingService().findAllSetting().stream()
+                .filter(t -> t.getName().equals(nameEleccion))
+                .collect(Collectors.toList()).get(0);    
+      setting.setSetting(array);
+      factoryService.SettingService().updateStatusSetting(Mapper.settingCastToDocument(setting));
+
     }
 
 }

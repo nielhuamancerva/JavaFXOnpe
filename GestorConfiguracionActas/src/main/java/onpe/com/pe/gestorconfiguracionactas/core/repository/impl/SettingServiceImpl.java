@@ -26,7 +26,7 @@ public class SettingServiceImpl implements SettingService {
     public void saveSetting(Setting setting) throws Exception {
         factoryService = FactoryService.getInstance();
         factoryService.MongoService().conexionMongo();
-        factoryService.MongoService().saveDocument(Mapper.actaCastToDocument(setting), "setting");
+        factoryService.MongoService().saveDocument(Mapper.settingCastToDocument(setting), "setting");
     }
 
     @Override
