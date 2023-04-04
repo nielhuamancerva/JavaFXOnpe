@@ -40,7 +40,6 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="107.0" layoutY="127.0" prefHeight="39.0" prefWidth="475.0" />
                         <Label layoutX="103.0" layoutY="176.0" text="Verifique la información obtenida del acta seleccionada:">
                            <font>
                               <Font size="18.0" />
@@ -53,27 +52,27 @@
                                     <ImageView fx:id="imagenVotos" fitHeight="622.0" fitWidth="523.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                                  </content>
                               </ScrollPane>
-                              <TextField fx:id="voto1" alignment="CENTER" layoutX="623.0" layoutY="15.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                              <TextField fx:id="voto1" alignment="CENTER" layoutX="623.0" layoutY="15.0" prefHeight="104.0" prefWidth="71.0" styleClass="borde-pane-black">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto2" alignment="CENTER" layoutX="623.0" layoutY="117.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                              <TextField fx:id="voto2" alignment="CENTER" layoutX="623.0" layoutY="117.0" prefHeight="104.0" prefWidth="71.0" styleClass="borde-pane-black">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto3" alignment="CENTER" layoutX="623.0" layoutY="219.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                              <TextField fx:id="voto3" alignment="CENTER" layoutX="623.0" layoutY="219.0" prefHeight="104.0" prefWidth="71.0" styleClass="borde-pane-black">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto4" alignment="CENTER" layoutX="623.0" layoutY="321.0" prefHeight="98.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                              <TextField fx:id="voto4" alignment="CENTER" layoutX="623.0" layoutY="321.0" prefHeight="98.0" prefWidth="71.0" styleClass="borde-pane-black">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto5" alignment="CENTER" layoutX="623.0" layoutY="417.0" prefHeight="98.0" prefWidth="71.0" promptText="96" styleClass="pane_tipo_body">
+                              <TextField fx:id="voto5" alignment="CENTER" layoutX="623.0" layoutY="417.0" prefHeight="98.0" prefWidth="71.0" promptText="96" styleClass="borde-pane-black">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -85,6 +84,15 @@
                               <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
+                        <TextField id="txtDocumento" editable="false" layoutX="781.0" layoutY="130.0" prefHeight="39.0" prefWidth="50.0" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="lblTipoActa" layoutX="101.0" layoutY="141.0" prefHeight="27.0" prefWidth="443.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children></AnchorPane>
 </children></AnchorPane>
 </children></AnchorPane>   

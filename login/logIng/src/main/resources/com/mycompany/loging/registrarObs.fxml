@@ -34,7 +34,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="107.0" layoutY="127.0" prefHeight="39.0" prefWidth="475.0" />
+                        <ComboBox layoutX="769.0" layoutY="127.0" prefHeight="39.0" prefWidth="162.0" visible="false" />
                         <Label layoutX="103.0" layoutY="176.0" text="Ingrese las observaciones registradas en el Acta de Escrutinio">
                            <font>
                               <Font size="18.0" />
@@ -62,6 +62,11 @@
             <Button id="btnContinuar" fx:id="btnSiguiente" mnemonicParsing="false" onAction="#ActionFinaliza" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="FINALIZAR" />
          </children>
       </HBox>
+                  <Label fx:id="lblTipoActa" layoutX="182.0" layoutY="169.0" prefHeight="27.0" prefWidth="443.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
 </children></AnchorPane>
 </children></AnchorPane>   
    </children>

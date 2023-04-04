@@ -157,18 +157,15 @@ public class VerificaFirmasController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
-       
-        VariableGlobales.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue().toString());
-        //System.out.println("qqq "+cboDocumentos.getValue()+"|||"+ VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+
         VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
-        //VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         
         try {
             negocioService.loadSettingActa();
-            negocioService.finAllSettingByName("x");
+            //negocioService.finAllSettingByName("x");
             //negocioService.finAllActas();
-
+            /*
             Setting s =  negocioService.finAllSettingByName("x");
             String map = s.getSetting();
             
@@ -176,9 +173,9 @@ public class VerificaFirmasController implements Initializable {
             final Gson gson = new Gson();
             final Properties object = gson.fromJson(map, Properties.class);
             System.out.println("0Xo: "+object.getProperty("0Xo"));
-            
+            */
             //System.out.println("Name: "+ s.getName()+", setting: "+ s.getSetting());
-            System.out.println(VariableGlobales.configuracionActa.get("0Alto"));
+            //System.out.println(VariableGlobales.configuracionActa.get("0Alto"));
             
             negocioService.readAndCutBarcode(
                         Integer.parseInt(VariableGlobales.configuracionActa.get("0" + "Xo")),
@@ -240,7 +237,6 @@ public class VerificaFirmasController implements Initializable {
             firma2.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
             firma3.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
             
-            System.out.println("sss: "+VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -248,14 +244,6 @@ public class VerificaFirmasController implements Initializable {
         img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// solo se neceita en esta ubiacion la carga del fichero
         //Image img = new Image(fileSeleccionado.toURI().toString());
         //imgViewActa.setImage(img);
-        
-        /*
-        System.out.println("aa "+ VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
-        System.out.println("xx "+ VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
-        
-        if(!fileSeleccionado.toString().equals("")){
-            imagenCodigoBarra.setImage(img);
-        }
-        */
+        VariableGlobales.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue());
     }
 }

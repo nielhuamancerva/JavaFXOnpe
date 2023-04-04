@@ -42,7 +42,7 @@ public class RegistrarObsController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private Label numVotoPreferencial;
+    private Label numVotoPreferencial, lblTipoActa;
     @FXML
     private Label etiquetaVotoRev;
     @FXML
@@ -62,6 +62,7 @@ public class RegistrarObsController implements Initializable {
                     Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Ancho")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Alto"))
             );
+            lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }

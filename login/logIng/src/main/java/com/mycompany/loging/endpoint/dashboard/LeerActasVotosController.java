@@ -2,6 +2,7 @@ package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
+import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
@@ -30,9 +31,11 @@ public class LeerActasVotosController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private Label numVotoPreferencial;
+    private Label numVotoPreferencial, lblTipoActa;
     @FXML
     private Label etiquetaVotoRev;
+    @FXML
+    private TextField txtDocumento;
 
     public LeerActasVotosController() {
         this.negocioService = new NegocioServiceImpl();
@@ -55,30 +58,17 @@ public class LeerActasVotosController implements Initializable {
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
 
-//        voto = new TextField[20];
-//        for (int i = 0; i < voto.length ; i++) {
-//            voto[i] = new TextField();
-//            votoBox.getChildren().add(voto[i]);
-//        }
-        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
-        System.out.println("xx" +VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));        
+        lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+        
         try {
-            
-            System.out.println("ss "+VariableGlobales.configuracionActa);
-            System.out.println("xx" +VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
-            
-            
+
             negocioService.readAndCutOrganizationsPolitical(
                     Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Xo")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Yo")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Ancho")),
                     Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Alto")));
-            
-            System.out.println("3Xo "+VariableGlobales.configuracionActa.get("3Xo"));
-            System.out.println("3Yo "+VariableGlobales.configuracionActa.get("3Yo"));
-            System.out.println("3Ancho "+VariableGlobales.configuracionActa.get("3Ancho"));
-            System.out.println("3Alto "+VariableGlobales.configuracionActa.get("3Alto"));
-            
+
             imagenVotos.setImage(
                     CreateObject.image(
                             VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
@@ -90,11 +80,11 @@ public class LeerActasVotosController implements Initializable {
             voto4.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3").toString());
             voto5.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4").toString());
             
-            System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-            System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-            System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-            System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-            System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+            //System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            //System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            //System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            //System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            //System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
             
         } catch (Exception ex) {
             ex.printStackTrace();
