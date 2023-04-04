@@ -46,12 +46,10 @@ public class BusinessServiceImpl implements BusinessService {
     }
 
     @Override
-    public ObservableList<String> findAllSettingOnlyEleccion() throws Exception {
+    public ObservableList<Setting> findAllSettingOnlyEleccion() throws Exception {
         factoryService = FactoryService.getInstance();
 
-        return factoryService.SettingService().findAllSetting().stream()
-                .map(s -> s.getName().toUpperCase())
-                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+        return factoryService.SettingService().findAllSetting();
     }
 
     @Override
