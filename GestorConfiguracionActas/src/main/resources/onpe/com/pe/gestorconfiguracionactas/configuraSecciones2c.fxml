@@ -85,7 +85,6 @@
       </Pane>
    </children>
    <stylesheets>
-      <URL value="@../styles/configurasecciones.css />
-      <URL value="@../styles/Style.css" />
+
    </stylesheets>
 </AnchorPane>

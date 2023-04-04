@@ -115,4 +115,15 @@ public class BusinessServiceImpl implements BusinessService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void uploadSections(String idSetings, String coordenadas) throws Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.SettingService().findAllSetting();
+           
+    
+
+        factoryService.SectionsService().updateSections(idSetings,coordenadas);
+ 
+    }
+
 }

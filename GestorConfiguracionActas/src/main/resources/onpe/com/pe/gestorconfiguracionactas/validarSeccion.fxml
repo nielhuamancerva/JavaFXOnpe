@@ -21,7 +21,11 @@
       <AnchorPane layoutX="14.0" layoutY="110.0">
          <children>
             <Label layoutX="120.0" layoutY="24.0" prefHeight="21.0" prefWidth="176.0" text="Seleccionar Documento:" />
-            <ComboBox fx:id="cboDocumentos" layoutX="364.0" layoutY="13.0" prefHeight="42.0" prefWidth="559.0" />
+            <Label fx:id="lbActaValidar" layoutX="318.0" prefHeight="17.0" prefWidth="518.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="689.0" layoutY="792.0">

@@ -29,18 +29,15 @@
                   <Font size="14.0" />
                </font></Label>
             <ComboBox fx:id="cboDocumentos" layoutX="31.0" layoutY="60.0" prefHeight="42.0" prefWidth="565.0" />
-            <ImageView fitHeight="42.0" fitWidth="31.0" layoutX="31.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgCargarActa" fitHeight="42.0" fitWidth="31.0" layoutX="31.0" layoutY="121.0" onMouseClicked="#cargarActa" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/carpeta.png" />
                </image>
             </ImageView>
-            <Label fx:id="lbCargarArchivo" layoutX="77.0" layoutY="126.0" onMouseClicked="#cargarActa" prefHeight="21.0" prefWidth="188.0" text="Cargar Archivo">
+            <Label layoutX="77.0" layoutY="126.0" prefHeight="21.0" prefWidth="188.0" text="Cargar Archivo">
                <font>
                   <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Label>
+               </font></Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="54.0" layoutY="309.0" prefHeight="200.0" prefWidth="200.0" />
@@ -55,20 +52,12 @@
                   </Label>
                </children>
             </AnchorPane>
-            <VBox fx:id="vboxPane" layoutX="32.0" layoutY="73.0" prefHeight="325.0" prefWidth="558.0">
-               <children>
-                  <Label prefHeight="21.0" prefWidth="188.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
+            <VBox fx:id="vboxPane" layoutX="56.0" layoutY="82.0" prefHeight="331.0" prefWidth="511.0" />
          </children>
       </Pane>
       <AnchorPane layoutX="124.0" layoutY="980.0" prefHeight="76.0" prefWidth="466.0">
          <children>
-            <Button layoutX="293.0" layoutY="11.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" styleClass="button-grabar" text="Validar">
+            <Button fx:id="btnValidar" layoutX="293.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="40.0" prefWidth="117.0" styleClass="button-grabar" text="Validar">
                <font>
                   <Font size="24.0" />
                </font></Button>
@@ -78,6 +67,10 @@
                </font></Button>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="scrollPaneActa" layoutX="797.0" prefHeight="1050.0" prefWidth="1045.0" styleClass="pane_recep_body" />
+      <ScrollPane fx:id="scrollPaneActa" layoutX="738.0" layoutY="92.0" prefHeight="977.0" prefWidth="1153.0" styleClass="pane_recep_body">
+         <content>
+            <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
