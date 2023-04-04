@@ -78,4 +78,8 @@ public class FactoryServiciosExternos {
     public SettingService SettingService(){
         return this.settingService;
     }
+
+    public SettingService SettingServiceImpl() {
+        return this.settingService;
+    }
 }

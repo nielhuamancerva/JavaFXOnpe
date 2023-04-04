@@ -2,6 +2,7 @@ package com.mycompany.loging.score.negocio.service;
 
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +18,8 @@ public interface NegocioService {
     public Document consultaUsuarioDb(String username, String password) throws IOException, Exception;
 
     public ObservableList<Actas> finAllActas() throws IOException, Exception;
-
+    public ObservableList<Setting> finAllSetting() throws IOException, Exception;
+    
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception;
 
     public String uploadFileOnMemory(File fileSelected);
@@ -36,4 +38,5 @@ public interface NegocioService {
 
     public void readAndCutHoraInicio(String nameFile,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
+    public Setting finAllSettingByName(String name) throws IOException, Exception;
 }

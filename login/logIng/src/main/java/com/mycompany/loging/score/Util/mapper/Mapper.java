@@ -8,6 +8,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
 import com.mycompany.loging.score.model.TransmisionHeader;
 import com.mycompany.loging.score.util.common.commonMappings;
@@ -37,7 +38,7 @@ public class Mapper {
         });
         return FXCollections.observableArrayList(listActas);
     }
-
+    
     public Actas documentCastToActas(Document ss) {
         Actas acta = new Actas();
         acta.setActa(ss.getString("acta"));
@@ -87,5 +88,27 @@ public class Mapper {
         transmision.setBody(ss);
 
         return transmision;
+    }
+    
+    public ObservableList<Setting> castObservableListOfSetting(FindIterable<Document> arra) {
+        List<Setting> listSetting = new ArrayList<>();
+        arra.forEach(action -> {
+            Setting setting = new Setting();
+            setting.setId_setting(action.getString("id_setting"));
+            setting.setName(action.getString("name"));
+            setting.setSetting(action.getString("setting"));
+            setting.setStatusSetting(action.getString("provincia"));
+            listSetting.add(setting);
+        });
+        return FXCollections.observableArrayList(listSetting);
+    }
+    
+    public Setting documentCastTSetting(Document object) {
+        Setting setting = new Setting();
+        setting.setId_setting(object.getString("id_setting"));
+        setting.setName(object.getString("name"));
+        setting.setSetting(object.getString("setting"));
+        setting.setStatusSetting(object.getString("provincia"));
+        return setting;
     }
 }

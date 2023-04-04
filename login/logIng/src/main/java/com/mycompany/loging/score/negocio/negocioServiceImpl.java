@@ -4,8 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
+import com.mycompany.loging.score.Repository.implementacion.SettingServiceImpl;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
 import java.io.IOException;
 import org.bson.Document;
@@ -109,6 +111,8 @@ public class NegocioServiceImpl implements NegocioService {
         Type type = new TypeToken<Map<String, Object>>() {
         }.getType();
         Map<String, Object> map = gson.fromJson(document.getString("setting"), type);
+        
+        //System.out.println(gson.toJson(map));
         Map<String, String> stringMap = new HashMap<>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             String key = entry.getKey();
@@ -125,4 +129,17 @@ public class NegocioServiceImpl implements NegocioService {
         factoryservices.Tess4jServiceImpl().leerHora(nameFile, cordenadaX, cordenadaY, cordenadaAnchoW, cordenadaAltoH);
     }
 
+    @Override
+    public ObservableList<Setting> finAllSetting() throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.MongoService().conexionMongo();
+        return mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+    }
+    
+    @Override
+    public Setting finAllSettingByName(String name) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        Setting setting = mapping.documentCastTSetting(factoryservices.SettingServiceImpl().findSettingBy(name));
+        return setting;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package com.mycompany.loging.score.Repository.implementacion;
 
+import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.Repository.service.SettingService;
 import org.bson.Document;
@@ -24,4 +25,15 @@ public class SettingServiceImpl implements SettingService {
         return serviceFactory.MongoService().findDocumentBy("statusSetting", "1", "setting");
     }
 
+    @Override
+    public MongoCollection<Document> findAllCollection() throws Exception {
+        serviceFactory = FactoryServiciosExternos.getInstance();
+        return serviceFactory.MongoService().findAllCollecion("setting");
+    }
+
+    @Override
+    public Document findSettingBy(String name) throws Exception {
+        serviceFactory = FactoryServiciosExternos.getInstance();
+        return serviceFactory.MongoService().findDocumentBy("name", name, "setting");
+    }
 }

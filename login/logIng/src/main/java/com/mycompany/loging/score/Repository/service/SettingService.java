@@ -5,6 +5,7 @@
  */
 package com.mycompany.loging.score.Repository.service;
 
+import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
 /**
@@ -13,4 +14,6 @@ import org.bson.Document;
  */
 public interface SettingService {
     public Document findSetting() throws Exception;
+    public MongoCollection<Document> findAllCollection() throws Exception;
+    public Document findSettingBy(String name) throws Exception;
 }
