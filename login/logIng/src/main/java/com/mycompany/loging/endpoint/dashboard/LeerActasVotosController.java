@@ -80,11 +80,11 @@ public class LeerActasVotosController implements Initializable {
             voto4.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3").toString());
             voto5.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4").toString());
             
-            //System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-            //System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-            //System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-            //System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-            //System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+            System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
             
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -97,10 +97,7 @@ public class LeerActasVotosController implements Initializable {
     }
 
     @FXML
-    private void registrarObs() throws IOException {
+    private void registrarObs() throws IOException {        
         App.setRoot(null, "registrarObs");
-
     }
-
-
 }

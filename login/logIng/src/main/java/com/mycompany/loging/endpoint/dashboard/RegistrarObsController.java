@@ -1,5 +1,6 @@
 package com.mycompany.loging.endpoint.dashboard;
 
+
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
@@ -29,14 +30,15 @@ import javax.crypto.spec.SecretKeySpec;
 public class RegistrarObsController implements Initializable {
 
     private static final String QUEUE_NAME = "cola_niel";
-        private static final String ALGORITMO = "AES";
+    private static final String ALGORITMO = "AES";
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
 
     private final NegocioService negocioService;
 
     @FXML
     ImageView observacionesActa, codigoBarra;
-
+    @FXML
+    private Button btnRegresar, btnContinuar, btnultimo;
     @FXML
     TextArea textObservaciones;
     @FXML
@@ -63,6 +65,10 @@ public class RegistrarObsController implements Initializable {
                     Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Alto"))
             );
             lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+            
+            //Field field = Button.class.getDeclaredField("defaultButton");
+            //field.setAccessible(true);
+    
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -82,7 +88,38 @@ public class RegistrarObsController implements Initializable {
 
     @FXML
     private void ActionFinaliza() throws Exception {
+//
+//        ConnectionFactory factory = new ConnectionFactory();
+//        factory.setHost("172.16.89.225");
+//        factory.setUsername("admin");
+//        factory.setPassword("admin");
+//        factory.setVirtualHost("/");
+////        factory.setHost("localhost");
+////        factory.setUsername("guest");
+////        factory.setPassword("guest");
+////        factory.setVirtualHost("/");
+//        Connection connection = factory.newConnection();
+//        Channel channel = connection.createChannel();
+//        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+//        Gson gson = new Gson();
+//        
+//        System.out.println(VariableGlobales.actasLeida);
+//     String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+////String json = "niel";
+//        channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
+//
+//        channel.close();
+//        connection.close();
+//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//        alert.setTitle("Confirmación de transmisión");
+//        alert.setHeaderText("¡Transmisión exitosa!");
+//        alert.setContentText("Se ha enviado correctamente la transmisión.");
+//        alert.showAndWait();
+//
+    }
 
+    @FXML
+    private void ultimaaccion() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("172.16.89.225");
         factory.setUsername("admin");
@@ -95,10 +132,11 @@ public class RegistrarObsController implements Initializable {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        
+        
+        //System.out.println(VariableGlobales.actasLeida);
         Gson gson = new Gson();
-
         String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
-
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();
@@ -108,7 +146,6 @@ public class RegistrarObsController implements Initializable {
         alert.setHeaderText("¡Transmisión exitosa!");
         alert.setContentText("Se ha enviado correctamente la transmisión.");
         alert.showAndWait();
-
     }
     
     public String cifrar(String texto) throws Exception {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.*?>
@@ -59,7 +60,7 @@
       <HBox layoutX="1587.0" layoutY="920.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="167.0">
          <children>
             <Button id="btnRegresar" mnemonicParsing="false" onAction="#regresaActasV" prefHeight="83.0" prefWidth="63.0" styleClass="btn_anterior" text="ANTERIOR" />
-            <Button id="btnContinuar" fx:id="btnSiguiente" mnemonicParsing="false" onAction="#ActionFinaliza" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="FINALIZAR" />
+            <Button id="btnContinuar" mnemonicParsing="false" onAction="#ActionFinaliza" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="FINALIZAR" />
          </children>
       </HBox>
                   <Label fx:id="lblTipoActa" layoutX="182.0" layoutY="169.0" prefHeight="27.0" prefWidth="443.0" text="Label">
@@ -67,6 +68,10 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btnultimo" layoutX="1766.0" layoutY="932.0" mnemonicParsing="false" onAction="#ultimaaccion" text="Button">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
 </children></AnchorPane>
 </children></AnchorPane>   
    </children>
