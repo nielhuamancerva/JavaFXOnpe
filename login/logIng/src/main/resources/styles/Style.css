@@ -113,6 +113,11 @@ Button:pressed{
     -fx-background-color:white;
 }
 
+.borde-pane-black{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}
+
 .ancho-cabecera-body{
     -fx-min-width: 1855px;
     -fx-min-height: 50px;
