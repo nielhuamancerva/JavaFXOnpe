@@ -1,6 +1,9 @@
 package com.mycompany.loging.score.util;
 
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -60,7 +63,7 @@ public class CreacionTable {
 
         TableColumn<Actas, String> columnaEstado = new TableColumn<>("estado");
         columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        
+//        
         columnaEstado.setCellFactory(column -> {
             return new TableCell<Actas, String>() {
                 @Override
@@ -72,18 +75,55 @@ public class CreacionTable {
                         setStyle("");
                     } else {
                         setText(item);
-                        if (item.equals("Valido")) {
-                            setStyle("-fx-text-fill: green;");
-                        } else {
-                            setStyle("-fx-text-fill: red;");
+                        switch (item) {
+                            case "Valido":
+                                setStyle("-fx-text-fill: transparent; -fx-background-color:green; -fx-border-width:0.5px; -fx-border-color: white;");
+                                break;
+                            case "No Valido":
+                                setStyle("-fx-text-fill: transparent; -fx-background-color:red; -fx-border-width:0.5px; -fx-border-color: white;");
+                                break;
+                            case "":
+                                setStyle("-fx-background-color: #E0E0E0; -fx-border-width:0.5px; -fx-border-color: white;");
+                                break;
+                            default:
+                                break;
                         }
                     }
                 }
             };
         });
 
-        TableColumn<Actas, String> columnaAccion = new TableColumn<>("Acción");
+        TableColumn<Actas, Void> columnaAccion = new TableColumn<>("Acción");
 
+        Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>> cellFactory = new Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>>() {
+            @Override
+            public TableCell<Actas, Void> call(final TableColumn<Actas, Void> param) {
+                final TableCell<Actas, Void> cell = new TableCell<Actas, Void>() {
+                    private final Button btn = new Button("Ver");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            VariableGlobales.viewImage=getTableView().getItems().get(getIndex()).getActa();
+//                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        columnaAccion.setCellFactory(cellFactory);
         Tactas.getColumns().addAll(columnaActa, columnaDepartamento, columnaFechaRegistro, columnaEstado, columnaAccion);
         return Tactas;
     }

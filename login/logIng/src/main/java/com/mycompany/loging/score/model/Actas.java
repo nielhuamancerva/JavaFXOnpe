@@ -24,6 +24,7 @@ public class Actas {
     String fecha_registro;
     Imagenes imagen = new Imagenes();
     Button button_estado;
+    String accion;
     
 
     public Imagenes getImagen() {
@@ -185,5 +186,15 @@ public class Actas {
     public void setButton_estado(Button button_estado) {
         this.button_estado = button_estado;
     }
+
+    public String getAccion() {
+        return accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+    
+    
 
 }
