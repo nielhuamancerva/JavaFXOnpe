@@ -149,7 +149,7 @@
                               <ImageView fx:id="imagenCodigoBarra" fitHeight="80.0" fitWidth="294.0" layoutX="41.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="904.0" layoutY="214.0" prefHeight="40.0" prefWidth="761.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                        <AnchorPane layoutX="816.0" layoutY="214.0" prefHeight="40.0" prefWidth="852.0" style="-fx-border-width: 2px; -fx-border-color: black;">
                            <children>
                               <Label layoutX="24.0" layoutY="13.0" prefHeight="21.0" prefWidth="183.0" text="VALIDAR FIRMAS">
                                  <font>
@@ -158,7 +158,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="904.0" layoutY="252.0" prefHeight="563.0" prefWidth="761.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                        <AnchorPane layoutX="816.0" layoutY="252.0" prefHeight="563.0" prefWidth="852.0" style="-fx-border-width: 2px; -fx-border-color: black;">
                            <children>
                               <ImageView fx:id="firma1" fitHeight="175.0" fitWidth="374.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="btnNoPresi" layoutX="392.0" layoutY="71.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="62.0" prefWidth="160.0" text="No Firmó">
@@ -211,6 +211,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Button>
+                              <VBox fx:id="buttones" layoutX="734.0" layoutY="60.0" prefHeight="429.0" prefWidth="117.0" />
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>

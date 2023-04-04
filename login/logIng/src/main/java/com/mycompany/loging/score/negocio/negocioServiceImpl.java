@@ -20,6 +20,7 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
@@ -133,6 +134,22 @@ public class NegocioServiceImpl implements NegocioService {
     public ObservableList<Setting> finAllSetting() throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.MongoService().conexionMongo();
+        return mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+    }
+    
+    @Override
+    public ObservableList<Setting> finSettingByname(String name) throws IOException, Exception {
+        factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.MongoService().conexionMongo();
+        ObservableList<Setting> ListSettingAux = FXCollections.observableArrayList();
+        ObservableList<Setting> ListSetting = mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+        for (Setting setting : ListSetting) {
+            if(setting.getName().equals(name)){
+                System.out.println(setting.getName());
+                ListSettingAux.add(setting);
+                return ListSettingAux;
+            }
+        }
         return mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
     }
     

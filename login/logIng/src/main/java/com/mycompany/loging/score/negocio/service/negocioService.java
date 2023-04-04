@@ -39,4 +39,6 @@ public interface NegocioService {
     public void readAndCutHoraInicio(String nameFile,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
     public Setting finAllSettingByName(String name) throws IOException, Exception;
+    
+    public ObservableList<Setting> finSettingByname(String name) throws IOException, Exception;
 }

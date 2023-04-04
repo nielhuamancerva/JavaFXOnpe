@@ -30,7 +30,7 @@ public class SettingServiceImpl implements SettingService {
         serviceFactory = FactoryServiciosExternos.getInstance();
         return serviceFactory.MongoService().findAllCollecion("setting");
     }
-
+    
     @Override
     public Document findSettingBy(String name) throws Exception {
         serviceFactory = FactoryServiciosExternos.getInstance();
