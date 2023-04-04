@@ -21,4 +21,11 @@ public class SectionsServiceImpl implements SectionsService {
         return Mapper.sectionCastToDocument(factoryService.MongoService().findCollection("sections"));
     }
 
+    @Override
+    public void saveSections(Sections sections) throws Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.MongoService().conexionMongo();
+        factoryService.MongoService().saveDocument(Mapper.sectionsCastToDocument(sections), "sections");
+    }
+
 }

@@ -15,6 +15,7 @@ import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 import onpe.com.pe.gestorconfiguracionactas.core.util.commonmappings.CommonMappings;
 import org.bson.Document;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Sections;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.FactoryService;
 
@@ -43,6 +44,9 @@ public class BusinessServiceImpl implements BusinessService {
     public void saveSetting(Setting newSetting) throws Exception {
         factoryService = FactoryService.getInstance();
         factoryService.SettingService().saveSetting(newSetting);
+        Sections sections = new Sections();
+        sections.setSetting_id(newSetting.getId_setting()); 
+        factoryService.SectionsService().saveSections(sections);
     }
 
     @Override
@@ -92,25 +96,25 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public ObservableList<String> findAllSections() throws Exception {
-      factoryService = FactoryService.getInstance();
+        factoryService = FactoryService.getInstance();
         return factoryService.SettingService().findAllSetting().stream()
                 .map(s -> s.getName())
-                .collect(Collectors.toCollection(FXCollections::observableArrayList));   
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
     @Override
     public void deleteOneSections(String nameEleccion) throws Exception {
-      factoryService = FactoryService.getInstance();
-      factoryService.SettingService().deleteOneSetting(nameEleccion);
+        factoryService = FactoryService.getInstance();
+        factoryService.SettingService().deleteOneSetting(nameEleccion);
     }
 
     @Override
     public List<String> findAllSections1(String nameEleccion) throws Exception {
-         factoryService = FactoryService.getInstance();
+        factoryService = FactoryService.getInstance();
         return factoryService.SettingService().findAllSetting().stream()
                 .filter(t -> t.getName().equals(nameEleccion))
                 .map(s -> s.getSetting())
-                .collect(Collectors.toList());   
+                .collect(Collectors.toList());
     }
 
 }

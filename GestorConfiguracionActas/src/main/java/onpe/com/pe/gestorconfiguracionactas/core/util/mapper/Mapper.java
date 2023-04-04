@@ -29,6 +29,13 @@ public class Mapper {
         return document;
     }
 
+    public static Document sectionsCastToDocument(Sections ss) {
+        Document document = new Document();
+        document.append("setting_id", ss.getSetting_id());
+        document.append("coordinates", "");
+        return document;
+    }
+
     public static ObservableList<Setting> actaCastToDocument(FindIterable<Document> listDocument) {
         List<Setting> listSetting = new ArrayList();
 
