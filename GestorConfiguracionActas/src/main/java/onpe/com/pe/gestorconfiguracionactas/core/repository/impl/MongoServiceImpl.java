@@ -10,6 +10,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.service.MongoService;
@@ -62,6 +63,12 @@ public class MongoServiceImpl implements MongoService {
     public Document findDocumentByMultiple(Bson filters, String Table) throws Exception {
         MongoCollection<Document> collection = mongoDatabase.getCollection(Table);
         return collection.find(filters).first();
+    }
+
+    @Override
+    public DeleteResult deleteOneDocument(Bson filters, String Table) throws Exception {
+          MongoCollection<Document> collection = mongoDatabase.getCollection(Table);
+        return collection.deleteOne(filters);
     }
 
 }

@@ -93,6 +93,7 @@ public class ConfigurarActaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         btnAddTitle.setDisable(true);
         btnProcesar.setDisable(true);
         int i = 0;

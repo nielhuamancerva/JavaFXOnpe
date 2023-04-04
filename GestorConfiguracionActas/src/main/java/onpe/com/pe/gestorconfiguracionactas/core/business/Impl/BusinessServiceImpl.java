@@ -94,8 +94,23 @@ public class BusinessServiceImpl implements BusinessService {
     public ObservableList<String> findAllSections() throws Exception {
       factoryService = FactoryService.getInstance();
         return factoryService.SettingService().findAllSetting().stream()
-                .map(s -> s.getName().toUpperCase())
+                .map(s -> s.getName())
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));   
+    }
+
+    @Override
+    public void deleteOneSections(String nameEleccion) throws Exception {
+      factoryService = FactoryService.getInstance();
+      factoryService.SettingService().deleteOneSetting(nameEleccion);
+    }
+
+    @Override
+    public List<String> findAllSections1(String nameEleccion) throws Exception {
+         factoryService = FactoryService.getInstance();
+        return factoryService.SettingService().findAllSetting().stream()
+                .filter(t -> t.getName().equals(nameEleccion))
+                .map(s -> s.getSetting())
+                .collect(Collectors.toList());   
     }
 
 }
