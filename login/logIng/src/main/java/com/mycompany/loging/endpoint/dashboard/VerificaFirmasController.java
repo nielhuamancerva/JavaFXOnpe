@@ -154,13 +154,15 @@ public class VerificaFirmasController implements Initializable {
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
        
+        VariableGlobales.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue().toString());
+        //System.out.println("qqq "+cboDocumentos.getValue()+"|||"+ VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
         VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         //VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         
-        
         try {
-            negocioService.loadSettingActa();            
+            negocioService.loadSettingActa();
+            negocioService.finAllSettingByName("x");
             //negocioService.finAllActas();
 
             Setting s =  negocioService.finAllSettingByName("x");
@@ -171,7 +173,7 @@ public class VerificaFirmasController implements Initializable {
             final Properties object = gson.fromJson(map, Properties.class);
             System.out.println("0Xo: "+object.getProperty("0Xo"));
             
-            System.out.println("Name: "+ s.getName()+", setting: "+ s.getSetting());
+            //System.out.println("Name: "+ s.getName()+", setting: "+ s.getSetting());
             System.out.println(VariableGlobales.configuracionActa.get("0Alto"));
             
             negocioService.readAndCutBarcode(
@@ -187,15 +189,13 @@ public class VerificaFirmasController implements Initializable {
                         Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Ancho")),
                         Integer.parseInt(VariableGlobales.configuracionActa.get("1" + "Alto")));
             imagenHoraInicio.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H1")));
-            
+                        
             negocioService.readAndCutHoraInicio("H2",
-                        Integer.parseInt(object.getProperty("2" + "Xo")), 
-                        Integer.parseInt(object.getProperty("2" + "Yo")),
-                        Integer.parseInt(object.getProperty("2" + "Ancho")),
-                        Integer.parseInt(object.getProperty("2" + "Alto")));
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2Xo")), 
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Yo")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Ancho")),
+                        Integer.parseInt(VariableGlobales.configuracionActa.get("2" + "Alto")));
             imagenHoraFin.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H2")));
-            
-
             
             VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
                     VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
@@ -206,24 +206,24 @@ public class VerificaFirmasController implements Initializable {
             
             firmoP = negocioService.readAndCutsignature(
                     "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(object.getProperty("5" + "Xo")),
-                    Integer.parseInt(object.getProperty("5" + "Yo")),
-                    Integer.parseInt(object.getProperty("5" + "Ancho")),
-                    Integer.parseInt(object.getProperty("5" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Alto")));
             
             firmoS = negocioService.readAndCutsignature(
                     "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(object.getProperty("6" + "Xo")),
-                    Integer.parseInt(object.getProperty("6" + "Yo")),
-                    Integer.parseInt(object.getProperty("6" + "Ancho")),
-                    Integer.parseInt(object.getProperty("6" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Alto")));
             
             firmoT = negocioService.readAndCutsignature(
                     "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(object.getProperty("7" + "Xo")),
-                    Integer.parseInt(object.getProperty("7" + "Yo")),
-                    Integer.parseInt(object.getProperty("7" + "Ancho")),
-                    Integer.parseInt(object.getProperty("7" + "Alto")));
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Xo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Yo")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Ancho")),
+                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Alto")));
             
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
@@ -250,10 +250,8 @@ public class VerificaFirmasController implements Initializable {
         System.out.println("xx "+ VariableGlobales.lecturaActasEnMemoria.get("codigoBarra"));
         
         if(!fileSeleccionado.toString().equals("")){
-            
             imagenCodigoBarra.setImage(img);
         }
-        
         */
     }
 }
