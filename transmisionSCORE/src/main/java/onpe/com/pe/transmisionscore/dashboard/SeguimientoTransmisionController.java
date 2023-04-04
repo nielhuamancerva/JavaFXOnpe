@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import onpe.com.pe.transmisionscore.App;
@@ -20,7 +19,7 @@ import onpe.com.pe.transmisionscore.App;
  *
  * @author RDeLaCruz
  */
-public class SeguimientoActaController implements Initializable {
+public class SeguimientoTransmisionController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
@@ -37,9 +36,8 @@ public class SeguimientoActaController implements Initializable {
         // TODO
     }    
 
-
     @FXML
-    private void actionSalir()throws IOException{
+    private void actionSalir() throws IOException{
         App.setRoot(null, "inicioMenu");
     }
     

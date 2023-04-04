@@ -9,14 +9,14 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.SeguimientoActaController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.SeguimientoTransmisionController">
     <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
 <children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 <children>     
       <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <HBox layoutX="275.0" layoutY="-32.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="7.0" /><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
-                        <ImageView fitHeight="83.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="83.0" fitWidth="200.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/logo_onpe%20modulos.png" />
                            </image>
@@ -39,43 +39,33 @@
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                        <Label layoutX="71.0" layoutY="43.0" text="Seguimiento de Actas">
+                        <Label layoutX="71.0" layoutY="43.0" text="Seguimiento de Transmisión">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Line endX="350.0" layoutX="157.0" layoutY="112.0" startX="-100.0" strokeWidth="3.0" />
+                        <Line endX="500.0" layoutX="157.0" layoutY="112.0" startX="-100.0" strokeWidth="3.0" />
                         <Label layoutX="42.0" layoutY="679.0" text="Leyenda:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button disable="true" layoutX="44.0" layoutY="728.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0">
+                        <Button disable="true" layoutX="44.0" layoutY="738.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: red;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Button>
-                        <Button disable="true" layoutX="44.0" layoutY="764.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: red;">
+                        <Button disable="true" layoutX="44.0" layoutY="774.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: green;">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Button>
-                        <Button disable="true" layoutX="44.0" layoutY="800.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: green;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Label layoutX="185.0" layoutY="727.0" text="Acta Pendiente">
+                        <Label layoutX="185.0" layoutY="741.0" text="Acta No Transmitida">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="185.0" layoutY="763.0" text="Acta Observada">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="185.0" layoutY="799.0" text="Acta Procesada y Transmitida">
+                        <Label layoutX="185.0" layoutY="777.0" text="Acta Transmitida">
                            <font>
                               <Font size="14.0" />
                            </font>
