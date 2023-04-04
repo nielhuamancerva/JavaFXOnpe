@@ -166,7 +166,7 @@ public class ConfigurationDocController implements Initializable {
                                     }
                                 });
 
-                                 btnGuardar.setDisable(false);
+                                btnGuardar.setDisable(false);
                             }
 
                         } catch (Exception ex) {
@@ -216,6 +216,8 @@ public class ConfigurationDocController implements Initializable {
             containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
 
             TextField textField = buttonEventConfi[i];
+            Button btDelete = buttonEventDelete[i];
+            Button btEdit = buttonEventEdit[i];
             Button btAdds = buttonEventAdd[i];
 
             buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
@@ -237,6 +239,15 @@ public class ConfigurationDocController implements Initializable {
                     listCount.add(textField.getText());
                     btAdds.setDisable(false);
                     textField.setDisable(false);
+                }
+            });
+
+            buttonEventDelete[i].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+
+                    conteninerTextFieldAndButton.getChildren().removeAll(textField,btDelete,btEdit, btAdds);
+                    containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
                 }
             });
 
@@ -269,7 +280,7 @@ public class ConfigurationDocController implements Initializable {
     @FXML
     private void actionContinuar() throws IOException {
 
-     App.setRoot(null, "configuraSecciones");
+        App.setRoot(null, "configuraSecciones");
     }
 
 }
