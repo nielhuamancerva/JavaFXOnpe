@@ -5,7 +5,9 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
+import java.io.File;
 import java.io.IOException;
+import static java.lang.Thread.State.NEW;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -31,14 +33,16 @@ public class ViewImagenController implements Initializable {
     private Label etiquetaVotoRev;
     @FXML
     private ImageView imageDocumentos;
-
+    
+  
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        Image img = new Image("file:D/carpe/inicio-seguimiento.jpg");
+        File file= new File("file:D:\\carpe\\acta.png");
+        Image img = new Image(file.getPath());
+        System.out.println("DATOS DE IMAGEN::::::::"+img.getUrl());
         imageDocumentos.setImage(img);
 
 //        Image defaultImage = new Image("file:D/carpe/01700187O0101.png");

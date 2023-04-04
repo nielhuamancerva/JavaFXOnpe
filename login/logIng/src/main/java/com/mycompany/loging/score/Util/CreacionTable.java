@@ -104,7 +104,7 @@ public class CreacionTable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             VariableGlobales.viewImage=getTableView().getItems().get(getIndex()).getActa();
-//                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
+                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
                         });
                     }
 
