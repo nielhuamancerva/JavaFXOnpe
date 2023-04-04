@@ -28,7 +28,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     private void switchToConfig() throws IOException {
-        App.setRoot(null, "configurarSecciones");
+        App.setRoot(null, "configurarActa");
     }
 //    @FXML
 //    private void switchToConfig() throws IOException {

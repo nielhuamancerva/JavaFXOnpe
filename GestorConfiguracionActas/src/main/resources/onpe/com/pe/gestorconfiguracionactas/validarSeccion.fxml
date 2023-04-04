@@ -21,9 +21,9 @@
       <AnchorPane layoutX="14.0" layoutY="110.0">
          <children>
             <Label layoutX="120.0" layoutY="24.0" prefHeight="21.0" prefWidth="176.0" text="Seleccionar Documento:" />
-            <Label fx:id="lbActaValidar" layoutX="318.0" prefHeight="17.0" prefWidth="518.0" text="Label">
+            <Label fx:id="lbActaValidar" layoutX="297.0" layoutY="5.0" prefHeight="29.0" prefWidth="288.0" text="Label">
                <font>
-                  <Font name="System Bold" size="36.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
          </children>

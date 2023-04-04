@@ -90,6 +90,7 @@ public class ConfiguraSeccionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         numEs = 0;
+        
 
         imgViewActa.setDisable(true);
         try {
@@ -105,9 +106,11 @@ public class ConfiguraSeccionesController implements Initializable {
             //configuracionActa.put("tituloActaValidar",seleccion);
 
             try {
+                int i = 0;
                 for (Setting item : businessService.findAllSettingOnlyEleccion()) {
                     System.out.println("bucle for------" + seleccion + "||||" + ":" + item.getName().toString());
                     VariableGlobales.identificaActa.put("idSectionActaSeleccion",item.getId_setting());
+                    VariableGlobales.identificaActa.put("nombreSeleccion",item.getName());
                     if (seleccion.equals(item.getName().toString())) {
                         //businessService.uploadSections(item.getId_setting(),configuracionActa.toString());// actualiza en base de datos
                         //item.getSetting().
@@ -118,7 +121,7 @@ public class ConfiguraSeccionesController implements Initializable {
                         System.out.println("arreglo ============ " + arreglo);
                         vboxPane.getChildren().clear();
                         vboxPane.setPadding(new Insets(20));
-                        int i = 0;
+                        //int i = 0;
                         Label[] listLabel = new Label[arreglo.length];
                         Button[] listaBotones = new Button[arreglo.length];
                         for (var configuracion : arreglo) {
@@ -222,16 +225,17 @@ public class ConfiguraSeccionesController implements Initializable {
                                         imgViewActa.setImage(ImW);
                                         scrollPaneActa.setContent(imgViewActa);
                                         //configuracionActa.put(configuracion + "Xo", Double.toString(minX));
-                                        VariableGlobales.coordenadasActa.put(configuracion + "Xo", Double.toString(minX));
+                                        VariableGlobales.coordenadasActa.put(configuracion+"Xo", Double.toString(minX));
                                         //configuracionActa.put(configuracion + "Yo", Double.toString(minY));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Yo", Double.toString(minY));
                                         //configuracionActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         //configuracionActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
+                                         System.out.println("datos en Globales"+VariableGlobales.configuracionActa);
                                         //algoritmo para inserccion de base de datos
 //                                        try {
-//                                            System.out.println("datos en Globales"+VariableGlobales.configuracionActa);
+//                                           
 //                                            businessService.uploadSections(item.getId_setting(),VariableGlobales.coordenadasActa.toString());// actualiza en base de datos ESTO VA A CONFIRMAR
 //                                        } catch (Exception e) {
 //                                            System.out.println("datos:"+e);
@@ -296,6 +300,7 @@ public class ConfiguraSeccionesController implements Initializable {
         //lbArchivosEncontrados.setText(businessService.uploadFileOnMemory(fileSeleccionado));
 
         //img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal",fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
         img = new Image(fileSeleccionado.getPath().toString());
         imgViewActa.setImage(img);
         //amarrando las escalas del imageview al del scrollpanel
@@ -331,12 +336,12 @@ public class ConfiguraSeccionesController implements Initializable {
 
         if (tipoHoja == 3) {
 
-            imgViewActa.setScaleX(escala / 5);
-            imgViewActa.setScaleY(escala / 5);
+            imgViewActa.setScaleX(escala / 3);
+            imgViewActa.setScaleY(escala / 3);
         } else if (tipoHoja == 2) {
 
-            imgViewActa.setScaleX(escala / 4);
-            imgViewActa.setScaleY(escala / 4);
+            imgViewActa.setScaleX(escala / 2.5);
+            imgViewActa.setScaleY(escala / 2.5);
 
         }
 
