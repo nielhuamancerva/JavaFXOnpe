@@ -255,3 +255,15 @@
 .btn_salir:hover, .btn_salir:focused {
     -fx-background-image: url("../image/boton_salirEM_main_on.png");
 }
+
+.border-body{
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-background-color:white;
+}
+
+
+.borde-pane-black{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}

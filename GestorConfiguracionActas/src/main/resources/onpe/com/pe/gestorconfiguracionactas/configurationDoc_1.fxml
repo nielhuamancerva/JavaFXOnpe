@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurationDocController">
+   <children>
+      <Pane layoutX="-3.0" layoutY="-6.0" prefHeight="1090.0" prefWidth="1923.0" styleClass="pane_tipo_body">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="68.0">
+               <children>
+                  <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Configurar Documentos">
+                     <font>
+                        <Font size="23.0" />
+                     </font></Label>
+                  <Line endX="300.0" layoutX="132.0" layoutY="60.0" startX="-100.0" strokeWidth="3.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="13.0" layoutY="158.0" prefHeight="98.0" prefWidth="825.0">
+               <children>
+                  <Label layoutX="11.0" layoutY="23.0" text="DOCUMENTO :">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <TextField fx:id="titleDocumentSetting" disable="true" layoutX="190.0" layoutY="27.0" prefHeight="35.0" prefWidth="626.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1571.0" layoutY="562.0" />
+            <AnchorPane layoutX="28.0" layoutY="265.0" prefHeight="77.0" prefWidth="367.0">
+               <children>
+                  <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
+                  <Label layoutX="99.0" layoutY="30.0" text="Agregar Sección">
+                     <font>
+                        <Font size="22.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="159.0" layoutY="1005.0">
+               <children>
+                  <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnGuardar" disable="true" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="51.0" prefWidth="213.0" styleClass="button-grabar" text="Guardar">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Button>
+                  <Button fx:id="btnContinuar" layoutX="499.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="51.0" prefWidth="203.0" styleClass="button-continuar" text="Continuar" />
+                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="403.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/grabar-on.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="667.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/continue.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ScrollPane hbarPolicy="ALWAYS" layoutX="184.0" layoutY="358.0" prefHeight="578.0" prefWidth="514.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="494.0" />
+               </content>
+            </ScrollPane>
+            <Pane layoutX="1258.0" layoutY="288.0" prefHeight="771.0" prefWidth="604.0" styleClass="pane_tipo_body">
+               <children>
+                  <AnchorPane prefHeight="45.0" prefWidth="604.0" styleClass="pane_tipo_body">
+                     <children>
+                        <Label layoutX="26.0" layoutY="6.0" text="DOCUMENTOS ELECTORALES">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane fx:id="DocumentosElectorales" hbarPolicy="ALWAYS" layoutX="1.0" layoutY="45.0" prefHeight="628.0" prefWidth="602.0" vbarPolicy="ALWAYS">
+                     <content>
+                        <VBox fx:id="containerDocumentsModule" prefHeight="616.0" prefWidth="588.0" />
+                     </content></ScrollPane>
+                  <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="504.0" layoutY="693.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+      <URL value="@../styles/configurationdoc.css" />
+      <URL value="@../styles/Style.css" />
+   </stylesheets>
+</AnchorPane>

@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -27,13 +28,25 @@ public class ConfigurationDocController implements Initializable {
 
     private final BusinessService businessService;
     private Setting setting = new Setting();
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
+    @FXML
+    private ScrollPane DocumentosElectorales;
+    @FXML
+    private Button btnContinuar;
+    @FXML
+    private Button btnAddSeccion;
 
     public ConfigurationDocController() {
         this.businessService = new BusinessServiceImpl();
     }
 
     @FXML
-    private Button btnRegresar, btnGuardar, ico_activar;
+    private Button btnRegresar, btnGuardar;
 
     @FXML
     private Button btnAddDocumentos;
