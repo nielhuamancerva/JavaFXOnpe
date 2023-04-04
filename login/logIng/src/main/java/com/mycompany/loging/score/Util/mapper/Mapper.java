@@ -32,8 +32,8 @@ public class Mapper {
             Actas acta = new Actas();
             acta.setActa(action.getString("acta"));
             acta.setDepartamento(action.getString("departamento"));
-            acta.setProvincia(action.getString("provincia"));
-            acta.setDistrito(action.getString("distrito"));
+            acta.setFecha_registro(action.getString("fecha_registro"));
+            acta.setEstado(action.getString("estado"));
             listActas.add(acta);
         });
         return FXCollections.observableArrayList(listActas);

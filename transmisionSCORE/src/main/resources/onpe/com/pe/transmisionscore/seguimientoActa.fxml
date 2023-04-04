@@ -34,7 +34,7 @@
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                        <Label layoutX="71.0" layoutY="43.0" text="Seguimiento de Actas">
+                        <Label layoutX="71.0" layoutY="43.0" text="Seguimiento de Transmisión">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>

@@ -51,7 +51,6 @@ public class SeguimientoActaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            negocioService.loadSettingActa();
             CreacionTable yy = new CreacionTable();
             yy.viewActas(tableActas);
             tableActas.setItems(negocioService.finAllActas());
