@@ -53,7 +53,7 @@ public class GestorActaController implements Initializable {
         
         try {
             textEleccionIsActive.setText(businessService.findSettingWithEleccionIsActived());
-            cbSelectEleccion.setItems(businessService.findAllSettingOnlyEleccion());
+            //cbSelectEleccion.setItems(businessService.findAllSettingOnlyEleccion());
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(GestorActaController.class.getName()).log(Level.SEVERE, null, ex);
         }

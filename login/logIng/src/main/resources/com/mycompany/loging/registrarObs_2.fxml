@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body-general" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarObsController">
+   <children>
+      <Button layoutX="1368.0" layoutY="912.0" mnemonicParsing="false" onAction="#regresaActasV" prefHeight="64.0" prefWidth="170.0" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <AnchorPane layoutX="345.0" layoutY="237.0" prefHeight="607.0" prefWidth="1210.0">
+         <children>
+            <Pane prefHeight="607.0" prefWidth="1231.0" style="-fx-background-color: white;" styleClass="pane_tipo_body">
+               <children>
+                  <Pane prefHeight="53.0" prefWidth="1231.0" styleClass="background-secundary" />
+                  <Label layoutX="36.0" layoutY="146.0" text="Registrar Observaciones">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="36.0" layoutY="256.0" prefHeight="145.0" prefWidth="963.0" styleClass="pane_tipo_body">
+                     <children>
+                        <ImageView fx:id="observacionesActa" fitHeight="111.0" fitWidth="934.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+                  <TextArea fx:id="textObservaciones" layoutX="36.0" layoutY="421.0" prefHeight="131.0" prefWidth="963.0" promptText="Ingrese las observaciones">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextArea>
+                  <Pane layoutX="853.0" layoutY="67.0" prefHeight="123.0" prefWidth="323.0" styleClass="pane_tipo_body">
+                     <children>
+                        <ImageView fx:id="codigoBarra" fitHeight="150.0" fitWidth="200.0" layoutX="62.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="169.0" layoutY="108.0" prefHeight="45.0" prefWidth="1583.0" styleClass="border-titulo">
+         <children>
+            <Pane layoutY="-5.0" prefHeight="51.0" prefWidth="1583.0">
+               <styleClass>
+                  <String fx:value="border-titulo" />
+                  <String fx:value="background-prymary" />
+               </styleClass>
+               <children>
+                  <Label layoutX="401.0" layoutY="8.0" prefHeight="35.0" prefWidth="782.0" text="MODULO DE REGISTRO DE OBSERVACIONES- ACTAS DE ESCRUTINIO" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="1588.0" layoutY="912.0" mnemonicParsing="false" onAction="#registrarFma" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

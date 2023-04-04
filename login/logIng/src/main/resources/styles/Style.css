@@ -113,6 +113,11 @@ Button:pressed{
     -fx-background-color:white;
 }
 
+.borde-pane-black{
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}
+
 .ancho-cabecera-body{
     -fx-min-width: 1855px;
     -fx-min-height: 50px;
@@ -232,4 +237,26 @@ Button:pressed{
     /*        -fx-padding: 0pt 0pt -170pt 0;
             -fx-text-fill: #FFF;*/
 
+}
+
+
+.btn_menu_inicio-segui{
+    -fx-background-image: url('../imagenes/inicio-seguimiento.jpg');
+    -fx-background-size: 100%;
+}
+
+.btn_menu_inicio-segui_mod{
+        -fx-font-size: 25px;
+        -fx-background-position: bottom 20px right 5px;
+        -fx-border-width: 5px 5px 40px 5px;
+        -fx-border-color: #054d99;
+        -fx-border-style: solid;
+        -fx-padding: 0pt 0pt -170pt 0;
+        -fx-text-fill: #FFF;
+}
+
+.btn_menu_inicio-segui_mod:hover{
+
+        -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+        -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
 }

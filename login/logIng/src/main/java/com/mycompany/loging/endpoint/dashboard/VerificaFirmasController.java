@@ -36,6 +36,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
 /**
@@ -48,6 +49,12 @@ public class VerificaFirmasController implements Initializable {
     private final NegocioService negocioService;
     private FactoryServiciosExternos factoryservices;
     boolean firmoP, firmoS, firmoT;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
 
     public VerificaFirmasController(){
         this.negocioService = new NegocioServiceImpl();
@@ -92,9 +99,6 @@ public class VerificaFirmasController implements Initializable {
     private Button btnContinuar;
     @FXML
     Label lbArchivosEncontrados;
-    @FXML
-
-        
     ObservableList<String> opciones = FXCollections.observableArrayList(
         "ACTA DE ESCRUTINIO",
         "ACTA DE INSTALACION"
