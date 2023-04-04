@@ -29,12 +29,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="1700.0">
                                  <children>
-                                    <TableView layoutX="-5.0" layoutY="4.0" prefHeight="428.0" prefWidth="1704.0">
-                                      <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
-                                      </columns>
-                                    </TableView>
+                                    <TableView fx:id="tableActas" prefHeight="434.0" prefWidth="1686.0" styleClass="pane_tipo_body" />
                                  </children>
                               </AnchorPane>
                           </content>

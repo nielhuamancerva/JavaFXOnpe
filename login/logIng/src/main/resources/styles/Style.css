@@ -16,8 +16,8 @@ Button:pressed{
     -fx-background-color: #518db3;
 }*/
 
-.btn_procesar, .btn_salir, .btn_aceptar, .btn_nuevo, .btn_editar, .btn_imprimir, .btn_consultar,.btn_cancelar, .btn_firmar_digital, 
-.btn_historico, .btn_continuar, .btn_anterior, .btn_transmision_txrx, .btn_transmision_txrx_desactivado, 
+.btn_procesar, .btn_salir, .btn_aceptar, .btn_nuevo, .btn_editar, .btn_imprimir, .btn_consultar,.btn_cancelar, .btn_firmar_digital,
+.btn_historico, .btn_continuar, .btn_anterior, .btn_transmision_txrx, .btn_transmision_txrx_desactivado,
 .btn_cerrar_cc, .btn_abrir_cc, .btn_grabar, .btn_terminar_sesion, .btn_backup, .btn_eliminar,
 .btn_consultar_jee, .btn_anular_acta, .btn_acta_encontrada, .btn_rechazarLE, .btn_excel, .btn_saltar{
     -fx-pref-width: 73px;
@@ -26,36 +26,36 @@ Button:pressed{
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 14px;
     -fx-text-fill: #FFFFFF;
-    -fx-padding: 0 0 -63 0;    
+    -fx-padding: 0 0 -63 0;
     -fx-text-alignment: center;
 }
 
 
 .btn_anterior{
-    -fx-background-image: url("../imagenes/boton_anterior_off.png");     
+    -fx-background-image: url("../imagenes/boton_anterior_off.png");
     -fx-background-repeat: no-repeat;
 }
 
 .btn_anterior:hover, .btn_anterior:focused {
-    -fx-background-image: url("../imagenes/boton_anterior_on.png");    
+    -fx-background-image: url("../imagenes/boton_anterior_on.png");
 }
 
 .btn_continuar{
-    -fx-background-image: url("../imagenes/boton_continuar_off.png");     
+    -fx-background-image: url("../imagenes/boton_continuar_off.png");
     -fx-background-repeat: no-repeat;
 }
 
 .btn_continuar:hover, .btn_continuar:focused {
-    -fx-background-image: url("../imagenes/boton_continuar_on.png");    
+    -fx-background-image: url("../imagenes/boton_continuar_on.png");
 }
 
 
 .btn_salir{
-    -fx-background-image: url("../imagenes/boton_salirEM_main_off.png");     
+    -fx-background-image: url("../imagenes/boton_salirEM_main_off.png");
 }
 
 .btn_salir:hover, .btn_salir:focused {
-    -fx-background-image: url("../imagenes/boton_salirEM_main_on.png");    
+    -fx-background-image: url("../imagenes/boton_salirEM_main_on.png");
 }
 
 
@@ -69,7 +69,8 @@ Button:pressed{
 
 .border-body{
     -fx-border-width: 5px;
-    -fx-border-color: white;
+    -fx-border-color: black;
+    -fx-background-color:white;
 }
 
 
@@ -232,4 +233,3 @@ Button:pressed{
             -fx-text-fill: #FFF;*/
 
 }
-
