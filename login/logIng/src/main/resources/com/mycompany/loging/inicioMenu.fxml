@@ -108,6 +108,12 @@
                   <String fx:value="btn_menu_inicio_mod" />
                </styleClass>
             </Button>
+            <Button layoutX="540.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarSeguimientoActa" prefHeight="235.0" prefWidth="235.0" text="Seguimiento Acta">
+               <styleClass>
+                  <String fx:value="btn_menu_inicio-segui" />
+                  <String fx:value="btn_menu_inicio-segui_mod" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="142.0" layoutY="517.0" prefHeight="238.0" prefWidth="1328.0" />

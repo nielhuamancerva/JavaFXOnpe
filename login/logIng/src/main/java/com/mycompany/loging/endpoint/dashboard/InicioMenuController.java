@@ -34,5 +34,11 @@ public class InicioMenuController implements Initializable {
         App.setRoot(null, "verificaFirmas");
 
     }
+
+    @FXML
+    private void ingresarSeguimientoActa() throws IOException{
+        App.setRoot(null, "seguimientoActa");
+        
+    }
     
 }

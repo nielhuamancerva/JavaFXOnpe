@@ -108,13 +108,7 @@
                   <String fx:value="btn_menu_inicio_mod" />
                </styleClass>
             </Button>
-            <Button layoutX="514.0" layoutY="2.0" mnemonicParsing="false" onAction="#ingresarSeguimientoActa" prefHeight="235.0" prefWidth="235.0" text="Seguimiento Acta">
-               <styleClass>
-                  <String fx:value="btn_menu_inicio-segui" />
-                  <String fx:value="btn_menu_inicio-segui_mod" />
-               </styleClass>
-            </Button>
-            <Button layoutX="954.0" layoutY="3.0" mnemonicParsing="false" onAction="#ingresarSeguimientoTransmision" prefHeight="235.0" prefWidth="306.0" text="Seguimiento Transmision">
+            <Button layoutX="492.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarSeguimientoTransmision" prefHeight="235.0" prefWidth="306.0" text="Seguimiento Transmision">
                <styleClass>
                   <String fx:value="btn_menu_inicio-transmi" />
                   <String fx:value="btn_menu_inicio-transmi_mod" />
