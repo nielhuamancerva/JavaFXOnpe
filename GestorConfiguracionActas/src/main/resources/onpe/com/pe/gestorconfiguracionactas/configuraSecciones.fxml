@@ -61,7 +61,7 @@
                <font>
                   <Font size="24.0" />
                </font></Button>
-            <Button layoutX="36.0" layoutY="14.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="117.0" styleClass="button-retroceder" text="Regresar">
+            <Button fx:id="btnRegresar" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="147.0" styleClass="button-retroceder" text="Regresar">
                <font>
                   <Font size="24.0" />
                </font></Button>

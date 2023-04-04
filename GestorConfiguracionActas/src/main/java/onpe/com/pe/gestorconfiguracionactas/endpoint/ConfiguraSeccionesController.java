@@ -134,8 +134,12 @@ public class ConfiguraSeccionesController implements Initializable {
                             listaBotones[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
                             listaBotones[i].getStyleClass().add("button-activar-seccion");
                             //listaBotones[i].setB
+                            Button btnTem =listaBotones[i];
 
                             listLabel[i].setOnMouseClicked((MouseEvent ev) -> {
+                                if(ev.getButton()==MouseButton.PRIMARY){
+                                    btnTem.setDisable(true);
+                                }
                                 imgViewActa.setOnMousePressed(new EventHandler<MouseEvent>() {
                                     @Override
                                     public void handle(MouseEvent event) {
@@ -279,8 +283,9 @@ public class ConfiguraSeccionesController implements Initializable {
 
     }
 
+    @FXML
     private void actionRegresar() throws IOException {
-        App.setRoot(null, "configurationDoc");
+        App.setRoot(null, "inicioMenu");
     }
 
     @FXML

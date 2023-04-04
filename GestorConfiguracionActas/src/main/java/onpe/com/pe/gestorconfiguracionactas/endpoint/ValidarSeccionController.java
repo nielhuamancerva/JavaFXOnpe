@@ -13,7 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -55,6 +57,9 @@ public class ValidarSeccionController implements Initializable {
     private Label numVotoPreferencial;
     @FXML
     private Label etiquetaVotoRev;
+
+    private int numEs = 0;
+    private double escalaLo;
 
     /**
      * Initializes the controller class.
@@ -106,31 +111,69 @@ public class ValidarSeccionController implements Initializable {
         } catch (Exception e) {
             System.out.println("la exepcion:::::::::" + e);
         }
+        if (numEs == 0) {
+            escalaLo = imgViewActa.getScaleX();
+            numEs = 1;
+        }
+        if ((int) imgViewActa.getImage().getHeight() > 4500) {
+            encuadrarActa(3, escalaLo);
+        } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
+            encuadrarActa(2, escalaLo);
+            System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
+        }
 
     }
 
     @FXML
-    private void actionFinaliza(ActionEvent event) {
+    private void actionFinaliza(ActionEvent event) throws IOException {
 
-        try {
-            System.out.println("datos en Globales=" + VariableGlobales.coordenadasActa.toString());
-            System.out.println("datos en Globales=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
-            businessService.uploadSections(VariableGlobales.identificaActa.get("idSectionActaSeleccion"), VariableGlobales.coordenadasActa.toString());// actualiza en base de datos ESTO VA A CONFIRMAR
-        } catch (Exception e) {
-            System.out.println("datos:" + e);
-        }
-//        try {
-//            for (Setting item : businessService.findAllSettingOnlyEleccion()) {
-//            }
-//
-//        } catch (Exception e) {
-//        }
+        Alert diagConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        diagConfirmacion.setTitle("CONFIRMAR");
+        diagConfirmacion.setHeaderText("Desea Guardar los cambios");
+        diagConfirmacion.setContentText("¿Estás seguro de continuar?");
+
+        diagConfirmacion.showAndWait().ifPresent(respuesta -> {
+
+            if (respuesta == ButtonType.OK) {
+                try {
+                    System.out.println("datos en Globales=" + VariableGlobales.coordenadasActa.toString());
+                    System.out.println("datos en Globales=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
+                    businessService.uploadSections(VariableGlobales.identificaActa.get("idSectionActaSeleccion"), VariableGlobales.coordenadasActa.toString());// actualiza en base de datos ESTO VA A CONFIRMAR
+                    App.setRoot(null, "inicioMenu");
+                } catch (Exception e) {
+                    System.out.println("datos:" + e);
+                }
+                
+            }
+        });
+
     }
 
     @FXML
     private void actionRegresar() throws IOException {
 
         App.setRoot(null, "configuraSecciones");
+    }
+
+    //DATOS DE ACTA
+    private void encuadrarActa(int tipoHoja, double escala) {
+        //algoritmo para reducir la imagen sin perderlas coordenadas
+        int iteraciones = (int) Math.ceil(imgViewActa.getImage().getHeight() / scrollPaneActa.getHeight());
+        System.out.println("iteraciones a reducir" + iteraciones);
+
+        if (tipoHoja == 3) {
+
+            imgViewActa.setScaleX(escala / 2.5);
+            imgViewActa.setScaleY(escala / 2.5);
+        } else if (tipoHoja == 2) {
+
+            imgViewActa.setScaleX(escala / 2);
+            imgViewActa.setScaleY(escala / 2);
+
+        }
+
+        scrollPaneActa.setVvalue(0.5);
+        scrollPaneActa.setHvalue(0.5);
     }
 
 }
