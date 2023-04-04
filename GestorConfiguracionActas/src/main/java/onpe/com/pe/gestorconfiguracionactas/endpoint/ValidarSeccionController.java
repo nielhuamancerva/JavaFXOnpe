@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
@@ -37,19 +38,23 @@ public class ValidarSeccionController implements Initializable {
 
     private final BusinessService businessService;
     @FXML
-    private ComboBox<?> cboDocumentos;
-    @FXML
     private ScrollPane scrollPaneActa;
     @FXML
     private ImageView imgViewActa;
-    @FXML
-    private Button btnFinaliza;
     @FXML
     private Button btnRegresar;
     @FXML
     private Label lbActaValidar;
 
     private Image img;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Button btnContinuar;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
 
     /**
      * Initializes the controller class.
