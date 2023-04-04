@@ -1,5 +1,7 @@
 package com.mycompany.loging.score.model;
 
+import javafx.scene.control.Button;
+
 public class Actas {
 
     String _id;
@@ -21,6 +23,8 @@ public class Actas {
     String estado;
     String fecha_registro;
     Imagenes imagen = new Imagenes();
+    Button button_estado;
+    
 
     public Imagenes getImagen() {
         return imagen;
@@ -172,6 +176,14 @@ public class Actas {
 
     public void setFecha_registro(String fecha_registro) {
         this.fecha_registro = fecha_registro;
+    }
+
+    public Button getButton_estado() {
+        return button_estado;
+    }
+
+    public void setButton_estado(Button button_estado) {
+        this.button_estado = button_estado;
     }
 
 }

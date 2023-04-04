@@ -54,6 +54,7 @@ public class SeguimientoActaController implements Initializable {
             CreacionTable yy = new CreacionTable();
             yy.viewActas(tableActas);
             tableActas.setItems(negocioService.finAllActas());
+            
         } catch (Exception ex) {
             ex.printStackTrace();
         }
