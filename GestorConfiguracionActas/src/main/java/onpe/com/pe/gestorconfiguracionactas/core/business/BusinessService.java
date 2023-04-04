@@ -23,7 +23,7 @@ public interface BusinessService {
 
     public void saveSetting(Setting fileSelected) throws Exception;
 
-    public ObservableList<String> findAllSettingOnlyEleccion() throws Exception;
+    public ObservableList<Setting> findAllSettingOnlyEleccion() throws Exception;
 
     public String findSettingWithEleccionIsActived() throws Exception;
 

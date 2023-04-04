@@ -1,167 +1,226 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.VerificaFirmasController">
-   <children>
-      <AnchorPane layoutX="19.0" layoutY="27.0" nodeOrientation="LEFT_TO_RIGHT">
-         <children>
-            <Label layoutX="34.0" layoutY="14.0" styleClass="subtitulo-body" text="Procesar Acta" />
-            <Line endX="200.0" layoutX="133.0" layoutY="50.0" startX="-100.0" strokeWidth="3.0" />
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.VerificaFirmasController">
+    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
+      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
+                        <ImageView fitHeight="80.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/logo_onpe%20modulos.png" />
+                           </image>
+                        </ImageView>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="110.0">
+      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
+                  <AnchorPane layoutX="74.0" layoutY="38.0" prefHeight="839.0" prefWidth="1752.0" styleClass="border-body">
+                     <children>
+                        <Label layoutX="59.0" layoutY="22.0" text="Procesar Acta">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Line endX="250.0" layoutX="161.0" layoutY="75.0" startX="-100.0" strokeWidth="3.0" />
+                        <Label layoutX="103.0" layoutY="176.0" text="Verifique la información obtenida del acta seleccionada:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="49.0" layoutY="96.0" prefHeight="62.0" prefWidth="1240.0">
+                           <children>
+                              <Label layoutX="26.0" layoutY="18.0" text="Seleccionar Documento :">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cboDocumentos" layoutX="248.0" layoutY="12.0" prefHeight="39.0" prefWidth="475.0" />
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="854.0" layoutY="11.0" onMouseClicked="#elegirFichero" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../../../imagenes/carpeta.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lbArchivosEncontrados" layoutX="929.0" layoutY="18.0" prefHeight="27.0" prefWidth="206.0" text="Seleccionar Acta Digitalizada" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="357.0" prefHeight="40.0" prefWidth="364.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label layoutX="23.0" layoutY="10.0" prefHeight="21.0" prefWidth="183.0" text="UBIGEO">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="395.0" prefHeight="138.0" prefWidth="364.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label id="lbDepartamento" layoutX="32.0" layoutY="22.0" text="Departamento:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label id="lbProvincia" layoutX="32.0" layoutY="64.0" text="Provincia:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label id="lbDistrito" layoutX="32.0" layoutY="104.0" text="Distrito:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbVaprovincia" layoutX="176.0" layoutY="64.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbVaDepartamento" layoutX="176.0" layoutY="22.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbVaDistrito" layoutX="176.0" layoutY="104.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="541.0" prefHeight="40.0" prefWidth="531.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label layoutX="24.0" layoutY="13.0" prefHeight="21.0" prefWidth="183.0" text="HORA DE INICIO">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="579.0" prefHeight="98.0" prefWidth="531.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <ImageView fx:id="imagenHoraInicio" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <TextField fx:id="txtHoraInicio" layoutX="363.0" layoutY="19.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" styleClass="borde-pane-black">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="684.0" prefHeight="40.0" prefWidth="531.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label layoutX="24.0" layoutY="13.0" prefHeight="21.0" prefWidth="183.0" text="HORA DE FIN">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="722.0" prefHeight="98.0" prefWidth="531.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <ImageView fx:id="imagenHoraFin" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <TextField fx:id="txtHoraInicio1" layoutX="363.0" layoutY="22.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" styleClass="borde-pane-black">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="214.0" prefHeight="40.0" prefWidth="419.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label layoutX="24.0" layoutY="13.0" prefHeight="21.0" prefWidth="183.0" text="CODIGO DE BARRAS">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="108.0" layoutY="252.0" prefHeight="98.0" prefWidth="419.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <ImageView fx:id="imagenCodigoBarra" fitHeight="80.0" fitWidth="294.0" layoutX="41.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="904.0" layoutY="214.0" prefHeight="40.0" prefWidth="761.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <Label layoutX="24.0" layoutY="13.0" prefHeight="21.0" prefWidth="183.0" text="VALIDAR FIRMAS">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="904.0" layoutY="252.0" prefHeight="563.0" prefWidth="761.0" style="-fx-border-width: 2px; -fx-border-color: black;">
+                           <children>
+                              <ImageView fx:id="firma1" fitHeight="175.0" fitWidth="374.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnNoPresi" layoutX="392.0" layoutY="71.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="62.0" prefWidth="160.0" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnSiPresi" layoutX="560.0" layoutY="71.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="62.0" prefWidth="160.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="firma2" fitHeight="175.0" fitWidth="374.0" layoutX="14.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="firma3" fitHeight="175.0" fitWidth="374.0" layoutX="14.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnSiSecre" layoutX="560.0" layoutY="246.0" mnemonicParsing="false" onAction="#ActionFirmoSiS" prefHeight="62.0" prefWidth="160.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNoSecre" layoutX="392.0" layoutY="246.0" mnemonicParsing="false" onAction="#ActionFirmoNoS" prefHeight="62.0" prefWidth="160.0" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNoTercer" layoutX="391.0" layoutY="421.0" mnemonicParsing="false" onAction="#ActionFirmoNoT" prefHeight="62.0" prefWidth="160.0" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnSiTercer" layoutX="559.0" layoutY="421.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="62.0" prefWidth="160.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+      <HBox layoutX="1593.0" layoutY="930.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="161.0">
          <children>
-            <Label layoutX="37.0" layoutY="14.0" prefHeight="21.0" prefWidth="188.0" text="Seleccionar Documento :">
-               <font>
-                  <Font size="13.0" />
-               </font></Label>
-            <Label fx:id="lbArchivosEncontrados" layoutX="766.0" layoutY="9.0" prefHeight="27.0" prefWidth="409.0" text="Seleccionar Acta Digitalizada" />
-            <ComboBox fx:id="cboDocumentos" layoutX="206.0" layoutY="3.0" prefHeight="42.0" prefWidth="474.0" />
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="712.0" layoutY="2.0" onMouseClicked="#elegirFichero" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../imagenes/carpeta.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
+            <Button id="btnRegresar" fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="83.0" prefWidth="63.0" styleClass="btn_anterior" text="ANTERIOR" />
+            <Button id="btnContinuar" fx:id="btnContinuar" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="CONTINUAR" />
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="31.0" layoutY="370.0" prefHeight="141.0" prefWidth="338.0">
-         <children>
-            <Label fx:id="lbVaDistrito" layoutX="156.0" layoutY="117.0" text="Label" />
-            <Label fx:id="lbVaprovincia" layoutX="156.0" layoutY="41.0" text="Label" />
-            <Label fx:id="lbVaDepartamento" layoutX="156.0" layoutY="77.0" text="Label" />
-            <Label id="lbDistrito" layoutX="34.0" layoutY="117.0" text="Distrito:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label id="lbProvincia" layoutX="34.0" layoutY="77.0" text="Provincia:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label id="lbDepartamento" layoutX="34.0" layoutY="41.0" text="Departamento:">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="5.0" layoutY="4.0" prefHeight="21.0" prefWidth="183.0" text="UBIGEO">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
-      <AnchorPane layoutX="1269.0" layoutY="815.0" prefHeight="58.0" prefWidth="309.0">
-         <children>
-            <Button fx:id="btnRegresar" layoutX="-24.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="60.0" prefWidth="180.0" text="Regresar" />
-            <Button fx:id="btnContinuar" layoutX="162.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="60.0" prefWidth="180.0" text="Continuar" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="31.0" layoutY="199.0">
-         <children>
-            <Label layoutX="17.0" layoutY="12.0" text="Verifique la información obtenida del acta seleccionada:">
-               <font>
-                  <Font size="13.0" />
-               </font></Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="65.0" layoutY="255.0" prefHeight="99.0" prefWidth="595.0">
-         <children>
-            <ImageView fx:id="imagenCodigoBarra" fitHeight="96.0" fitWidth="584.0" layoutX="7.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="29.0" layoutY="558.0" prefHeight="218.0" prefWidth="439.0">
-         <children>
-            <Label layoutX="6.0" layoutY="4.0" prefHeight="21.0" prefWidth="188.0" text="HORA DE INICIO">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtHoraInicio" layoutX="301.0" layoutY="38.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" styleClass="pane_tipo_body">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <Label layoutX="6.0" layoutY="104.0" prefHeight="21.0" prefWidth="188.0" text="HORA DE FIN">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="imagenHoraInicio" fitHeight="70.0" fitWidth="201.0" layoutX="19.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="txtHoraInicio1" layoutX="301.0" layoutY="135.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" styleClass="pane_tipo_body">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <ImageView fx:id="imagenHoraFin" fitHeight="70.0" fitWidth="201.0" layoutX="19.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="757.0" layoutY="256.0" prefHeight="532.0" prefWidth="891.0">
-         <children>
-            <ImageView fx:id="firma1" fitHeight="175.0" fitWidth="374.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnSiPresi" layoutX="665.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="80.0" prefWidth="160.0" text="Firmó">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnNoPresi" layoutX="495.0" layoutY="61.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="80.0" prefWidth="160.0" text="No Firmó" AnchorPane.bottomAnchor="391.0" AnchorPane.leftAnchor="495.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="61.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <ImageView fx:id="firma2" fitHeight="175.0" fitWidth="374.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnNoSecre" layoutX="495.0" layoutY="231.0" mnemonicParsing="false" onAction="#ActionFirmoNoS" prefHeight="80.0" prefWidth="160.0" text="No Firmó">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnSiSecre" layoutX="665.0" layoutY="231.0" mnemonicParsing="false" onAction="#ActionFirmoSiS" prefHeight="80.0" prefWidth="160.0" text="Firmó">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <ImageView fx:id="firma3" fitHeight="175.0" fitWidth="374.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnSiTercer" layoutX="665.0" layoutY="392.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="80.0" prefWidth="160.0" text="Firmó">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnNoTercer" layoutX="495.0" layoutY="392.0" mnemonicParsing="false" onAction="#ActionFirmoNoT" prefHeight="80.0" prefWidth="160.0" text="No Firmó">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      </HBox>
+</children></AnchorPane>
+</children></AnchorPane>   
    </children>
 </AnchorPane>

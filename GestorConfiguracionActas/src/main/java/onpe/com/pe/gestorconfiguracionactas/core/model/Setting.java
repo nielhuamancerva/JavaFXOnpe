@@ -11,6 +11,7 @@ public class Setting {
     String name;
     String setting;
     String statusSetting;
+   
 
     public String getId_setting() {
         return id_setting;

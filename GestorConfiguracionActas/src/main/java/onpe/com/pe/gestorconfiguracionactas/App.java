@@ -23,7 +23,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
 
 
-        setRoot(stage, "login");
+        setRoot(stage, "configuraSecciones");
         sc = stage;
     }
 
