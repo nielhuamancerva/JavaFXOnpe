@@ -4,6 +4,7 @@
  */
 package onpe.com.pe.gestorconfiguracionactas.core.repository.service;
 
+import com.mongodb.client.result.DeleteResult;
 import javafx.collections.ObservableList;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import org.bson.Document;
@@ -19,6 +20,8 @@ public interface SettingService {
     public Document findOneSettingName(String setting) throws Exception;
 
     public Document findOneSettingByStatus() throws Exception;
+    
+    public DeleteResult deleteOneSetting(String setting) throws Exception;
 
     public ObservableList<Setting> findAllSetting() throws Exception;
 

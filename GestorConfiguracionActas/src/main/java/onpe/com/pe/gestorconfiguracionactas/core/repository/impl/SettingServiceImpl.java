@@ -5,6 +5,8 @@
 package onpe.com.pe.gestorconfiguracionactas.core.repository.impl;
 
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.DeleteResult;
 import javafx.collections.ObservableList;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.FactoryService;
@@ -57,6 +59,14 @@ public class SettingServiceImpl implements SettingService {
         factoryService = FactoryService.getInstance();
         factoryService.MongoService().conexionMongo();
         return factoryService.MongoService().findDocumentBy("statusSetting", "1", "setting");
+    }
+
+    @Override
+    public DeleteResult deleteOneSetting(String setting) throws Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.MongoService().conexionMongo();
+
+        return factoryService.MongoService().deleteOneDocument(Filters.and(Filters.eq("name", setting)), "setting");
     }
 
 }

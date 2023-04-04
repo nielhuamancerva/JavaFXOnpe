@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Sections;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import org.bson.Document;
 
@@ -40,6 +41,20 @@ public class Mapper {
                 setting.setName(document.getString("name"));
                 setting.setSetting(document.getString("setting"));
                 setting.setStatusSetting(document.getString("statusSetting"));
+                listSetting.add(setting);
+            }
+        }
+        return FXCollections.observableArrayList(listSetting);
+    }
+
+    public static ObservableList<Sections> sectionCastToDocument(FindIterable<Document> listDocument) {
+        List<Sections> listSetting = new ArrayList();
+
+        if (listDocument.iterator().hasNext()) {
+            // Recorrer todos los documentos en el FindIterable<Document>
+            for (Document document : listDocument) {
+                // Realizar alguna acción con cada documento, por ejemplo:
+                Sections setting = new Sections();
                 listSetting.add(setting);
             }
         }

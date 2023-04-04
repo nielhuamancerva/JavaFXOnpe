@@ -15,6 +15,9 @@
     -fx-background-color:  #2ECC71; /* #609966 */
 
 }
+.text-initializa{
+    -fx-font-size:25px;
+}
 
 .button-initializa {
     -fx-background-color:  #E5E7E9; /* #609966 */
@@ -51,8 +54,8 @@
 
 
 .body-general{
-/*    -fx-background-image: url("../image/body_modulos.png");
-    -fx-background-size: 100%;*/
+    /*    -fx-background-image: url("../image/body_modulos.png");
+        -fx-background-size: 100%;*/
 }
 
 
@@ -75,7 +78,7 @@
 }
 
 .button-grabar{
- -fx-background-color:#05ff00;
+    -fx-background-color:#05ff00;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
     -fx-text-alignment: left;
@@ -83,7 +86,7 @@
 }
 
 .button-continuar{
- -fx-background-color:#05ff00;
+    -fx-background-color:#05ff00;
     -fx-text-fill: #ffffff;
     -fx-font-weight:bold;
     -fx-text-alignment: left;
@@ -124,7 +127,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-    -fx-text-fill: back;
+/*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/button-add_on.png');
@@ -145,7 +148,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-    -fx-text-fill: back;
+/*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/grabar-on.png');
@@ -161,7 +164,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-    -fx-text-fill: back;
+/*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/editar-on.png');
@@ -177,7 +180,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-    -fx-text-fill: back;
+/*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/ico-delete.png');
@@ -192,7 +195,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-    -fx-text-fill: back;
+/*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/seccion-add-off.png');

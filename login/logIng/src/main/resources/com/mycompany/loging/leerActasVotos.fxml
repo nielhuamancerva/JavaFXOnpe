@@ -1,119 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.net.*?>
-<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
+<?import java.net.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="body-general" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
-   <children>
-      <AnchorPane>
-         <children>
-            <AnchorPane layoutX="169.0" layoutY="161.0">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
+    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
+      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
+                        <ImageView fitHeight="80.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../imagenes/logo_onpe%20modulos.png" />
+                           </image>
+                        </ImageView>
+            <HBox layoutX="1629.0" layoutY="-10.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="125.0">
                <children>
-                  <AnchorPane style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="703.0" layoutY="1.0" prefHeight="53.0" prefWidth="330.0" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="30.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <Pane layoutY="59.0" style="-fx-background-color: #ffffff;" styleClass="body-recorta">
-                     <children>
-                        <Label layoutX="125.0" layoutY="21.0" text="Registro el número de votos obtenidos en cada caso">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="btnSiguiente" layoutX="798.0" layoutY="614.0" mnemonicParsing="false" onAction="#registrarObs" styleClass="button-green" stylesheets="@../../../styles/Style.css" text="Siguiente" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="btnRegresar" layoutX="678.0" layoutY="611.0" mnemonicParsing="false" onAction="#regresarLeerActas" styleClass="button-red" stylesheets="@../../../styles/Style.css" text="Atras" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <TextField fx:id="voto5" alignment="CENTER" layoutX="717.0" layoutY="483.0" prefHeight="98.0" prefWidth="71.0" promptText="96" styleClass="pane_tipo_body">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="voto4" alignment="CENTER" layoutX="717.0" layoutY="387.0" prefHeight="98.0" prefWidth="71.0" styleClass="pane_tipo_body">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="voto3" alignment="CENTER" layoutX="717.0" layoutY="285.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="voto2" alignment="CENTER" layoutX="717.0" layoutY="183.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="voto1" alignment="CENTER" layoutX="717.0" layoutY="81.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Pane layoutX="845.0" layoutY="25.0" prefHeight="112.0" prefWidth="364.0" styleClass="pane_tipo_body">
-                           <children>
-                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="51.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </Pane>
-                        <ScrollPane layoutX="120.0" layoutY="80.0" prefViewportHeight="614.0" prefViewportWidth="526.0">
-                           <content>
-                              <Pane layoutX="120.0" layoutY="80.0" prefHeight="614.0" prefWidth="526.0" styleClass="pane_tipo_body">
-                                 <children>
-                                    <ImageView fx:id="imagenVotos" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                              </Pane>
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </Pane>
+                  <Button id="btnRegresar" fx:id="btnRegresar" mnemonicParsing="false" onAction="#regresarLeerActas" prefHeight="83.0" prefWidth="63.0" styleClass="btn_anterior" text="ANTERIOR" />
+                  <Button id="btnContinuar" fx:id="btnSiguiente" mnemonicParsing="false" onAction="#registrarObs" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="CONTINUAR" />
                </children>
-            </AnchorPane>
-            <AnchorPane layoutX="169.0" layoutY="88.0" styleClass="border-titulo">
-               <children>
-                  <Pane layoutY="-5.0">
-                     <children>
-                        <Label layoutX="488.0" layoutY="8.0" prefHeight="35.0" prefWidth="608.0" text="MODULO DE REGISTRAR VOTOS - ACTA ESCRUTINIO" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <styleClass>
-                        <String fx:value="border-titulo" />
-                        <String fx:value="background-prymary" />
-                     </styleClass>
-                  </Pane>
-               </children>
-            </AnchorPane>
+            </HBox>
          </children>
-      </AnchorPane>
+      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
+                  <AnchorPane layoutX="81.0" layoutY="33.0" prefHeight="838.0" prefWidth="1752.0" styleClass="border-body">
+                     <children>
+                        <Label layoutX="59.0" layoutY="22.0" text="Procesar Acta">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Line endX="250.0" layoutX="161.0" layoutY="75.0" startX="-100.0" strokeWidth="3.0" />
+                        <Label layoutX="101.0" layoutY="100.0" text="Documento:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="107.0" layoutY="127.0" prefHeight="39.0" prefWidth="475.0" />
+                        <Label layoutX="103.0" layoutY="176.0" text="Verifique la información obtenida del acta seleccionada:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="331.0" layoutY="221.0" prefHeight="625.0" prefWidth="732.0">
+                           <children>
+                              <ScrollPane layoutX="43.0" layoutY="9.0" prefViewportHeight="614.0" prefViewportWidth="526.0">
+                                 <content>
+                                    <Pane layoutX="120.0" layoutY="80.0" prefHeight="614.0" prefWidth="526.0" styleClass="pane_tipo_body">
+                                       <children>
+                                          <ImageView fx:id="imagenVotos" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </Pane>
+                                 </content>
+                              </ScrollPane>
+                              <TextField fx:id="voto1" alignment="CENTER" layoutX="623.0" layoutY="15.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto2" alignment="CENTER" layoutX="623.0" layoutY="117.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto3" alignment="CENTER" layoutX="623.0" layoutY="219.0" prefHeight="104.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto4" alignment="CENTER" layoutX="623.0" layoutY="321.0" prefHeight="98.0" prefWidth="71.0" styleClass="pane_tipo_body">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto5" alignment="CENTER" layoutX="623.0" layoutY="417.0" prefHeight="98.0" prefWidth="71.0" promptText="96" styleClass="pane_tipo_body">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="1253.0" layoutY="189.0" prefHeight="120.0" prefWidth="418.0">
+                           <children>
+                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+</children></AnchorPane>
+</children></AnchorPane>   
    </children>
-   <stylesheets>
-      <URL value="@../../../styles/LeerActaInstalacion.css" />
-      <URL value="@../../../styles/Style.css" />
-   </stylesheets>
-</VBox>
+</AnchorPane>

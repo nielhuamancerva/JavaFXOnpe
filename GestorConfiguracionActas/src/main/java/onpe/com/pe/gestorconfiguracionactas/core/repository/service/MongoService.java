@@ -7,6 +7,7 @@ package onpe.com.pe.gestorconfiguracionactas.core.repository.service;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
@@ -30,4 +31,5 @@ public interface MongoService {
     
     public Document findDocumentByMultiple(Bson filters, String Table) throws Exception;
     
+    public DeleteResult deleteOneDocument(Bson filters, String Table) throws Exception;
 }

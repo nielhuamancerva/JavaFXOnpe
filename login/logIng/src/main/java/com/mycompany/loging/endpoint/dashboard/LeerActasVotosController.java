@@ -15,9 +15,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class LeerActasVotosController implements Initializable {
@@ -25,6 +27,12 @@ public class LeerActasVotosController implements Initializable {
     private final NegocioService negocioService;
     private FactoryServiciosExternos factoryservices;
     private DropShadowE dropShadowE;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
 
     public LeerActasVotosController() {
         this.negocioService = new NegocioServiceImpl();
@@ -37,9 +45,10 @@ public class LeerActasVotosController implements Initializable {
     @FXML
     private Button btnRegresar, btnSiguiente;
     VBox votoBox;
+    TextField voto1;
     
     @FXML
-    TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
+    TextField voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
             voto15, voto16, voto17, voto18, voto19, voto20;
 
     @Override
@@ -83,7 +92,7 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private void regresarLeerActas() throws IOException {
-        App.setRoot(null, "leerActaEscrutinio");
+        App.setRoot(null, "verificaFirmas");
     }
 
     @FXML

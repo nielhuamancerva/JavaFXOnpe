@@ -37,4 +37,14 @@ public class InicioMenuController implements Initializable {
 
     }
 
+    @FXML
+    private void ingresarSeguimientoActa()throws  IOException{
+         App.setRoot(null, "seguimientoActa");
+    }
+
+    @FXML
+    private void ingresarSeguimientoTransmision() throws  IOException{
+         App.setRoot(null, "seguimientoTransmision");
+    }
+
 }
