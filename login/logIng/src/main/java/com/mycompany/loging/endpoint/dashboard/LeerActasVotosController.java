@@ -8,6 +8,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
 import com.mycompany.loging.score.util.mapper.Mapper;
 import java.io.IOException;
 import java.net.URL;
@@ -65,10 +66,10 @@ public class LeerActasVotosController implements Initializable {
         try {
 
             negocioService.readAndCutOrganizationsPolitical(
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Alto")));
 
             imagenVotos.setImage(
                     CreateObject.image(

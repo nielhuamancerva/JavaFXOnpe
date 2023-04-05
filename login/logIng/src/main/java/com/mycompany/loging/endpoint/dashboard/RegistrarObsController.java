@@ -7,6 +7,7 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
 import com.mycompany.loging.score.util.mapper.Mapper;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -60,10 +61,10 @@ public class RegistrarObsController implements Initializable {
 
         try {
             negocioService.readAndCutObservations(
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Alto"))
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Alto"))
             );
             lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
             

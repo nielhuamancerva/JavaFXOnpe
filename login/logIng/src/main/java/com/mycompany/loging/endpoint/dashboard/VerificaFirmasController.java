@@ -15,12 +15,14 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
 import com.mycompany.loging.score.util.mapper.Mapper;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -111,16 +113,18 @@ public class VerificaFirmasController implements Initializable {
 
     Label lbArchivosEncontrados;
 
+  
     Image img;
 
-     ObservableList<Setting> itemList;
-    
+    ObservableList<Setting> itemList;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
 
             itemList = negocioService.finAllSetting();
             ObservableList<String> ii = FXCollections.observableArrayList(itemList.stream().map(r -> r.getName()).collect(Collectors.toList()));
+
             cboDocumentos.setItems(ii);
 
         } catch (Exception e) {
@@ -130,19 +134,25 @@ public class VerificaFirmasController implements Initializable {
     @FXML
     private void selecionarActa(ActionEvent event) {
         cboDocumentos.getValue();
-     
-        itemList.forEach(r->{
-                    if( r.getName().equals(cboDocumentos.getValue())){
-                        try {
-                            negocioService.findAllSectionsOnCorrdinates(r.getId_setting());
-                            
-                        } catch (Exception ex) {
-                            Logger.getLogger(VerificaFirmasController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-           }
+
+        String variable = itemList.stream().filter(j -> j.getName().equals(cboDocumentos.getValue())).map(r -> r.getSetting()).collect(Collectors.toList()).get(0);
+        variable = variable.replace(" ", "");
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<String>>() {
+        }.getType();
+        list = gson.fromJson(variable, type);
+        itemList.forEach(r -> {
+            if (r.getName().equals(cboDocumentos.getValue())) {
+                try {
+                    negocioService.findAllSectionsOnCorrdinates(r.getId_setting());
+
+                } catch (Exception ex) {
+                    Logger.getLogger(VerificaFirmasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
         );
-        
+
     }
 
     @FXML
@@ -204,25 +214,24 @@ public class VerificaFirmasController implements Initializable {
         try {
 
             negocioService.readAndCutBarcode(
-                    //["CODIGO BARRA","HORA INICIO","HORA FIN","REGIONES","OBSERVACIONES","FIRMA 1","FIRMA 2","FIRMA 3"]
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("CODIGOBARRA" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("CODIGOBARRA" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("CODIGOBARRA" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("CODIGOBARRA" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Alto")));
             imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
 
             negocioService.readAndCutHoraInicio("H1",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAINICIO" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAINICIO" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAINICIO" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAINICIO" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Alto")));
             imagenHoraInicio.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H1")));
 
             negocioService.readAndCutHoraInicio("H2",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAFIN" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAFIN" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAFIN" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("HORAFIN" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Alto")));
             imagenHoraFin.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H2")));
 
             VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
@@ -234,24 +243,24 @@ public class VerificaFirmasController implements Initializable {
 
             firmoP = negocioService.readAndCutsignature(
                     "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA1" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA1" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA1" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA1" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Alto")));
 
             firmoS = negocioService.readAndCutsignature(
                     "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA2" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA2" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA2" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA2" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Alto")));
 
             firmoT = negocioService.readAndCutsignature(
                     "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA3" + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA3" + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA3" + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("FIRMA3" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Alto")));
 
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
