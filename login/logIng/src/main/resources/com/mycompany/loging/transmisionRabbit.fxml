@@ -38,7 +38,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnRegresar" layoutX="610.0" layoutY="566.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="67.0" prefWidth="200.0" styleClass="button-red" text="Regresar" textFill="WHITE">
+                  <Button fx:id="btnRegresar" layoutX="610.0" layoutY="566.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="67.0" prefWidth="200.0" styleClass="button-red" text="Regresar" textFill="WHITE" visible="false">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

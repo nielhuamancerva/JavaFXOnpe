@@ -30,67 +30,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="1043.0" prefHeight="33.0" prefWidth="1920.0" style="-fx-background-color: #004788;">
-         <children>
-            <SplitPane dividerPositions="0.1732776617954071, 0.3883089770354906, 0.5866388308977035, 0.7437369519832986, 0.8935281837160751" layoutY="-1.0" prefHeight="38.0" prefWidth="1918.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="238.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="9.0" layoutY="-2.0" text="ODPE: LIMA NORTE 1" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="308.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="8.0" layoutY="-2.0" text="Centro de Cómputo:  LN1-001" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="208.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="15.0" text="Usuario: LimaNorte001" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="15.0" text="Estación: 001" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="15.0" text="27/03/2023" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="357.0" style="-fx-background-color: #004788;">
-                     <children>
-                        <Label layoutX="15.0" text="12:00 PM" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </children></AnchorPane>
+      <AnchorPane layoutY="1043.0" prefHeight="33.0" prefWidth="1920.0" style="-fx-background-color: #004788;" />
       <AnchorPane layoutX="50.0" layoutY="107.0" prefHeight="66.0" prefWidth="1821.0" style="-fx-background-color: #011b40;">
          <children>
             <Label layoutX="592.0" layoutY="13.0" text="Elecciones Generales y Parlamento Andino 2025" textFill="WHITE">
@@ -102,7 +42,7 @@
       </AnchorPane>
       <AnchorPane layoutX="142.0" layoutY="237.0" prefHeight="238.0" prefWidth="1328.0">
          <children>
-            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="REGISTRO">
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="Registro">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />

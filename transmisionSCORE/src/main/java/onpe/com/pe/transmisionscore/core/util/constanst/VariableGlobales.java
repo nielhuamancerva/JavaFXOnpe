@@ -14,4 +14,5 @@ public class VariableGlobales {
     public static Map<String, String> configuracionActa = new HashMap();
     public static String nombreDelArchivoProcesado = "";
     public static Actas actasLeida = new Actas();
+    public static String viewImage = "";
 }

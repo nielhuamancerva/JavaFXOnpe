@@ -76,3 +76,28 @@
     -fx-padding: 0pt 0pt -170pt 0;
     -fx-text-fill: #FFF;
 }*/
+
+
+
+.btn_menu_acta{
+    -fx-background-image: url('../onpe/com/pe/image/acta-region-inicio.jpg');
+     -fx-background-size: 100%;
+}
+
+.btn_menu_acta_mod{
+       -fx-font-size: 25px;
+        -fx-background-position: bottom 0px right 3px;
+        -fx-border-width: 5px 5px 40px 5px;
+        -fx-border-color: #054d99;
+        -fx-border-style: solid;
+
+        -fx-padding: 0pt 0pt -170pt 0;
+        -fx-text-fill: #FFF;
+}
+
+.btn_menu_acta_mod:hover{
+
+        -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+        -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
+
+}
