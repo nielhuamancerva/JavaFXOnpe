@@ -98,6 +98,10 @@ public class ConfiguraSeccionesController implements Initializable {
         } catch (Exception e) {
             System.out.println("error");
         }
+        
+        if(!VariableGlobales.identificaActa.isEmpty()){
+              VariableGlobales.identificaActa.clear();
+        }
 
         //evento a combobox
         cboDocumentos.setOnAction(event -> {
@@ -285,7 +289,7 @@ public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
     private void actionRegresar() throws IOException {
-        App.setRoot(null, "inicioMenu");
+        App.setRoot(null, "inicioMenu0");
     }
 
     @FXML
