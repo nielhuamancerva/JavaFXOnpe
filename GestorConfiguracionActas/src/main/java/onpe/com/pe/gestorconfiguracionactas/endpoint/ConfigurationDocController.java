@@ -68,6 +68,7 @@ public class ConfigurationDocController implements Initializable {
     TextField[] TextFieldEventEdit;
     Button[] buttonEditEventEdit;
     Button[] buttonAddEventEdit;
+    Button[] buttonDeleteEventEdit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -126,6 +127,7 @@ public class ConfigurationDocController implements Initializable {
                             TextFieldEventEdit = new TextField[listCount.size()];
                             buttonEditEventEdit = new Button[listCount.size()];
                             buttonAddEventEdit = new Button[listCount.size()];
+                            buttonDeleteEventEdit = new Button[listCount.size()];
                             for (int i = 0; i < listCount.size(); i++) {
                                 TextFieldEventEdit[i] = new TextField(listCount.get(i));
                                 TextFieldEventEdit[i].setId(String.valueOf(i));
@@ -141,11 +143,11 @@ public class ConfigurationDocController implements Initializable {
                                 buttonAddEventEdit[i].setDisable(true);
                                 buttonAddEventEdit[i].getStyleClass().add("button-guardar");
 
-                                Button buttonde = new Button();
-                                buttonde.setId("buttonAdd" + i);
-                                buttonde.setLayoutX(370);
-                                buttonde.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                                buttonde.getStyleClass().add("button-eliminar");
+                                buttonDeleteEventEdit[i] = new Button();
+                                buttonDeleteEventEdit[i].setId("buttonAdd" + i);
+                                buttonDeleteEventEdit[i].setLayoutX(370);
+                                buttonDeleteEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                                buttonDeleteEventEdit[i].getStyleClass().add("button-eliminar");
 
                                 buttonEditEventEdit[i] = new Button();
                                 buttonEditEventEdit[i].setId("buttonAdd" + i);
@@ -154,7 +156,7 @@ public class ConfigurationDocController implements Initializable {
                                 buttonEditEventEdit[i].getStyleClass().add("button-editar");
 
                                 AnchorPane conteninerTextFieldAndButton = new AnchorPane();
-                                conteninerTextFieldAndButton.getChildren().addAll(TextFieldEventEdit[i], buttonde, buttonEditEventEdit[i], buttonAddEventEdit[i]);
+                                conteninerTextFieldAndButton.getChildren().addAll(TextFieldEventEdit[i], buttonDeleteEventEdit[i], buttonEditEventEdit[i], buttonAddEventEdit[i]);
 
                                 containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
                                 containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
@@ -171,17 +173,24 @@ public class ConfigurationDocController implements Initializable {
                                     }
                                 });
 
-                                buttonAddEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
+                                buttonDeleteEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
                                     @Override
                                     public void handle(ActionEvent event) {
 
                                         listCount.set(Integer.parseInt(textField.getId()), textField.getText());
-//                                        listCount.add(textField.getText());
                                         btAdds.setDisable(true);
                                         textField.setDisable(true);
                                         if (verificarButton()) {
                                             btnGuardar.setDisable(false);
                                         };
+                                    }
+                                });
+
+                                buttonDeleteEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
+                                    @Override
+                                    public void handle(ActionEvent event) {
+                                        conteninerTextFieldAndButton.getChildren().removeAll(textField, btAdds);
+                                        containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
                                     }
                                 });
 
@@ -304,6 +313,17 @@ public class ConfigurationDocController implements Initializable {
 
     @FXML
     private void actionGuardar(ActionEvent event) throws Exception {
+        listCount.clear();
+        for (Node node : containerSettingModule.getChildren()) {
+            AnchorPane ap = (AnchorPane) node;
+            for (Node button : ap.getChildren()) {
+                if (button instanceof TextField) {
+
+                    listCount.add(((TextField) button).getText());
+
+                }
+            }
+        }
 
         if (businessService.findSettingForNameEleccion(titleDocumentSetting.getText()).isEmpty()) {
             setting.setId_setting(UUID.randomUUID().toString());
@@ -332,7 +352,6 @@ public class ConfigurationDocController implements Initializable {
             AnchorPane ap = (AnchorPane) node;
             for (Node button : ap.getChildren()) {
                 if (button instanceof TextField) {
-                    button.isDisabled();
                     if (button.isDisabled()) {
                         uu = Boolean.TRUE;
                     } else {
