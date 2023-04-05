@@ -18,14 +18,9 @@
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="541.0" style="-fx-background-color: #004788;">
          <children>
-            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="82.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="82.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/core.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="210.0" fitWidth="313.0" layoutX="102.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Onpelogo.png" />
                </image>
             </ImageView>
          </children>

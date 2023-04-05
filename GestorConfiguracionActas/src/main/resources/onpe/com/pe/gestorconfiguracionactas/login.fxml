@@ -14,19 +14,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" fx:id="anchoPaneLogin" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.LoginController">
    <children>
       <AnchorPane prefHeight="444.0" style="-fx-background-color: #004788;">
          <children>
-            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="19.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="10.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/core.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="210.0" fitWidth="313.0" layoutX="41.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/Onpelogo.png" />
                </image>
             </ImageView>
          </children>
