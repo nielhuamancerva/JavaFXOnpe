@@ -1,9 +1,33 @@
 [{
   "_id": {
-    "$oid": "642b412d1f600b60cb967f79"
+    "$oid": "642dae77952fef1629bc6a86"
   },
-  "id_setting": "36551cf8-3b5c-4ead-9adf-2c19b40f1f38",
-  "name": "NIEL ELECCION",
-  "setting": "[\"Codigo Barra\",\"Inicio Escrutinio\",\"Fin Escrutinio\",\"Regiones\",\"Observaciones\",\"Firma1\",\"Firma2\",\"Firma3\"]",
+  "id_setting": "72f51408-2a32-4a78-8998-05faf57e51b2",
+  "name": "ACTA DE ESCRUTINIO STAE",
+  "setting": "[\"CODIGO BARRA\",\"HORA INICIO\",\"HORA FIN\",\"REGIONES\",\"FIRMA 1\",\"FIRMA 2\",\"FIRMA 3\",\"OBSERVACIONES\"]",
+  "statusSetting": "0"
+},{
+  "_id": {
+    "$oid": "642daea1952fef1629bc6a90"
+  },
+  "id_setting": "b94b8151-33d4-4c59-96d8-5c05dc5494f2",
+  "name": "ACTA DE INSTALACION",
+  "setting": "[\"CODIGO BARRA\",\"HORA INICIO\",\"FIRMA 1\",\"FIRMA 2\"]",
+  "statusSetting": "0"
+},{
+  "_id": {
+    "$oid": "642db0368e1aa23dfe318b7f"
+  },
+  "id_setting": "72b4ecd6-53ff-485c-93a5-4937970e7ca0",
+  "name": "ACTA DE ESCRUTOTINIO STAE 2",
+  "setting": "[\"CODIGO BARRA\",\"HORA INICIO\",\"HORA FIN\",\"REGIONES\",\"OBSERVACIONES\",\"FIRMA 1\",\"FIRMA 2\",\"FIRMA 3\"]",
+  "statusSetting": "0"
+},{
+  "_id": {
+    "$oid": "642dd4a9844e55596c8c16b6"
+  },
+  "id_setting": "cc4d0725-0afc-4c76-8831-38f67865bc28",
+  "name": "PRIUEBA 01",
+  "setting": "[\"CODIGO QR\",\"NINGUNO\"]",
   "statusSetting": "0"
 }]

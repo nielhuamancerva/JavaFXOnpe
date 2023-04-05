@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "63f7bfb4442e97f8c159e76c"
+  },
+  "password": "nhc",
+  "usuario": "nhc"
+},{
+  "_id": {
+    "$oid": "63f92e0cd1c92e361cf3e64d"
+  },
+  "user": "Jackie Robinson"
+},{
+  "_id": {
+    "$oid": "63f92e10e1219c4bca6c6309"
+  },
+  "user": "Jackie Robinson"
+},{
+  "_id": {
+    "$oid": "641a1bd24a081101c636bfb0"
+  },
+  "user": "Jackie Robinson"
+}]
