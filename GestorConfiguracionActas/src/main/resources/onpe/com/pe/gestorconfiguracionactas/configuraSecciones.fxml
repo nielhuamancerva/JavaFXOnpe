@@ -43,7 +43,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="btnValidar" disable="true" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="51.0" prefWidth="213.0" styleClass="button-grabar" text="Validar">
+                              <Button fx:id="btnValidar" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="51.0" prefWidth="213.0" styleClass="button-grabar" text="Validar">
                                  <font>
                                     <Font size="24.0" />
                                  </font>

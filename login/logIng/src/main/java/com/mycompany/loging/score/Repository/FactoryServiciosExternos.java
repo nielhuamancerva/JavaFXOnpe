@@ -7,6 +7,7 @@ package com.mycompany.loging.score.Repository;
 import com.mycompany.loging.score.Repository.implementacion.ActaServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.Repository.implementacion.ImageServiceImpl;
+import com.mycompany.loging.score.Repository.implementacion.SectionsServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.SettingServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.UserServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.Tess4jServiceImpl;
@@ -14,6 +15,7 @@ import com.mycompany.loging.score.Repository.implementacion.TransmisionServiceIm
 import com.mycompany.loging.score.Repository.service.ActaService;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import com.mycompany.loging.score.Repository.service.ImageService;
+import com.mycompany.loging.score.Repository.service.SectionsService;
 import com.mycompany.loging.score.Repository.service.SettingService;
 import com.mycompany.loging.score.Repository.service.UserService;
 import com.mycompany.loging.score.Repository.service.Tess4jService;
@@ -33,6 +35,7 @@ public class FactoryServiciosExternos {
     private final TransmisionService transmisionService;
     private final ActaService actaService;
     private final SettingService settingService;
+    private final SectionsService sectionsService;
 
     private FactoryServiciosExternos() {
         this.conexionMongo = new ConexionMongoImpl();
@@ -42,6 +45,7 @@ public class FactoryServiciosExternos {
         this.transmisionService = new TransmisionServiceImpl();
         this.actaService = new ActaServiceImpl();
         this.settingService = new SettingServiceImpl();
+        this.sectionsService = new SectionsServiceImpl();
     }
 
     public static FactoryServiciosExternos getInstance() {
@@ -74,12 +78,12 @@ public class FactoryServiciosExternos {
     public ActaService ActaServiceImpl() {
         return this.actaService;
     }
-    
-    public SettingService SettingService(){
+
+    public SettingService SettingService() {
         return this.settingService;
     }
 
-    public SettingService SettingServiceImpl() {
-        return this.settingService;
+    public SectionsService SectionsService() {
+        return this.sectionsService;
     }
 }

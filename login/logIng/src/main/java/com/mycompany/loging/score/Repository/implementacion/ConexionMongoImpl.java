@@ -1,5 +1,6 @@
 package com.mycompany.loging.score.Repository.implementacion;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -67,4 +68,9 @@ public class ConexionMongoImpl implements ConexionMongo {
         return collection.find(Filters.eq(filter_id, codigo_id)).first();
     }
 
+    @Override
+    public FindIterable<Document> findCollection(String Table) throws Exception {
+        MongoCollection<Document> collection = mongoDatabase.getCollection(Table);
+        return collection.find();
+    }
 }

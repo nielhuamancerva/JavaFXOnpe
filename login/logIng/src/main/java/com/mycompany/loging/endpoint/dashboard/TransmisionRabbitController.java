@@ -1,7 +1,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+
+import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
@@ -54,22 +54,19 @@ public class TransmisionRabbitController implements Initializable {
 
         try {
                 negocioService.readAndCutObservations(
-                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Xo")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Yo")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Ancho")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Alto"))
+                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Xo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Yo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Ancho")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Alto"))
             );
                 lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
         } catch (Exception e) {
         }
-        observacionesActa.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("observaciones")));
-        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+       // observacionesActa.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("observaciones")));
+//        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
     }
     
-    public String toJson() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(this);
-    }
+
     
     @FXML
     private void transmitir() throws Exception {
@@ -85,14 +82,11 @@ public class TransmisionRabbitController implements Initializable {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        //Gson gson = new Gson();
-        //String json = 
-        //cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
-        String jsonString = null;
-	ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-	jsonString = (cifrar(mapper.writeValueAsString(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida))));
-        channel.basicPublish("", QUEUE_NAME, null, jsonString.getBytes("UTF-8"));
+        Gson gson = new Gson();
+        String json = 
+        cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+
+        channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();
         connection.close();

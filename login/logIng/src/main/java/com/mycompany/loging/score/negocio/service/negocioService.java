@@ -41,4 +41,6 @@ public interface NegocioService {
     public Setting finAllSettingByName(String name) throws IOException, Exception;
     
     public ObservableList<Setting> finSettingByname(String name) throws IOException, Exception;
+    
+      public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
 }

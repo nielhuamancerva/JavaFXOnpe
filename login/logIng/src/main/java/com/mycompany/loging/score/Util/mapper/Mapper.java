@@ -8,6 +8,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.Imagenes;
+import com.mycompany.loging.score.model.Sections;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
 import com.mycompany.loging.score.model.TransmisionHeader;
@@ -26,6 +27,13 @@ import org.bson.Document;
  */
 public class Mapper {
 
+    public static Document sectionsCastToDocument(Sections ss) {
+        Document document = new Document();
+        document.append("setting_id", ss.getSetting_id());
+        document.append("coordinates", "");
+        return document;
+    }
+
     public ObservableList<Actas> castObservableListOfActas(FindIterable<Document> arra) {
         List<Actas> listActas = new ArrayList<>();
         arra.forEach(action -> {
@@ -38,7 +46,7 @@ public class Mapper {
         });
         return FXCollections.observableArrayList(listActas);
     }
-    
+
     public Actas documentCastToActas(Document ss) {
         Actas acta = new Actas();
         acta.setActa(ss.getString("acta"));
@@ -81,15 +89,15 @@ public class Mapper {
     public Transmision dtoToTransmision(Actas ss) {
 
         TransmisionHeader header = new TransmisionHeader();
-        
+
         Transmision transmision = new Transmision();
         transmision.setHeader(header);
-    
+
         transmision.setBody(ss);
 
         return transmision;
     }
-    
+
     public ObservableList<Setting> castObservableListOfSetting(FindIterable<Document> arra) {
         List<Setting> listSetting = new ArrayList<>();
         arra.forEach(action -> {
@@ -97,12 +105,12 @@ public class Mapper {
             setting.setId_setting(action.getString("id_setting"));
             setting.setName(action.getString("name"));
             setting.setSetting(action.getString("setting"));
-            setting.setStatusSetting(action.getString("provincia"));
+            setting.setStatusSetting(action.getString("statusSetting"));
             listSetting.add(setting);
         });
         return FXCollections.observableArrayList(listSetting);
     }
-    
+
     public Setting documentCastTSetting(Document object) {
         Setting setting = new Setting();
         setting.setId_setting(object.getString("id_setting"));
@@ -110,5 +118,28 @@ public class Mapper {
         setting.setSetting(object.getString("setting"));
         setting.setStatusSetting(object.getString("provincia"));
         return setting;
+    }
+
+    public static ObservableList<Sections> sectionCastToDocument(FindIterable<Document> listDocument) {
+        List<Sections> listSetting = new ArrayList();
+
+        if (listDocument.iterator().hasNext()) {
+            // Recorrer todos los documentos en el FindIterable<Document>
+            for (Document document : listDocument) {
+                // Realizar alguna acción con cada documento, por ejemplo:
+                Sections setting = new Sections();
+                setting.setSetting_id(document.getString("setting_id"));
+                setting.setCoordinates(document.getString("coordinates"));
+                listSetting.add(setting);
+            }
+        }
+        return FXCollections.observableArrayList(listSetting);
+    }
+
+    public static Integer transformaTointerger(String ss) {
+
+        double number = Double.parseDouble(ss);
+        int integer = (int) Math.floor(number);
+        return integer;
     }
 }

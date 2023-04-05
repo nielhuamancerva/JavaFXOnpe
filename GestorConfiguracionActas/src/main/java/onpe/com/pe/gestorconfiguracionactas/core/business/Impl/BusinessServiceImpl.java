@@ -143,4 +143,13 @@ public class BusinessServiceImpl implements BusinessService {
 
     }
 
+    @Override
+    public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception {
+        factoryService = FactoryService.getInstance();
+        return factoryService.SectionsService().findAllSections().stream()
+                .filter(s -> s.getSetting_id().equals(idSecciont))
+                .map(y -> y.getCoordinates())
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
 }

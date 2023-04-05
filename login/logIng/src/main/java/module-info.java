@@ -17,9 +17,6 @@ module com.mycompany.loging {
     requires java.sql;
     requires com.jfoenix;
     requires fontawesomefx;
-    requires jackson.annotations;
-    requires jackson.core;
-    requires jackson.databind;
     
     opens com.mycompany.loging to javafx.fxml;
     exports com.mycompany.loging;
