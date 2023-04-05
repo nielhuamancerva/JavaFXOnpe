@@ -26,6 +26,7 @@
                            </image>
                         </ImageView>
          </children>
+<<<<<<< Updated upstream
       </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
                   <ScrollPane fx:id="scrollPaneActa" layoutX="45.0" layoutY="178.0" prefHeight="710.0" prefWidth="1810.0" styleClass="pane_recep_body">
                      <content>
@@ -58,5 +59,29 @@
                </children>
             </AnchorPane>
 </children></AnchorPane>   
+=======
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="110.0">
+         <children>
+            <Label layoutX="120.0" layoutY="24.0" prefHeight="21.0" prefWidth="176.0" text="Seleccionar Documento:" />
+            <Label fx:id="lbActaValidar" layoutX="297.0" layoutY="5.0" prefHeight="29.0" prefWidth="288.0" text="Label">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="689.0" layoutY="792.0">
+         <children>
+            <Button fx:id="btnFinaliza" layoutX="178.0" layoutY="10.0" mnemonicParsing="false" onAction="#actionFinaliza" prefHeight="40.0" prefWidth="117.0" styleClass="button-grabar" text="Finalizar" />
+            <Button fx:id="btnRegresar" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="42.0" prefWidth="117.0" styleClass="button-retroceder" text="Regresar" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="scrollPaneActa" layoutY="183.0" prefHeight="609.0" prefWidth="1005.0" styleClass="pane_recep_body">
+         <content>
+            <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
+>>>>>>> Stashed changes
    </children>
 </AnchorPane>

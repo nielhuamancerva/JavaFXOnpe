@@ -60,7 +60,6 @@ public class ValidarSeccionController implements Initializable {
 
     private int numEs = 0;
     private double escalaLo;
-
     /**
      * Initializes the controller class.
      */
