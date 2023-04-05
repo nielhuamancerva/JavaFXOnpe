@@ -40,8 +40,6 @@ public class RegistrarObsController implements Initializable {
     @FXML
     ImageView observacionesActa, codigoBarra;
     @FXML
-    private Button btnRegresar, btnContinuar, btnultimo;
-    @FXML
     TextArea textObservaciones;
     @FXML
     private AnchorPane anchorPane;
@@ -49,8 +47,6 @@ public class RegistrarObsController implements Initializable {
     private Label numVotoPreferencial, lblTipoActa;
     @FXML
     private Label etiquetaVotoRev;
-    @FXML
-    private Button btnSiguiente;
 
     public RegistrarObsController() {
         this.negocioService = new NegocioServiceImpl();
@@ -83,39 +79,7 @@ public class RegistrarObsController implements Initializable {
         App.setRoot(null, "leerActasVotos");
     }
 
-    @FXML
-    private void ActionFinaliza() throws Exception {
-//
-//        ConnectionFactory factory = new ConnectionFactory();
-//        factory.setHost("172.16.89.225");
-//        factory.setUsername("admin");
-//        factory.setPassword("admin");
-//        factory.setVirtualHost("/");
-////        factory.setHost("localhost");
-////        factory.setUsername("guest");
-////        factory.setPassword("guest");
-////        factory.setVirtualHost("/");
-//        Connection connection = factory.newConnection();
-//        Channel channel = connection.createChannel();
-//        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-//        Gson gson = new Gson();
-//        
-//        System.out.println(VariableGlobales.actasLeida);
-//     String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
-////String json = "niel";
-//        channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
-//
-//        channel.close();
-//        connection.close();
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Confirmación de transmisión");
-//        alert.setHeaderText("¡Transmisión exitosa!");
-//        alert.setContentText("Se ha enviado correctamente la transmisión.");
-//        alert.showAndWait();
-//
-    }
 
-    @FXML
     private void ultimaaccion() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("172.16.89.225");
@@ -162,6 +126,11 @@ public class RegistrarObsController implements Initializable {
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
         byte[] decryptedValue = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
         return new String(decryptedValue, StandardCharsets.UTF_8);
+    }
+
+    @FXML
+    private void transmitir()throws IOException{
+        App.setRoot(null, "transmisionRabbit");
     }
 
 

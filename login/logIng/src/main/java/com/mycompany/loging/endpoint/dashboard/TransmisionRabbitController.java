@@ -24,7 +24,9 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import com.mycompany.loging.score.util.CreateObject;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class TransmisionRabbitController implements Initializable {
 
@@ -34,13 +36,16 @@ public class TransmisionRabbitController implements Initializable {
 
     private static final String ALGORITMO = "AES";
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
-
+    
     @FXML
     ImageView observacionesActa, codigoBarra;
+   
+    
+    private Label lblTipoActa;
     @FXML
-    private Button btnTransmitir, btnRegresar;
+    private Button btnTransmitir;
     @FXML
-    private Label numVotoPreferencial, lblTipoActa;
+    private Button btnRegresar;
     
     public TransmisionRabbitController() {
         this.negocioService = new NegocioServiceImpl();
@@ -119,10 +124,9 @@ public class TransmisionRabbitController implements Initializable {
 
     @FXML
     private void regresarFirmas() throws IOException {
-        App.setRoot(null, "registrarFirma");
+        App.setRoot(null, "registrarObs");
 
     }
-    @FXML
     private void regresaActasV() throws IOException {
         App.setRoot(null, "leerActasVotos");
     }
