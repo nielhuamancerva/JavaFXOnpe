@@ -88,6 +88,7 @@ public class ValidarSeccionController implements Initializable {
             gc.drawImage(imgViewActa.getImage(), 0, 0);
 
             for (Setting item : businessService.findAllSettingOnlyEleccion()) {
+                System.out.println("IDENTIFICA="+VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
 
                 if (item.getId_setting().equals(VariableGlobales.identificaActa.get("idSectionActaSeleccion"))) {
                     Gson gson = new Gson();

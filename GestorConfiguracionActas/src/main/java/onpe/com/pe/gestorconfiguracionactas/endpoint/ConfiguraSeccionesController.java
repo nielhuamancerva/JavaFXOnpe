@@ -114,6 +114,8 @@ public class ConfiguraSeccionesController implements Initializable {
                 encuadrarActa(2, escalaLo);
                 System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
             }
+         
+            //fin de carga de combox
         }
 
         imgViewActa.setDisable(true);
@@ -131,8 +133,6 @@ public class ConfiguraSeccionesController implements Initializable {
         cboDocumentos.setOnAction(event -> {
             String seleccion = cboDocumentos.getSelectionModel().getSelectedItem().toString();
             VariableGlobales.identificaActa.put("nombreActaSeleccion", seleccion);
-            //configuracionActa.put("tituloActaValidar",seleccion);
-
             try {
                 int i = 0;
                 for (Setting item : businessService.findAllSettingOnlyEleccion()) {
@@ -264,14 +264,8 @@ public class ConfiguraSeccionesController implements Initializable {
                                         VariableGlobales.coordenadasActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         //configuracionActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
-                                        System.out.println("datos en Globales" + VariableGlobales.configuracionActa);
-                                        //algoritmo para inserccion de base de datos
-//                                        try {
-//                                           
-//                                            businessService.uploadSections(item.getId_setting(),VariableGlobales.coordenadasActa.toString());// actualiza en base de datos ESTO VA A CONFIRMAR
-//                                        } catch (Exception e) {
-//                                            System.out.println("datos:"+e);
-//                                        }
+                                        System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
+
 
                                     }
 
@@ -328,15 +322,9 @@ public class ConfiguraSeccionesController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
-        //lbArchivosEncontrados.setText(businessService.uploadFileOnMemory(fileSeleccionado));
-
-        //img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
         img = new Image(fileSeleccionado.getPath().toString());
         imgViewActa.setImage(img);
-        //amarrando las escalas del imageview al del scrollpanel
-        //imgViewActa.fitHeightProperty().bind(Bindings.createDoubleBinding(() -> scrollPaneActa.getViewportBounds().getWidth(), scrollPaneActa.viewportBoundsProperty()));
-        //imgViewActa.fitHeightProperty().bind(Bindings.createDoubleBinding(() -> scrollPaneActa.getViewportBounds().getHeight(), scrollPaneActa.viewportBoundsProperty()));
         double scale = imgViewActa.getScaleX();
 
         scrollPaneActa.setVvalue(0.5);
@@ -353,11 +341,6 @@ public class ConfiguraSeccionesController implements Initializable {
             System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
         }
 
-//        scrollPaneActa.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-//        scrollPaneActa.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-//        scrollPaneActa.setFitToWidth(false);
-//        scrollPaneActa.setFitToHeight(false);
-        //scrollPaneActa.setContent(imgViewActa);
     }
 
     private void encuadrarActa(int tipoHoja, double escala) {
