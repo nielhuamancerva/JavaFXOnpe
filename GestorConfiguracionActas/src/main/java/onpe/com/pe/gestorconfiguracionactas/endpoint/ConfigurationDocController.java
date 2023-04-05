@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -59,15 +60,18 @@ public class ConfigurationDocController implements Initializable {
 
     ArrayList<Integer> list = new ArrayList<>();
     ArrayList<String> listCount = new ArrayList<>();
-    private TextField[] buttonEventConfi = new TextField[1];
+    TextField[] buttonEventConfi = new TextField[1];
     Button[] buttonEventAdd = new Button[1];
     Button[] buttonEventEdit = new Button[1];
     Button[] buttonEventDelete = new Button[1];
 
+    TextField[] TextFieldEventEdit;
+    Button[] buttonEditEventEdit;
+    Button[] buttonAddEventEdit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        btnGuardar.setDisable(true);
         try {
             Label[] labelText = new Label[businessService.findAllSections().size()];
             for (int i = 0; i < businessService.findAllSections().size(); i++) {
@@ -119,9 +123,9 @@ public class ConfigurationDocController implements Initializable {
                             containerSettingModule.getChildren().clear();
                             titleDocumentSetting.setText(name);
                             titleDocumentSetting.setDisable(false);
-                            TextField[] TextFieldEventEdit = new TextField[listCount.size()];
-                            Button[] buttonEditEventEdit = new Button[listCount.size()];
-                            Button[] buttonAddEventEdit = new Button[listCount.size()];
+                            TextFieldEventEdit = new TextField[listCount.size()];
+                            buttonEditEventEdit = new Button[listCount.size()];
+                            buttonAddEventEdit = new Button[listCount.size()];
                             for (int i = 0; i < listCount.size(); i++) {
                                 TextFieldEventEdit[i] = new TextField(listCount.get(i));
                                 TextFieldEventEdit[i].setId(String.valueOf(i));
@@ -171,15 +175,16 @@ public class ConfigurationDocController implements Initializable {
                                     @Override
                                     public void handle(ActionEvent event) {
 
-
                                         listCount.set(Integer.parseInt(textField.getId()), textField.getText());
 //                                        listCount.add(textField.getText());
                                         btAdds.setDisable(true);
                                         textField.setDisable(true);
+                                        if (verificarButton()) {
+                                            btnGuardar.setDisable(false);
+                                        };
                                     }
                                 });
 
-//                                btnGuardar.setDisable(true);
                             }
 
                         } catch (Exception ex) {
@@ -251,8 +256,10 @@ public class ConfigurationDocController implements Initializable {
                         listCount.add(textField.getText());
                     }
 
-                    btnGuardar.setDisable(false);
                     btEdit.setDisable(false);
+                    if (verificarButton()) {
+                        btnGuardar.setDisable(false);
+                    };
                 }
             });
 
@@ -281,8 +288,13 @@ public class ConfigurationDocController implements Initializable {
     }
 
     @FXML
-    private void createNewSetting(ActionEvent event) {
+    private void createNewSetting(ActionEvent event) throws IOException {
+        list = new ArrayList<>();
+        listCount = new ArrayList<>();
+        containerSettingModule.getChildren().clear();
+        titleDocumentSetting.clear();
         titleDocumentSetting.setDisable(false);
+
     }
 
     @FXML
@@ -305,7 +317,7 @@ public class ConfigurationDocController implements Initializable {
             Gson gson = new Gson();
             businessService.updateSetting(titleDocumentSetting.getText(), gson.toJson(listCount));
         }
-
+        btnGuardar.setDisable(true);
     }
 
     @FXML
@@ -314,4 +326,21 @@ public class ConfigurationDocController implements Initializable {
         App.setRoot(null, "configuraSecciones");
     }
 
+    public Boolean verificarButton() {
+        Boolean uu = null;
+        for (Node node : containerSettingModule.getChildren()) {
+            AnchorPane ap = (AnchorPane) node;
+            for (Node button : ap.getChildren()) {
+                if (button instanceof TextField) {
+                    button.isDisabled();
+                    if (button.isDisabled()) {
+                        uu = Boolean.TRUE;
+                    } else {
+                        return Boolean.FALSE;
+                    }
+                }
+            }
+        }
+        return uu;
+    }
 }
