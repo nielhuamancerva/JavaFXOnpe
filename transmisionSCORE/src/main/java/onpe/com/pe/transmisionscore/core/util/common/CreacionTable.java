@@ -62,6 +62,7 @@ public class CreacionTable {
 //
 //        TableColumn<Actas, String> columnaFirma3 = new TableColumn<>("firma3");
 //        columnaFirma3.setCellValueFactory(new PropertyValueFactory<>("firma3"));
+
         TableColumn<Actas, String> columnaFechaRegistro = new TableColumn<>("fecha de Registro");
         columnaFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("fecha_registro"));
 
@@ -109,7 +110,7 @@ public class CreacionTable {
                         btn.setOnAction((ActionEvent event) -> {
                             VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getActa();
 //                                App.setRoot(null, "viewImagen");
-//                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
+                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getEstado());
 
                         });
                     }
@@ -121,12 +122,13 @@ public class CreacionTable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
-                                setGraphic(btn);
-                            } else {
-                                setGraphic(null);
-                            }
+                            setGraphic(btn);
 
+//                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
+//                                setGraphic(btn);
+//                            } else {
+//                                setGraphic(null);
+//                            }
                         }
                     }
                 };

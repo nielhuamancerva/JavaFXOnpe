@@ -19,8 +19,9 @@ public class Actas {
     String firma2;
     String firma3;
     String estado;
-    Imagenes imagen = new Imagenes();
     String fecha_registro;
+    Imagenes imagen = new Imagenes();
+    String accion;
 
     public Imagenes getImagen() {
         return imagen;
@@ -172,6 +173,14 @@ public class Actas {
 
     public void setFecha_registro(String fecha_registro) {
         this.fecha_registro = fecha_registro;
+    }
+
+    public String getAccion() {
+        return accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
     }
 
 }

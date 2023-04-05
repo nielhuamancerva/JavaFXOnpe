@@ -62,6 +62,7 @@ public class CreacionTable {
 //
 //        TableColumn<Actas, String> columnaFirma3 = new TableColumn<>("firma3");
 //        columnaFirma3.setCellValueFactory(new PropertyValueFactory<>("firma3"));
+
         TableColumn<Actas, String> columnaFechaRegistro = new TableColumn<>("fecha de Registro");
         columnaFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("fecha_registro"));
 
