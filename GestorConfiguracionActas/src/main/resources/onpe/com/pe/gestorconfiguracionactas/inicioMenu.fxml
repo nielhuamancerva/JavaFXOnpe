@@ -102,13 +102,13 @@
       </AnchorPane>
       <AnchorPane layoutX="142.0" layoutY="237.0" prefHeight="238.0" prefWidth="1328.0">
          <children>
-            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarConfiguracion" prefHeight="235.0" prefWidth="235.0" text="CONFIGURACIÓN">
+            <Button layoutX="530.0" layoutY="2.0" mnemonicParsing="false" onAction="#ingresarConfiguracion" prefHeight="235.0" prefWidth="365.0" text="Configuracion de Documento">
                <styleClass>
-                  <String fx:value="btn_menu_inicio" />
-                  <String fx:value="btn_menu_inicio_mod" />
+                  <String fx:value="btn_menu_acta" />
+                  <String fx:value="btn_menu_acta_mod" />
                </styleClass>
             </Button>
-            <Button layoutX="559.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarInicializador" prefHeight="235.0" prefWidth="235.0" text="INICIALIZAR">
+            <Button layoutY="2.0" mnemonicParsing="false" onAction="#ingresarInicializador" prefHeight="235.0" prefWidth="235.0" text="Configuración Inicial">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />

@@ -102,7 +102,7 @@
       </AnchorPane>
       <AnchorPane layoutX="142.0" layoutY="237.0" prefHeight="238.0" prefWidth="1328.0">
          <children>
-            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="REGISTRO">
+            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="Registro">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />
