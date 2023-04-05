@@ -20,6 +20,7 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -112,7 +113,7 @@ public class NegocioServiceImpl implements NegocioService {
         Type type = new TypeToken<Map<String, Object>>() {
         }.getType();
         Map<String, Object> map = gson.fromJson(document.getString("setting"), type);
-        
+
         //System.out.println(gson.toJson(map));
         Map<String, String> stringMap = new HashMap<>();
         for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -134,29 +135,66 @@ public class NegocioServiceImpl implements NegocioService {
     public ObservableList<Setting> finAllSetting() throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.MongoService().conexionMongo();
-        return mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+        return mapping.castObservableListOfSetting(factoryservices.SettingService().findAllCollection().find());
     }
-    
+
     @Override
     public ObservableList<Setting> finSettingByname(String name) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
         factoryservices.MongoService().conexionMongo();
         ObservableList<Setting> ListSettingAux = FXCollections.observableArrayList();
-        ObservableList<Setting> ListSetting = mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+        ObservableList<Setting> ListSetting = mapping.castObservableListOfSetting(factoryservices.SettingService().findAllCollection().find());
         for (Setting setting : ListSetting) {
-            if(setting.getName().equals(name)){
+            if (setting.getName().equals(name)) {
                 System.out.println(setting.getName());
                 ListSettingAux.add(setting);
                 return ListSettingAux;
             }
         }
-        return mapping.castObservableListOfSetting(factoryservices.SettingServiceImpl().findAllCollection().find());
+        return mapping.castObservableListOfSetting(factoryservices.SettingService().findAllCollection().find());
     }
-    
+
     @Override
     public Setting finAllSettingByName(String name) throws IOException, Exception {
         factoryservices = FactoryServiciosExternos.getInstance();
-        Setting setting = mapping.documentCastTSetting(factoryservices.SettingServiceImpl().findSettingBy(name));
+        Setting setting = mapping.documentCastTSetting(factoryservices.SettingService().findSettingBy(name));
         return setting;
+    }
+
+    @Override
+    public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception {
+    VariableGlobales.configuracionActa = new HashMap();
+    factoryservices  = FactoryServiciosExternos.getInstance();
+
+    String yy = factoryservices.SectionsService().findAllSections().stream()
+            .filter(s -> s.getSetting_id().equals(idSecciont))
+            .map(y -> y.getCoordinates())
+            .collect(Collectors.toCollection(FXCollections::observableArrayList)).get(0);
+
+    yy = yy.replace("{","").replace("}","").replace(" ","").replace("=","\":\"").replace(",", "\",\"");
+    yy = "{\""+ yy + "\"}";
+    
+    Gson gson = new Gson();
+    Type type = new TypeToken<Map<String, String>>() {}.getType();
+    Map<String, String> map = gson.fromJson(yy, type);
+
+    //System.out.println(gson.toJson(map));
+    /*
+    Map<String, String> stringMap = new HashMap<>();
+    
+    for (Map.Entry<String, Object> entry: map.entrySet ()) {
+            String key = entry.getKey();
+        String value = entry.getValue().toString();
+        stringMap.put(key, value);
+    }*/
+
+    VariableGlobales.configuracionActa  = map;
+
+    return factoryservices.SectionsService ()
+
+.findAllSections().stream()
+                .filter(s -> s.getSetting_id().equals(idSecciont))
+                .map(y -> y.getCoordinates())
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 }

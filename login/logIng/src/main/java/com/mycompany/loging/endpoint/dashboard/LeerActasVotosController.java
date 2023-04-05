@@ -8,6 +8,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.mapper.Mapper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -64,10 +65,10 @@ public class LeerActasVotosController implements Initializable {
         try {
 
             negocioService.readAndCutOrganizationsPolitical(
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("3" + "Alto")));
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Xo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Yo")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Ancho")),
+                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get("REGIONES" + "Alto")));
 
             imagenVotos.setImage(
                     CreateObject.image(
@@ -98,6 +99,6 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private void registrarObs() throws IOException {        
-        App.setRoot(null, "registrarObs");
+        App.setRoot(null, "transmisionRabbit");
     }
 }

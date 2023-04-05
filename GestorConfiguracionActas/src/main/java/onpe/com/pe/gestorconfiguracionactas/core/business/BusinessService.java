@@ -29,7 +29,7 @@ public interface BusinessService {
     public String findSettingWithEleccionIsActived() throws Exception;
 
     public void uploadSettingToIsActived(String eleccion) throws Exception;
-    
+
     public void uploadSections(String idSetings, String coordenadas) throws Exception;
 
     public String readTitleActa(Integer x, Integer y, Integer h, Integer w) throws Exception;
@@ -42,5 +42,7 @@ public interface BusinessService {
 
     public List<String> findSettingForNameEleccion(String nameEleccion) throws Exception;
 
-    public void updateSetting(String nameEleccion,String array) throws Exception;
+    public void updateSetting(String nameEleccion, String array) throws Exception;
+
+    public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
 }
