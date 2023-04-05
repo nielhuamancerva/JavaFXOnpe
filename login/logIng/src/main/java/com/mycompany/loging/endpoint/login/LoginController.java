@@ -23,11 +23,9 @@ public class LoginController {
     private final DropShadowE dropShadowE;
     @FXML
     private Button btnIngresar;
-//    private Button btnSalir;
 
     private void initialize() {
         dropShadowE.setTabEffect(btnIngresar);
-//        dropShadowE.setTabEffect(btnSalir);
     }
 
     public LoginController() {
@@ -40,14 +38,10 @@ public class LoginController {
     TextField userName;
     @FXML
     PasswordField passwordField;
-//    Label lbError;
 
     @FXML
     private void iniciandoSecion() throws Exception, IOException {
-//        lbError.setText("");
-
         String Msg = validadionesFormularios.login(userName.getText(), passwordField.getText());
-//        lbError.setText(Msg);
         if (Msg.equals("")) {
             Document login = negocioService.consultaUsuarioDb(userName.getText(), passwordField.getText());
 
@@ -62,7 +56,6 @@ public class LoginController {
 
                 alert.showAndWait();
 
-//                lbError.setText("Usuario no esta Registrado");
             }
         }
     }

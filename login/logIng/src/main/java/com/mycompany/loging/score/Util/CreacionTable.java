@@ -1,7 +1,11 @@
 package com.mycompany.loging.score.util;
 
+import com.mycompany.loging.App;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -103,8 +107,13 @@ public class CreacionTable {
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            VariableGlobales.viewImage=getTableView().getItems().get(getIndex()).getActa();
+                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getActa();
+                            try {
+                                App.setRoot(null, "viewImagen");
 //                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
+                            } catch (IOException ex) {
+                                Logger.getLogger(CreacionTable.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         });
                     }
 
@@ -115,7 +124,12 @@ public class CreacionTable {
                         if (empty) {
                             setGraphic(null);
                         } else {
-                            setGraphic(btn);
+                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
+                                setGraphic(btn);
+                            } else {
+                                setGraphic(null);
+                            }
+
                         }
                     }
                 };

@@ -6,6 +6,7 @@ package onpe.com.pe.gestorconfiguracionactas.core.business;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
@@ -38,4 +39,8 @@ public interface BusinessService {
     public List<String> findAllSections1(String nameEleccion) throws Exception;
 
     public void deleteOneSections(String nameEleccion) throws Exception;
+
+    public List<String> findSettingForNameEleccion(String nameEleccion) throws Exception;
+
+    public void updateSetting(String nameEleccion,String array) throws Exception;
 }

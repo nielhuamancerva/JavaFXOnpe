@@ -108,13 +108,7 @@
                   <String fx:value="btn_menu_inicio_mod" />
                </styleClass>
             </Button>
-            <Button layoutX="288.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarGestor" prefHeight="235.0" prefWidth="235.0" text="GESTOR">
-               <styleClass>
-                  <String fx:value="btn_menu_inicio" />
-                  <String fx:value="btn_menu_inicio_mod" />
-               </styleClass>
-            </Button>
-            <Button layoutX="573.0" layoutY="2.0" mnemonicParsing="false" onAction="#ingresarInicializador" prefHeight="235.0" prefWidth="235.0" text="INICIALIZAR">
+            <Button layoutX="559.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarInicializador" prefHeight="235.0" prefWidth="235.0" text="INICIALIZAR">
                <styleClass>
                   <String fx:value="btn_menu_inicio" />
                   <String fx:value="btn_menu_inicio_mod" />

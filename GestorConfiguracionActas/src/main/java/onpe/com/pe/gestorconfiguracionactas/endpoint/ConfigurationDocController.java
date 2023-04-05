@@ -13,34 +13,41 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 
-/**
- * FXML Controller class
- *
- * @author rdela
- */
 public class ConfigurationDocController implements Initializable {
 
     private final BusinessService businessService;
     private Setting setting = new Setting();
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
+    @FXML
+    private ScrollPane DocumentosElectorales;
+    @FXML
+    private Button btnContinuar;
+    @FXML
+    private Button btnAddSeccion;
 
     public ConfigurationDocController() {
         this.businessService = new BusinessServiceImpl();
     }
 
     @FXML
-    private Button btnRegresar, btnGuardar, ico_activar;
+    private Button btnRegresar, btnGuardar;
 
     @FXML
     private Button btnAddDocumentos;
@@ -53,18 +60,19 @@ public class ConfigurationDocController implements Initializable {
 
     ArrayList<Integer> list = new ArrayList<>();
     ArrayList<String> listCount = new ArrayList<>();
-    private TextField[] buttonEventConfi = new TextField[1];
+    TextField[] buttonEventConfi = new TextField[1];
     Button[] buttonEventAdd = new Button[1];
     Button[] buttonEventEdit = new Button[1];
     Button[] buttonEventDelete = new Button[1];
 
-    /**
-     * Initializes the controller class.
-     */
+    TextField[] TextFieldEventEdit;
+    Button[] buttonEditEventEdit;
+    Button[] buttonAddEventEdit;
+    Button[] buttonDeleteEventEdit;
+
     @Override
-
     public void initialize(URL url, ResourceBundle rb) {
-
+        btnGuardar.setDisable(true);
         try {
             Label[] labelText = new Label[businessService.findAllSections().size()];
             for (int i = 0; i < businessService.findAllSections().size(); i++) {
@@ -109,64 +117,83 @@ public class ConfigurationDocController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         try {
+
                             Gson gson = new Gson();
-                            String[] arrString = gson.fromJson(businessService.findAllSections1(name).get(0), String[].class);
-                            System.out.println(arrString);
+                            listCount = gson.fromJson(businessService.findAllSections1(name).get(0), ArrayList.class);
+
                             containerSettingModule.getChildren().clear();
                             titleDocumentSetting.setText(name);
                             titleDocumentSetting.setDisable(false);
-                            for (int i = 0; i < arrString.length; i++) {
-                                TextField textField = new TextField(String.valueOf(i));
-                                textField.setId(String.valueOf(i));
-                                textField.setDisable(true);
-                                textField.setLayoutX(10);
+                            TextFieldEventEdit = new TextField[listCount.size()];
+                            buttonEditEventEdit = new Button[listCount.size()];
+                            buttonAddEventEdit = new Button[listCount.size()];
+                            buttonDeleteEventEdit = new Button[listCount.size()];
+                            for (int i = 0; i < listCount.size(); i++) {
+                                TextFieldEventEdit[i] = new TextField(listCount.get(i));
+                                TextFieldEventEdit[i].setId(String.valueOf(i));
+                                TextFieldEventEdit[i].setDisable(true);
+                                TextFieldEventEdit[i].setLayoutX(10);
 
-                                textField.getStyleClass().add("button-initializa");
+                                TextFieldEventEdit[i].getStyleClass().add("button-initializa");
 
-                                Button button = new Button();
-                                button.setId("buttonAdd" + i);
-                                button.setLayoutX(410);
-                                button.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                                button.setDisable(true);
-                                button.getStyleClass().add("button-guardar");
+                                buttonAddEventEdit[i] = new Button();
+                                buttonAddEventEdit[i].setId("buttonAdd" + i);
+                                buttonAddEventEdit[i].setLayoutX(410);
+                                buttonAddEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                                buttonAddEventEdit[i].setDisable(true);
+                                buttonAddEventEdit[i].getStyleClass().add("button-guardar");
 
-                                Button buttonde = new Button();
-                                buttonde.setId("buttonAdd" + i);
-                                buttonde.setLayoutX(370);
-                                buttonde.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                                buttonde.getStyleClass().add("button-eliminar");
+                                buttonDeleteEventEdit[i] = new Button();
+                                buttonDeleteEventEdit[i].setId("buttonAdd" + i);
+                                buttonDeleteEventEdit[i].setLayoutX(370);
+                                buttonDeleteEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                                buttonDeleteEventEdit[i].getStyleClass().add("button-eliminar");
 
-                                Button buttonedit = new Button();
-                                buttonedit.setId("buttonAdd" + i);
-                                buttonedit.setLayoutX(450);
-                                buttonedit.getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                                buttonedit.getStyleClass().add("button-editar");
+                                buttonEditEventEdit[i] = new Button();
+                                buttonEditEventEdit[i].setId("buttonAdd" + i);
+                                buttonEditEventEdit[i].setLayoutX(450);
+                                buttonEditEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                                buttonEditEventEdit[i].getStyleClass().add("button-editar");
 
                                 AnchorPane conteninerTextFieldAndButton = new AnchorPane();
-                                conteninerTextFieldAndButton.getChildren().addAll(textField, buttonde, buttonedit, button);
+                                conteninerTextFieldAndButton.getChildren().addAll(TextFieldEventEdit[i], buttonDeleteEventEdit[i], buttonEditEventEdit[i], buttonAddEventEdit[i]);
 
                                 containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
                                 containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
-
-                                buttonedit.setOnAction(new EventHandler<ActionEvent>() {
+                                Button btAdds = buttonAddEventEdit[i];
+                                TextField textField = TextFieldEventEdit[i];
+                                buttonEditEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
                                     @Override
                                     public void handle(ActionEvent event) {
-                                        listCount.add(textField.getText());
-                                        button.setDisable(false);
+
+                                        btAdds.setDisable(false);
                                         textField.setDisable(false);
+//                                          listCount.add(textField.getText());
+
                                     }
                                 });
 
-                                button.setOnAction(new EventHandler<ActionEvent>() {
+                                buttonDeleteEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
                                     @Override
                                     public void handle(ActionEvent event) {
-                                        listCount.add(textField.getText());
-                                        button.setDisable(true);
+
+                                        listCount.set(Integer.parseInt(textField.getId()), textField.getText());
+                                        btAdds.setDisable(true);
                                         textField.setDisable(true);
+                                        if (verificarButton()) {
+                                            btnGuardar.setDisable(false);
+                                        };
                                     }
                                 });
 
-                                btnGuardar.setDisable(false);
+                                buttonDeleteEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
+                                    @Override
+                                    public void handle(ActionEvent event) {
+                                        conteninerTextFieldAndButton.getChildren().removeAll(textField, btAdds);
+                                        containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
+                                    }
+                                });
+
                             }
 
                         } catch (Exception ex) {
@@ -206,6 +233,7 @@ public class ConfigurationDocController implements Initializable {
             buttonEventEdit[i] = new Button();
             buttonEventEdit[i].setId("buttonAdd" + i);
             buttonEventEdit[i].setLayoutX(450);
+            buttonEventEdit[i].setDisable(true);
             buttonEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
             buttonEventEdit[i].getStyleClass().add("button-editar");
 
@@ -223,12 +251,24 @@ public class ConfigurationDocController implements Initializable {
             buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    listCount.add(textField.getText());
+
                     btAdds.setDisable(true);
                     textField.setDisable(true);
-                    if (Integer.parseInt(textField.getId()) == list.size() - 1) {
-                        btnGuardar.setDisable(false);
+
+                    if (listCount.size() != 0) {
+                        if (btEdit.isDisabled()) {
+                            listCount.add(textField.getText());
+                        } else {
+                            listCount.set(Integer.parseInt(textField.getId()), textField.getText());
+                        }
+                    } else {
+                        listCount.add(textField.getText());
                     }
+
+                    btEdit.setDisable(false);
+                    if (verificarButton()) {
+                        btnGuardar.setDisable(false);
+                    };
                 }
             });
 
@@ -236,7 +276,7 @@ public class ConfigurationDocController implements Initializable {
             buttonEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    listCount.add(textField.getText());
+
                     btAdds.setDisable(false);
                     textField.setDisable(false);
                 }
@@ -246,7 +286,7 @@ public class ConfigurationDocController implements Initializable {
                 @Override
                 public void handle(ActionEvent event) {
 
-                    conteninerTextFieldAndButton.getChildren().removeAll(textField,btDelete,btEdit, btAdds);
+                    conteninerTextFieldAndButton.getChildren().removeAll(textField, btDelete, btEdit, btAdds);
                     containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
                 }
             });
@@ -257,8 +297,13 @@ public class ConfigurationDocController implements Initializable {
     }
 
     @FXML
-    private void createNewSetting(ActionEvent event) {
+    private void createNewSetting(ActionEvent event) throws IOException {
+        list = new ArrayList<>();
+        listCount = new ArrayList<>();
+        containerSettingModule.getChildren().clear();
+        titleDocumentSetting.clear();
         titleDocumentSetting.setDisable(false);
+
     }
 
     @FXML
@@ -268,13 +313,31 @@ public class ConfigurationDocController implements Initializable {
 
     @FXML
     private void actionGuardar(ActionEvent event) throws Exception {
-        setting.setId_setting(UUID.randomUUID().toString());
-        setting.setName(titleDocumentSetting.getText());
-        setting.setStatusSetting("0");
-        Gson gson = new Gson();
-        setting.setSetting(gson.toJson(listCount));
-        businessService.saveSetting(setting);
-        App.setRoot(null, "configurationDoc");
+        listCount.clear();
+        for (Node node : containerSettingModule.getChildren()) {
+            AnchorPane ap = (AnchorPane) node;
+            for (Node button : ap.getChildren()) {
+                if (button instanceof TextField) {
+
+                    listCount.add(((TextField) button).getText());
+
+                }
+            }
+        }
+
+        if (businessService.findSettingForNameEleccion(titleDocumentSetting.getText()).isEmpty()) {
+            setting.setId_setting(UUID.randomUUID().toString());
+            setting.setName(titleDocumentSetting.getText());
+            setting.setStatusSetting("0");
+            Gson gson = new Gson();
+            setting.setSetting(gson.toJson(listCount));
+            businessService.saveSetting(setting);
+            App.setRoot(null, "configurationDoc");
+        } else {
+            Gson gson = new Gson();
+            businessService.updateSetting(titleDocumentSetting.getText(), gson.toJson(listCount));
+        }
+        btnGuardar.setDisable(true);
     }
 
     @FXML
@@ -283,4 +346,20 @@ public class ConfigurationDocController implements Initializable {
         App.setRoot(null, "configuraSecciones");
     }
 
+    public Boolean verificarButton() {
+        Boolean uu = null;
+        for (Node node : containerSettingModule.getChildren()) {
+            AnchorPane ap = (AnchorPane) node;
+            for (Node button : ap.getChildren()) {
+                if (button instanceof TextField) {
+                    if (button.isDisabled()) {
+                        uu = Boolean.TRUE;
+                    } else {
+                        return Boolean.FALSE;
+                    }
+                }
+            }
+        }
+        return uu;
+    }
 }

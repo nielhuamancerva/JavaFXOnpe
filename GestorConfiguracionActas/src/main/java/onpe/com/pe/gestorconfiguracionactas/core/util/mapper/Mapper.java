@@ -20,7 +20,7 @@ import org.bson.Document;
  */
 public class Mapper {
 
-    public static Document actaCastToDocument(Setting ss) {
+    public static Document settingCastToDocument(Setting ss) {
         Document document = new Document();
         document.append("id_setting", ss.getId_setting());
         document.append("name", ss.getName());
@@ -35,6 +35,8 @@ public class Mapper {
         document.append("coordinates", "");
         return document;
     }
+    
+
 
     public static ObservableList<Setting> actaCastToDocument(FindIterable<Document> listDocument) {
         List<Setting> listSetting = new ArrayList();

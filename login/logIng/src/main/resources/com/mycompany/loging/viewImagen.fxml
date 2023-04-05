@@ -21,7 +21,7 @@
                         <Image url="@../../../imagenes/logo_onpe%20modulos.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="imageDocumentos" fitHeight="958.0" fitWidth="1033.0" layoutX="401.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageDocumentos" fitHeight="848.0" fitWidth="914.0" layoutX="513.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
 </children></AnchorPane>
 </children></AnchorPane>   
    </children>

@@ -76,11 +76,6 @@ public class RegistrarObsController implements Initializable {
         codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
     }
 
-//    private void registrarFma() throws IOException {
-//        VariableGlobales.actasLeida.setObservaciones(textObservaciones.getText());
-//        App.setRoot(null, "registrarFirma");
-//    }
-
     @FXML
     private void regresaActasV() throws IOException {
         App.setRoot(null, "leerActasVotos");
@@ -125,10 +120,6 @@ public class RegistrarObsController implements Initializable {
         factory.setUsername("admin");
         factory.setPassword("admin");
         factory.setVirtualHost("/");
-//        factory.setHost("localhost");
-//        factory.setUsername("guest");
-//        factory.setPassword("guest");
-//        factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
