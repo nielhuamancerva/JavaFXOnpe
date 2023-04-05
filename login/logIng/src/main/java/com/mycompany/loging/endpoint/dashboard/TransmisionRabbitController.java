@@ -1,6 +1,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
@@ -30,6 +31,9 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import com.github.cliftonlabs.json_simple.JsonObject;
+import com.mycompany.loging.score.util.CreateObject;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class TransmisionRabbitController implements Initializable {
 
@@ -41,10 +45,12 @@ public class TransmisionRabbitController implements Initializable {
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
 
     @FXML
-    private Button btnTransmitir;
+    ImageView observacionesActa, codigoBarra;
     @FXML
-    private Button btnRegresar;
-
+    private Button btnTransmitir, btnRegresar;
+    @FXML
+    private Label numVotoPreferencial, lblTipoActa;
+    
     public TransmisionRabbitController() {
         this.negocioService = new NegocioServiceImpl();
 //        this.dropShadowE = new DropShadowE();
@@ -54,6 +60,19 @@ public class TransmisionRabbitController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 //        dropShadowE.setTabEffect(btnTransmitir);
 //        dropShadowE.setTabEffect(btnRegresar);
+
+        try {
+                negocioService.readAndCutObservations(
+                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Xo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Yo")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Ancho")),
+                Integer.parseInt(VariableGlobales.configuracionActa.get("4" + "Alto"))
+            );
+                lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+        } catch (Exception e) {
+        }
+        observacionesActa.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("observaciones")));
+        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
     }
     
     public String toJson() throws IOException {
@@ -82,6 +101,7 @@ public class TransmisionRabbitController implements Initializable {
 
         String jsonString = null;
 	ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 	jsonString = (cifrar(mapper.writeValueAsString(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida))));
         channel.basicPublish("", QUEUE_NAME, null, jsonString.getBytes("UTF-8"));
 
