@@ -96,7 +96,25 @@ public class ConfiguraSeccionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         numEs = 0;
-        
+
+        // cargando el acta
+        if (VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal") != null) {
+            img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+            imgViewActa.setImage(img);
+            scrollPaneActa.setVvalue(0.5);
+            scrollPaneActa.setHvalue(0.5);
+            scrollPaneActa.setContent(imgViewActa);
+            if (numEs == 0) {
+                escalaLo = imgViewActa.getScaleX();
+                numEs = 1;
+            }
+            if ((int) imgViewActa.getImage().getHeight() > 4500) {
+                encuadrarActa(3, escalaLo);
+            } else if ((int) imgViewActa.getImage().getHeight() < 3600) {
+                encuadrarActa(2, escalaLo);
+                System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
+            }
+        }
 
         imgViewActa.setDisable(true);
         try {
@@ -104,23 +122,23 @@ public class ConfiguraSeccionesController implements Initializable {
         } catch (Exception e) {
             System.out.println("error");
         }
-        
-        if(!VariableGlobales.identificaActa.isEmpty()){
-              VariableGlobales.identificaActa.clear();
+
+        if (!VariableGlobales.identificaActa.isEmpty()) {
+            VariableGlobales.identificaActa.clear();
         }
 
         //evento a combobox
         cboDocumentos.setOnAction(event -> {
             String seleccion = cboDocumentos.getSelectionModel().getSelectedItem().toString();
-            VariableGlobales.identificaActa.put("nombreActaSeleccion",seleccion);
+            VariableGlobales.identificaActa.put("nombreActaSeleccion", seleccion);
             //configuracionActa.put("tituloActaValidar",seleccion);
 
             try {
                 int i = 0;
                 for (Setting item : businessService.findAllSettingOnlyEleccion()) {
                     System.out.println("bucle for------" + seleccion + "||||" + ":" + item.getName().toString());
-                    VariableGlobales.identificaActa.put("idSectionActaSeleccion",item.getId_setting());
-                    VariableGlobales.identificaActa.put("nombreSeleccion",item.getName());
+                    VariableGlobales.identificaActa.put("idSectionActaSeleccion", item.getId_setting());
+                    VariableGlobales.identificaActa.put("nombreSeleccion", item.getName());
                     if (seleccion.equals(item.getName().toString())) {
                         //businessService.uploadSections(item.getId_setting(),configuracionActa.toString());// actualiza en base de datos
                         //item.getSetting().
@@ -140,14 +158,14 @@ public class ConfiguraSeccionesController implements Initializable {
                             listLabel[i] = new Label(String.valueOf(configuracion));
                             listLabel[i].setStyle("-fx-font-size: 24px; -fx-text-fill: black;");
                             listLabel[i].setCursor(Cursor.HAND);
-                            listaBotones[i] =new Button();
+                            listaBotones[i] = new Button();
                             listaBotones[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
                             listaBotones[i].getStyleClass().add("button-activar-seccion");
                             //listaBotones[i].setB
-                            Button btnTem =listaBotones[i];
+                            Button btnTem = listaBotones[i];
 
                             listLabel[i].setOnMouseClicked((MouseEvent ev) -> {
-                                if(ev.getButton()==MouseButton.PRIMARY){
+                                if (ev.getButton() == MouseButton.PRIMARY) {
                                     btnTem.setDisable(true);
                                 }
                                 imgViewActa.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -239,14 +257,14 @@ public class ConfiguraSeccionesController implements Initializable {
                                         imgViewActa.setImage(ImW);
                                         scrollPaneActa.setContent(imgViewActa);
                                         //configuracionActa.put(configuracion + "Xo", Double.toString(minX));
-                                        VariableGlobales.coordenadasActa.put(configuracion+"Xo", Double.toString(minX));
+                                        VariableGlobales.coordenadasActa.put(configuracion + "Xo", Double.toString(minX));
                                         //configuracionActa.put(configuracion + "Yo", Double.toString(minY));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Yo", Double.toString(minY));
                                         //configuracionActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         //configuracionActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
-                                         System.out.println("datos en Globales"+VariableGlobales.configuracionActa);
+                                        System.out.println("datos en Globales" + VariableGlobales.configuracionActa);
                                         //algoritmo para inserccion de base de datos
 //                                        try {
 //                                           
@@ -260,7 +278,7 @@ public class ConfiguraSeccionesController implements Initializable {
                                 });
                             });
                             //AnchorPane anchor = new AnchorPane();// despues se grafica con el Hbox
-                            HBox hbox= new HBox();
+                            HBox hbox = new HBox();
                             hbox.getChildren().add(listLabel[i]);
                             hbox.getChildren().add(listaBotones[i]);
                             vboxPane.getChildren().add(hbox);
@@ -268,9 +286,9 @@ public class ConfiguraSeccionesController implements Initializable {
                         }
 
                     }
-                    
+
                 }
-                
+
             } catch (Exception e) {
             }
 
@@ -300,12 +318,10 @@ public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
     private void actionContinuar() throws IOException {
-        configuracionActa.put("tituloActaValidar","misdatosass a");
+        configuracionActa.put("tituloActaValidar", "misdatosass a");
         App.setRoot(null, "validarSeccion");
-        
 
     }
-    
 
     @FXML
     private void cargarActa() {
@@ -315,7 +331,7 @@ public class ConfiguraSeccionesController implements Initializable {
         //lbArchivosEncontrados.setText(businessService.uploadFileOnMemory(fileSeleccionado));
 
         //img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
-        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal",fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
+        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
         img = new Image(fileSeleccionado.getPath().toString());
         imgViewActa.setImage(img);
         //amarrando las escalas del imageview al del scrollpanel
