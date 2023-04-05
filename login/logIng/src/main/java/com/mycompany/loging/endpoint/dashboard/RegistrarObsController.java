@@ -135,8 +135,11 @@ public class RegistrarObsController implements Initializable {
         
         
         //System.out.println(VariableGlobales.actasLeida);
+        
         Gson gson = new Gson();
         String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+        
+        
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();

@@ -1,6 +1,5 @@
 package com.mycompany.loging.endpoint.dashboard;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
@@ -29,9 +28,8 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import com.github.cliftonlabs.json_simple.JsonObject;
 
-public class TransmisionRabbitController implements Initializable {
+public class TransmisionRabbitAnteriorController implements Initializable {
 
     private final NegocioService negocioService;
     private static final String QUEUE_NAME = "cola_niel"; //nombre de la cola
@@ -45,22 +43,17 @@ public class TransmisionRabbitController implements Initializable {
     @FXML
     private Button btnRegresar;
 
-    public TransmisionRabbitController() {
+    public TransmisionRabbitAnteriorController() {
         this.negocioService = new NegocioServiceImpl();
-//        this.dropShadowE = new DropShadowE();
+        this.dropShadowE = new DropShadowE();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        dropShadowE.setTabEffect(btnTransmitir);
-//        dropShadowE.setTabEffect(btnRegresar);
+        dropShadowE.setTabEffect(btnTransmitir);
+        dropShadowE.setTabEffect(btnRegresar);
     }
-    
-    public String toJson() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(this);
-    }
-    
+
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -75,15 +68,11 @@ public class TransmisionRabbitController implements Initializable {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+        Gson gson = new Gson();
 
-        //Gson gson = new Gson();
-        //String json = 
-        //cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
 
-        String jsonString = null;
-	ObjectMapper mapper = new ObjectMapper();
-	jsonString = (cifrar(mapper.writeValueAsString(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida))));
-        channel.basicPublish("", QUEUE_NAME, null, jsonString.getBytes("UTF-8"));
+        channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
         channel.close();
         connection.close();
@@ -119,8 +108,5 @@ public class TransmisionRabbitController implements Initializable {
         App.setRoot(null, "registrarFirma");
 
     }
-    @FXML
-    private void regresaActasV() throws IOException {
-        App.setRoot(null, "leerActasVotos");
-    }
+
 }
