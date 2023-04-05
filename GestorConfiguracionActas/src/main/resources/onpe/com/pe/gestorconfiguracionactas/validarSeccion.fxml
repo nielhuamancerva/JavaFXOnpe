@@ -13,13 +13,7 @@
 <children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 <children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
       <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <HBox layoutX="275.0" layoutY="-32.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="7.0">
-               <children>
-                  <Button id="btnRegresar" fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="83.0" prefWidth="63.0" styleClass="btn_anterior" text="ANTERIOR" />
-                  <Button id="btnContinuar" fx:id="btnContinuar" mnemonicParsing="false" onAction="#actionFinaliza" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="CONTINUAR" />
-               </children>
-            </HBox><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
+         <children><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
                         <ImageView fitHeight="68.0" fitWidth="200.0" layoutX="-4.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/logo_onpe%20modulos.png" />
@@ -32,6 +26,20 @@
                         <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
                      </content>
                   </ScrollPane>
+                  <AnchorPane layoutX="1293.0" layoutY="910.0" prefHeight="76.0" prefWidth="466.0">
+                     <children>
+                        <Button fx:id="btnContinuar" layoutX="254.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionFinaliza" prefHeight="51.0" prefWidth="177.0" styleClass="button-grabar" text="Finalizar">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnRegresar" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="177.0" styleClass="button-retroceder" text="Regresar">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
 </children></AnchorPane>
             <AnchorPane layoutX="39.0" layoutY="37.0">
                <children>

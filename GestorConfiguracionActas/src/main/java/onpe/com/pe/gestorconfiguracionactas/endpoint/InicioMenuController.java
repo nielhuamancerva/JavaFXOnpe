@@ -15,12 +15,10 @@ public class InicioMenuController implements Initializable {
 
     @FXML
     private void ingresarConfiguracion() throws IOException {
-
 //        App.setRoot(null, "configurarActa");
         App.setRoot(null, "configuraSecciones");
     }
 
-    @FXML
     private void ingresarGestor() throws IOException {
         App.setRoot(null, "gestorActa");
     }

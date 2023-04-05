@@ -60,8 +60,6 @@ public class ConfiguraSeccionesController implements Initializable {
     @FXML
     private ComboBox<String> cboDocumentos;
     @FXML
-    private Button ico_activar;
-    @FXML
     private ScrollPane scrollPaneActa;
     @FXML
     private VBox vboxPane;
@@ -79,6 +77,14 @@ public class ConfiguraSeccionesController implements Initializable {
     double escalaLo;
     @FXML
     private Button btnValidar;
+    @FXML
+    private Button btnRegresar;
+    @FXML
+    private AnchorPane anchorPane;
+    @FXML
+    private Label numVotoPreferencial;
+    @FXML
+    private Label etiquetaVotoRev;
 
     /**
      * Initializes the controller class.
@@ -289,7 +295,7 @@ public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
     private void actionRegresar() throws IOException {
-        App.setRoot(null, "inicioMenu0");
+        App.setRoot(null, "inicioMenu");
     }
 
     @FXML
