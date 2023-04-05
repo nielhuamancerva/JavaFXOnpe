@@ -60,6 +60,7 @@ public class ValidarSeccionController implements Initializable {
 
     private int numEs = 0;
     private double escalaLo;
+
     /**
      * Initializes the controller class.
      */
@@ -92,12 +93,14 @@ public class ValidarSeccionController implements Initializable {
                     Gson gson = new Gson();
                     String[] arreglo = gson.fromJson(item.getSetting(), String[].class);
                     for (var configuracion : arreglo) {
-                        System.out.println("DATOS DE ARRAYS:::::" + configuracion);
-                        gc.setStroke(Color.RED);
-                        gc.setLineWidth(10);
-                        //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
-                        System.out.println("variables vacias o nel :" + VariableGlobales.coordenadasActa.get(configuracion + "Xo"));
-                        gc.strokeRect(Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Xo")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Yo")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Ancho")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Alto")));
+                        if (VariableGlobales.coordenadasActa.get(configuracion + "Xo") != null) {
+                            System.out.println("DATOS DE ARRAYS:::::" + configuracion);
+                            gc.setStroke(Color.RED);
+                            gc.setLineWidth(10);
+                            //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
+                            System.out.println("variables vacias o nel :" + VariableGlobales.coordenadasActa.get(configuracion + "Xo"));
+                            gc.strokeRect(Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Xo")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Yo")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Ancho")), Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion + "Alto")));
+                        }
                     }
                 }
             }
@@ -142,7 +145,7 @@ public class ValidarSeccionController implements Initializable {
                 } catch (Exception e) {
                     System.out.println("datos:" + e);
                 }
-                
+
             }
         });
 
