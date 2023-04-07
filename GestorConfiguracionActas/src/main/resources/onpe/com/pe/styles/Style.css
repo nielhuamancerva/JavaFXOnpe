@@ -127,7 +127,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-/*    -fx-text-fill: back;*/
+    /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/button-add_on.png');
@@ -148,7 +148,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-/*    -fx-text-fill: back;*/
+    /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/grabar-on.png');
@@ -164,7 +164,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-/*    -fx-text-fill: back;*/
+    /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/editar-on.png');
@@ -180,7 +180,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-/*    -fx-text-fill: back;*/
+    /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/ico-delete.png');
@@ -195,7 +195,7 @@
     -fx-background-position: top center ;
     -fx-font-family: "Roboto Condensed";
     -fx-font-size: 13px;
-/*    -fx-text-fill: back;*/
+    /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
     -fx-background-image: url('../image/seccion-add-off.png');
@@ -266,4 +266,57 @@
 .borde-pane-black{
     -fx-border-width: 2px;
     -fx-border-color: black;
+}
+
+.btn-image{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    /*    -fx-text-fill: back;*/
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+}
+.image-barra{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/barra.png');
+    -fx-background-size:40px;
+}
+
+.image-documento{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/documento.png');
+    -fx-background-size:40px;
+}
+
+.image-reloj{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/reloj.png');
+    -fx-background-size:40px;
+}
+
+.image-firma1{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/firma.png');
+    -fx-background-size:40px;
+}
+
+.image-firma2{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/firma2.png');
+    -fx-background-size:40px;
+}
+
+.image-observacion{
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-background-image: url('../image/observacion.png');
+    -fx-background-size:40px;
 }
