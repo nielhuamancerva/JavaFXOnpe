@@ -33,22 +33,21 @@ public class App extends Application {
         if (Objects.nonNull(stage)) {
             scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
 
-            scene.setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.ESCAPE) {
-                    event.consume(); // Evita que se procese la pulsación de la tecla
-                }
-            });
+//            scene.setOnKeyPressed(event -> {
+//                if (event.getCode() == KeyCode.ESCAPE) {
+//                    event.consume(); // Evita que se procese la pulsación de la tecla
+//                }
+//            });
             
             stage.setFullScreen(true); //true
             stage.setScene(scene);
-
             stage.show();
         }
 
-//        else {
-//            sc.setFullScreen(true);
-//            scene.setRoot(loadFXML(fxml));
-//        }
+        else {
+            sc.setFullScreen(true);
+            scene.setRoot(loadFXML(fxml));
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
