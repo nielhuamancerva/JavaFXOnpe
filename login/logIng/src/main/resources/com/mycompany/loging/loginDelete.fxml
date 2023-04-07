@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" styleClass="apPreLoginn" stylesheets="@../../../css/login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.mycompany.loging.LoginNController">
+   <children>
+      <HBox>
+         <children>
+            <VBox prefHeight="700.0" prefWidth="1202.0">
+               <children>
+                  <HBox prefHeight="703.0" prefWidth="1200.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="2000.0" />
+                        <AnchorPane maxWidth="621.0" minWidth="621.0" prefHeight="683.0" prefWidth="621.0" />
+                        <AnchorPane minWidth="0.0" prefHeight="683.0" prefWidth="2000.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="700.0" prefWidth="1200.0">
+         <children>
+            <VBox prefHeight="449.0" prefWidth="725.0">
+               <children>
+                  <AnchorPane prefHeight="683.0" prefWidth="956.0" styleClass="apLogeo" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

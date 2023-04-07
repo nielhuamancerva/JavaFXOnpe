@@ -13,8 +13,10 @@ import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import java.util.Objects;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 public class LoginController {
 
@@ -23,6 +25,10 @@ public class LoginController {
     private final DropShadowE dropShadowE;
     @FXML
     private Button btnIngresar;
+    @FXML
+    private AnchorPane ppAnchorPane;
+    @FXML
+    private Button btnSalir;
 
     private void initialize() {
         dropShadowE.setTabEffect(btnIngresar);
@@ -60,7 +66,8 @@ public class LoginController {
         }
     }
 
-    private void salirApp() throws Exception {
+    @FXML
+    private void actionSalir() throws Exception {
         Platform.exit();
         System.exit(0);
     }
