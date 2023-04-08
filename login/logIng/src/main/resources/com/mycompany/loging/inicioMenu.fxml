@@ -1,61 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="body_menu_inicio" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.InicioMenuController">
-   <children>
-      <AnchorPane layoutX="-2.0" prefHeight="75.0" prefWidth="1922.0" style="-fx-background-color: #000000;">
-         <children>
-            <ImageView fitHeight="60.0" fitWidth="254.0" layoutX="11.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../imagenes/core.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="747.0" layoutY="14.0" text="Suite de Computo Electoral  " textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="32.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="1043.0" prefHeight="33.0" prefWidth="1920.0" style="-fx-background-color: #004788;" />
-      <AnchorPane layoutX="50.0" layoutY="107.0" prefHeight="66.0" prefWidth="1821.0" style="-fx-background-color: #011b40;">
-         <children>
-            <Label layoutX="592.0" layoutY="13.0" text="Elecciones Generales y Parlamento Andino 2025" textFill="WHITE">
-               <font>
-                  <Font size="29.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="142.0" layoutY="237.0" prefHeight="238.0" prefWidth="1328.0">
-         <children>
-            <Button layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#switchToTransmision" prefHeight="235.0" prefWidth="235.0" text="Registro">
-               <styleClass>
-                  <String fx:value="btn_menu_inicio" />
-                  <String fx:value="btn_menu_inicio_mod" />
-               </styleClass>
-            </Button>
-            <Button layoutX="540.0" layoutY="1.0" mnemonicParsing="false" onAction="#ingresarSeguimientoActa" prefHeight="235.0" prefWidth="235.0" text="Seguimiento Acta">
-               <styleClass>
-                  <String fx:value="btn_menu_inicio-segui" />
-                  <String fx:value="btn_menu_inicio-segui_mod" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="142.0" layoutY="517.0" prefHeight="238.0" prefWidth="1328.0" />
-   </children>
+<AnchorPane id="AnchorPane" fx:id="apDashboard" minHeight="768.0" minWidth="1366.0" prefHeight="768.0" prefWidth="1366.0" styleClass="apPrincipal" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.InicioMenuController">
+    <children>
+        <HBox alignment="CENTER" layoutX="149.0" layoutY="142.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+                    <children>
+                        <AnchorPane prefHeight="506.0" prefWidth="1366.0" styleClass="apVerde">
+                            <children>
+                                <ImageView fitHeight="110.0" fitWidth="151.0" layoutX="70.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../imagenes/logoOnpePrincipal.png" />
+                                    </image>
+                                </ImageView>
+                                <HBox alignment="CENTER" layoutY="239.0" prefHeight="590.0" prefWidth="1366.0" AnchorPane.bottomAnchor="-28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-190.0">
+                                    <children>
+                                        <AnchorPane layoutX="275.0" layoutY="33.0" prefHeight="504.0" prefWidth="1067.0" AnchorPane.bottomAnchor="-30.0">
+                                            <children>
+                                                <AnchorPane layoutX="53.0" layoutY="80.0" prefHeight="377.0" prefWidth="503.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0" AnchorPane.leftAnchor="53.0">
+                                                    <children>
+                                                        <AnchorPane layoutY="119.0" prefHeight="223.0" prefWidth="205.0" styleClass="apIcono1" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="264.0" layoutY="308.0" prefHeight="360.0" prefWidth="408.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0">
+                                                    <children>
+                                                        <AnchorPane layoutX="39.0" layoutY="-50.0" prefHeight="205.0" prefWidth="219.0" styleClass="apIcono2" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="704.0" layoutY="318.0" prefHeight="354.0" prefWidth="360.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0">
+                                                    <children>
+                                                        <AnchorPane layoutX="48.0" layoutY="2.0" prefHeight="190.0" prefWidth="227.0" styleClass="apIcono4" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="767.0" layoutY="308.0" prefHeight="230.0" prefWidth="300.0" styleClass="apImagen1" visible="false" AnchorPane.bottomAnchor="-110.0">
+                                                    <children>
+                                                        <AnchorPane layoutX="609.0" layoutY="79.0" prefHeight="110.0" prefWidth="110.0" styleClass="apIcono5" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="84.0" minHeight="408.0" prefHeight="595.0" prefWidth="983.0" styleClass="apImgMano" AnchorPane.bottomAnchor="0.0">
+                                       <children>
+                                                      <AnchorPane layoutX="400.0" layoutY="370.0" prefHeight="354.0" prefWidth="379.0" styleClass="apImagen1">
+                                                          <children>
+                                                              <AnchorPane layoutX="41.0" layoutY="-12.0" prefHeight="205.0" prefWidth="205.0" styleClass="apIcono3" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-12.0" />
+                                                          </children>
+                                                      </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </HBox>
+                                <AnchorPane opacity="0.74" prefHeight="23.0" prefWidth="1366.0" styleClass="apSombra" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="50.0" layoutY="144.0" prefHeight="127.0" prefWidth="180.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="600.0" prefWidth="3000.0" styleClass="apBlanco">
+                            <children>                                
+                                <VBox prefHeight="285.0" prefWidth="1366.0" AnchorPane.bottomAnchor="108.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <children>
+                                        <HBox alignment="CENTER" prefHeight="186.0" prefWidth="1366.0" />
+                                        <HBox alignment="CENTER" prefHeight="210.0" prefWidth="1198.0">
+                                            <children>
+                                                <VBox alignment="CENTER" prefHeight="343.0" prefWidth="1198.0">
+                                                    <children>
+                                                        <HBox alignment="CENTER" prefHeight="223.0" prefWidth="1198.0">
+                                                            <children>
+                                                                <!--<Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showSolicitudAction" styleClass="btnMain,btn-ejustif" text="EXCUSAS / JUSTIFICACIONES" textAlignment="CENTER" wrapText="true" />
+                                                                <ImageView fitHeight="127.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../image/imgDivision.png" />
+                                                                    </image>
+                                                                </ImageView>-->
+                                                                <Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToTransmision" text="REGISTRO" textAlignment="CENTER" wrapText="true">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <styleClass>
+                                                      <String fx:value="btn-exclusion" />
+                                                      <String fx:value="btnMain" />
+                                                   </styleClass></Button>
+                                                                <ImageView fitHeight="127.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@../../../imagenes/imgDivision.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                                <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#ingresarSeguimientoActa" prefWidth="140.0" text="SEGUIMIENTO DE ACTA">
+                                                                    <styleClass>
+                                                                        <String fx:value="btnMain" />
+                                                                        <String fx:value="btn-reportes" />
+                                                                    </styleClass>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                                </Button>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <AnchorPane prefHeight="156.0" prefWidth="485.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <HBox alignment="CENTER" prefHeight="156.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <ImageView fitHeight="98.0" fitWidth="648.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../imagenes/sistema-name.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <fx:include source="footer_dashboard.fxml" />
+    </children>
+   <stylesheets>
+      <URL value="@../../../css/dashboard.css" />
+      <URL value="@../../../css/local.css" />
+   </stylesheets>
 </AnchorPane>

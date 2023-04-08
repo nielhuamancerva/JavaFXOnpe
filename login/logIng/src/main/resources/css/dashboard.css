@@ -1,0 +1,114 @@
+.apFooter{
+    -fx-background-color: #001b3f;
+}
+
+.btnVersion{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 40px;
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+
+}
+
+.lbl-footer
+{
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.btnAdministrador{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;
+    -fx-pref-width: 220px;
+/*    -fx-background-image: url("../image/icoBtnAdministrador.png");*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:10;
+    -fx-background-size: 30;
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 18 0 17 20;
+}
+
+.apImagen1{
+    -fx-background-image: url("../imagenes/imgSombraIcon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 445;
+    -fx-background-position: 12 12;
+}
+.apIcono1{
+    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/onpecito.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 200,140;
+    -fx-background-position: center, center;
+}
+.apIcono2{
+    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/verifica_votos.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 200,140;
+    -fx-background-position: center, center;
+}
+.apIcono3{
+    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/acta_obs.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 200,140;
+    -fx-background-position: center, center;
+}
+.apIcono4{
+    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/conteo2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 200,140;
+    -fx-background-position: center, center;
+}
+/*.apIcono5{
+    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/boca_urna.png"); 
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 110,60;
+    -fx-background-position: center, center;  
+}*/
+
+
+.btnMain{
+/*    -fx-cursor: hand;*/
+    -fx-pref-width: 250px;
+    -fx-pref-height: 180px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:90 95;
+    -fx-background-position: center 5;
+/*    -fx-border-style:none;*/
+    -fx-background-color: transparent;
+    -fx-line-height:1;
+    -fx-text-fill: #001b3f;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-font-family: "Calibri";
+}
+/*.btnMain:hover{
+    -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
+    -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
+    -fx-cursor: hand !important;
+}*/
+
+.btn-exclusion
+{
+    -fx-background-image: url("../imagenes/ico_registro.png");
+}
+
+.btn-reportes
+{
+    -fx-background-image: url("../imagenes/ico_seguimiento.png");
+}
+
+.title_eleccion_main{
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold; 
+}

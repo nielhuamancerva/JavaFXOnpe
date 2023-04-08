@@ -1,3 +1,35 @@
 :root {
-    -fx-font-family: "Roboto Condensed";
+    -fx-font-family: "Calibri";
+}
+
+.btnCerrarSesion{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;    
+    -fx-pref-width: 220px;
+    -fx-pref-height: 40px;
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.apCerrarSesionHead{
+    -fx-background-image: url("../imagenes/imgTrianguloVolteado.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:top center;
+    -fx-background-size: 40;
+}
+.apCerrarSesionFooter{
+    -fx-background-image: url("../imagenes/imgTrianguloBtn.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:bottom center;
+    -fx-background-size: 40;
+}
+
+.apPrincipal{
+    -fx-background-color: #004788;
+}
+
+.apBlanco{
+    -fx-background-color: #FFFFFF !important;
 }
