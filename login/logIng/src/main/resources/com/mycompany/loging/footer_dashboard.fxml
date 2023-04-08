@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.Footer_dashboardController">
     <children>
         <Button fx:id="btnVersion" alignment="BOTTOM_LEFT" layoutX="9.0" layoutY="10.0" mnemonicParsing="false" onAction="#showVersion" prefHeight="60.0" prefWidth="160.0" styleClass="btnVersion" text="VERSIÓN: 0.1" AnchorPane.bottomAnchor="10.0" />
-        <Button fx:id="btnAdministrador" alignment="BOTTOM_CENTER" layoutX="1131.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#btnAdministradorEntered" onMouseExited="#btnAdministradorExited" prefWidth="204.0" styleClass="btnAdministrador" text="ADMINISTRADOR" AnchorPane.rightAnchor="16.0">
+        <Button fx:id="btnAdministrador" alignment="BOTTOM_CENTER" layoutX="1131.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#btnAdministradorEntered" onMouseExited="#btnAdministradorExited" prefWidth="204.0" styleClass="btnAdministrador" text="USUARIO" AnchorPane.rightAnchor="16.0">
             <font>
                 <Font name="Calibri" size="12.0" />
             </font>

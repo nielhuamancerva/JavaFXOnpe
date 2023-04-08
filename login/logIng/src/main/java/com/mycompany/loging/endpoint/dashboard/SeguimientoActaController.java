@@ -30,12 +30,6 @@ import javafx.scene.layout.AnchorPane;
 public class SeguimientoActaController implements Initializable {
 
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private Label numVotoPreferencial;
-    @FXML
-    private Label etiquetaVotoRev;
-    @FXML
     private TableView<Actas> tableActas;
 
     /**
@@ -60,7 +54,6 @@ public class SeguimientoActaController implements Initializable {
         }
     }
 
-    @FXML
     private void actionSalir() throws IOException {
         App.setRoot(null, "inicioMenu");
     }

@@ -1,0 +1,100 @@
+
+
+.report
+{
+/*    //-fx-background-color: #00A851;  */
+}
+
+
+.head-color{
+    -fx-background-color: #E7E6E6;    
+}
+.background_1
+{
+    -fx-background-color: #666666;    
+}
+.background_2
+{
+    -fx-background-color: #808080;       
+}
+.header-grid
+{
+    -fx-border-width: 0 0 0 0px;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+    -fx-background-color: #666666; 
+/*    -fx-pref-height:40px;*/
+}
+.header-grid Label{
+    -fx-text-fill:#FFF;
+    -fx-border-width:0 0 0 0;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+    -fx-font-size:20px;
+/*  -fx-font-weight: bold;*/
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-alignment:center;
+}
+.scroll 
+{
+    -fx-background-color:transparent;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+}
+.grid
+{
+    -fx-background-color: #FFF; 
+    -fx-border-width:2px 0 0 2px;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+    -fx-padding:0px;
+}
+
+.grid Label
+{   
+    -fx-text-fill:#6E6E6E;
+    -fx-padding: 0px 0px 0px 10px;
+    -fx-border-width:0 2px 2px 0;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+    -fx-pref-height:30px;
+    -fx-font-size:16px;
+    -fx-text-alignment:center;
+}
+.grid CheckBox{
+    -fx-padding: 0 0 0 0;
+    -fx-font-size:15px;
+}
+
+.grid Pane
+{
+    -fx-text-fill:#6E6E6E;
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-border-width:0 2px 2px 0;
+    -fx-border-color: #545454;
+    -fx-border-style: solid;
+    -fx-pref-height:30px;
+    -fx-text-alignment:center;
+}
+.grid Button{
+    -fx-padding: 0 0 0 0;
+}
+
+.check-box:selected .mark {
+    -fx-background-color:#FFF ;
+    -fx-mark-highlight-color:yellow; 
+    -fx-mark-color:red;
+}
+
+.check-box .mark {
+    -fx-background-color: transparent;
+    -fx-padding: 0.5em; /* 4 -- this is half the size of the mark */
+    -fx-shape: "M0,4H2L3,6L6,0H8L4,8H2Z";
+}
+.check-box .box {
+    -fx-background-color:#666666;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 2, 2, 1, 1;
+    -fx-padding: 0.4em; /* 3 -- padding from the outside edge to the mark */
+}

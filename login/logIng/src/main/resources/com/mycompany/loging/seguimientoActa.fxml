@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.SeguimientoActaController">
-    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children>     
-      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.SeguimientoActaController">
+   <children>
+       <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <HBox layoutX="275.0" layoutY="-32.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="7.0" /><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
-                        <ImageView fitHeight="83.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../imagenes/logo_onpe%20modulos.png" />
-                           </image>
-                        </ImageView>
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+               <children>
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                     <children>
+                        <Pane layoutX="52.0" layoutY="107.0" prefHeight="302.0" prefWidth="1262.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="-19.0" prefHeight="33.0" prefWidth="346.0" text="RESULTADO">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <TableView fx:id="tableActas" layoutX="14.0" layoutY="56.0" prefHeight="220.0" prefWidth="1236.0" styleClass="pane_tipo_body" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="114.0" layoutY="2.0" styleClass="title" text="eguimiento" />
+                        <Label layoutX="81.0" layoutY="-18.0" styleClass="title-first" text="S" />
+                        <Label layoutX="446.0" layoutY="2.0" styleClass="title" text="cta" />
+                        <Label layoutX="405.0" layoutY="-12.0" styleClass="title-first" text="A" />
+                        <Label layoutX="343.0" layoutY="2.0" styleClass="title" text="de" />
+                        <Pane layoutX="67.0" layoutY="442.0" prefHeight="177.0" prefWidth="414.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="-23.0" prefHeight="47.0" prefWidth="199.0" text="LEYENDA">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <Button disable="true" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: green;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button disable="true" layoutX="47.0" layoutY="73.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: red;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <Button disable="true" layoutX="47.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Button>
+                              <Label layoutX="213.0" layoutY="115.0" text="Acta Procesada y Transmitida">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="213.0" layoutY="79.0" text="Acta Observada">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="213.0" layoutY="43.0" text="Acta Pendiente">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
          </children>
-      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
-                  <AnchorPane layoutX="78.0" layoutY="52.0" prefHeight="859.0" prefWidth="1752.0" styleClass="border-body-b">
-                     <children>
-                        <ScrollPane layoutX="35.0" layoutY="219.0" prefHeight="434.0" prefWidth="1702.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="1700.0">
-                                 <children>
-                                    <TableView fx:id="tableActas" prefHeight="434.0" prefWidth="1686.0" styleClass="pane_tipo_body" />
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                        </ScrollPane>
-                        <Label layoutX="71.0" layoutY="43.0" text="Seguimiento de Actas">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Line endX="350.0" layoutX="157.0" layoutY="112.0" startX="-100.0" strokeWidth="3.0" />
-                        <Label layoutX="42.0" layoutY="679.0" text="Leyenda:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button disable="true" layoutX="44.0" layoutY="728.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Button disable="true" layoutX="44.0" layoutY="764.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: red;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Button disable="true" layoutX="44.0" layoutY="800.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: green;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Label layoutX="185.0" layoutY="727.0" text="Acta Pendiente">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="185.0" layoutY="763.0" text="Acta Observada">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="185.0" layoutY="799.0" text="Acta Procesada y Transmitida">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="1646.0" layoutY="940.0" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-            <Button layoutX="62.0" layoutY="-11.0" mnemonicParsing="false" onAction="#actionSalir" prefHeight="83.0" prefWidth="63.0" styleClass="btn_salir" text="SALIR" />
-                     </children>
-                  </AnchorPane>
-</children></AnchorPane>
-</children></AnchorPane>   
+      </HBox>
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
+   <stylesheets>
+      <URL value="@../../../css/reportGridTheme.css" />
+      <URL value="@../../../css/local.css" />
+      <URL value="@../../../css/seguimiento.css" />
+   </stylesheets>
 </AnchorPane>
