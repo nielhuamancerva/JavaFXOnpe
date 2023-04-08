@@ -26,7 +26,7 @@
     -fx-cursor: hand;
     -fx-background-color: #001b3f;
     -fx-pref-width: 220px;
-/*    -fx-background-image: url("../image/icoBtnAdministrador.png");*/
+    /*    -fx-background-image: url("../image/icoBtnAdministrador.png");*/
     -fx-background-repeat: no-repeat;
     -fx-background-position:10;
     -fx-background-size: 30;
@@ -76,13 +76,14 @@
 
 
 .btnMain{
-/*    -fx-cursor: hand;*/
+    -fx-background-image: url("../imagenes/ico_registro.png");
+    -fx-cursor: hand;
     -fx-pref-width: 250px;
     -fx-pref-height: 180px;
     -fx-background-repeat: no-repeat;
     -fx-background-size:90 95;
     -fx-background-position: center 5;
-/*    -fx-border-style:none;*/
+    -fx-border-style:none;
     -fx-background-color: transparent;
     -fx-line-height:1;
     -fx-text-fill: #001b3f;
@@ -90,11 +91,11 @@
     -fx-font-size: 20px;
     -fx-font-family: "Calibri";
 }
-/*.btnMain:hover{
+.btnMain:hover{
     -fx-effect: dropshadow( gaussian, rgba(255,255,255,0.8), 30,0.0, 0.0, 0.0 );
     -fx-text-shadow: 4px 1px 2px rgba(249, 128, 86, 1);
-    -fx-cursor: hand !important;
-}*/
+    -fx-cursor: hand;
+}
 
 .btn-exclusion
 {
@@ -110,5 +111,5 @@
     -fx-font-family: "Calibri";
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 16px;
-    -fx-font-weight: bold; 
+    -fx-font-weight: bold;
 }

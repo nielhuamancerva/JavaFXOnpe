@@ -15,12 +15,16 @@ import javafx.scene.layout.AnchorPane;
 public class InicioMenuController implements Initializable {
 
     @FXML
-    private AnchorPane apDashboard;
-    @FXML
     private Label lblNameEleccion;
+    @FXML
+    private Button btnRegistro;
+    @FXML
+    private Button btnSeguimiento;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+
     }
 
     @FXML
