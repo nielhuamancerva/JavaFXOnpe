@@ -202,7 +202,12 @@
     -fx-background-size:40px;
 }
 
-.button-activar-seccion:hover{
+/*.button-activar-seccion:hover{
+    -fx-background-image: url('../image/seccion-add-on.png');
+    -fx-background-size:40px;
+}*/
+
+.button-activar-actived{
     -fx-background-image: url('../image/seccion-add-on.png');
     -fx-background-size:40px;
 }

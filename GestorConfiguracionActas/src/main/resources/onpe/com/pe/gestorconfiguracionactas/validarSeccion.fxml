@@ -26,7 +26,7 @@
                         <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
                      </content>
                   </ScrollPane>
-                  <AnchorPane layoutX="1293.0" layoutY="910.0" prefHeight="76.0" prefWidth="466.0">
+                  <AnchorPane layoutX="457.0" layoutY="40.0" prefHeight="76.0" prefWidth="466.0">
                      <children>
                         <Button fx:id="btnContinuar" layoutX="254.0" layoutY="11.0" mnemonicParsing="false" onAction="#actionFinaliza" prefHeight="51.0" prefWidth="177.0" styleClass="button-grabar" text="Finalizar">
                            <font>

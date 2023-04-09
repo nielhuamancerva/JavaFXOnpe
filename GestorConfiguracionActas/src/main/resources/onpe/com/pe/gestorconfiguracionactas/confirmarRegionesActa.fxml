@@ -21,7 +21,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnConfirmar" layoutX="786.0" layoutY="724.0" mnemonicParsing="false" onAction="#confirmarRegion" styleClass="button-green" stylesheets="@../styles/Style.css" text="Confirmar" textFill="WHITE">
+      <Button fx:id="btnConfirmar" layoutX="217.0" layoutY="4.0" mnemonicParsing="false" onAction="#confirmarRegion" styleClass="button-green" stylesheets="@../styles/Style.css" text="Confirmar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

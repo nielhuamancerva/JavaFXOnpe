@@ -15,7 +15,8 @@ module onpe.com.pe.gestorconfiguracionactas {
     
     opens onpe.com.pe.gestorconfiguracionactas to javafx.fxml;
     exports onpe.com.pe.gestorconfiguracionactas;
-
+    exports onpe.com.pe.gestorconfiguracionactas.core.model;
+    opens onpe.com.pe.gestorconfiguracionactas.core.model;
     opens onpe.com.pe.gestorconfiguracionactas.endpoint to javafx.fxml;
 
 }

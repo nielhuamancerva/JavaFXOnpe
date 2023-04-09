@@ -36,7 +36,7 @@
                               <Line endX="300.0" layoutX="132.0" layoutY="60.0" startX="-100.0" strokeWidth="3.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="133.0" layoutY="857.0">
+                        <AnchorPane layoutX="235.0" layoutY="239.0">
                            <children>
                               <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
                                  <font>
@@ -82,7 +82,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="65.0" layoutY="370.0" prefHeight="411.0" prefWidth="548.0" styleClass="borde-pane-black">
                            <children>
-                              <VBox fx:id="vboxPane" layoutX="21.0" layoutY="29.0" prefHeight="331.0" prefWidth="511.0" />
+                              <VBox fx:id="vboxPane" layoutX="2.0" layoutY="2.0" prefHeight="403.0" prefWidth="541.0" />
                            </children>
                         </AnchorPane>
                         <ScrollPane fx:id="scrollPaneActa" layoutX="685.0" layoutY="21.0" prefHeight="886.0" prefWidth="1046.0" styleClass="pane_recep_body">
