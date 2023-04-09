@@ -57,14 +57,14 @@ public class TransmisionInstalaRabbitController implements Initializable {
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.89.225");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
-        factory.setVirtualHost("/");
-//        factory.setHost("localhost");
-//        factory.setUsername("guest");
-//        factory.setPassword("guest");
+//        factory.setHost("172.16.89.225");
+//        factory.setUsername("admin");
+//        factory.setPassword("admin");
 //        factory.setVirtualHost("/");
+        factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
+        factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
@@ -73,9 +73,10 @@ public class TransmisionInstalaRabbitController implements Initializable {
         String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
 
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
-
         channel.close();
         connection.close();
+        
+        
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmación de transmisión");

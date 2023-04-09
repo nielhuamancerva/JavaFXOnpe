@@ -18,7 +18,7 @@ public class ServicePostgreSQLImpl implements ServicePostgreSQL {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/SCE";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "admin";
+    private static final String PASSWORD = "niel";
     private Connection connection;
 
     @Override

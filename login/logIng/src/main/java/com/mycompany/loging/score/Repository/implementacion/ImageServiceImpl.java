@@ -28,7 +28,7 @@ public class ImageServiceImpl implements ImageService {
 
         Document filter = new Document("acta_id", codigoBarra.getString("acta_id"));
         Document update = new Document("$set", new Document(codigoBarra));
-        serviceFactory.MongoService().updateDocument(codigoBarra, filter, update,"imagenes");
+        serviceFactory.MongoService().updateDocument(filter, update,"imagenes");
 
     }
 

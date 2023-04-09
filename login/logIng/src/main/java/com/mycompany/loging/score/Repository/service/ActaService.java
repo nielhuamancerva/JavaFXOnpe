@@ -14,4 +14,6 @@ public interface ActaService {
     public Document findActaBy(String idActa) throws Exception;
 
     public MongoCollection<Document> findAllCollection() throws Exception;
+
+    public void updateActa(Document settingDocument) throws Exception;
 }

@@ -59,7 +59,6 @@ public class LoginController {
                 alert.setTitle("Usuario no registrado");
                 alert.setHeaderText("El usuario ingresado no está registrado");
                 alert.setContentText("Por favor, verifique que ha ingresado correctamente sus datos");
-
                 alert.showAndWait();
 
             }

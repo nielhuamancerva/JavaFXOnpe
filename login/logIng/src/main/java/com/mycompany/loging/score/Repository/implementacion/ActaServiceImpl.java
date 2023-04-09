@@ -20,7 +20,7 @@ public class ActaServiceImpl implements ActaService {
 
         Document filter = new Document("acta", codigoBarra.getString("acta"));
         Document update = new Document("$set", new Document(codigoBarra));
-        serviceFactory.MongoService().updateDocument(codigoBarra, filter, update, "actas");
+        serviceFactory.MongoService().updateDocument(filter, update, "actas");
 
     }
 
@@ -34,5 +34,15 @@ public class ActaServiceImpl implements ActaService {
     public MongoCollection<Document> findAllCollection() throws Exception {
         serviceFactory = FactoryServiciosExternos.getInstance();
         return serviceFactory.MongoService().findAllCollecion("actas");
+    }
+
+    @Override
+    public void updateActa(Document settingDocument) throws Exception {
+        serviceFactory = FactoryServiciosExternos.getInstance();
+        serviceFactory.MongoService().conexionMongo();
+        Document filter = new Document("name", settingDocument.getString("name"));
+        Document update = new Document("$set", new Document(settingDocument));
+
+        serviceFactory.MongoService().updateDocument(filter, update, "setting");
     }
 }

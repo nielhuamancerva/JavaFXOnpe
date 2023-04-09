@@ -15,7 +15,7 @@ public interface ConexionMongo {
 
     public MongoDatabase conexionMongo() throws Exception;
 
-    public UpdateResult updateDocument(Document codigoBarra, Document filter, Document update, String tableOfMongo) throws Exception;
+    public UpdateResult updateDocument(Document filter, Document update, String tableOfMongo) throws Exception;
 
     public Document findCollection(String username, String password) throws Exception;
 

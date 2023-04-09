@@ -133,7 +133,8 @@ public class ConfigurationDocController implements Initializable {
                         try {
 
                             Gson gson = new Gson();
-                            Type listType = new TypeToken<List<Modules>>() {}.getType();
+                            Type listType = new TypeToken<List<Modules>>() {
+                            }.getType();
                             listModule = gson.fromJson(businessService.findAllSections1(name).get(0), listType);
                             containerSettingModule.getChildren().clear();
                             titleDocumentSetting.setText(name);
@@ -290,19 +291,27 @@ public class ConfigurationDocController implements Initializable {
                     buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
+                            if (textField.getText().equals("") || textField.getText().isEmpty()) {
+                                Alert alert = new Alert(Alert.AlertType.WARNING);
+                                alert.setTitle("VALIDAR MODULO");
+                                alert.setHeaderText("No Existe un nombre para el modulo");
+                                alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
+                                alert.showAndWait();
+                            } else {
+                                btAdds.setDisable(true);
+                                textField.setDisable(true);
+                                btEdit.setDisable(false);
+                                if (verificarButton()) {
+                                    btnGuardar.setDisable(false);
+                                }
 
-                            btAdds.setDisable(true);
-                            textField.setDisable(true);
-                            btEdit.setDisable(false);
-                            if (verificarButton()) {
-                                btnGuardar.setDisable(false);
+                                listModule.forEach(action -> {
+                                    if (action.getCodemodule().equals(textField.getId())) {
+                                        action.setNameModule(textField.getText());
+                                    }
+                                });
                             }
 
-                            listModule.forEach(action -> {
-                                if (action.getCodemodule().equals(textField.getId())) {
-                                    action.setNameModule(textField.getText());
-                                }
-                            });
                         }
                     });
 
@@ -311,6 +320,7 @@ public class ConfigurationDocController implements Initializable {
                         public void handle(ActionEvent event) {
                             btAdds.setDisable(false);
                             textField.setDisable(false);
+                             btnGuardar.setDisable(true);
                         }
                     });
 
@@ -359,19 +369,28 @@ public class ConfigurationDocController implements Initializable {
 
     @FXML
     private void actionGuardar(ActionEvent event) throws Exception {
-        if (businessService.findSettingForNameEleccion(titleDocumentSetting.getText()).isEmpty()) {
-            setting.setId_setting(UUID.randomUUID().toString());
-            setting.setName(titleDocumentSetting.getText());
-            setting.setStatusSetting("0");
-            Gson gson = new Gson();
-            setting.setSetting(gson.toJson(listModule));
-            businessService.saveSetting(setting);
-            App.setRoot(null, "configurationDoc");
+
+        if (titleDocumentSetting.getText().equals("") || titleDocumentSetting.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("VALIDAR REGISTRO");
+            alert.setHeaderText("No Existe un Titulo");
+            alert.setContentText("Por favor, verifique que ha escrito un titulo para configuracion");
+            alert.showAndWait();
         } else {
-            Gson gson = new Gson();
-            businessService.updateSetting(titleDocumentSetting.getText(), gson.toJson(listModule));
+            if (businessService.findSettingForNameEleccion(titleDocumentSetting.getText()).isEmpty()) {
+                setting.setId_setting(UUID.randomUUID().toString());
+                setting.setName(titleDocumentSetting.getText());
+                setting.setStatusSetting("0");
+                Gson gson = new Gson();
+                setting.setSetting(gson.toJson(listModule));
+                businessService.saveSetting(setting);
+                App.setRoot(null, "configurationDoc");
+            } else {
+                Gson gson = new Gson();
+                businessService.updateSetting(titleDocumentSetting.getText(), gson.toJson(listModule));
+            }
+            btnGuardar.setDisable(true);
         }
-        btnGuardar.setDisable(true);
     }
 
     private void actionContinuar() throws IOException {

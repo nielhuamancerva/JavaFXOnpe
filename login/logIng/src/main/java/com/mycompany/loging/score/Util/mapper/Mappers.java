@@ -75,6 +75,7 @@ public class Mappers {
         document.append("firma1", ss.getFirma1());
         document.append("firma2", ss.getFirma2());
         document.append("firma3", ss.getFirma3());
+        document.append("estado", "Valido");
         return document;
     }
 

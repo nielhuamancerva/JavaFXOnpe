@@ -57,7 +57,7 @@ public class ConexionMongoImpl implements ConexionMongo {
     }
 
     @Override
-    public UpdateResult updateDocument(Document codigoBarra, Document filter, Document update, String tableOfMongo) throws Exception {
+    public UpdateResult updateDocument(Document filter, Document update, String tableOfMongo) throws Exception {
         MongoCollection<Document> collection = mongoDatabase.getCollection(tableOfMongo);
         return collection.updateOne(filter, update);
     }
