@@ -1,74 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import java.net.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarObsController">
-    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
-      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
-                        <ImageView fitHeight="80.0" fitWidth="207.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../imagenes/logo_onpe%20modulos.png" />
-                           </image>
-                        </ImageView>
-         </children>
-      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
-                  <AnchorPane layoutX="81.0" layoutY="33.0" prefHeight="728.0" prefWidth="1752.0" styleClass="border-body">
-                     <children>
-                        <Label layoutX="59.0" layoutY="22.0" text="Procesar Acta">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Line endX="250.0" layoutX="161.0" layoutY="75.0" startX="-100.0" strokeWidth="3.0" />
-                        <Label layoutX="101.0" layoutY="100.0" text="Documento:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ComboBox layoutX="769.0" layoutY="127.0" prefHeight="39.0" prefWidth="162.0" visible="false" />
-                        <Label layoutX="103.0" layoutY="176.0" text="Ingrese las observaciones registradas en el Acta de Escrutinio">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane layoutX="1253.0" layoutY="189.0" prefHeight="120.0" prefWidth="418.0">
-                           <children>
-                              <ImageView fx:id="codigoBarra" fitHeight="98.0" fitWidth="263.0" layoutX="77.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="116.0" layoutY="277.0" prefHeight="187.0" prefWidth="1259.0">
-                           <children>
-                              <ImageView fx:id="observacionesActa" fitHeight="140.0" fitWidth="1178.0" layoutX="31.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </AnchorPane>
-                        <TextArea fx:id="textObservaciones" layoutX="150.0" layoutY="473.0" prefHeight="140.0" prefWidth="1145.0" promptText="Ingrese las observaciones">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextArea>
-                     </children></AnchorPane>
-      <HBox layoutX="1587.0" layoutY="920.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="167.0">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.RegistrarObsController">
+   <children>
+       <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Button id="btnRegresar" mnemonicParsing="false" onAction="#regresaActasV" prefHeight="83.0" prefWidth="63.0" styleClass="btn_anterior" text="ANTERIOR" />
-            <Button id="btnContinuar" mnemonicParsing="false" onAction="#transmitir" prefHeight="83.0" prefWidth="63.0" styleClass="btn_continuar" text="FINALIZAR" />
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+               <children>
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                     <children>
+                        <Pane layoutX="52.0" layoutY="107.0" prefHeight="232.0" prefWidth="1262.0" styleClass="fielset">
+                           <children>
+                              <Label fx:id="lblTipoActa" layoutX="39.0" layoutY="29.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="observacionesActa" fitHeight="140.0" fitWidth="1178.0" layoutX="42.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="114.0" layoutY="2.0" styleClass="title" text="rocesar" />
+                        <Label layoutX="81.0" layoutY="-18.0" styleClass="title-first" text="P" />
+                        <Label layoutX="342.0" layoutY="2.0" styleClass="title" text="cta" />
+                        <Label layoutX="298.0" layoutY="-12.0" styleClass="title-first" text="A" />
+                        <Pane layoutX="65.0" layoutY="386.0" prefHeight="177.0" prefWidth="1249.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="-23.0" prefHeight="47.0" prefWidth="512.0" text="INGRESE LAS OBSERVACIONES">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <TextArea fx:id="textObservaciones" layoutX="35.0" layoutY="34.0" prefHeight="121.0" prefWidth="1145.0" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </Pane>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="85.0" prefHeight="33.0" prefWidth="346.0" text="DOCUMENTO">
+                           <styleClass>
+                              <String fx:value="fielset-title" />
+                              <String fx:value="apBlanco" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
          </children>
       </HBox>
-    <Label fx:id="lblTipoActa" layoutX="182.0" layoutY="169.0" prefHeight="27.0" prefWidth="443.0" text="Label">
-       <font>
-          <Font name="System Bold" size="14.0" />
-       </font>
-    </Label>
-</children></AnchorPane>
-</children></AnchorPane>   
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#regresaActasV" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+               <styleClass>
+                  <String fx:value="btn-regresar" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+            <Button layoutX="331.0" layoutY="5.0" mnemonicParsing="false" onAction="#transmitir" prefHeight="54.0" prefWidth="249.0" text="CONTINUAR">
+               <styleClass>
+                  <String fx:value="btn-process" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+         </children></AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../../../css/local.css" />
+      <URL value="@../../../css/observaciones.css" />
+   </stylesheets>
 </AnchorPane>

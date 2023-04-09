@@ -1,0 +1,82 @@
+.search-label
+{
+    -fx-font-size:18px;
+    -fx-font-weight:bold;
+    -fx-text-fill:#636363;
+}
+
+.search-text
+{
+    -fx-font-size:18px;
+    -fx-background-color:#E9EBEA;
+    -fx-color:#FFFFFF;
+    -fx-text-fill:#636363;
+}
+
+.search-combo
+{
+    -fx-font-size:18px;
+    -fx-background-color:#E9EBEA;
+    -fx-color:#FFFFFF;
+    -fx-text-fill:#636363;
+}
+
+.label-detail
+{
+    -fx-pref-width:82px;
+    -fx-padding: 0px 0px 0px 0px;
+    -fx-border-width:0px 0px 1px 0px;
+    -fx-border-color: #A9A8A8;
+    -fx-border-style: solid;
+    -fx-font-size:14px;
+}
+.label-detail HBox, .label-detail VBox{    
+    -fx-alignment: center;
+    -fx-pref-width:82px;
+    -fx-pref-height:30px;
+}
+
+
+.label-resolucion
+{
+    -fx-pref-width:250px;
+}
+.label-date
+{
+    -fx-pref-width:220px;
+}
+.label-cant
+{
+    -fx-pref-width:90px;
+}
+
+.label-nro
+{
+    -fx-pref-width:80px;
+}
+.label-dni
+{
+    -fx-pref-width:120px;
+}
+.label-description
+{
+    -fx-pref-width:500px;
+}
+.label-mesa
+{
+    -fx-pref-width:200px;
+}
+.label-cargo
+{
+    -fx-pref-width:200px;
+}
+
+.header-grid Label{
+    -fx-font-weight: bold;
+    -fx-font-size:15px !important;
+}
+.grid Pane, .grid Label
+{
+    -fx-font-size:16px !important;
+}
+

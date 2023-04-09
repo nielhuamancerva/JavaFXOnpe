@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionRabbitController">
+   <children>
+      <AnchorPane layoutX="538.0" layoutY="207.0" prefHeight="666.0" prefWidth="845.0" style="-fx-background-color: #E0E0E0;">
+         <children>
+            <Pane layoutX="-2.0" prefHeight="666.0" prefWidth="845.0" styleClass="pane_tipo_body">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="312.0" layoutX="24.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/core.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="63.0" layoutY="222.0" text="Transmitir datos e Imágenes">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" layoutY="285.0" text="Presione el botón para transmitir la información a un servidor remoto">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnTransmitir" layoutX="315.0" layoutY="432.0" mnemonicParsing="false" onAction="#transmitir" prefHeight="67.0" prefWidth="200.0" styleClass="button-green" text="Transmitir" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnRegresar" layoutX="610.0" layoutY="566.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="67.0" prefWidth="200.0" styleClass="button-red" text="Regresar" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="155.0" fitWidth="197.0" layoutX="145.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../imagenes/transmision_y_recepcion.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <AnchorPane layoutY="2.0" prefHeight="63.0" prefWidth="845.0" style="-fx-background-color: #004788;">
+               <children>
+                  <Label layoutX="101.0" layoutY="14.0" text="ELECCION PRESIDENCIAL Y PARLAMENTO ANDINO 2025" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

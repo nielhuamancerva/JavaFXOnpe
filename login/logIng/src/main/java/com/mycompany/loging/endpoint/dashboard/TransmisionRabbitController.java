@@ -37,15 +37,12 @@ public class TransmisionRabbitController implements Initializable {
     private static final String ALGORITMO = "AES";
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
     
+    ImageView observacionesActa;
     @FXML
-    ImageView observacionesActa, codigoBarra;
+            ImageView codigoBarra;
    
     
     private Label lblTipoActa;
-    @FXML
-    private Button btnTransmitir;
-    @FXML
-    private Button btnRegresar;
     
     public TransmisionRabbitController() {
         this.negocioService = new NegocioServiceImpl();

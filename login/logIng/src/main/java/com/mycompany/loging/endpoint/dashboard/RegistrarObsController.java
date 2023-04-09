@@ -37,16 +37,13 @@ public class RegistrarObsController implements Initializable {
 
     private final NegocioService negocioService;
 
+    ImageView observacionesActa;
     @FXML
-    ImageView observacionesActa, codigoBarra;
+            ImageView codigoBarra;
     @FXML
     TextArea textObservaciones;
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
     private Label numVotoPreferencial, lblTipoActa;
-    @FXML
-    private Label etiquetaVotoRev;
 
     public RegistrarObsController() {
         this.negocioService = new NegocioServiceImpl();
