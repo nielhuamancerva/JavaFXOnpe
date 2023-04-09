@@ -35,37 +35,37 @@
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <TextField fx:id="voto5" alignment="CENTER" layoutX="657.0" layoutY="326.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto511" alignment="CENTER" layoutX="657.0" layoutY="67.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto4" alignment="CENTER" layoutX="657.0" layoutY="262.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto5111" alignment="CENTER" layoutX="657.0" layoutY="127.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto3" alignment="CENTER" layoutX="657.0" layoutY="198.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto51111" alignment="CENTER" layoutX="657.0" layoutY="187.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto2" alignment="CENTER" layoutX="657.0" layoutY="134.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto511111" alignment="CENTER" layoutX="657.0" layoutY="367.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto1" alignment="CENTER" layoutX="657.0" layoutY="71.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto51112" alignment="CENTER" layoutX="657.0" layoutY="307.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto51" alignment="CENTER" layoutX="657.0" layoutY="390.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto5112" alignment="CENTER" layoutX="657.0" layoutY="247.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto511" alignment="CENTER" layoutX="657.0" layoutY="454.0" prefHeight="64.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto5111111" alignment="CENTER" layoutX="657.0" layoutY="427.0" prefHeight="61.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
