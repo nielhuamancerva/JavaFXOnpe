@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import java.net.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfiguraSeccionesController">
-    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
-      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfiguraSeccionesController">
+   <children>
+       <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-
-            <HBox layoutX="275.0" layoutY="-32.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="7.0" /><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
-                        <ImageView fitHeight="68.0" fitWidth="200.0" layoutX="-4.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/logo_onpe%20modulos.png" />
-                           </image>
-                        </ImageView>
-         </children>
-      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
-                  <AnchorPane layoutX="62.0" layoutY="14.0" prefHeight="939.0" prefWidth="1752.0" styleClass="border-body">
-
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+               <children>
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
                      <children>
+<<<<<<< HEAD
                         <AnchorPane layoutX="18.0" layoutY="30.0">
                            <children>
                               <Label layoutX="31.0" layoutY="14.0" styleClass="subtitulo-body" text="Configurar de Secciones">
@@ -37,62 +29,68 @@
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="102.0" layoutY="823.0">
+=======
+                        <Pane layoutX="52.0" layoutY="204.0" prefHeight="421.0" prefWidth="427.0" styleClass="fielset">
+>>>>>>> fd5db5f89f67aa4b6a46be26c17c3c60d5fe1a05
                            <children>
-                              <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnValidar" layoutX="239.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="51.0" prefWidth="213.0" styleClass="button-grabar" text="Validar">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Button>
+                              <VBox fx:id="vboxPane" layoutY="30.0" prefHeight="382.0" prefWidth="433.0" />
                            </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="68.0" layoutY="186.0" prefHeight="77.0" prefWidth="367.0" />
-                        <AnchorPane layoutX="31.0" layoutY="110.0" prefHeight="166.0" prefWidth="614.0">
-                           <children>
-                              <Label layoutX="37.0" layoutY="23.0" prefHeight="27.0" prefWidth="226.0" text="Seleccionar Documento">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="cboDocumentos" layoutX="31.0" layoutY="60.0" prefHeight="42.0" prefWidth="566.0" />
-                              <ImageView fx:id="imgCargarActa" fitHeight="42.0" fitWidth="31.0" layoutX="31.0" layoutY="121.0" onMouseClicked="#cargarActa" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/carpeta.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="84.0" layoutY="123.0" prefHeight="21.0" prefWidth="188.0" text="Cargar Archivo">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="65.0" layoutY="304.0" prefHeight="68.0" prefWidth="548.0" styleClass="borde-pane-black">
-                           <children>
-                              <Label layoutX="14.0" layoutY="17.0" text="Secciones">
-                                 <font>
-                                    <Font name="System Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="65.0" layoutY="370.0" prefHeight="411.0" prefWidth="548.0" styleClass="borde-pane-black">
-                           <children>
-                              <VBox fx:id="vboxPane" layoutX="2.0" layoutY="2.0" prefHeight="403.0" prefWidth="541.0" />
-                           </children>
-                        </AnchorPane>
-                        <ScrollPane fx:id="scrollPaneActa" layoutX="685.0" layoutY="21.0" prefHeight="886.0" prefWidth="1046.0" styleClass="pane_recep_body">
+                        </Pane>
+                        <Label layoutX="92.0" layoutY="-11.0" styleClass="title" text="onfigurar" />
+                        <Label layoutX="52.0" layoutY="-25.0" styleClass="title-first" text="C" />
+                        <Label layoutX="319.0" layoutY="-11.0" styleClass="title" text="ecciones" />
+                        <Label layoutX="285.0" layoutY="-25.0" styleClass="title-first" text="S" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="181.0" prefHeight="47.0" prefWidth="181.0" text="SECCIONES">
+                           <styleClass>
+                              <String fx:value="fielset-title" />
+                              <String fx:value="apBlanco" />
+                           </styleClass>
+                        </Label>
+                        <ScrollPane fx:id="scrollPaneActa" layoutX="502.0" prefHeight="622.0" prefWidth="857.0" styleClass="pane_recep_body">
                            <content>
                               <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
                            </content>
                         </ScrollPane>
+                        <Label layoutX="50.0" layoutY="60.0" prefHeight="27.0" prefWidth="226.0" styleClass="search-label" text="Seleccionar Documento:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cboDocumentos" layoutX="39.0" layoutY="87.0" prefHeight="42.0" prefWidth="454.0" styleClass="search-combo" />
+                        <ImageView fx:id="imgCargarActa" fitHeight="42.0" fitWidth="31.0" layoutX="50.0" layoutY="139.0" onMouseClicked="#cargarActa" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/carpeta.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="97.0" layoutY="141.0" prefHeight="21.0" prefWidth="188.0" styleClass="search-label" text="Cargar Archivo">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
-</children></AnchorPane>
-</children></AnchorPane>   
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnRegresar" layoutX="620.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+               <styleClass>
+                  <String fx:value="btn-regresar" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnValidar" layoutX="918.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="54.0" prefWidth="249.0" text="VALIDAR">
+               <styleClass>
+                  <String fx:value="btn-process" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+         </children></AnchorPane>
    </children>
+   <stylesheets>
+      <URL value="@../styles/configuraseccion.css" />
+      <URL value="@../styles/local.css" />
+   </stylesheets>
 </AnchorPane>

@@ -22,7 +22,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-
         setRoot(stage, "login");
         sc = stage;
     }
@@ -31,8 +30,7 @@ public class App extends Application {
         if (Objects.nonNull(stage)) {
 
             scene = new Scene(loadFXML(fxml));// "login" coambiar por login para iniciar  
-
-         
+            stage.setFullScreen(true); //true
             stage.setScene(scene);
             stage.show();
         } else {
@@ -43,7 +41,7 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-    
+
         return fxmlLoader.load();
     }
 

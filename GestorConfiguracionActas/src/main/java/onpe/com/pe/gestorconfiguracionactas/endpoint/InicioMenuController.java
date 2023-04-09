@@ -5,10 +5,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 
 public class InicioMenuController implements Initializable {
+
+    @FXML
+    private Label lblNameEleccion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

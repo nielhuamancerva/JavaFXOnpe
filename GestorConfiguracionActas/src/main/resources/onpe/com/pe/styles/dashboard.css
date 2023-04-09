@@ -38,31 +38,31 @@
 }
 
 .apImagen1{
-    -fx-background-image: url("../imagenes/imgSombraIcon.png");
+    -fx-background-image: url("../image/imgSombraIcon.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 445;
     -fx-background-position: 12 12;
 }
 .apIcono1{
-    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/onpecito.png");
+    -fx-background-image: url("../image/fondoIconos.png"), url("../image/onpecito.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 200,140;
     -fx-background-position: center, center;
 }
 .apIcono2{
-    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/verifica_votos.png");
+    -fx-background-image: url("../image/fondoIconos.png"), url("../image/verifica_votos.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 200,140;
     -fx-background-position: center, center;
 }
 .apIcono3{
-    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/acta_obs.png");
+    -fx-background-image: url("../image/fondoIconos.png"), url("../image/acta_obs.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 200,140;
     -fx-background-position: center, center;
 }
 .apIcono4{
-    -fx-background-image: url("../imagenes/fondoIconos.png"), url("../imagenes/conteo2.png");
+    -fx-background-image: url("../image/fondoIconos.png"), url("../image/conteo2.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: 200,140;
     -fx-background-position: center, center;
@@ -76,7 +76,7 @@
 
 
 .btnMain{
-    -fx-background-image: url("../imagenes/ico_registro.png");
+    -fx-background-image: url("../image/ico_registro.png");
     -fx-cursor: hand;
     -fx-pref-width: 250px;
     -fx-pref-height: 180px;
@@ -99,22 +99,22 @@
 
 .btn-exclusion
 {
-    -fx-background-image: url("../imagenes/ico_registro_off.png");
+    -fx-background-image: url("../image/inicio-inicial-off.png");
 }
 
 .btn-exclusion:hover
 {
-    -fx-background-image: url("../imagenes/ico_registro_on.png");
+    -fx-background-image: url("../image/inicio-inicial-on.png");
 }
 
 .btn-reportes
 {
-    -fx-background-image: url("../imagenes/ico_seguimiento_off.png");
+    -fx-background-image: url("../image/inicio-configura-off.png");
 }
 
 .btn-reportes:hover
 {
-    -fx-background-image: url("../imagenes/ico_seguimiento_on.png");
+    -fx-background-image: url("../image/inicio-configura-on.png");
 }
 
 .title_eleccion_main{

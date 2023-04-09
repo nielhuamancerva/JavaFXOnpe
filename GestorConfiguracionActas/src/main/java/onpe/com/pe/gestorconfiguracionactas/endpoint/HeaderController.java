@@ -1,7 +1,6 @@
 
-package com.mycompany.loging.endpoint.dashboard;
+package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
-import com.mycompany.loging.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import onpe.com.pe.gestorconfiguracionactas.App;
 
 /**
  *
