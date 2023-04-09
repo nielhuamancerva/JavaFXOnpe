@@ -14,13 +14,13 @@
 }
 
 .apCerrarSesionHead{
-    -fx-background-image: url("../imagenes/imgTrianguloVolteado.png");
+    -fx-background-image: url("../image/imgTrianguloVolteado.png");
     -fx-background-repeat: no-repeat;
     -fx-background-position:top center;
     -fx-background-size: 40;
 }
 .apCerrarSesionFooter{
-    -fx-background-image: url("../imagenes/imgTrianguloBtn.png");
+    -fx-background-image: url("../image/imgTrianguloBtn.png");
     -fx-background-repeat: no-repeat;
     -fx-background-position:bottom center;
     -fx-background-size: 40;
@@ -77,10 +77,10 @@
     -fx-cursor: hand;
     -fx-background-color: #001b3f; 
     -fx-pref-width: 60px;
-    -fx-background-image: url("../imagenes/regresar.png");   
+    -fx-background-image: url("../image/menu.png");   
     -fx-background-repeat: no-repeat;
     -fx-background-position:center center;
-    -fx-background-size: 25;
+    -fx-background-size: 70;
 }
 
 .title
@@ -121,7 +121,7 @@
 
 .btn_icon_search{
     -fx-background-color: transparent;
-    -fx-background-image: url("../imagenes/search_ico.png");
+    -fx-background-image: url("../image/search_ico.png");
 }
 
 .btn_icon{
@@ -157,4 +157,24 @@
 
 .apFooter{
     -fx-background-color: #001b3f;    
+}
+
+.button-add{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    /*    -fx-text-fill: back;*/
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/button-add_off.png');
+    -fx-background-size:60px;
+}
+.button-add:hover{
+    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-size:60px;
 }

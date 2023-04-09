@@ -59,6 +59,8 @@ public class VerificaFirmasController implements Initializable {
     private FactoryServiciosExternos factoryservices;
     private ImageView[] ImageViewTrueOrFalse = new ImageView[3];
     boolean firmoP, firmoS, firmoT;
+    @FXML
+    private Button btnAdd;
 
     public VerificaFirmasController() {
         this.negocioService = new NegocioServiceImpl();
@@ -340,5 +342,9 @@ public class VerificaFirmasController implements Initializable {
         } else {
             //btnVerificaTransmision.setDisable(true);
         }
+    }
+
+    @FXML
+    private void actionAddConfigura(ActionEvent event) {
     }
 }

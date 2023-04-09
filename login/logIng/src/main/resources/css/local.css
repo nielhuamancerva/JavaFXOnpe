@@ -158,3 +158,20 @@
 .apFooter{
     -fx-background-color: #001b3f;    
 }
+
+
+.button-configura{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    /*    -fx-text-fill: back;*/
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../imagenes/ico_process.png');
+    -fx-background-size:60px;
+}

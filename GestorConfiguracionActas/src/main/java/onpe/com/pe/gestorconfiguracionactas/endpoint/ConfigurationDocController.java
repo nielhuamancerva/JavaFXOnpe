@@ -49,15 +49,7 @@ public class ConfigurationDocController implements Initializable {
     private final BusinessService businessService;
     private Setting setting = new Setting();
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private Label numVotoPreferencial;
-    @FXML
-    private Label etiquetaVotoRev;
-    @FXML
     private ScrollPane DocumentosElectorales;
-    @FXML
-    private Button btnContinuar;
     @FXML
     private Button btnAddSeccion;
 
@@ -382,7 +374,6 @@ public class ConfigurationDocController implements Initializable {
         btnGuardar.setDisable(true);
     }
 
-    @FXML
     private void actionContinuar() throws IOException {
 
         App.setRoot(null, "configuraSecciones");
