@@ -59,12 +59,6 @@ public class VerificaFirmasController implements Initializable {
     private FactoryServiciosExternos factoryservices;
     private ImageView[] ImageViewTrueOrFalse = new ImageView[3];
     boolean firmoP, firmoS, firmoT;
-    @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private Label numVotoPreferencial;
-    @FXML
-    private Label etiquetaVotoRev;
 
     public VerificaFirmasController() {
         this.negocioService = new NegocioServiceImpl();
@@ -81,7 +75,6 @@ public class VerificaFirmasController implements Initializable {
     private Label lbVaDepartamento;
     @FXML
     private ImageView imagenCodigoBarra, imagenHoraFin, imagenHoraInicio;
-    @FXML
     VBox buttones;
     @FXML
     private TextField txtHoraInicio;

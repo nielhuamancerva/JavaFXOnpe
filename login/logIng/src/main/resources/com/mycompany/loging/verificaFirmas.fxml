@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.gob.onpe.eva.desc.view.controller.TachaController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.VerificaFirmasController">
    <children>
        <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
@@ -14,162 +17,177 @@
                <children>
                   <AnchorPane prefHeight="684.0" prefWidth="1200.0">
                      <children>
-                        <Pane layoutX="48.0" layoutY="102.0" prefHeight="123.0" prefWidth="1262.0" styleClass="fielset">
+                        <Pane layoutX="48.0" layoutY="77.0" prefHeight="64.0" prefWidth="1188.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="21.0" styleClass="search-label" text="Seleccioné" />
-                              <TextField fx:id="txtNroResol" editable="false" layoutX="202.0" layoutY="16.0" prefHeight="39.0" prefWidth="383.0" styleClass="search-text" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="-31.0" prefHeight="47.0" prefWidth="472.0" text="SELECCIONE UN DOCUMENTO">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="21.0" styleClass="search-label" text="Seleccioné el documento" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="-31.0" prefHeight="47.0" prefWidth="404.0" text="INICIAR PROCESO">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
                                  </styleClass>
+                              </Label>
+                              <ComboBox fx:id="cboDocumentos" layoutX="231.0" layoutY="15.0" onAction="#selecionarActa" prefHeight="39.0" prefWidth="519.0" styleClass="search-combo">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ComboBox>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="776.0" layoutY="12.0" onMouseClicked="#elegirFichero" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../../../imagenes/carpeta.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lbArchivosEncontrados" layoutX="837.0" layoutY="19.0" prefHeight="27.0" prefWidth="257.0" styleClass="search-label" text="Seleccionar Acta Digitalizada" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="114.0" layoutY="-12.0" styleClass="title" text="rocesar" />
+                        <Label layoutX="78.0" layoutY="-26.0" styleClass="title-first" text="P" />
+                        <Label layoutX="323.0" layoutY="-12.0" styleClass="title" text="cta" />
+                        <Label layoutX="282.0" layoutY="-26.0" styleClass="title-first" text="A" />
+                        <Pane layoutX="38.0" layoutY="185.0" prefHeight="117.0" prefWidth="322.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="-33.0" prefHeight="47.0" prefWidth="303.0" text="CODIGO DE BARRAS">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <ImageView fx:id="imagenCodigoBarra" fitHeight="80.0" fitWidth="294.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="392.0" layoutY="182.0" prefHeight="117.0" prefWidth="394.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="126.0" text="UBIGEO">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <Label fx:id="lbVaDistrito" layoutX="158.0" layoutY="87.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbVaDepartamento" layoutX="158.0" layoutY="18.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbVaprovincia" layoutX="158.0" layoutY="55.0" prefHeight="17.0" prefWidth="165.0" text="Label">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label id="lbDistrito" layoutX="14.0" layoutY="83.0" styleClass="search-label" text="Distrito:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label id="lbProvincia" layoutX="14.0" layoutY="51.0" styleClass="search-label" text="Provincia:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label id="lbDepartamento" layoutX="14.0" layoutY="14.0" styleClass="search-label" text="Departamento:">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="48.0" layoutY="395.0" prefHeight="212.0" prefWidth="1262.0" styleClass="fielset">
+                        <Pane layoutX="38.0" layoutY="342.0" prefHeight="110.0" prefWidth="363.0" styleClass="fielset">
                            <children>
-                              <Pane layoutX="21.0" layoutY="27.0" prefHeight="40.0" prefWidth="1184.0">
-                                 <children>
-                                    <Label layoutX="2.0" layoutY="-1.0" prefHeight="40.0" text="Nro.">
-                                       <styleClass>
-                                          <String fx:value="label-nro" />
-                                          <String fx:value="background_1" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label layoutX="202.0" layoutY="-1.0" prefHeight="40.0" text="Nombres y Apellidos">
-                                       <styleClass>
-                                          <String fx:value="label-description" />
-                                          <String fx:value="background_1" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label layoutX="82.0" layoutY="-1.0" prefHeight="40.0" text="DNI/CE">
-                                       <styleClass>
-                                          <String fx:value="label-dni" />
-                                          <String fx:value="background_2" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label layoutX="702.0" layoutY="-1.0" prefHeight="40.0" text="Mesa">
-                                       <styleClass>
-                                          <String fx:value="label-mesa" />
-                                          <String fx:value="background_2" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label layoutX="902.0" layoutY="-1.0" prefHeight="40.0" text="Cargo">
-                                       <styleClass>
-                                          <String fx:value="label-cargo" />
-                                          <String fx:value="background_1" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label layoutX="1102.0" layoutY="-1.0" prefHeight="40.0" styleClass="label-detail,background_2" />
-                                 </children>
-                                 <styleClass>
-                                    <String fx:value="head-color" />
-                                    <String fx:value="header-grid" />
-                                 </styleClass>
-                              </Pane>
-                              <ScrollPane layoutX="22.0" layoutY="66.0" prefHeight="123.0" prefWidth="1215.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="1183.0">
-                                       <children>
-                                          <GridPane fx:id="gridResult" styleClass="grid">
-                                             <children>
-                                                <Label styleClass="label-nro" text="RES-001-AA" />
-                                                <Label styleClass="label-dni" text="46202326" GridPane.columnIndex="1" />
-                                                <Label layoutX="131.0" layoutY="10.0" styleClass="label-mesa" text="Escarcena" GridPane.columnIndex="3" />
-                                                <Label layoutX="168.0" layoutY="10.0" styleClass="label-description" text="Tolentino" GridPane.columnIndex="2" />
-                                                <Label layoutX="268.0" layoutY="10.0" styleClass="label-cargo" text="Escarcena" GridPane.columnIndex="5" />
-                                                <Pane prefHeight="0.0" styleClass="label-detail" GridPane.columnIndex="6">
-                                                   <children>
-                                                      <VBox>
-                                                         <children>
-                                                            <HBox alignment="CENTER">
-                                                               <children>
-                                                                  <Button mnemonicParsing="false">
-                                                                     <styleClass>
-                                                                        <String fx:value="button-del" />
-                                                                        <String fx:value="button-detail" />
-                                                                     </styleClass>
-                                                                  </Button>
-                                                               </children>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                </Pane>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </ScrollPane>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="-19.0" prefHeight="33.0" prefWidth="346.0" text="RESULTADO">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="257.0" text="HORA DE INICIO">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
+                              <ImageView fx:id="imagenHoraInicio" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                              <TextField fx:id="txtHoraInicio" layoutX="275.0" layoutY="28.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
                            </children>
                         </Pane>
-                        <Label layoutX="114.0" layoutY="2.0" styleClass="title" text="rocesar" />
-                        <Label layoutX="81.0" layoutY="-18.0" styleClass="title-first" text="P" />
-                        <Label layoutX="329.0" layoutY="2.0" styleClass="title" text="cta" />
-                        <Label layoutX="284.0" layoutY="-18.0" styleClass="title-first" text="A" />
-                        <Pane layoutX="48.0" layoutY="261.0" prefHeight="113.0" prefWidth="1262.0" styleClass="fielset">
+                        <Pane layoutX="38.0" layoutY="500.0" prefHeight="110.0" prefWidth="363.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="-21.0" prefHeight="39.0" prefWidth="383.0" text="FILTRO DE BÚSQUEDA">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="166.0" text="HORA FIN">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="67.0" styleClass="search-label" text="Buscar:" />
-                              <HBox layoutX="188.0" layoutY="55.0" prefHeight="47.0" prefWidth="855.0">
-                                 <children>
-                                    <Pane fx:id="pane1" prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <TextField fx:id="txtFiltro1" layoutY="3.0" onAction="#searchAction" prefHeight="39.0" prefWidth="188.0" styleClass="search-text" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="pane2" prefHeight="41.0" prefWidth="317.0">
-                                       <children>
-                                          <TextField fx:id="txtFiltro2" layoutX="69.0" layoutY="3.0" onAction="#searchAction" prefHeight="39.0" prefWidth="188.0" styleClass="search-text" />
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="pane3" prefHeight="41.0" prefWidth="285.0">
-                                       <children>
-                                          <TextField fx:id="txtFiltro3" layoutX="70.0" layoutY="3.0" onAction="#searchAction" prefHeight="39.0" prefWidth="188.0" styleClass="search-text" />
-                                       </children>
-                                    </Pane>
-                                    <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="50.0" prefWidth="77.0">
-                                       <styleClass>
-                                          <String fx:value="btn_icon_search" />
-                                          <String fx:value="btn_icon" />
-                                       </styleClass>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <RadioButton fx:id="rbDni" layoutX="241.0" layoutY="23.0" mnemonicParsing="false" onAction="#filterAction" styleClass="search-label" text="DNI/CE">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="search" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="rbDescription" layoutX="430.0" layoutY="23.0" mnemonicParsing="false" onAction="#filterAction" styleClass="search-label" text="Nombres y Apellidos" toggleGroup="$search" />
-                              <RadioButton fx:id="rbMesa" layoutX="821.0" layoutY="23.0" mnemonicParsing="false" onAction="#filterAction" styleClass="search-label" text="Mesa" toggleGroup="$search" />
+                              <TextField fx:id="txtHoraInicio1" layoutX="275.0" layoutY="28.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fx:id="imagenHoraFin" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="812.0" layoutY="176.0" prefHeight="443.0" prefWidth="545.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="363.0" text="VALIDAR FIRMAS">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <ImageView fx:id="firma1" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="firma2" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="firma3" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="btnSiPresi" layoutX="412.0" layoutY="43.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="62.0" prefWidth="128.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNoPresi" layoutX="273.0" layoutY="43.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="62.0" prefWidth="128.0" styleClass="sea" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNoSecre" layoutX="273.0" layoutY="191.0" mnemonicParsing="false" onAction="#ActionFirmoNoS" prefHeight="62.0" prefWidth="128.0" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnSiSecre" layoutX="412.0" layoutY="191.0" mnemonicParsing="false" onAction="#ActionFirmoSiS" prefHeight="62.0" prefWidth="128.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnSiTercer" layoutX="412.0" layoutY="323.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="62.0" prefWidth="128.0" text="Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnNoTercer" layoutX="273.0" layoutY="323.0" mnemonicParsing="false" onAction="#ActionFirmoNoT" prefHeight="62.0" prefWidth="128.0" text="No Firmó">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </Pane>
                      </children>
@@ -180,9 +198,15 @@
       </HBox>
       <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button layoutX="48.0" layoutY="6.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="54.0" prefWidth="249.0" text="GUARDAR">
+            <Button fx:id="btnContinuar" layoutX="330.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="54.0" prefWidth="249.0" text="CONTINUAR">
                <styleClass>
                   <String fx:value="btn-process" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnRegresar" layoutX="32.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+               <styleClass>
+                  <String fx:value="btn-regresar" />
                   <String fx:value="btn-azul" />
                </styleClass>
             </Button>
@@ -190,7 +214,6 @@
       </AnchorPane>
    </children>
    <stylesheets>
-      <URL value="@../../../css/reportGridTheme.css" />
       <URL value="@../../../css/local.css" />
       <URL value="@../../../css/verificafirma.css" />
    </stylesheets>
