@@ -47,6 +47,7 @@ public class Footer_dashboardController implements Initializable {
 
     @FXML
     private void handleLogout(ActionEvent event) {
+        System.out.println("me hiciste click");
     }
 
     @FXML
