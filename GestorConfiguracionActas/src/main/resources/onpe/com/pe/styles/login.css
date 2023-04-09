@@ -1,0 +1,53 @@
+.apPreLoginn{
+    -fx-background-image: url("../image/bg_login.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch, 330;
+    -fx-background-position: 0 0 ;
+}
+
+.apAtrasMovilDerecha{
+/*    -fx-background-image: url("../image/imgLineaVerde.png");*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1477;
+    -fx-background-position: -200 192;
+}
+
+.apAtrasMovilIzquierda{
+    /*-fx-background-image: url("../image/imgLineaRoja.png"),url("../image/imgLineaAmarilla.png");*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 742;
+    -fx-background-position: 0 102.5, 0 10;
+}
+
+.apLogeo{    
+/*    -fx-background-image: url("../image/imgSombraMovil.png"),url("../image/imgLoginMovil.png"),url("../image/imgFranjasDerecha.png"), url("../image/imgFranjasIzquierdas.png"), url("../image/mediaNaranja.png"), url("../image/imgTrianguloLogin.png"),url("../image/LetrasPreLogin.png"),url("../image/imgContrasenia.png"),url("../image/imgUsuario.png");*/
+    -fx-background-image: url("../image/imgSombraMovil.png"),url("../image/imgLoginMovil.png");
+
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 520, 320 ; /*, 520, 822, 40,40, 280,40,40 */
+    -fx-background-position: 220 650 ,330 20; /*,330 20, 551 10,-280 81,650 400,650 242,0 215, 565 170, 565 92 */
+}
+
+.txtLogin{
+    -fx-background-color: #001b3f; 
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-prompt-text-fill: #FFFFFF;
+}
+
+.btnIngresarLogin{
+    -fx-background-color: #FFFFFF;
+    -fx-pref-width: 147px;
+    -fx-pref-height: 73;
+    -fx-text-fill: #08887B;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 26px;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+}
+
+.btnIngresarExit{
+    -fx-background-color: #D14358;
+    -fx-pref-width: 100px;
+    -fx-text-fill: #FFFFFF;
+}

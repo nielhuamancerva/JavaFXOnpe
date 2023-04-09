@@ -1,8 +1,9 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
-package com.mycompany.loging.endpoint.dashboard;
-
-import com.mycompany.loging.App;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,26 +18,24 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author rdela
  */
-public class HeaderController implements Initializable  {
+public class Footer_dashboardController implements Initializable {
 
     @FXML
     private Button btnAdministrador;
     @FXML
-    private Label lblNameEleccion;
-    @FXML
-    private AnchorPane apBloker;
-    @FXML
-    private Label lblModule;
-    @FXML
-    private Button btnBackWindow;
-    @FXML
-    private Label lblOption;
-    @FXML
     private AnchorPane apShowMenu;
+    @FXML
+    private Button btnVersion;
+    @FXML
+    private Label lblOdpe;
+    @FXML
+    private Label lblAmbito;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
+
 
     @FXML
     private void btnAdministradorExited(MouseEvent event) {
@@ -45,7 +44,6 @@ public class HeaderController implements Initializable  {
     @FXML
     private void btnAdministradorEntered(MouseEvent event) {
     }
-
 
     @FXML
     private void handleLogout(ActionEvent event) {
@@ -60,8 +58,7 @@ public class HeaderController implements Initializable  {
     }
 
     @FXML
-    private void actionMenu() throws IOException{
-        App.setRoot(null, "inicioMenu");
+    private void showVersion(ActionEvent event) {
     }
-    
+
 }

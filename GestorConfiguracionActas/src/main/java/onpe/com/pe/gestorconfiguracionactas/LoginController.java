@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -20,6 +21,10 @@ public class LoginController implements Initializable {
     private final BusinessService businessService;
     @FXML
     private Button btnIngresar;
+    @FXML
+    private AnchorPane ppAnchorPane;
+    @FXML
+    private Button btnSalir;
 
     public LoginController() {
         this.businessService = new BusinessServiceImpl();
@@ -30,19 +35,18 @@ public class LoginController implements Initializable {
     @FXML
     PasswordField passwordField;
 
-    @FXML
     AnchorPane anchoPaneLogin;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        double screenWidth = screenBounds.getWidth();
-        double screenHeight = screenBounds.getHeight();
-
-        double scaleX = screenWidth / anchoPaneLogin.getPrefWidth();
-        double scaleY = screenHeight / anchoPaneLogin.getPrefHeight();
-        System.out.println("escale X" + scaleX);
-        System.out.println("escale Y" + scaleY);
-        double scaleFactor = Math.min(scaleX, scaleY);
+//        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+//        double screenWidth = screenBounds.getWidth();
+//        double screenHeight = screenBounds.getHeight();
+//
+//        double scaleX = screenWidth / anchoPaneLogin.getPrefWidth();
+//        double scaleY = screenHeight / anchoPaneLogin.getPrefHeight();
+//        System.out.println("escale X" + scaleX);
+//        System.out.println("escale Y" + scaleY);
+//        double scaleFactor = Math.min(scaleX, scaleY);
     }
 
     @FXML
@@ -54,7 +58,8 @@ public class LoginController implements Initializable {
 
     }
 
-    private void salirApp() throws Exception {
+    @FXML
+    private void actionSalir(ActionEvent event) {
         Platform.exit();
         System.exit(0);
     }
