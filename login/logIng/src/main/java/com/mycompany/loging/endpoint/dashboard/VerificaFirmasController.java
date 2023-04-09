@@ -235,7 +235,7 @@ public class VerificaFirmasController implements Initializable {
                             Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
                     Label labelAnchorFirma = new Label();
-                    labelAnchorFirma.setText("VALIDAR FIRMAS");
+                    labelAnchorFirma.setText("VALIDAR FIRMAS DE ACTA");
                     labelAnchorFirma.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
                     labelAnchorFirma.getStyleClass().add("fielset-title");
                     labelAnchorFirma.getStyleClass().add("apBlanco");
