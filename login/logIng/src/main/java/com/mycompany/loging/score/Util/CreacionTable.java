@@ -98,48 +98,48 @@ public class CreacionTable {
             };
         });
 
-        TableColumn<Actas, Void> columnaAccion = new TableColumn<>("Acción");
-
-        Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>> cellFactory = new Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>>() {
-            @Override
-            public TableCell<Actas, Void> call(final TableColumn<Actas, Void> param) {
-                final TableCell<Actas, Void> cell = new TableCell<Actas, Void>() {
-                    private final Button btn = new Button("Ver");
-
-                    {
-                        btn.setOnAction((ActionEvent event) -> {
-                            VariableGlobals.viewImage = getTableView().getItems().get(getIndex()).getActa();
-                            try {
-                                App.setRoot(null, "viewImagen");
-//                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
-                            } catch (IOException ex) {
-                                Logger.getLogger(CreacionTable.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
-                                setGraphic(btn);
-                            } else {
-                                setGraphic(null);
-                            }
-
-                        }
-                    }
-                };
-                return cell;
-            }
-        };
-
-        columnaAccion.setCellFactory(cellFactory);
-        Tactas.getColumns().addAll(columnaActa, columnaDepartamento, columnaFechaRegistro, columnaEstado, columnaAccion);
+//        TableColumn<Actas, Void> columnaAccion = new TableColumn<>("Acción");
+//
+//        Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>> cellFactory = new Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>>() {
+//            @Override
+//            public TableCell<Actas, Void> call(final TableColumn<Actas, Void> param) {
+//                final TableCell<Actas, Void> cell = new TableCell<Actas, Void>() {
+//                    private final Button btn = new Button("Ver");
+//
+//                    {
+//                        btn.setOnAction((ActionEvent event) -> {
+//                            VariableGlobals.viewImage = getTableView().getItems().get(getIndex()).getActa();
+//                            try {
+//                                App.setRoot(null, "viewImagen");
+////                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );
+//                            } catch (IOException ex) {
+//                                Logger.getLogger(CreacionTable.class.getName()).log(Level.SEVERE, null, ex);
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void updateItem(Void item, boolean empty) {
+//                        super.updateItem(item, empty);
+//
+//                        if (empty) {
+//                            setGraphic(null);
+//                        } else {
+//                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
+//                                setGraphic(btn);
+//                            } else {
+//                                setGraphic(null);
+//                            }
+//
+//                        }
+//                    }
+//                };
+//                return cell;
+//            }
+//        };
+//
+//        columnaAccion.setCellFactory(cellFactory);
+        Tactas.getColumns().addAll(columnaActa, columnaDepartamento, columnaFechaRegistro, columnaEstado); //columnaAccion
         return Tactas;
     }
 }

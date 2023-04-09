@@ -48,7 +48,8 @@ public class HeaderController implements Initializable  {
 
 
     @FXML
-    private void handleLogout(ActionEvent event) {
+    private void handleLogout() throws IOException{
+        App.setRoot(null, "login");
     }
 
     @FXML
