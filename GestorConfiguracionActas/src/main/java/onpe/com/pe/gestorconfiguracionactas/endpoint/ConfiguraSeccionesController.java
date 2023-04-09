@@ -84,10 +84,6 @@ public class ConfiguraSeccionesController implements Initializable {
     @FXML
     private Button btnRegresar;
 
-    @FXML
-    private Label numVotoPreferencial;
-    @FXML
-    private Label etiquetaVotoRev;
 
     /**
      * Initializes the controller class.

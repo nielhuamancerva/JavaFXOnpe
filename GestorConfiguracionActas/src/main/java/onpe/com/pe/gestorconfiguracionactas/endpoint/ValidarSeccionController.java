@@ -51,13 +51,7 @@ public class ValidarSeccionController implements Initializable {
 
     private Image img;
     @FXML
-    private AnchorPane anchorPane;
-    @FXML
     private Button btnContinuar;
-    @FXML
-    private Label numVotoPreferencial;
-    @FXML
-    private Label etiquetaVotoRev;
 
     private int numEs = 0;
     private double escalaLo;
