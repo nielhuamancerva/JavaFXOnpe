@@ -1,4 +1,3 @@
-
 package onpe.com.pe.gestorconfiguracionactas.endpoint;
 
 import java.io.IOException;
@@ -17,10 +16,12 @@ import onpe.com.pe.gestorconfiguracionactas.App;
  *
  * @author rdela
  */
-public class HeaderController implements Initializable  {
+public class HeaderController implements Initializable {
 
     @FXML
     private Button btnAdministrador;
+    @FXML
+    private AnchorPane apShowMenu;
     @FXML
     private Label lblNameEleccion;
     @FXML
@@ -32,37 +33,47 @@ public class HeaderController implements Initializable  {
     @FXML
     private Label lblOption;
     @FXML
-    private AnchorPane apShowMenu;
+    private Button btnheader;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        apShowMenu.setVisible(false);
+
     }
 
     @FXML
     private void btnAdministradorExited(MouseEvent event) {
+        apShowMenu.setVisible(false);
+
     }
 
     @FXML
     private void btnAdministradorEntered(MouseEvent event) {
+        apShowMenu.setVisible(true);
+
     }
 
-
     @FXML
-    private void handleLogout() throws IOException{
-        App.setRoot(null, "login");
+    private void handleLogout() throws IOException {
+//        App.setRoot(null, "login");
     }
 
     @FXML
     private void apCerrarSesionExited(MouseEvent event) {
+        apShowMenu.setVisible(false);
     }
 
     @FXML
     private void apCerrarSesionEntered(MouseEvent event) {
+        apShowMenu.setVisible(true);
+
     }
 
     @FXML
-    private void actionMenu() throws IOException{
+    private void actionMenu() throws IOException {
         App.setRoot(null, "inicioMenu");
     }
-    
+
+
+
 }

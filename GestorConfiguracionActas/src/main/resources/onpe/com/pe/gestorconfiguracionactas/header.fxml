@@ -24,7 +24,7 @@
         <Label fx:id="lblOption" contentDisplay="CENTER" layoutX="205.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="228.0" styleClass="title_module" wrapText="true" />
         <AnchorPane fx:id="apShowMenu" layoutX="911.0" layoutY="79.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#apCerrarSesionEntered" onMouseExited="#apCerrarSesionExited" prefHeight="207.0" prefWidth="220.0" styleClass="apCerrarSesionHead" AnchorPane.rightAnchor="149.0" AnchorPane.topAnchor="70.0">
             <children>
-                <Button layoutY="28.0" mnemonicParsing="false" onAction="#handleLogout" styleClass="btnCerrarSesion" text="Cerrar Sesión" />
+                <Button fx:id="btnheader" layoutY="28.0" mnemonicParsing="false" onAction="#handleLogout" styleClass="btnCerrarSesion" text="Cerrar Sesión" />
             </children>
         </AnchorPane>
     </children>
