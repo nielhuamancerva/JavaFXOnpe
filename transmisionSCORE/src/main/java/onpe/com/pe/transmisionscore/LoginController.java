@@ -41,16 +41,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        FactoryService = FactoryServices.getInstance();
-        try {
-            FactoryService.ServicePostgreSQL().conexionPostgreSQL();
-            ResultSet rs = FactoryService.ServicePostgreSQL().select("SELECT * FROM tramasrecibidas");
-                while (rs.next()) {
-                            System.out.println(rs.getString("strama"));
-                        }
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
 
     }
 

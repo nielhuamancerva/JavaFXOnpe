@@ -13,10 +13,13 @@ import onpe.com.pe.transmisionscore.core.model.TransmisionHeader;
 import onpe.com.pe.transmisionscore.core.util.common.commonMappings;
 import onpe.com.pe.transmisionscore.core.util.constanst.VariableGlobales;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import onpe.com.pe.transmisionscore.core.model.TransmisionRecibidas;
 import org.bson.Document;
 
 /**
@@ -25,16 +28,18 @@ import org.bson.Document;
  */
 public class Mapper {
 
-    public ObservableList<Actas> castObservableListOfActas(FindIterable<Document> arra) {
-        List<Actas> listActas = new ArrayList<>();
-        arra.forEach(action -> {
-            Actas acta = new Actas();
-            acta.setActa(action.getString("acta"));
-            acta.setDepartamento(action.getString("departamento"));
-            acta.setProvincia(action.getString("provincia"));
-            acta.setDistrito(action.getString("distrito"));
+    public ObservableList<TransmisionRecibidas> castObservableListOfActas(ResultSet rs) throws SQLException {
+        List<TransmisionRecibidas> listActas = new ArrayList<>();
+
+        while (rs.next()) {
+            TransmisionRecibidas acta = new TransmisionRecibidas();
+            acta.setNcodtrama(rs.getInt("ncodtrama"));
+            acta.setStrama(rs.getString("strama"));
+            acta.setDfechahora(rs.getDate("dfechahora").toString());
+            acta.setNestado(rs.getInt("nestado"));
             listActas.add(acta);
-        });
+        }
+
         return FXCollections.observableArrayList(listActas);
     }
 
@@ -80,10 +85,10 @@ public class Mapper {
     public Transmision dtoToTransmision(Actas ss) {
 
         TransmisionHeader header = new TransmisionHeader();
-        
+
         Transmision transmision = new Transmision();
         transmision.setHeader(header);
-    
+
         transmision.setBody(ss);
 
         return transmision;

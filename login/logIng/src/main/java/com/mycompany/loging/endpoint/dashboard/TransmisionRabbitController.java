@@ -1,6 +1,5 @@
 package com.mycompany.loging.endpoint.dashboard;
 
-
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
@@ -23,6 +22,7 @@ import javafx.scene.control.Button;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import com.mycompany.loging.score.util.CreateObject;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -36,14 +36,13 @@ public class TransmisionRabbitController implements Initializable {
 
     private static final String ALGORITMO = "AES";
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
-    
+
     ImageView observacionesActa;
     @FXML
     ImageView codigoBarra;
-   
-    
+
     private Label lblTipoActa;
-    
+
     public TransmisionRabbitController() {
         this.negocioService = new NegocioServiceImpl();
 //        this.dropShadowE = new DropShadowE();
@@ -53,9 +52,7 @@ public class TransmisionRabbitController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-    
 
-    
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
@@ -71,8 +68,7 @@ public class TransmisionRabbitController implements Initializable {
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
-        String json = 
-        cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
+        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
 
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 
@@ -107,10 +103,12 @@ public class TransmisionRabbitController implements Initializable {
 
     @FXML
     private void regresarFirmas() throws IOException {
-        App.setRoot(null, "registrarObs");
-
+        VariableGlobals.viewPosition--;
+        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }
+
     private void regresaActasV() throws IOException {
-        App.setRoot(null, "leerActasVotos");
+        VariableGlobals.viewPosition--;
+        App.setRoot(null, VariableGlobals.viewOrder.get(VariableGlobals.viewPosition));
     }
 }

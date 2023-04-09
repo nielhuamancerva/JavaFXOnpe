@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import onpe.com.pe.transmisionscore.App;
 import onpe.com.pe.transmisionscore.core.model.Actas;
+import onpe.com.pe.transmisionscore.core.model.TransmisionRecibidas;
 import onpe.com.pe.transmisionscore.core.util.constanst.VariableGlobales;
 
 /**
@@ -20,12 +21,12 @@ import onpe.com.pe.transmisionscore.core.util.constanst.VariableGlobales;
  */
 public class CreacionTable {
 
-    public TableView<Actas> viewActas(TableView<Actas> Tactas) {
-        TableColumn<Actas, Integer> columnaActa = new TableColumn<>("acta");
-        columnaActa.setCellValueFactory(new PropertyValueFactory<>("acta"));
+    public TableView<TransmisionRecibidas> viewActas(TableView<TransmisionRecibidas> Tactas) {
+        TableColumn<TransmisionRecibidas, Integer> columnaActa = new TableColumn<>("codigo");
+        columnaActa.setCellValueFactory(new PropertyValueFactory<>("strama"));
 
-        TableColumn<Actas, String> columnaDepartamento = new TableColumn<>("departamento");
-        columnaDepartamento.setCellValueFactory(new PropertyValueFactory<>("departamento"));
+        TableColumn<TransmisionRecibidas, String> columnaDepartamento = new TableColumn<>("Centro de Computo");
+        columnaDepartamento.setCellValueFactory(new PropertyValueFactory<>("ncodtrama"));
 
 //        TableColumn<Actas, String> columnaProvincia = new TableColumn<>("provincia");
 //        columnaProvincia.setCellValueFactory(new PropertyValueFactory<>("provincia"));
@@ -63,34 +64,35 @@ public class CreacionTable {
 //        TableColumn<Actas, String> columnaFirma3 = new TableColumn<>("firma3");
 //        columnaFirma3.setCellValueFactory(new PropertyValueFactory<>("firma3"));
 
-        TableColumn<Actas, String> columnaFechaRegistro = new TableColumn<>("fecha de Registro");
-        columnaFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("fecha_registro"));
 
-        TableColumn<Actas, String> columnaEstado = new TableColumn<>("estado");
-        columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        TableColumn<TransmisionRecibidas, String> columnaFechaRegistro = new TableColumn<>("Fecha de Registro");
+        columnaFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("dfechahora"));
+
+        TableColumn<TransmisionRecibidas, Integer> columnaEstado = new TableColumn<>("Estado");
+        columnaEstado.setCellValueFactory(new PropertyValueFactory<>("nestado"));
 
         columnaEstado.setCellFactory(column -> {
-            return new TableCell<Actas, String>() {
+            return new TableCell<TransmisionRecibidas, Integer>() {
                 @Override
-                protected void updateItem(String item, boolean empty) {
+                protected void updateItem(Integer item, boolean empty) {
                     super.updateItem(item, empty);
 
                     if (empty || item == null) {
                         setText(null);
                         setStyle("");
                     } else {
-                        setText(item);
+//                        setText(item);
+
+     
                         switch (item) {
-                            case "Valido":
+                            case 1:
                                 setStyle("-fx-text-fill: transparent; -fx-background-color:green; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
-                            case "No Valido":
+                            case 0:
                                 setStyle("-fx-text-fill: transparent; -fx-background-color:red; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
-                            case "":
-                                setStyle("-fx-background-color: #E0E0E0; -fx-border-width:0.5px; -fx-border-color: white;");
-                                break;
                             default:
+                                setStyle("-fx-background-color: #E0E0E0; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
                         }
                     }
@@ -98,19 +100,19 @@ public class CreacionTable {
             };
         });
 
-        TableColumn<Actas, Void> columnaAccion = new TableColumn<>("Acción");
+        TableColumn<TransmisionRecibidas, Void> columnaAccion = new TableColumn<>("Acción");
 
-        Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>> cellFactory = new Callback<TableColumn<Actas, Void>, TableCell<Actas, Void>>() {
+        Callback<TableColumn<TransmisionRecibidas, Void>, TableCell<TransmisionRecibidas, Void>> cellFactory = new Callback<TableColumn<TransmisionRecibidas, Void>, TableCell<TransmisionRecibidas, Void>>() {
             @Override
-            public TableCell<Actas, Void> call(final TableColumn<Actas, Void> param) {
-                final TableCell<Actas, Void> cell = new TableCell<Actas, Void>() {
+            public TableCell<TransmisionRecibidas, Void> call(final TableColumn<TransmisionRecibidas, Void> param) {
+                final TableCell<TransmisionRecibidas, Void> cell = new TableCell<TransmisionRecibidas, Void>() {
                     private final Button btn = new Button("Ver");
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getActa();
+                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getStrama();
 //                                App.setRoot(null, "viewImagen");
-                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getEstado());
+                            System.out.println("Editar acta " + getTableView().getItems().get(getIndex()).getNestado());
 
                         });
                     }
@@ -137,7 +139,7 @@ public class CreacionTable {
         };
 
         columnaAccion.setCellFactory(cellFactory);
-        Tactas.getColumns().addAll(columnaActa, columnaDepartamento, columnaFechaRegistro, columnaEstado, columnaAccion);
+        Tactas.getColumns().addAll(columnaActa, columnaDepartamento,columnaFechaRegistro, columnaEstado, columnaAccion);
         return Tactas;
     }
 }

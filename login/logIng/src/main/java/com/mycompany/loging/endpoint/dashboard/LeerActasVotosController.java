@@ -2,6 +2,7 @@ package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
+import com.mycompany.loging.score.model.Modules;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
@@ -9,7 +10,9 @@ import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.listModules;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.nombreDelArchivoProcesado;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad;
 import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.IOException;
 import java.net.URL;
@@ -58,21 +61,33 @@ public class LeerActasVotosController implements Initializable {
         lblTipoActa.setText(nombreDelArchivoProcesado);
 
         try {
+            for (Modules module : listModules) {
+                switch (module.getTypeModule()) {
+                    case "Regiones":
+                        negocioService.readAndCutOrganizationsPolitical(
+                                Mappers.transformaTointerger(module.getCoordinatesXo()),
+                                Mappers.transformaTointerger(module.getCoordinatesYo()),
+                                Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                                Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
-            if (!VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri").equals("")) {
-                imagenVotos.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
+                        imagenVotos.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
 
-                voto1.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-                voto2.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-                voto3.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-                voto4.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-                voto5.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+                        voto1.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+                        voto2.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+                        voto3.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+                        voto4.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+                        voto5.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
 
-                System.out.println("bufferedValorVoto1 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-                System.out.println("bufferedValorVoto2 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-                System.out.println("bufferedValorVoto3 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-                System.out.println("bufferedValorVoto4 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-                System.out.println("bufferedValorVoto5 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+                        System.out.println("bufferedValorVoto1 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+                        System.out.println("bufferedValorVoto2 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+                        System.out.println("bufferedValorVoto3 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+                        System.out.println("bufferedValorVoto4 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+                        System.out.println("bufferedValorVoto5 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+                        break;
+                    default:
+                        App.setRoot(null, "registrarObs");
+                        break;
+                }
             }
 
         } catch (Exception ex) {
@@ -82,11 +97,15 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private void regresarLeerActas() throws IOException {
-        App.setRoot(null, "verificaFirmas");
+//        App.setRoot(null, "verificaFirmas");
+        VariableGlobals.viewPosition--;
+        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }
 
     @FXML
     private void registrarObs() throws IOException {
-        App.setRoot(null, "registrarObs");
+//        App.setRoot(null, "registrarObs");
+        VariableGlobals.viewPosition++;
+        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }
 }

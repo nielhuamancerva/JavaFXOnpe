@@ -19,16 +19,20 @@ import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.listModules;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.nombreDelArchivoProcesado;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad;
 import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -96,7 +100,11 @@ public class VerificaFirmasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-
+            VariableGlobals.viewOrder.put(1, "verificaFirmas");
+            VariableGlobals.viewOrder.put(2, "leerActasVotos");
+            VariableGlobals.viewOrder.put(3, "registrarObs");
+            VariableGlobals.viewOrder.put(4, "transmisionRabbit");
+            viewLoad = new ArrayList<>();
             itemList = negocioService.finAllSetting();
             ObservableList<String> ii = FXCollections.observableArrayList(itemList.stream().map(r -> r.getName()).collect(Collectors.toList()));
 
@@ -108,8 +116,8 @@ public class VerificaFirmasController implements Initializable {
 
     @FXML
     private void selecionarActa(ActionEvent event) {
+        VariableGlobals.viewPosition = 0;
         cboDocumentos.getValue();
-
         String variable = itemList.stream().filter(j -> j.getName().equals(cboDocumentos.getValue())).map(r -> r.getSetting()).collect(Collectors.toList()).get(0);
 //        variable = variable.replace(" ", "");
         Gson gson = new Gson();
@@ -150,10 +158,11 @@ public class VerificaFirmasController implements Initializable {
 
     @FXML
     private void actionContinuar() throws IOException {
+        VariableGlobals.viewPosition++;
         VariableGlobals.actasLeida.setFirma1(String.valueOf(firmoP));
         VariableGlobals.actasLeida.setFirma2(String.valueOf(firmoS));
         VariableGlobals.actasLeida.setFirma3(String.valueOf(firmoT));
-        App.setRoot(null, "leerActasVotos");
+        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }
 
     @FXML
@@ -165,6 +174,7 @@ public class VerificaFirmasController implements Initializable {
 
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         nombreDelArchivoProcesado = cboDocumentos.getValue();
+        List<Integer> view = new ArrayList<Integer>();
         for (Modules module : listModules) {
 
             switch (module.getTypeModule()) {
@@ -180,7 +190,7 @@ public class VerificaFirmasController implements Initializable {
                     lbVaDepartamento.setText(VariableGlobals.actasLeida.getDepartamento());
                     lbVaprovincia.setText(VariableGlobals.actasLeida.getProvincia());
                     lbVaDistrito.setText(VariableGlobals.actasLeida.getDistrito());
-
+                    view.add(1);
                     break;
                 case "Hora":
                     negocioService.readAndCutHoraInicio(module.getNameModule(),
@@ -221,21 +231,13 @@ public class VerificaFirmasController implements Initializable {
                     anchorHora.getChildren().addAll(labelAnchorHora, imageViewAnchorPane, textFieldAnchorPane);
                     ContainerHora.getChildren().addAll(anchorHora);
                     ContainerHora.setMargin(anchorHora, new Insets(50, 0, 0, 0));
+                    view.add(1);
                     break;
                 case "Regiones":
-                    negocioService.readAndCutOrganizationsPolitical(
-                            Mappers.transformaTointerger(module.getCoordinatesXo()),
-                            Mappers.transformaTointerger(module.getCoordinatesYo()),
-                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
-                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
-
+                    view.add(2);
                     break;
                 case "Observaciones":
-                    negocioService.readAndCutObservations(
-                            Mappers.transformaTointerger(module.getCoordinatesXo()),
-                            Mappers.transformaTointerger(module.getCoordinatesYo()),
-                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
-                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
+                    view.add(3);
                     break;
                 case "Firma":
                     firmoP = negocioService.readAndCutsignature(module.getNameModule(),
@@ -343,12 +345,18 @@ public class VerificaFirmasController implements Initializable {
 //        //Image img = new Image(fileSeleccionado.toURI().toString());
 //        //imgViewActa.setImage(img);
 //        VariableGlobals.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue());
+                    view.add(1);
                     break;
                 default:
                     // Código a ejecutar si la variable no coincide con ninguno de los valores anteriores
                     break;
             }
         }
+
+        view.add(4);
+        Set<Integer> conjunto = new HashSet<>(view);
+        viewLoad = new ArrayList<>(conjunto);
+        Collections.sort(viewLoad);
 
     }
 

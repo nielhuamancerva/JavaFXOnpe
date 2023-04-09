@@ -91,6 +91,7 @@ public class CreacionTable {
                                 setStyle("-fx-background-color: #E0E0E0; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
                             default:
+                                setStyle("-fx-text-fill: transparent");
                                 break;
                         }
                     }

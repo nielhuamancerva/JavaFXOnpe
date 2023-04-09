@@ -15,6 +15,7 @@ import com.mycompany.loging.score.model.TransmisionHeader;
 import com.mycompany.loging.score.util.common.CommonMappings;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -40,7 +41,7 @@ public class Mappers {
             Actas acta = new Actas();
             acta.setActa(action.getString("acta"));
             acta.setDepartamento(action.getString("departamento"));
-            acta.setFecha_registro(action.getString("fecha_registro"));
+            acta.setFecha_registro( action.getString("fecha_registro"));
             acta.setEstado(action.getString("estado"));
             listActas.add(acta);
         });
@@ -65,6 +66,7 @@ public class Mappers {
     }
 
     public Document actaCastToDocument(Actas ss) {
+
         Document document = new Document();
         document.append("acta", ss.getActa());
         document.append("departamento", ss.getDepartamento());
@@ -76,6 +78,7 @@ public class Mappers {
         document.append("firma2", ss.getFirma2());
         document.append("firma3", ss.getFirma3());
         document.append("estado", "Valido");
+        document.append("fecha_registro", LocalDate.now().toString());
         return document;
     }
 
