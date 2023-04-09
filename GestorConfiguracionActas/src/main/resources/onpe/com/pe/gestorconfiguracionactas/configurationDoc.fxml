@@ -26,31 +26,13 @@
                                  </styleClass>
                               </Label>
                               <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
-                              <ScrollPane hbarPolicy="ALWAYS" layoutX="120.0" layoutY="55.0" prefHeight="347.0" prefWidth="412.0" vbarPolicy="ALWAYS">
+                              <ScrollPane hbarPolicy="ALWAYS" layoutX="94.0" layoutY="47.0" prefHeight="356.0" prefWidth="499.0" vbarPolicy="ALWAYS">
                                  <content>
                                     <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="494.0" />
                                  </content>
                               </ScrollPane>
                            </children>
                         </Pane>
-<<<<<<< Updated upstream
-                        <ScrollPane hbarPolicy="ALWAYS" layoutX="222.0" layoutY="263.0" prefHeight="578.0" prefWidth="514.0" vbarPolicy="ALWAYS">
-                           <content>
-                              <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="494.0" />
-                           </content>
-                        </ScrollPane>
-                        <AnchorPane layoutX="1132.0" layoutY="764.0" prefHeight="85.0" prefWidth="602.0" styleClass="borde-pane-black" />
-                        <AnchorPane layoutX="1133.0" layoutY="70.0" prefHeight="68.0" prefWidth="602.0" styleClass="borde-pane-black">
-                           <children>
-                              <Label layoutX="14.0" layoutY="17.0" text="DOCUMENTOS ELECTORALES">
-                                 <font>
-                                    <Font name="System Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="564.0" layoutY="178.0">
-=======
                         <Label layoutX="121.0" layoutY="-11.0" styleClass="title" text="onfigurar" />
                         <Label layoutX="81.0" layoutY="-25.0" styleClass="title-first" text="C" />
                         <Label layoutX="386.0" layoutY="-11.0" styleClass="title" text="ocumentos" />
@@ -71,24 +53,9 @@
                               </ScrollPane>
                            </children></Pane>
                         <Pane layoutX="51.0" layoutY="96.0" prefHeight="77.0" prefWidth="626.0" styleClass="fielset">
->>>>>>> Stashed changes
                            <children>
                               <TextField fx:id="titleDocumentSetting" disable="true" layoutX="20.0" layoutY="22.0" prefHeight="35.0" prefWidth="567.0" styleClass="search-text" />
                            </children>
-<<<<<<< Updated upstream
-                        </AnchorPane>
-                        <AnchorPane layoutX="68.0" layoutY="186.0" prefHeight="77.0" prefWidth="367.0">
-                           <children>
-                              <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
-                              <Label layoutX="99.0" layoutY="30.0" text="Agregar Sección">
-                                 <font>
-                                    <Font size="22.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="692.0" layoutY="45.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
-=======
                         </Pane>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="79.0" layoutY="69.0" prefHeight="47.0" prefWidth="576.0" text="INGRESE EL NOMBRE DEL DOCUMENTO">
                            <styleClass>
@@ -96,7 +63,6 @@
                               <String fx:value="apBlanco" />
                            </styleClass>
                         </Label>
->>>>>>> Stashed changes
                      </children>
                   </AnchorPane>
                </children>
