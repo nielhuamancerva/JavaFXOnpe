@@ -1,6 +1,5 @@
 package com.mycompany.loging.endpoint.dashboard;
 
-
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
@@ -8,6 +7,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.nombreDelArchivoProcesado;
 import com.mycompany.loging.score.util.mapper.Mappers;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -31,15 +31,10 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class RegistrarObsController implements Initializable {
 
-    private static final String QUEUE_NAME = "cola_niel";
-    private static final String ALGORITMO = "AES";
-    private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
-
     private final NegocioService negocioService;
 
     @FXML
     ImageView observacionesActa;
-    ImageView codigoBarra;
     @FXML
     TextArea textObservaciones;
     @FXML
@@ -52,23 +47,10 @@ public class RegistrarObsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        try {
-//            negocioService.readAndCutObservations(
-//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Xo")),
-//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Yo")),
-//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Ancho")),
-//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Alto"))
-//            );
-            lblTipoActa.setText(VariableGlobals.lecturaActasEnMemoria.get("tipoActa"));
-            
-            //Field field = Button.class.getDeclaredField("defaultButton");
-            //field.setAccessible(true);
-    
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (!VariableGlobals.lecturaActasEnMemoria.get("observaciones").equals("")) {
+            lblTipoActa.setText(nombreDelArchivoProcesado);
+            observacionesActa.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("observaciones")));
         }
-        observacionesActa.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("observaciones")));
-        codigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
     }
 
     @FXML
@@ -76,59 +58,9 @@ public class RegistrarObsController implements Initializable {
         App.setRoot(null, "leerActasVotos");
     }
 
-
-    private void ultimaaccion() throws Exception {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.89.225");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
-        factory.setVirtualHost("/");
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        
-        
-        //System.out.println(VariableGlobals.actasLeida);
-        
-        Gson gson = new Gson();
-        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
-        
-        
-        channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
-
-        channel.close();
-        connection.close();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmación de transmisión");
-        alert.setHeaderText("¡Transmisión exitosa!");
-        alert.setContentText("Se ha enviado correctamente la transmisión.");
-        alert.showAndWait();
-    }
-    
-    public String cifrar(String texto) throws Exception {
-        String ALGORITHM = "AES";
-        String KEY = "mySecretKey12345";
-        SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-        byte[] encryptedValue = cipher.doFinal(texto.getBytes(StandardCharsets.UTF_8));
-        return Base64.getEncoder().encodeToString(encryptedValue);
-    }
-
-    public String decrypt(String encryptedValue) throws Exception {
-        String ALGORITHM = "AES";
-        String KEY = "mySecretKey12345";
-        SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
-        Cipher cipher = Cipher.getInstance(ALGORITHM);
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decryptedValue = cipher.doFinal(Base64.getDecoder().decode(encryptedValue));
-        return new String(decryptedValue, StandardCharsets.UTF_8);
-    }
-
     @FXML
-    private void transmitir()throws IOException{
+    private void transmitir() throws IOException {
         App.setRoot(null, "transmisionRabbit");
     }
-
 
 }

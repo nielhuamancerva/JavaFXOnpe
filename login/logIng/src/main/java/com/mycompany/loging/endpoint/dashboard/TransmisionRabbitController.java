@@ -39,7 +39,7 @@ public class TransmisionRabbitController implements Initializable {
     
     ImageView observacionesActa;
     @FXML
-            ImageView codigoBarra;
+    ImageView codigoBarra;
    
     
     private Label lblTipoActa;
@@ -51,20 +51,7 @@ public class TransmisionRabbitController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        dropShadowE.setTabEffect(btnTransmitir);
-//        dropShadowE.setTabEffect(btnRegresar);
 
-        try {
-                negocioService.readAndCutObservations(Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Xo")),
-                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Yo")),
-                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Ancho")),
-                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Alto"))
-            );
-                lblTipoActa.setText(VariableGlobals.lecturaActasEnMemoria.get("tipoActa"));
-        } catch (Exception e) {
-        }
-       // observacionesActa.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("observaciones")));
-//        codigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
     }
     
 
@@ -72,14 +59,14 @@ public class TransmisionRabbitController implements Initializable {
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("172.16.89.225");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
-        factory.setVirtualHost("/");
-//        factory.setHost("localhost");
-//        factory.setUsername("guest");
-//        factory.setPassword("guest");
+//        factory.setHost("172.16.89.225");
+//        factory.setUsername("admin");
+//        factory.setPassword("admin");
 //        factory.setVirtualHost("/");
+        factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
+        factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
