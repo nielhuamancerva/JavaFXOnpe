@@ -5,7 +5,7 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,24 +48,21 @@ public class RegistrarFirmaController implements Initializable {
         dropShadowE.setTabEffect(btnVerificaTransmision);
         dropShadowE.setTabEffect(btnRegresarObs);
         try {
-            firmoP = negocioService.readAndCutsignature(
-                    "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("5" + "Alto")));
-            firmoS = negocioService.readAndCutsignature(
-                    "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("6" + "Alto")));
-            firmoT = negocioService.readAndCutsignature(
-                    "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Xo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Yo")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Ancho")),
-                    Integer.parseInt(VariableGlobales.configuracionActa.get("7" + "Alto")));
+            firmoP = negocioService.readAndCutsignature("FI1-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("5" + "Xo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("5" + "Yo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("5" + "Ancho")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("5" + "Alto")));
+            firmoS = negocioService.readAndCutsignature("FI2-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("6" + "Xo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("6" + "Yo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("6" + "Ancho")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("6" + "Alto")));
+            firmoT = negocioService.readAndCutsignature("FI3-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("7" + "Xo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("7" + "Yo")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("7" + "Ancho")),
+                    Integer.parseInt(VariableGlobals.configuracionActa.get("7" + "Alto")));
 
             btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
@@ -74,9 +71,9 @@ public class RegistrarFirmaController implements Initializable {
             btnSiTercer.getStyleClass().add(firmoP ? "boton-active" : "");
             btnNoTercer.getStyleClass().add(!firmoP ? "boton-activeN" : "");
 
-            firma1.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
-            firma2.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
-            firma3.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+            firma1.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI1-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+            firma2.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI2-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+            firma3.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI3-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
 
             btnVerificaTransmision.setDisable(true);
             for (int i = 0; i < 3; i++) {
@@ -103,9 +100,9 @@ public class RegistrarFirmaController implements Initializable {
 
     @FXML
     private void verificaTransmite() throws IOException {
-        VariableGlobales.actasLeida.setFirma1(String.valueOf(firmoP));
-        VariableGlobales.actasLeida.setFirma2(String.valueOf(firmoS));
-        VariableGlobales.actasLeida.setFirma3(String.valueOf(firmoT));
+        VariableGlobals.actasLeida.setFirma1(String.valueOf(firmoP));
+        VariableGlobals.actasLeida.setFirma2(String.valueOf(firmoS));
+        VariableGlobals.actasLeida.setFirma3(String.valueOf(firmoT));
         App.setRoot(null, "transmisionRabbit");
     }
 

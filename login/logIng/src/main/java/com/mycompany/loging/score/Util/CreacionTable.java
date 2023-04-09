@@ -2,7 +2,7 @@ package com.mycompany.loging.score.util;
 
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.model.Actas;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,7 +108,7 @@ public class CreacionTable {
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getActa();
+                            VariableGlobals.viewImage = getTableView().getItems().get(getIndex()).getActa();
                             try {
                                 App.setRoot(null, "viewImagen");
 //                            System.out.println("Editar acta " +getTableView().getItems().get(getIndex()).getActa() );

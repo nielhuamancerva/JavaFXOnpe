@@ -47,7 +47,7 @@ public class BusinessServiceImpl implements BusinessService {
         factoryService = FactoryService.getInstance();
         factoryService.SettingService().saveSetting(newSetting);
         Sections sections = new Sections();
-        sections.setSetting_id(newSetting.getId_setting()); 
+        sections.setSetting_id(newSetting.getId_setting());
         factoryService.SectionsService().saveSections(sections);
     }
 
@@ -121,11 +121,11 @@ public class BusinessServiceImpl implements BusinessService {
     public void uploadSections(String idSetings, String coordenadas) throws Exception {
         factoryService = FactoryService.getInstance();
         factoryService.SettingService().findAllSetting();
-        factoryService.SectionsService().updateSections(idSetings,coordenadas);
+        factoryService.SectionsService().updateSections(idSetings, coordenadas);
     }
 
     public List<String> findSettingForNameEleccion(String nameEleccion) throws Exception {
-                factoryService = FactoryService.getInstance();
+        factoryService = FactoryService.getInstance();
         return factoryService.SettingService().findAllSetting().stream()
                 .filter(t -> t.getName().equals(nameEleccion))
                 .map(s -> s.getSetting())
@@ -134,12 +134,12 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public void updateSetting(String nameEleccion, String array) throws Exception {
-      factoryService = FactoryService.getInstance();
-     Setting setting = factoryService.SettingService().findAllSetting().stream()
+        factoryService = FactoryService.getInstance();
+        Setting setting = factoryService.SettingService().findAllSetting().stream()
                 .filter(t -> t.getName().equals(nameEleccion))
-                .collect(Collectors.toList()).get(0);    
-      setting.setSetting(array);
-      factoryService.SettingService().updateStatusSetting(Mapper.settingCastToDocument(setting));
+                .collect(Collectors.toList()).get(0);
+        setting.setSetting(array);
+        factoryService.SettingService().updateStatusSetting(Mapper.settingCastToDocument(setting));
 
     }
 
@@ -150,6 +150,13 @@ public class BusinessServiceImpl implements BusinessService {
                 .filter(s -> s.getSetting_id().equals(idSecciont))
                 .map(y -> y.getCoordinates())
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    @Override
+    public void uploadSectionsCoornates(String idSetings, String coordenadas) throws Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.SettingService().findAllSetting();
+        factoryService.SettingService().updateSettingCoordinates(idSetings, coordenadas);
     }
 
 }

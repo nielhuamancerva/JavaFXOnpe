@@ -6,9 +6,9 @@ import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
-import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
-import com.mycompany.loging.score.util.mapper.Mapper;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
+import com.mycompany.loging.score.util.mapper.Mappers;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -53,13 +53,13 @@ public class RegistrarObsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
-            negocioService.readAndCutObservations(
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(4) + "Alto"))
-            );
-            lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+//            negocioService.readAndCutObservations(
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Xo")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Yo")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Ancho")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(4) + "Alto"))
+//            );
+            lblTipoActa.setText(VariableGlobals.lecturaActasEnMemoria.get("tipoActa"));
             
             //Field field = Button.class.getDeclaredField("defaultButton");
             //field.setAccessible(true);
@@ -67,8 +67,8 @@ public class RegistrarObsController implements Initializable {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        observacionesActa.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("observaciones")));
-        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+        observacionesActa.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("observaciones")));
+        codigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
     }
 
     @FXML
@@ -88,10 +88,10 @@ public class RegistrarObsController implements Initializable {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         
         
-        //System.out.println(VariableGlobales.actasLeida);
+        //System.out.println(VariableGlobals.actasLeida);
         
         Gson gson = new Gson();
-        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
         
         
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));

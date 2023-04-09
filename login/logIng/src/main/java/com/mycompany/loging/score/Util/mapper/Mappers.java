@@ -12,8 +12,8 @@ import com.mycompany.loging.score.model.Sections;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
 import com.mycompany.loging.score.model.TransmisionHeader;
-import com.mycompany.loging.score.util.common.commonMappings;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.common.CommonMappings;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import org.bson.Document;
  *
  * @author NHuaman
  */
-public class Mapper {
+public class Mappers {
 
     public static Document sectionsCastToDocument(Sections ss) {
         Document document = new Document();
@@ -82,7 +82,7 @@ public class Mapper {
 
         Document document = new Document();
         document.append("acta_id", ss.getActa_id());
-        document.append("imagen", commonMappings.convertFileToBase64());
+        document.append("imagen", CommonMappings.convertFileToBase64());
         return document;
     }
 

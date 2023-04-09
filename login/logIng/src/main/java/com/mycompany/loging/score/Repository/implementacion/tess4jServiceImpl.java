@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
 import javax.imageio.ImageIO;
 import net.sourceforge.tess4j.Tesseract;
 import com.mycompany.loging.score.Repository.service.Tess4jService;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.awt.image.RescaleOp;
 import java.util.HashMap;
 import net.sourceforge.tess4j.util.ImageHelper;
@@ -25,14 +25,14 @@ public class Tess4jServiceImpl implements Tess4jService {
     @Override
     public void leerCodigoDeBarras(Integer X, Integer Y, Integer H, Integer W) throws Exception {
 
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File imageFile = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage imageOriginal = ImageIO.read(imageFile);
 
         BufferedImage imageCodBarras = imageOriginal.getSubimage(X, Y, H, W);
 
-        File archivoCodigoBarras = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "BAR-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        File archivoCodigoBarras = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + "BAR-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
         ImageIO.write(imageCodBarras, "png", archivoCodigoBarras);
-        VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
 
         BufferedImage image = ImageIO.read(archivoCodigoBarras);
         // create binary bitmap from image
@@ -43,24 +43,24 @@ public class Tess4jServiceImpl implements Tess4jService {
         hints.put(DecodeHintType.TRY_HARDER, Boolean.TRUE);
         com.google.zxing.Result result = reader.decode(bitmap, hints);
 
-        VariableGlobales.lecturaActasEnMemoria.put("codigoBarraResponse", result.getText());
-        VariableGlobales.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put("codigoBarraResponse", result.getText());
+        VariableGlobals.lecturaActasEnMemoria.put("codigoBarra", archivoCodigoBarras.toURI().toString());
 
     }
 
     @Override
     public void leerNumeroVotos(String nombreVoto, Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File fileImageRegionVotos = new File(VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotos"));
+        File fileImageRegionVotos = new File(VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotos"));
         BufferedImage image = ImageIO.read(fileImageRegionVotos);
         BufferedImage valor1 = image.getSubimage(X, Y, H, W);
 
         Tesseract tc = new Tesseract();
         tc.setOcrEngineMode(2);
         tc.setTessVariable("user_defined_dpi", "2400");
-        tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
+        tc.setDatapath(VariableGlobals.lecturaActasEnMemoria.get("pathTesseract"));
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
 
-        File archivoValor1 = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + nombreVoto + ".png");
+        File archivoValor1 = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + nombreVoto + ".png");
         ImageIO.write(valor1, "png", archivoValor1);
 
         valor1 = ImageHelper.convertImageToGrayscale(valor1);
@@ -70,20 +70,20 @@ public class Tess4jServiceImpl implements Tess4jService {
 
         String result5 = tc.doOCR(valor5Final);
 
-        VariableGlobales.lecturaActasEnMemoria.put(nombreVoto, result5);
+        VariableGlobals.lecturaActasEnMemoria.put(nombreVoto, result5);
 
     }
 
     @Override
     public Boolean validarFirma(String signatureFile, Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File imageFile = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage image = ImageIO.read(imageFile);
 
         BufferedImage Firma = image.getSubimage(X, Y, H, W);
 
-        File archivoFirma = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + signatureFile);
+        File archivoFirma = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + signatureFile+ ".png");
         ImageIO.write(Firma, "png", archivoFirma);
-        VariableGlobales.lecturaActasEnMemoria.put(signatureFile, archivoFirma.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put(signatureFile, archivoFirma.toURI().toString());
 
         try {
             BufferedImage imageFinal = ImageIO.read(archivoFirma);
@@ -114,30 +114,30 @@ public class Tess4jServiceImpl implements Tess4jService {
 
     @Override
     public void leerObservaciones(Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File imageFile = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage image = ImageIO.read(imageFile);
         BufferedImage regionObservaciones = image.getSubimage(X, Y, H, W); //REGION OBSERVACION
-        File archivoRegionObservaciones = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "OBS-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        File archivoRegionObservaciones = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + "OBS-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
-        VariableGlobales.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put("observaciones", archivoRegionObservaciones.toURI().toString());
     }
 
     @Override
     public void leerRegionNumeroVotos(Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File imageFile = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage image = ImageIO.read(imageFile);
         BufferedImage regionLista = image.getSubimage(X, Y, H, W);
 
-        File archivoRegionLista = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + "REG-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
+        File archivoRegionLista = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + "REG-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png");
         ImageIO.write(regionLista, "png", archivoRegionLista);
 
-        VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotos", archivoRegionLista.getPath());
-        VariableGlobales.lecturaActasEnMemoria.put("leerRegionNumeroVotosUri", archivoRegionLista.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put("leerRegionNumeroVotos", archivoRegionLista.getPath());
+        VariableGlobals.lecturaActasEnMemoria.put("leerRegionNumeroVotosUri", archivoRegionLista.toURI().toString());
 
         Tesseract tc = new Tesseract();
         tc.setOcrEngineMode(2);
         tc.setTessVariable("user_defined_dpi", "70");
-        tc.setDatapath(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"));
+        tc.setDatapath(VariableGlobals.lecturaActasEnMemoria.get("pathTesseract"));
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
 
         int numeroMaximoFila = 5;
@@ -151,12 +151,12 @@ public class Tess4jServiceImpl implements Tess4jService {
             //tc.doOCR(preprocesarImagen2(bufferedOrganizacion, "xxxxx"+i, path));
             // coordenada imagen (100,200,300,400)
             BufferedImage bufferedOrganizacionCortada = bufferedOrganizacion.getSubimage(anchoImagen - 220, 0, 220, altoImagenRecortada);
-            String textoPartidoA = tc.doOCR(preprocesarImagenRegionVoto(bufferedOrganizacionCortada, "bufferedValorVoto" + i, VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), 1.61f, 1.9f));
+            String textoPartidoA = tc.doOCR(preprocesarImagenRegionVoto(bufferedOrganizacionCortada, "bufferedValorVoto" + i, VariableGlobals.lecturaActasEnMemoria.get("fileNamePath"), 1.61f, 1.9f));
 
             y += (altoImagenRecortada);
 
             String[] numeros = textoPartidoA.trim().split("\n");
-            VariableGlobales.lecturaActasEnMemoria.put("bufferedValorVoto" + i, numeros[0]);
+            VariableGlobals.lecturaActasEnMemoria.put("bufferedValorVoto" + i, numeros[0]);
         }
     }
 
@@ -171,12 +171,12 @@ public class Tess4jServiceImpl implements Tess4jService {
 
     @Override
     public void leerHora(String nameReadTime, Integer X, Integer Y, Integer H, Integer W) throws Exception {
-        File imageFile = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File imageFile = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         BufferedImage image = ImageIO.read(imageFile);
         BufferedImage regionObservaciones = image.getSubimage(X, Y, H, W); //REGION OBSERVACION
-        File archivoRegionObservaciones = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePath") + nameReadTime+ ".png");
+        File archivoRegionObservaciones = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePath") + nameReadTime+ ".png");
         ImageIO.write(regionObservaciones, "png", archivoRegionObservaciones);
-        VariableGlobales.lecturaActasEnMemoria.put(nameReadTime, archivoRegionObservaciones.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put(nameReadTime, archivoRegionObservaciones.toURI().toString());
     }
 
 }

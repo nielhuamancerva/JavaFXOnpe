@@ -7,8 +7,8 @@ import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
-import static com.mycompany.loging.score.util.constanst.VariableGlobales.lecturaActasEnMemoria;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.lecturaActasEnMemoria;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -70,7 +70,7 @@ public class TransmisionInstalaRabbitController implements Initializable {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
 
-        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+        String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
 
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 

@@ -3,7 +3,7 @@ package com.mycompany.loging.endpoint.dashboard;
 import com.google.zxing.NotFoundException;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -50,10 +50,10 @@ public class RecortarActaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         lbMensaje.setText("Mensaje Para Recortar Acta");
         try {
-            TifToPng( VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), 
-                    VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), 
-                    VariableGlobales.lecturaActasEnMemoria.get("fileName"));
-            Image img = new Image(VariableGlobales.lecturaActasEnMemoria.get("TifToPng"));
+            TifToPng(VariableGlobals.lecturaActasEnMemoria.get("pathTesseract"), 
+                    VariableGlobals.lecturaActasEnMemoria.get("fileNamePath"), 
+                    VariableGlobals.lecturaActasEnMemoria.get("fileName"));
+            Image img = new Image(VariableGlobals.lecturaActasEnMemoria.get("TifToPng"));
             imgViewScroll.setImage(img);
         } catch (Exception e) {
             System.err.println("Excepcion de tipo :"+e);
@@ -86,12 +86,12 @@ public class RecortarActaController implements Initializable {
             
             //cargando recorte
             try {
-                cargarRecorte(VariableGlobales.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobales.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobales.lecturaActasEnMemoria.get("fileName"));
-                Image imgRec = new Image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarraRecorte"));
+                cargarRecorte(VariableGlobals.lecturaActasEnMemoria.get("pathTesseract"), VariableGlobals.lecturaActasEnMemoria.get("fileNamePath"), VariableGlobals.lecturaActasEnMemoria.get("fileName"));
+                Image imgRec = new Image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarraRecorte"));
                 imageViewRecorte.setImage(imgRec);
                 
                 //llamando a funcion que recorta el acta
-                 VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera","NO");
+                 VariableGlobals.lecturaActasEnMemoria.put("lecturaPrimera","NO");
                 factoryservices = FactoryServiciosExternos.getInstance();
                 factoryservices.Tess4jServiceImpl().leerCodigoDeBarras(Double.valueOf(Math.ceil(imgX)).intValue(), Double.valueOf(Math.ceil(imgY)).intValue(), Double.valueOf(Math.ceil(imgAncho)).intValue(), Double.valueOf(Math.ceil(imgAlto)).intValue());
                 
@@ -125,7 +125,7 @@ public class RecortarActaController implements Initializable {
         
         File archivoTifToPng = new File(path + "TifToPng-" + nombreSinExtension + ".png");
         ImageIO.write(image, "png", archivoTifToPng);
-        VariableGlobales.lecturaActasEnMemoria.put("TifToPng", archivoTifToPng.toURI().toString()); 
+        VariableGlobals.lecturaActasEnMemoria.put("TifToPng", archivoTifToPng.toURI().toString()); 
         
     }
     
@@ -148,7 +148,7 @@ public class RecortarActaController implements Initializable {
         
         File archivoRecorteCodBarras = new File(path + "BAR-RECORTE-" + nombreSinExtension + ".png");
         ImageIO.write(imageCodBarrasRecorte, "png", archivoRecorteCodBarras);
-        VariableGlobales.lecturaActasEnMemoria.put("codigoBarraRecorte", archivoRecorteCodBarras.toURI().toString());
+        VariableGlobals.lecturaActasEnMemoria.put("codigoBarraRecorte", archivoRecorteCodBarras.toURI().toString());
         
     }
 

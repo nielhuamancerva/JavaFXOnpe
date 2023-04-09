@@ -10,13 +10,15 @@ import static com.mongodb.client.model.Filters.type;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Modules;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
-import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
-import com.mycompany.loging.score.util.mapper.Mapper;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.listModules;
+import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -32,6 +34,7 @@ import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -68,45 +71,21 @@ public class VerificaFirmasController implements Initializable {
     @FXML
     private ComboBox<String> cboDocumentos;
     @FXML
-    private Label lbVaDistrito;
+    private Label lbVaDistrito, lbVaprovincia, lbVaDepartamento;
     @FXML
-    private Label lbVaprovincia;
-    @FXML
-    private Label lbVaDepartamento;
-    @FXML
-    private ImageView imagenCodigoBarra, imagenHoraFin, imagenHoraInicio;
+    private ImageView imagenCodigoBarra, imagenHoraFin, imagenHoraInicio, firma1, firma2, firma3;
     VBox buttones;
     @FXML
-    private TextField txtHoraInicio;
+    private TextField txtHoraInicio, txtHoraInicio1;
     @FXML
-    private TextField txtHoraInicio1;
+    private Button btnSiPresi, btnNoPresi, btnNoSecre, btnSiSecre, btnSiTercer, btnNoTercer, btnRegresar, btnContinuar;
     @FXML
-    private ImageView firma1;
+    private VBox ContainerHora, ContainerVboxFirma;
     @FXML
-    private Button btnSiPresi;
+    private AnchorPane ModuleFirma;
     @FXML
-    private Button btnNoPresi;
-    @FXML
-    private ImageView firma2;
-    @FXML
-    private Button btnNoSecre;
-    @FXML
-    private Button btnSiSecre;
-    @FXML
-    private ImageView firma3;
-    @FXML
-    private Button btnSiTercer;
-    @FXML
-    private Button btnNoTercer;
-    @FXML
-    private Button btnRegresar;
-    @FXML
-    private Button btnContinuar;
-    @FXML
-
     Label lbArchivosEncontrados;
 
-  
     Image img;
 
     ObservableList<Setting> itemList;
@@ -129,11 +108,10 @@ public class VerificaFirmasController implements Initializable {
         cboDocumentos.getValue();
 
         String variable = itemList.stream().filter(j -> j.getName().equals(cboDocumentos.getValue())).map(r -> r.getSetting()).collect(Collectors.toList()).get(0);
-        variable = variable.replace(" ", "");
+//        variable = variable.replace(" ", "");
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<String>>() {
-        }.getType();
-        list = gson.fromJson(variable, type);
+
+        listModules = gson.fromJson(variable, Modules[].class);
         itemList.forEach(r -> {
             if (r.getName().equals(cboDocumentos.getValue())) {
                 try {
@@ -158,29 +136,10 @@ public class VerificaFirmasController implements Initializable {
     }
 
     @FXML
-    private void ActionFirmoSiS(ActionEvent event) {
-        cambiaStBtn(btnSiSecre, btnNoSecre);
-    }
-
-    @FXML
-    private void ActionFirmoSiT(ActionEvent event) {
-        cambiaStBtn(btnSiTercer, btnNoTercer);
-    }
-
-    @FXML
     private void ActionFirmoNoP(ActionEvent event) {
         cambiaStBtn(btnNoPresi, btnSiPresi);
     }
 
-    @FXML
-    private void ActionFirmoNoS(ActionEvent event) {
-        cambiaStBtn(btnNoSecre, btnSiSecre);
-    }
-
-    @FXML
-    private void ActionFirmoNoT(ActionEvent event) {
-        cambiaStBtn(btnNoTercer, btnSiTercer);
-    }
 
     @FXML
     private void actionRegresar() throws IOException {
@@ -189,102 +148,196 @@ public class VerificaFirmasController implements Initializable {
 
     @FXML
     private void actionContinuar() throws IOException {
-        VariableGlobales.actasLeida.setFirma1(String.valueOf(firmoP));
-        VariableGlobales.actasLeida.setFirma2(String.valueOf(firmoS));
-        VariableGlobales.actasLeida.setFirma3(String.valueOf(firmoT));
+        VariableGlobals.actasLeida.setFirma1(String.valueOf(firmoP));
+        VariableGlobals.actasLeida.setFirma2(String.valueOf(firmoS));
+        VariableGlobals.actasLeida.setFirma3(String.valueOf(firmoT));
         App.setRoot(null, "leerActasVotos");
     }
 
     @FXML
-    private void elegirFichero() throws IOException {
+    private void elegirFichero() throws Exception, IOException {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
 
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
 
-        try {
+        for (Modules module : listModules) {
 
-            negocioService.readAndCutBarcode(
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(0) + "Alto")));
-            imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+            switch (module.getTypeModule()) {
+                case "Codigo Barra":
+                    negocioService.readAndCutBarcode(Mappers.transformaTointerger(module.getCoordinatesXo()),
+                            Mappers.transformaTointerger(module.getCoordinatesYo()),
+                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
+                    imagenCodigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
 
-            negocioService.readAndCutHoraInicio("H1",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(1) + "Alto")));
-            imagenHoraInicio.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H1")));
+                    VariableGlobals.actasLeida = negocioService.finByCodigoBarra(VariableGlobals.lecturaActasEnMemoria.get("codigoBarraResponse"));
 
-            negocioService.readAndCutHoraInicio("H2",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(2) + "Alto")));
-            imagenHoraFin.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("H2")));
+                    lbVaDepartamento.setText(VariableGlobals.actasLeida.getDepartamento());
+                    lbVaprovincia.setText(VariableGlobals.actasLeida.getProvincia());
+                    lbVaDistrito.setText(VariableGlobals.actasLeida.getDistrito());
 
-            VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
-                    VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
+                    break;
+                case "Hora":
+                    negocioService.readAndCutHoraInicio(module.getNameModule(),
+                            Mappers.transformaTointerger(module.getCoordinatesXo()),
+                            Mappers.transformaTointerger(module.getCoordinatesYo()),
+                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
-            lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
-            lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
-            lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
+                    Label labelAnchorHora = new Label();
+                    labelAnchorHora.setText(module.getNameModule());
+                    labelAnchorHora.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
+                    labelAnchorHora.getStyleClass().add("fielset-title");
+                    labelAnchorHora.getStyleClass().add("apBlanco");
+                    labelAnchorHora.setLayoutX(25);
+                    labelAnchorHora.setLayoutY(-35);
 
-            firmoP = negocioService.readAndCutsignature(
-                    "FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(5) + "Alto")));
+                    TextField textFieldAnchorPane = new TextField();
+                    textFieldAnchorPane.setLayoutX(275);
+                    textFieldAnchorPane.setLayoutY(20);
+                    textFieldAnchorPane.setPrefHeight(55);
+                    textFieldAnchorPane.setPrefWidth(82);
+                    textFieldAnchorPane.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
+                    textFieldAnchorPane.getStyleClass().add("search-text");
+                    textFieldAnchorPane.setStyle("-fx-border-color:black");
 
-            firmoS = negocioService.readAndCutsignature(
-                    "FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(6) + "Alto")));
+                    ImageView imageViewAnchorPane = new ImageView();
+                    imageViewAnchorPane.setFitHeight(70);
+                    imageViewAnchorPane.setFitWidth(246);
+                    imageViewAnchorPane.setLayoutX(14);
+                    imageViewAnchorPane.setLayoutY(15);
+                    imageViewAnchorPane.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get(module.getNameModule())));
 
-            firmoT = negocioService.readAndCutsignature(
-                    "FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(7) + "Alto")));
+                    AnchorPane anchorHora = new AnchorPane();
+                    anchorHora.setPrefWidth(361);
+                    anchorHora.setPrefHeight(88);
+                    anchorHora.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
+                    anchorHora.getStyleClass().add("fielset");
+                    anchorHora.getChildren().addAll(labelAnchorHora, imageViewAnchorPane, textFieldAnchorPane);
+                    ContainerHora.getChildren().addAll(anchorHora);
+                    ContainerHora.setMargin(anchorHora, new Insets(50, 0, 0, 0));
+                    break;
+                case "Regiones":
+                    // Código a ejecutar si la variable es igual a valor2
+                    break;
+                case "Observaciones":
+                    // Código a ejecutar si la variable es igual a valor2
+                    break;
+                case "Firma":
+                    firmoP = negocioService.readAndCutsignature(module.getNameModule(),
+                            Mappers.transformaTointerger(module.getCoordinatesXo()),
+                            Mappers.transformaTointerger(module.getCoordinatesYo()),
+                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
-            btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
-            btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
-            btnSiSecre.getStyleClass().add(firmoP ? "boton-active" : "");
-            btnNoSecre.getStyleClass().add(!firmoP ? "boton-activeN" : "");
-            btnSiTercer.getStyleClass().add(firmoP ? "boton-active" : "");
-            btnNoTercer.getStyleClass().add(!firmoP ? "boton-activeN" : "");
+                    Label labelAnchorFirma = new Label();
+                    labelAnchorFirma.setText("VALIDAR FIRMAS");
+                    labelAnchorFirma.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
+                    labelAnchorFirma.getStyleClass().add("fielset-title");
+                    labelAnchorFirma.getStyleClass().add("apBlanco");
+                    labelAnchorFirma.setLayoutX(25);
+                    labelAnchorFirma.setLayoutY(-35);
 
-            firma1.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI1-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
-            firma2.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI2-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
-            firma3.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("FI3-" + VariableGlobales.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+                    ImageView imageViewfirma = new ImageView();
+                    imageViewfirma.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get(module.getNameModule())));
+                    imageViewfirma.setFitHeight(98);
+                    imageViewfirma.setFitWidth(249);
+                    imageViewfirma.setLayoutX(12);
+                    imageViewfirma.setLayoutY(17);
 
-            for (int i = 0; i < 3; i++) {
-                ImageViewTrueOrFalse[i] = new ImageView();
-                Image imageCreate = new Image(getClass().getResource("/imagenes/ico.cancelar.png").toExternalForm());
-                ImageViewTrueOrFalse[i].setImage(imageCreate);
-                ImageViewTrueOrFalse[i].setFitWidth(38);
-                ImageViewTrueOrFalse[i].setFitHeight(38);
-                ImageViewTrueOrFalse[i].setVisible(true);
-                buttones.setMargin(ImageViewTrueOrFalse[i], new Insets(45, 0, 80, 0));
-                buttones.getChildren().addAll(ImageViewTrueOrFalse[i]);
+//                    Image imageCreate = new Image(getClass().getResource("/imagenes/ico.cancelar.png").toExternalForm());
+//                    imageViewfirma.setImage(imageCreate);
+//                    imageViewfirma.setFitWidth(38);
+//                    imageViewfirma.setFitHeight(38);
+//                    imageViewfirma.setVisible(true);
+                    Button buttonSiFirma = new Button("SI FIRMO");
+                    buttonSiFirma.setPrefWidth(128);
+                    buttonSiFirma.setPrefHeight(62);
+                    buttonSiFirma.setLayoutX(412);
+                    buttonSiFirma.setLayoutY(43);
+
+                    Button buttonNoFirma = new Button("NO FIRMO");
+                    buttonNoFirma.setPrefWidth(128);
+                    buttonNoFirma.setPrefHeight(62);
+                    buttonNoFirma.setLayoutX(273);
+                    buttonNoFirma.setLayoutY(43);
+
+                    buttonSiFirma.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            buttonSiFirma.setStyle("-fx-background-color: #2ECC71;");
+                            buttonNoFirma.setStyle("");
+                            buttonNoFirma.getStyleClass().remove("boton-active");
+                            buttonNoFirma.getStyleClass().remove("boton-activeN");
+
+//                            ActivarBoton(btn1);
+                        }
+                    });
+
+                    buttonNoFirma.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            buttonNoFirma.setStyle("-fx-background-color: #2ECC71;");
+                            buttonSiFirma.setStyle("");
+                            buttonSiFirma.getStyleClass().remove("boton-active");
+                            buttonSiFirma.getStyleClass().remove("boton-activeN");
+
+//                            ActivarBoton(btn1);
+                        }
+                    });
+
+                    AnchorPane anchorFirma = new AnchorPane();
+                    anchorFirma.setPrefWidth(545);
+                    anchorFirma.setPrefHeight(125);
+                    anchorFirma.getChildren().addAll(imageViewfirma, buttonSiFirma, buttonNoFirma);
+
+                    ContainerVboxFirma.getChildren().addAll(anchorFirma);
+                    ContainerVboxFirma.setMargin(anchorFirma, new Insets(45, 0, 80, 0));
+
+                    ModuleFirma.getChildren().addAll(labelAnchorFirma);
+                    ModuleFirma.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
+                    ModuleFirma.getStyleClass().add("fielset");
+
+//
+//        firmoS = negocioService.readAndCutsignature("FI2-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(6) + "Xo")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(6) + "Yo")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(6) + "Ancho")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(6) + "Alto")));
+//
+//        firmoT = negocioService.readAndCutsignature("FI3-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png",
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(7) + "Xo")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(7) + "Yo")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(7) + "Ancho")),
+//                Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(7) + "Alto")));
+//
+//        btnSiPresi.getStyleClass().add(firmoP ? "boton-active" : "");
+//        btnNoPresi.getStyleClass().add(!firmoP ? "boton-activeN" : "");
+//        btnSiSecre.getStyleClass().add(firmoP ? "boton-active" : "");
+//        btnNoSecre.getStyleClass().add(!firmoP ? "boton-activeN" : "");
+//        btnSiTercer.getStyleClass().add(firmoP ? "boton-active" : "");
+//        btnNoTercer.getStyleClass().add(!firmoP ? "boton-activeN" : "");
+//
+//        firma1.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI1-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+//        firma2.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI2-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+//        firma3.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("FI3-" + VariableGlobals.lecturaActasEnMemoria.get("fileNameSinExtension") + ".png")));
+//
+//
+//        img = new Image("file:" + VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));// solo se neceita en esta ubiacion la carga del fichero
+//        //Image img = new Image(fileSeleccionado.toURI().toString());
+//        //imgViewActa.setImage(img);
+//        VariableGlobals.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue());
+                    break;
+                default:
+                    // Código a ejecutar si la variable no coincide con ninguno de los valores anteriores
+                    break;
             }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
 
-        img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// solo se neceita en esta ubiacion la carga del fichero
-        //Image img = new Image(fileSeleccionado.toURI().toString());
-        //imgViewActa.setImage(img);
-        VariableGlobales.lecturaActasEnMemoria.put("tipoActa", cboDocumentos.getValue());
     }
 
     private void cambiaStBtn(Button btn1, Button btn2) {

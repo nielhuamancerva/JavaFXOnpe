@@ -8,12 +8,16 @@ package onpe.com.pe.gestorconfiguracionactas.core.model;
  *
  * @author niel
  */
-public class PartesActa {
+public class Modules {
 
     String codemodule;
     String typeModule;
     String nameModule;
     String ordenCreation;
+    String coordinatesXo;
+    String coordinatesYo;
+    String coordinatesWigth;
+    String coordinatesHeigth;
 
     public String getCodemodule() {
         return codemodule;
@@ -45,5 +49,37 @@ public class PartesActa {
 
     public void setOrdenCreation(String ordenCreation) {
         this.ordenCreation = ordenCreation;
+    }
+
+    public String getCoordinatesXo() {
+        return coordinatesXo;
+    }
+
+    public void setCoordinatesXo(String coordinatesXo) {
+        this.coordinatesXo = coordinatesXo;
+    }
+
+    public String getCoordinatesYo() {
+        return coordinatesYo;
+    }
+
+    public void setCoordinatesYo(String coordinatesYo) {
+        this.coordinatesYo = coordinatesYo;
+    }
+
+    public String getCoordinatesWigth() {
+        return coordinatesWigth;
+    }
+
+    public void setCoordinatesWigth(String coordinatesWigth) {
+        this.coordinatesWigth = coordinatesWigth;
+    }
+
+    public String getCoordinatesHeigth() {
+        return coordinatesHeigth;
+    }
+
+    public void setCoordinatesHeigth(String coordinatesHeigth) {
+        this.coordinatesHeigth = coordinatesHeigth;
     }
 }

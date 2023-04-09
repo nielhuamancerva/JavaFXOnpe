@@ -1,7 +1,7 @@
 
 package com.mycompany.loging.score.util;
 
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import javafx.scene.image.Image;
 
 /**

@@ -5,7 +5,7 @@ import com.mongodb.client.result.UpdateResult;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.Repository.service.ImageService;
 import com.mycompany.loging.score.model.Imagenes;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Base64;

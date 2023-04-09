@@ -15,7 +15,7 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreacionTable;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import javafx.scene.control.Button;
 
 public class CargarActaEscrutiController implements Initializable {
@@ -45,7 +45,7 @@ public class CargarActaEscrutiController implements Initializable {
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         System.out.println(fileSeleccionado);
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
+        VariableGlobals.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
         btnSiguiente.setDisable(false);
     }

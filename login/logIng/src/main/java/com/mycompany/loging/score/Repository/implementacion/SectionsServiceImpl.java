@@ -3,7 +3,7 @@ package com.mycompany.loging.score.Repository.implementacion;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.Repository.service.SectionsService;
 import com.mycompany.loging.score.model.Sections;
-import com.mycompany.loging.score.util.mapper.Mapper;
+import com.mycompany.loging.score.util.mapper.Mappers;
 import javafx.collections.ObservableList;
 
 import org.bson.Document;
@@ -20,7 +20,7 @@ public class SectionsServiceImpl implements SectionsService {
     public ObservableList<Sections> findAllSections() throws Exception {
         factoryService = FactoryServiciosExternos.getInstance();
         factoryService.MongoService().conexionMongo();
-        return Mapper.sectionCastToDocument(factoryService.MongoService().findCollection("sections"));
+        return Mappers.sectionCastToDocument(factoryService.MongoService().findCollection("sections"));
     }
 
 

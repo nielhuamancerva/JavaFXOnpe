@@ -12,10 +12,10 @@ import com.mycompany.loging.score.model.Transmision;
 import java.io.IOException;
 import org.bson.Document;
 import com.mycompany.loging.score.negocio.service.NegocioService;
-import com.mycompany.loging.score.util.common.commonMappings;
-import com.mycompany.loging.score.util.constanst.Constansts;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
-import com.mycompany.loging.score.util.mapper.Mapper;
+import com.mycompany.loging.score.util.common.CommonMappings;
+import com.mycompany.loging.score.util.constanst.Constanst;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -31,10 +31,10 @@ import javafx.collections.ObservableList;
 public class NegocioServiceImpl implements NegocioService {
 
     private FactoryServiciosExternos factoryservices;
-    private final Mapper mapping;
+    private final Mappers mapping;
 
     public NegocioServiceImpl() {
-        this.mapping = new Mapper();
+        this.mapping = new Mappers();
     }
 
     @Override
@@ -61,13 +61,13 @@ public class NegocioServiceImpl implements NegocioService {
 
     @Override
     public String uploadFileOnMemory(File fileSelected) {
-        VariableGlobales.lecturaActasEnMemoria = new HashMap();
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
-        VariableGlobales.lecturaActasEnMemoria.put("pathTesseract", Constansts.PATH_TESSERACT);
-        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSelected.getPath());
-        VariableGlobales.lecturaActasEnMemoria.put("fileNamePath", commonMappings.pathOfFile(fileSelected));
-        VariableGlobales.lecturaActasEnMemoria.put("fileName", fileSelected.getName());
-        VariableGlobales.lecturaActasEnMemoria.put("fileNameSinExtension", commonMappings.nameOfFileWithoutExtension(fileSelected));
+        VariableGlobals.lecturaActasEnMemoria = new HashMap();
+        VariableGlobals.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
+        VariableGlobals.lecturaActasEnMemoria.put("pathTesseract", Constanst.PATH_TESSERACT);
+        VariableGlobals.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSelected.getPath());
+        VariableGlobals.lecturaActasEnMemoria.put("fileNamePath", CommonMappings.pathOfFile(fileSelected));
+        VariableGlobals.lecturaActasEnMemoria.put("fileName", fileSelected.getName());
+        VariableGlobals.lecturaActasEnMemoria.put("fileNameSinExtension", CommonMappings.nameOfFileWithoutExtension(fileSelected));
         return fileSelected.getPath();
     }
 
@@ -122,7 +122,7 @@ public class NegocioServiceImpl implements NegocioService {
             stringMap.put(key, value);
         }
 
-        VariableGlobales.configuracionActa = stringMap;
+        VariableGlobals.configuracionActa = stringMap;
     }
 
     @Override
@@ -163,7 +163,7 @@ public class NegocioServiceImpl implements NegocioService {
 
     @Override
     public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception {
-    VariableGlobales.configuracionActa = new HashMap();
+    VariableGlobals.configuracionActa = new HashMap();
     factoryservices  = FactoryServiciosExternos.getInstance();
 
     String yy = factoryservices.SectionsService().findAllSections().stream()
@@ -188,11 +188,9 @@ public class NegocioServiceImpl implements NegocioService {
         stringMap.put(key, value);
     }*/
 
-    VariableGlobales.configuracionActa  = map;
+    VariableGlobals.configuracionActa  = map;
 
-    return factoryservices.SectionsService ()
-
-.findAllSections().stream()
+    return factoryservices.SectionsService ().findAllSections().stream()
                 .filter(s -> s.getSetting_id().equals(idSecciont))
                 .map(y -> y.getCoordinates())
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));

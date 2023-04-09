@@ -41,7 +41,7 @@ import javafx.stage.StageStyle;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
-import onpe.com.pe.gestorconfiguracionactas.core.model.PartesActa;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Modules;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 
 public class ConfigurationDocController implements Initializable {
@@ -80,7 +80,7 @@ public class ConfigurationDocController implements Initializable {
     ArrayList<Integer> list = new ArrayList<>();
 
     String[] listTypeModule = {"Codigo Barra", "Hora", "Regiones", "Observaciones", "Firma"};
-    ArrayList<PartesActa> listModule = new ArrayList<>();
+    ArrayList<Modules> listModule = new ArrayList<>();
     ArrayList<String> listCount = new ArrayList<>();
     TextField[] buttonEventConfi = new TextField[1];
     Button[] buttonEventAdd = new Button[1];
@@ -141,7 +141,7 @@ public class ConfigurationDocController implements Initializable {
                         try {
 
                             Gson gson = new Gson();
-                            Type listType = new TypeToken<List<PartesActa>>() {}.getType();
+                            Type listType = new TypeToken<List<Modules>>() {}.getType();
                             listModule = gson.fromJson(businessService.findAllSections1(name).get(0), listType);
                             containerSettingModule.getChildren().clear();
                             titleDocumentSetting.setText(name);
@@ -242,7 +242,7 @@ public class ConfigurationDocController implements Initializable {
     @FXML
     private void actionAddModulos(ActionEvent event) throws Exception {
         tipoModule = "";
-        PartesActa module = new PartesActa();
+        Modules module = new Modules();
 
         Dialog<String> dialog = new Dialog<>();
         dialog.initStyle(StageStyle.UNDECORATED);

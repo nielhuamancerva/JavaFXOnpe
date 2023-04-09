@@ -5,7 +5,7 @@
 package com.mycompany.loging.endpoint.dashboard;
 
 import com.mycompany.loging.App;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.Thread.State.NEW;
@@ -43,7 +43,7 @@ public class ViewImagenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       
-        File file = new File("file:D:\\carpe\\" +  VariableGlobales.viewImage + ".png");
+        File file = new File("file:D:\\carpe\\" +  VariableGlobals.viewImage + ".png");
 //        File file = new File("file:D:\\carpe\\01700187O0101.png");
         Image img = new Image(file.getPath());
         System.out.println("DATOS DE IMAGEN::::::::" + img.getUrl());

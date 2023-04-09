@@ -7,7 +7,7 @@ package com.mycompany.loging.endpoint.dashboard;
 import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -242,7 +242,7 @@ public class ConfiguraActaController implements Initializable {
         fileSeleccionado = fileChoiser.showOpenDialog(null);
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
 
-        img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// solo se neceita en esta ubiacion la carga del fichero
+        img = new Image("file:" + VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));// solo se neceita en esta ubiacion la carga del fichero
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);
@@ -343,7 +343,7 @@ public class ConfiguraActaController implements Initializable {
     private void funcionProcesar() throws IOException {
         //
         activarEentoImgView(false, false);
-        VariableGlobales.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
+        VariableGlobals.lecturaActasEnMemoria.put("lecturaPrimera", "SI");
         App.setRoot(null, "leerActas");
     }
 
@@ -363,8 +363,8 @@ public class ConfiguraActaController implements Initializable {
                     imgX = event.getX();
                     imgY = event.getY();
 
-                    VariableGlobales.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(event.getX())));
-                    VariableGlobales.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(event.getY())));
+                    VariableGlobals.configuracionActa.put(valorConfig + "Xo", String.valueOf(Math.round(event.getX())));
+                    VariableGlobals.configuracionActa.put(valorConfig + "Yo", String.valueOf(Math.round(event.getY())));
                     if (bandImgLimpia) {
                         imgLimpia();
                     }
@@ -392,19 +392,19 @@ public class ConfiguraActaController implements Initializable {
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
             imgX2 = event.getX();
             imgY2 = event.getY();
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
+            VariableGlobals.lecturaActasEnMemoria.put(valorConfig + "Xf", String.valueOf(event.getX()));
+            VariableGlobals.lecturaActasEnMemoria.put(valorConfig + "Yf", String.valueOf(event.getY()));
             imgAncho = imgX2 - imgX;
             imgAlto = imgY2 - imgY;
 
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
-            VariableGlobales.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
+            VariableGlobals.lecturaActasEnMemoria.put(valorConfig + "Ancho", String.valueOf(imgAncho));
+            VariableGlobals.lecturaActasEnMemoria.put(valorConfig + "Alto", String.valueOf(imgAlto));
 
-            label.setText(VariableGlobales.lecturaActasEnMemoria.get(valorConfig + "Xo"));
+            label.setText(VariableGlobals.lecturaActasEnMemoria.get(valorConfig + "Xo"));
             //dibujando el rectangulo sobre la imagen
 
             //seteando imagen limpia para ser graficada
-            //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            //Image img = new Image("file:" + VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgV.setImage(img);
             
              // el maximo de dos variables
@@ -437,13 +437,13 @@ public class ConfiguraActaController implements Initializable {
 
         imgV.setOnMouseReleased(event -> {
             //seteando imagen limpia para ser graficada
-            //Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+            //Image img = new Image("file:" + VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
             imgV.setImage(img);
             //
             imgX2 = event.getX();
             imgY2 = event.getY();
-            VariableGlobales.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
-            VariableGlobales.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
+            VariableGlobals.configuracionActa.put(valorConfig + "Xf", String.valueOf(Math.round(event.getX())));
+            VariableGlobals.configuracionActa.put(valorConfig + "Yf", String.valueOf(Math.round(event.getY())));
             
             //cambiar el metodo para obtoner el mayor y el menos elemento para
             imgAncho = imgX2 - imgX;
@@ -461,13 +461,13 @@ public class ConfiguraActaController implements Initializable {
             System.out.println("el punto menor (x,y)=("+minX+","+minY+")");
             System.out.println("el punto mayor (x,y)=("+maxX+","+maxY+")");
 
-            VariableGlobales.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
-            VariableGlobales.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
+            VariableGlobals.configuracionActa.put(valorConfig + "Ancho", String.valueOf(Math.round(imgAncho)));
+            VariableGlobals.configuracionActa.put(valorConfig + "Alto", String.valueOf(Math.round(imgAlto)));
 
-            label.setText(VariableGlobales.configuracionActa.get(valorConfig + "Xo") + ","
-                    + VariableGlobales.configuracionActa.get(valorConfig + "Yo") + ","
-                    + VariableGlobales.configuracionActa.get(valorConfig + "Ancho") + ","
-                    + VariableGlobales.configuracionActa.get(valorConfig + "Alto"));
+            label.setText(VariableGlobals.configuracionActa.get(valorConfig + "Xo") + ","
+                    + VariableGlobals.configuracionActa.get(valorConfig + "Yo") + ","
+                    + VariableGlobals.configuracionActa.get(valorConfig + "Ancho") + ","
+                    + VariableGlobals.configuracionActa.get(valorConfig + "Alto"));
 
             //dibujando el rectangulo sobre la imagen
             Canvas canvas = new Canvas(imgV.getImage().getWidth(), imgV.getImage().getHeight());// capura el alto y ancho de la acta scaneada
@@ -500,7 +500,7 @@ public class ConfiguraActaController implements Initializable {
     }
 
     private void imgLimpia() {
-        Image img = new Image("file:" + VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
+        Image img = new Image("file:" + VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));// nota poner el file para poner la imagen
         //Image img = new Image(fileSeleccionado.toURI().toString());
         imgViewActa.setImage(img);
         scrollPaneActa.setContent(imgViewActa);

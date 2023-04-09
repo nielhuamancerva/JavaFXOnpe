@@ -7,9 +7,9 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
-import static com.mycompany.loging.score.util.constanst.VariableGlobales.list;
-import com.mycompany.loging.score.util.mapper.Mapper;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
+import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -56,33 +56,31 @@ public class LeerActasVotosController implements Initializable {
         dropShadowE.setTabEffect(btnRegresar);
         dropShadowE.setTabEffect(btnSiguiente);
 
-        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));        
-        lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+        codigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));        
+        lblTipoActa.setText(VariableGlobals.lecturaActasEnMemoria.get("tipoActa"));
         
         try {
 
-            negocioService.readAndCutOrganizationsPolitical(
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Xo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Yo")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Ancho")),
-                    Mapper.transformaTointerger(VariableGlobales.configuracionActa.get(list.get(3) + "Alto")));
+//            negocioService.readAndCutOrganizationsPolitical(
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(3) + "Xo")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(3) + "Yo")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(3) + "Ancho")),
+//                    Mappers.transformaTointerger(VariableGlobals.configuracionActa.get(list.get(3) + "Alto")));
 
-            imagenVotos.setImage(
-                    CreateObject.image(
-                            VariableGlobales.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
+            imagenVotos.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
             
-            String v1 = (VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0") == null ?  "" : VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            String v1 = (VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0") == null ?  "" : VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
             voto1.setText(v1);
-            voto2.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1").toString());
-            voto3.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2").toString());
-            voto4.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3").toString());
-            voto5.setText(VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4").toString());
+            voto2.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1").toString());
+            voto3.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2").toString());
+            voto4.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3").toString());
+            voto5.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4").toString());
             
-            System.out.println("bufferedValorVoto1 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-            System.out.println("bufferedValorVoto2 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-            System.out.println("bufferedValorVoto3 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-            System.out.println("bufferedValorVoto4 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-            System.out.println("bufferedValorVoto5 " + VariableGlobales.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+            System.out.println("bufferedValorVoto1 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+            System.out.println("bufferedValorVoto2 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+            System.out.println("bufferedValorVoto3 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+            System.out.println("bufferedValorVoto4 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+            System.out.println("bufferedValorVoto5 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
             
         } catch (Exception ex) {
             ex.printStackTrace();

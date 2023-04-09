@@ -50,8 +50,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import onpe.com.pe.gestorconfiguracionactas.core.model.PartesActa;
-
+import onpe.com.pe.gestorconfiguracionactas.core.model.Modules;
+import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.listModules;
 /**
  * FXML Controller class
  *
@@ -150,13 +150,13 @@ public class ConfiguraSeccionesController implements Initializable {
                         System.out.println("DATO:::::::::::::::::" + item.getSetting());
                         System.out.println("Tipo:::::::::::::::::" + item.getSetting().getClass());
                         Gson gson = new Gson();
-                  
-                        PartesActa[] arreglo = gson.fromJson(item.getSetting(), PartesActa[].class);
-                        System.out.println("arreglo ============ " + arreglo);
 
-                        Label[] listLabel = new Label[arreglo.length];
-                        Button[] listaBotones = new Button[arreglo.length];
-                        for (PartesActa configuracion : arreglo) {
+                        listModules = gson.fromJson(item.getSetting(), Modules[].class);
+                        System.out.println("arreglo ============ " + listModules);
+
+                        Label[] listLabel = new Label[listModules.length];
+                        Button[] listaBotones = new Button[listModules.length];
+                        for (Modules configuracion : listModules) {
                             imgViewActa.setDisable(false);
                             System.out.println("DATO::LISTA::================================" + configuracion.getNameModule());
                             listLabel[i] = new Label(String.valueOf(configuracion.getNameModule()));
@@ -256,15 +256,21 @@ public class ConfiguraSeccionesController implements Initializable {
                                         canvas.snapshot(null, ImW);
                                         imgViewActa.setImage(ImW);
                                         scrollPaneActa.setContent(imgViewActa);
+
                                         //configuracionActa.put(configuracion + "Xo", Double.toString(minX));
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Xo", Double.toString(minX));
+                                        configuracion.setCoordinatesXo(Double.toString(minX));
                                         //configuracionActa.put(configuracion + "Yo", Double.toString(minY));
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Yo", Double.toString(minY));
+                                        configuracion.setCoordinatesYo(Double.toString(minY));
                                         //configuracionActa.put(configuracion + "Ancho", Double.toString(imgAncho2));
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Ancho", Double.toString(imgAncho2));
+                                        configuracion.setCoordinatesWigth(Double.toString(imgAncho2));
                                         //configuracionActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Alto", Double.toString(imgAlto2));
+                                        configuracion.setCoordinatesHeigth(Double.toString(imgAlto2));
                                         System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
+
                                     }
                                     btnTem.setDisable(false);
                                     btnTem.getStyleClass().add("button-activar-actived");

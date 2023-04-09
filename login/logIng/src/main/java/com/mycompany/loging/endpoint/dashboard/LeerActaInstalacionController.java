@@ -7,7 +7,7 @@ import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
@@ -50,21 +50,19 @@ public class LeerActaInstalacionController implements Initializable {
         try {
             dropShadowE.setTabEffect(btnCancelar);
             dropShadowE.setTabEffect(btnSiguiente);
-            if ("SI".equals(VariableGlobales.lecturaActasEnMemoria.get("lecturaPrimera"))) {
-                negocioService.readAndCutBarcode(
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Xo")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Yo")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Ancho")),
-                        Integer.parseInt(VariableGlobales.configuracionActa.get("codigoBarraCoordena" + "Alto")));
+            if ("SI".equals(VariableGlobals.lecturaActasEnMemoria.get("lecturaPrimera"))) {
+                negocioService.readAndCutBarcode(Integer.parseInt(VariableGlobals.configuracionActa.get("codigoBarraCoordena" + "Xo")),
+                        Integer.parseInt(VariableGlobals.configuracionActa.get("codigoBarraCoordena" + "Yo")),
+                        Integer.parseInt(VariableGlobals.configuracionActa.get("codigoBarraCoordena" + "Ancho")),
+                        Integer.parseInt(VariableGlobals.configuracionActa.get("codigoBarraCoordena" + "Alto")));
             }
-            imagenCodigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+            imagenCodigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
             
-            VariableGlobales.actasLeida = negocioService.finByCodigoBarra(
-                    VariableGlobales.lecturaActasEnMemoria.get("codigoBarraResponse"));
+            VariableGlobals.actasLeida = negocioService.finByCodigoBarra(VariableGlobals.lecturaActasEnMemoria.get("codigoBarraResponse"));
             
-            lbVaDepartamento.setText(VariableGlobales.actasLeida.getDepartamento());
-            lbVaprovincia.setText(VariableGlobales.actasLeida.getProvincia());
-            lbVaDistrito.setText(VariableGlobales.actasLeida.getDistrito());
+            lbVaDepartamento.setText(VariableGlobals.actasLeida.getDepartamento());
+            lbVaprovincia.setText(VariableGlobals.actasLeida.getProvincia());
+            lbVaDistrito.setText(VariableGlobals.actasLeida.getDistrito());
         } catch (Exception ex) {
             Logger.getLogger(LeerActaInstalacionController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -40,6 +40,7 @@
                                  </image>
                               </ImageView>
                               <Label fx:id="lbArchivosEncontrados" layoutX="837.0" layoutY="19.0" prefHeight="27.0" prefWidth="257.0" styleClass="search-label" text="Seleccionar Acta Digitalizada" />
+                              <Button fx:id="btnAdd" defaultButton="true" layoutX="1108.0" layoutY="3.0" mnemonicParsing="false" styleClass="button-configura" />
                            </children>
                         </Pane>
                         <Label layoutX="114.0" layoutY="-12.0" styleClass="title" text="rocesar" />
@@ -97,99 +98,12 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="38.0" layoutY="342.0" prefHeight="110.0" prefWidth="363.0" styleClass="fielset">
+                        <VBox fx:id="ContainerHora" layoutX="29.0" layoutY="310.0" prefHeight="310.0" prefWidth="363.0" />
+                        <AnchorPane fx:id="ModuleFirma" layoutX="796.0" layoutY="185.0" prefHeight="549.0" prefWidth="563.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="257.0" text="HORA DE INICIO">
-                                 <styleClass>
-                                    <String fx:value="fielset-title" />
-                                    <String fx:value="apBlanco" />
-                                 </styleClass>
-                              </Label>
-                              <ImageView fx:id="imagenHoraInicio" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                              <TextField fx:id="txtHoraInicio" layoutX="275.0" layoutY="28.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" style="-fx-border-color: black;" styleClass="search-text">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </TextField>
+                              <VBox fx:id="ContainerVboxFirma" layoutX="10.0" layoutY="11.0" prefHeight="465.0" prefWidth="544.0" />
                            </children>
-                        </Pane>
-                        <Pane layoutX="38.0" layoutY="500.0" prefHeight="110.0" prefWidth="363.0" styleClass="fielset">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="166.0" text="HORA FIN">
-                                 <styleClass>
-                                    <String fx:value="fielset-title" />
-                                    <String fx:value="apBlanco" />
-                                 </styleClass>
-                              </Label>
-                              <TextField fx:id="txtHoraInicio1" layoutX="275.0" layoutY="28.0" onKeyPressed="#horaIniciohandleOnKeyPressed" prefHeight="55.0" prefWidth="82.0" style="-fx-border-color: black;" styleClass="search-text">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </TextField>
-                              <ImageView fx:id="imagenHoraFin" fitHeight="70.0" fitWidth="246.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </Pane>
-                        <Pane layoutX="812.0" layoutY="176.0" prefHeight="443.0" prefWidth="545.0" styleClass="fielset">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="363.0" text="VALIDAR FIRMAS">
-                                 <styleClass>
-                                    <String fx:value="fielset-title" />
-                                    <String fx:value="apBlanco" />
-                                 </styleClass>
-                              </Label>
-                              <ImageView fx:id="firma1" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="firma2" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="firma3" fitHeight="110.0" fitWidth="230.0" layoutX="26.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button fx:id="btnSiPresi" layoutX="412.0" layoutY="43.0" mnemonicParsing="false" onAction="#ActionFirmoSiP" prefHeight="62.0" prefWidth="128.0" text="Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnNoPresi" layoutX="273.0" layoutY="43.0" mnemonicParsing="false" onAction="#ActionFirmoNoP" prefHeight="62.0" prefWidth="128.0" styleClass="sea" text="No Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnNoSecre" layoutX="273.0" layoutY="191.0" mnemonicParsing="false" onAction="#ActionFirmoNoS" prefHeight="62.0" prefWidth="128.0" text="No Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnSiSecre" layoutX="412.0" layoutY="191.0" mnemonicParsing="false" onAction="#ActionFirmoSiS" prefHeight="62.0" prefWidth="128.0" text="Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnSiTercer" layoutX="412.0" layoutY="323.0" mnemonicParsing="false" onAction="#ActionFirmoSiT" prefHeight="62.0" prefWidth="128.0" text="Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnNoTercer" layoutX="273.0" layoutY="323.0" mnemonicParsing="false" onAction="#ActionFirmoNoT" prefHeight="62.0" prefWidth="128.0" text="No Firmó">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </Pane>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>

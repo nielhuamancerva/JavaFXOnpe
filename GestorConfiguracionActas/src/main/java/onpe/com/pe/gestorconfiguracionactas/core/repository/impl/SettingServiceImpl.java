@@ -69,4 +69,14 @@ public class SettingServiceImpl implements SettingService {
         return factoryService.MongoService().deleteOneDocument(Filters.and(Filters.eq("name", setting)), "setting");
     }
 
+    @Override
+    public void updateSettingCoordinates(String idSetting, String coordenates) throws Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.MongoService().conexionMongo();
+        Document filter = new Document("id_setting", idSetting);
+        Document update = new Document("$set", new Document("setting",coordenates));
+
+        factoryService.MongoService().updateDocument(filter, update, "setting");
+    }
+
 }

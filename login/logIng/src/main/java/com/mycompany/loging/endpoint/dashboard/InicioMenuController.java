@@ -39,14 +39,5 @@ public class InicioMenuController implements Initializable {
 
     }
 
-    private void actionAlert(ActionEvent event) {
-
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("hiciste click");
-        alert.setHeaderText("hola");
-        alert.setContentText("pedro");
-
-        alert.showAndWait();
-    }
 
 }

@@ -43,6 +43,8 @@ public interface BusinessService {
     public List<String> findSettingForNameEleccion(String nameEleccion) throws Exception;
 
     public void updateSetting(String nameEleccion, String array) throws Exception;
+    
+     public void uploadSectionsCoornates(String idSetings, String coordenadas) throws Exception;
 
     public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
 }

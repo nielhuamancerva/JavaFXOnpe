@@ -6,7 +6,7 @@ import com.mycompany.loging.App;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.DropShadowE;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -55,17 +55,16 @@ public class TransmisionRabbitController implements Initializable {
 //        dropShadowE.setTabEffect(btnRegresar);
 
         try {
-                negocioService.readAndCutObservations(
-                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Xo")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Yo")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Ancho")),
-                Integer.parseInt(VariableGlobales.configuracionActa.get("OBSERVACIONES" + "Alto"))
+                negocioService.readAndCutObservations(Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Xo")),
+                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Yo")),
+                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Ancho")),
+                Integer.parseInt(VariableGlobals.configuracionActa.get("OBSERVACIONES" + "Alto"))
             );
-                lblTipoActa.setText(VariableGlobales.lecturaActasEnMemoria.get("tipoActa"));
+                lblTipoActa.setText(VariableGlobals.lecturaActasEnMemoria.get("tipoActa"));
         } catch (Exception e) {
         }
-       // observacionesActa.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("observaciones")));
-//        codigoBarra.setImage(CreateObject.image(VariableGlobales.lecturaActasEnMemoria.get("codigoBarra")));
+       // observacionesActa.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("observaciones")));
+//        codigoBarra.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("codigoBarra")));
     }
     
 
@@ -86,7 +85,7 @@ public class TransmisionRabbitController implements Initializable {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
         String json = 
-        cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobales.actasLeida)));
+        cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
 
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
 

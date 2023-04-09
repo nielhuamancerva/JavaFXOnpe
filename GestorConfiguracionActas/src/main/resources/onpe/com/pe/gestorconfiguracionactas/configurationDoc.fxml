@@ -60,7 +60,10 @@
                               <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="494.0" />
                            </content>
                         </ScrollPane>
-                        <AnchorPane layoutX="1132.0" layoutY="764.0" prefHeight="85.0" prefWidth="602.0" styleClass="borde-pane-black" />
+                        <AnchorPane layoutX="1132.0" layoutY="764.0" prefHeight="85.0" prefWidth="602.0" styleClass="borde-pane-black">
+                           <children>
+                              <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="499.0" layoutY="12.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
+                           </children></AnchorPane>
                         <AnchorPane layoutX="1133.0" layoutY="70.0" prefHeight="68.0" prefWidth="602.0" styleClass="borde-pane-black">
                            <children>
                               <Label layoutX="14.0" layoutY="17.0" text="DOCUMENTOS ELECTORALES">
@@ -70,7 +73,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="564.0" layoutY="178.0">
+                        <AnchorPane layoutX="710.0" layoutY="865.0">
                            <children>
                               <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
                                  <font>
@@ -99,7 +102,6 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="692.0" layoutY="45.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
                      </children>
                   </AnchorPane>
 </children></AnchorPane>

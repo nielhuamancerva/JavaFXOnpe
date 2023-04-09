@@ -28,9 +28,10 @@ import javafx.scene.paint.Color;
 import onpe.com.pe.gestorconfiguracionactas.App;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
-import onpe.com.pe.gestorconfiguracionactas.core.model.PartesActa;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Modules;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
+import static onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales.listModules;
 
 /**
  * FXML Controller class
@@ -93,18 +94,18 @@ public class ValidarSeccionController implements Initializable {
 
                 if (item.getId_setting().equals(VariableGlobales.identificaActa.get("idSectionActaSeleccion"))) {
                     Gson gson = new Gson();
-                    PartesActa[] arreglo = gson.fromJson(item.getSetting(), PartesActa[].class);
-                    for (var configuracion : arreglo) {
+       
+                    for (var configuracion : listModules) {
                         if (VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Xo") != null) {
                             System.out.println("DATOS DE ARRAYS:::::" + configuracion.getNameModule());
                             gc.setStroke(Color.RED);
                             gc.setLineWidth(10);
                             //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
-                            System.out.println("variables vacias o nel :" + VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Xo"));
-                            gc.strokeRect(Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Xo")),
-                                    Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Yo")), 
-                                    Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Ancho")),
-                                    Double.parseDouble(VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Alto")));
+                            System.out.println("variables vacias o nel :" + configuracion.getCoordinatesXo());
+                            gc.strokeRect(Double.parseDouble(configuracion.getCoordinatesXo()),
+                                    Double.parseDouble(configuracion.getCoordinatesYo()), 
+                                    Double.parseDouble(configuracion.getCoordinatesWigth()),
+                                    Double.parseDouble(configuracion.getCoordinatesHeigth()));
                         }
                     }
                 }
@@ -145,8 +146,9 @@ public class ValidarSeccionController implements Initializable {
                 try {
                     System.out.println("datos en Globales=" + VariableGlobales.coordenadasActa.toString());
                     System.out.println("datos en Globales=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
-                    businessService.uploadSections(VariableGlobales.identificaActa.get("idSectionActaSeleccion"), VariableGlobales.coordenadasActa.toString());// actualiza en base de datos ESTO VA A CONFIRMAR
-                    VariableGlobales.lecturaActasEnMemoria.clear();
+                     Gson gson = new Gson();
+                    businessService.uploadSectionsCoornates(VariableGlobales.identificaActa.get("idSectionActaSeleccion"),gson.toJson(listModules));// actualiza en base de datos ESTO VA A CONFIRMAR
+                   listModules = new Modules[0];
                     App.setRoot(null, "inicioMenu");
                 } catch (Exception e) {
                     System.out.println("datos:" + e);

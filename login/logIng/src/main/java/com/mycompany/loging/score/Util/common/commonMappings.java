@@ -1,7 +1,7 @@
 package com.mycompany.loging.score.util.common;
 
 import com.mycompany.loging.score.model.ActasLeidas;
-import com.mycompany.loging.score.util.constanst.VariableGlobales;
+import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 
-public class commonMappings {
+public class CommonMappings {
 
     public static String nameOfFileWithoutExtension(File pathFile) {
         int dotNombreIndex = pathFile.getName().lastIndexOf(".");
@@ -26,13 +26,13 @@ public class commonMappings {
 
     public static String convertFileToBase64() throws FileNotFoundException, IOException {
         // Selecciona el archivo a convertir
-        File file = new File(VariableGlobales.lecturaActasEnMemoria.get("fileNamePathOriginal"));
+        File file = new File(VariableGlobals.lecturaActasEnMemoria.get("fileNamePathOriginal"));
         // Lee el archivo en un array de bytes
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bytes = new byte[(int) file.length()];
         fileInputStream.read(bytes);
         // Codifica los bytes en Base64
-        VariableGlobales.actasLeida.getImagen().setImagen(Base64.getEncoder().encodeToString(bytes));
+        VariableGlobals.actasLeida.getImagen().setImagen(Base64.getEncoder().encodeToString(bytes));
         return Base64.getEncoder().encodeToString(bytes);
     }
 

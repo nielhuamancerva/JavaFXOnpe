@@ -36,7 +36,7 @@
                               <Line endX="300.0" layoutX="132.0" layoutY="60.0" startX="-100.0" strokeWidth="3.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="235.0" layoutY="239.0">
+                        <AnchorPane layoutX="102.0" layoutY="823.0">
                            <children>
                               <Button fx:id="btnRegresar" layoutX="16.0" layoutY="4.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="51.0" prefWidth="172.0" styleClass="button-retroceder" text="Regresar">
                                  <font>
