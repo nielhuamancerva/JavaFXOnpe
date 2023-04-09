@@ -18,6 +18,7 @@ import com.mycompany.loging.score.util.CreateObject;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.list;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.listModules;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.nombreDelArchivoProcesado;
 import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.File;
 import java.io.IOException;
@@ -142,7 +143,6 @@ public class VerificaFirmasController implements Initializable {
         cambiaStBtn(btnNoPresi, btnSiPresi);
     }
 
-
     @FXML
     private void actionRegresar() throws IOException {
         App.setRoot(null, "inicioMenu");
@@ -158,12 +158,13 @@ public class VerificaFirmasController implements Initializable {
 
     @FXML
     private void elegirFichero() throws Exception, IOException {
+        nombreDelArchivoProcesado = "";
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
 
         lbArchivosEncontrados.setText(negocioService.uploadFileOnMemory(fileSeleccionado));
-
+        nombreDelArchivoProcesado = cboDocumentos.getValue();
         for (Modules module : listModules) {
 
             switch (module.getTypeModule()) {
@@ -222,10 +223,19 @@ public class VerificaFirmasController implements Initializable {
                     ContainerHora.setMargin(anchorHora, new Insets(50, 0, 0, 0));
                     break;
                 case "Regiones":
-                    // Código a ejecutar si la variable es igual a valor2
+                    negocioService.readAndCutOrganizationsPolitical(
+                            Mappers.transformaTointerger(module.getCoordinatesXo()),
+                            Mappers.transformaTointerger(module.getCoordinatesYo()),
+                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
+
                     break;
                 case "Observaciones":
-                    // Código a ejecutar si la variable es igual a valor2
+                    negocioService.readAndCutObservations(
+                            Mappers.transformaTointerger(module.getCoordinatesXo()),
+                            Mappers.transformaTointerger(module.getCoordinatesYo()),
+                            Mappers.transformaTointerger(module.getCoordinatesWigth()),
+                            Mappers.transformaTointerger(module.getCoordinatesHeigth()));
                     break;
                 case "Firma":
                     firmoP = negocioService.readAndCutsignature(module.getNameModule(),

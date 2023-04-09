@@ -24,7 +24,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <ScrollPane layoutX="136.0" layoutY="67.0" prefHeight="486.0" prefViewportHeight="614.0" prefViewportWidth="526.0" prefWidth="435.0">
+                              <ScrollPane layoutX="136.0" layoutY="67.0" prefHeight="446.0" prefViewportHeight="614.0" prefViewportWidth="526.0" prefWidth="441.0">
                                  <content>
                                     <ImageView fx:id="imagenVotos" fitHeight="446.0" fitWidth="441.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                                  </content>
@@ -35,27 +35,27 @@
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <TextField fx:id="voto5" alignment="CENTER" layoutX="606.0" layoutY="392.0" prefHeight="98.0" prefWidth="71.0" promptText="96" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto5" alignment="CENTER" layoutX="581.0" layoutY="392.0" prefHeight="98.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto4" alignment="CENTER" layoutX="606.0" layoutY="310.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto4" alignment="CENTER" layoutX="581.0" layoutY="310.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto3" alignment="CENTER" layoutX="606.0" layoutY="228.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto3" alignment="CENTER" layoutX="581.0" layoutY="228.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto2" alignment="CENTER" layoutX="606.0" layoutY="146.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto2" alignment="CENTER" layoutX="581.0" layoutY="146.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="voto1" alignment="CENTER" layoutX="606.0" layoutY="67.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                              <TextField fx:id="voto1" alignment="CENTER" layoutX="581.0" layoutY="67.0" prefHeight="83.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
