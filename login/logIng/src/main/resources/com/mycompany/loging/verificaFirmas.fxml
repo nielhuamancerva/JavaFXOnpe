@@ -40,11 +40,8 @@
                                  </image>
                               </ImageView>
                               <Label fx:id="lbArchivosEncontrados" layoutX="837.0" layoutY="19.0" prefHeight="27.0" prefWidth="257.0" styleClass="search-label" text="Seleccionar Acta Digitalizada" />
-<<<<<<< HEAD
                               <Button fx:id="btnAdd" defaultButton="true" layoutX="1108.0" layoutY="3.0" mnemonicParsing="false" styleClass="button-configura" />
-=======
-                              <Button fx:id="btnAdd" defaultButton="true" layoutX="1108.0" layoutY="3.0" mnemonicParsing="false" onAction="#actionAddConfigura" styleClass="button-configura" />
->>>>>>> fd5db5f89f67aa4b6a46be26c17c3c60d5fe1a05
+
                            </children>
                         </Pane>
                         <Label layoutX="114.0" layoutY="-12.0" styleClass="title" text="rocesar" />
