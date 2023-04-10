@@ -70,6 +70,8 @@ public class TransmisionMqController implements Initializable {
     private Label lblMensaje;
     @FXML
     private TextArea txtAreaResultado;
+    
+    private String textoInicial= "";
 
     private boolean isPressed = false;
 
@@ -101,12 +103,12 @@ public class TransmisionMqController implements Initializable {
 
         }
 
-        // Definir el formato deseado
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        // Obtener la fecha y hora actual
-        LocalDateTime fechaHoraActual = LocalDateTime.now();
-        // Formatear la fecha y hora actual con el formato deseado
-        String fechaHoraFormateada = fechaHoraActual.format(formato);
+//        // Definir el formato deseado
+//        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+//        // Obtener la fecha y hora actual
+//        LocalDateTime fechaHoraActual = LocalDateTime.now();
+//        // Formatear la fecha y hora actual con el formato deseado
+//        String fechaHoraFormateada = fechaHoraActual.format(formato);
 
         System.out.println(" inicio de rabbit ");
         ConnectionFactory factory = new ConnectionFactory();
@@ -159,7 +161,10 @@ public class TransmisionMqController implements Initializable {
 
                     statement.executeUpdate();
                     
-                    txtAreaResultado.setText("Se recibio la cola el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + fechaHoraFormateada);
+//                    txtAreaResultado.setText("Se recibio la cola el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now());
+
+                    txtAreaResultado.appendText("Se recibio la cola con el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now()+ "\n");
+                   
 
                 } catch (SQLException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
