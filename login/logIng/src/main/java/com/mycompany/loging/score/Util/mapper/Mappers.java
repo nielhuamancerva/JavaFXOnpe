@@ -41,7 +41,7 @@ public class Mappers {
             Actas acta = new Actas();
             acta.setActa(action.getString("acta"));
             acta.setDepartamento(action.getString("departamento"));
-            acta.setFecha_registro( action.getString("fecha_registro"));
+            acta.setFecha_registro(action.getString("fecha_registro"));
             acta.setEstado(action.getString("estado"));
             listActas.add(acta);
         });
@@ -77,8 +77,11 @@ public class Mappers {
         document.append("firma1", ss.getFirma1());
         document.append("firma2", ss.getFirma2());
         document.append("firma3", ss.getFirma3());
-        document.append("estado", "Valido");
+        document.append("estado", "Invalido");
         document.append("fecha_registro", LocalDate.now().toString());
+        if (ss.getFirma1().equals("true") && ss.getFirma2().equals("true") && ss.getFirma3().equals("true")) {
+            document.append("estado", "Valido");
+        }
         return document;
     }
 

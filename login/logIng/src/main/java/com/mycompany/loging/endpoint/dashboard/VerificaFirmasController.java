@@ -43,6 +43,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -162,7 +163,55 @@ public class VerificaFirmasController implements Initializable {
         VariableGlobals.actasLeida.setFirma1(String.valueOf(firmoP));
         VariableGlobals.actasLeida.setFirma2(String.valueOf(firmoS));
         VariableGlobals.actasLeida.setFirma3(String.valueOf(firmoT));
-        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+        List<Boolean> ordcre = new ArrayList<>();
+        Boolean bool = null;
+        for (Node node : ContainerVboxFirma.getChildren()) {
+            AnchorPane ap = (AnchorPane) node;
+            for (Node button : ap.getChildren()) {
+
+                if (button instanceof Button) {
+                    System.out.println("button ::::::::::" + button.getId());
+                    if (((Button) button).getText().equals("NO FIRMO")) {
+                        System.out.println("CLASE ::::::::::" + button.getClass());
+
+                        if (button.getStyle().equals("-fx-background-color: #2ECC71;")) {
+
+                            System.out.println("CLASE ::::::::::" + viewLoad.size());
+                            ordcre.add(false);
+
+                        } else {
+                            ordcre.add(true);
+                        }
+
+                    }
+                }
+            }
+        }
+        VariableGlobals.actasLeida.setFirma1("false");
+        VariableGlobals.actasLeida.setFirma2("false");
+        VariableGlobals.actasLeida.setFirma3("false");
+        for (boolean ord : ordcre) {
+            System.out.println("longitud de orden:"+ordcre.size());
+            if (ordcre.size() == 1) {
+                VariableGlobals.actasLeida.setFirma1("true");
+
+            } else if (ordcre.size() == 2) {
+                VariableGlobals.actasLeida.setFirma1("true");
+                VariableGlobals.actasLeida.setFirma2("true");
+
+            } else if (ordcre.size() == 3) {
+                VariableGlobals.actasLeida.setFirma1("true");
+                VariableGlobals.actasLeida.setFirma2("true");
+                VariableGlobals.actasLeida.setFirma3("true");
+            }
+
+            if (ordcre.contains(false)) {
+                App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.size()));
+            } else {
+                App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+            }
+
+        }
     }
 
     @FXML
@@ -274,12 +323,17 @@ public class VerificaFirmasController implements Initializable {
                     buttonSiFirma.setPrefHeight(62);
                     buttonSiFirma.setLayoutX(412);
                     buttonSiFirma.setLayoutY(43);
+                    buttonSiFirma.setId(module.getOrdenCreation());
+                    System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
 
                     Button buttonNoFirma = new Button("NO FIRMO");
+                    buttonNoFirma.setId(module.getOrdenCreation());
                     buttonNoFirma.setPrefWidth(128);
                     buttonNoFirma.setPrefHeight(62);
                     buttonNoFirma.setLayoutX(273);
                     buttonNoFirma.setLayoutY(43);
+
+                    System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
 
                     buttonSiFirma.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
@@ -289,8 +343,9 @@ public class VerificaFirmasController implements Initializable {
                             buttonNoFirma.setStyle("");
                             buttonNoFirma.getStyleClass().remove("boton-active");
                             buttonNoFirma.getStyleClass().remove("boton-activeN");
-
-//                            ActivarBoton(btn1);
+                            System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
+                            //                            ActivarBoton(btn1);
+                            firmoP = true;
                         }
                     });
 
@@ -302,8 +357,9 @@ public class VerificaFirmasController implements Initializable {
                             buttonSiFirma.setStyle("");
                             buttonSiFirma.getStyleClass().remove("boton-active");
                             buttonSiFirma.getStyleClass().remove("boton-activeN");
-
+                            System.out.println("CLASE DE BOTON" + buttonNoFirma.getStyle());
 //                            ActivarBoton(btn1);
+                            firmoP = false;
                         }
                     });
 

@@ -87,9 +87,11 @@ public class ConfigurationDocController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnGuardar.setDisable(true);
+        btnAddSeccion.setDisable(true);
         try {
             Label[] labelText = new Label[businessService.findAllSections().size()];
             for (int i = 0; i < businessService.findAllSections().size(); i++) {
+
                 Button buttonEventDocumentDelete = new Button();
                 buttonEventDocumentDelete.setId("buttonAdd" + i);
                 buttonEventDocumentDelete.setLayoutX(10);
@@ -131,7 +133,7 @@ public class ConfigurationDocController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         try {
-
+                            btnAddSeccion.setDisable(false);
                             Gson gson = new Gson();
                             Type listType = new TypeToken<List<Modules>>() {
                             }.getType();
@@ -327,9 +329,9 @@ public class ConfigurationDocController implements Initializable {
                 }
             });
 
-                buttonEventDelete[0].setVisible(false);
+            buttonEventDelete[0].setVisible(false);
 //                        buttonEventAdd[i].setDisable(true);
-                buttonEventEdit[0].setDisable(true);
+            buttonEventEdit[0].setDisable(true);
 
             listModule.add(module);
             list.add(1);
@@ -453,6 +455,7 @@ public class ConfigurationDocController implements Initializable {
 
     @FXML
     private void createNewSetting(ActionEvent event) throws IOException {
+        btnAddSeccion.setDisable(false);
         listModule = new ArrayList<>();
         list = new ArrayList<>();
         listCount = new ArrayList<>();
