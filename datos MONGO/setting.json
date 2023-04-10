@@ -1,9 +1,0 @@
-[{
-  "_id": {
-    "$oid": "642dcd8811a67f2a7439dfa0"
-  },
-  "id_setting": "da16a9fe-fe38-4ee8-bcdf-971d47f19b94",
-  "name": "escrutinio",
-  "setting": "[\"QR\",\"AREA\",\"FIRMA\"]",
-  "statusSetting": "0"
-}]

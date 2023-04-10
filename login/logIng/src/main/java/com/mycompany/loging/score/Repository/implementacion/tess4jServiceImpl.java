@@ -140,7 +140,7 @@ public class Tess4jServiceImpl implements Tess4jService {
         tc.setDatapath(VariableGlobals.lecturaActasEnMemoria.get("pathTesseract"));
         tc.setTessVariable("tessedit_char_whitelist", "0123456789");
 
-        int numeroMaximoFila = 5;
+        int numeroMaximoFila = 7;
         int altoImagen = regionLista.getHeight();
         int anchoImagen = regionLista.getWidth();
         int y = 0;
@@ -149,8 +149,8 @@ public class Tess4jServiceImpl implements Tess4jService {
         for (int i = 0; i <= (numeroMaximoFila - 1); i++) {
             BufferedImage bufferedOrganizacion = regionLista.getSubimage(0, y, anchoImagen, altoImagenRecortada);
             //tc.doOCR(preprocesarImagen2(bufferedOrganizacion, "xxxxx"+i, path));
-            // coordenada imagen (100,200,300,400)
-            BufferedImage bufferedOrganizacionCortada = bufferedOrganizacion.getSubimage(anchoImagen - 220, 0, 220, altoImagenRecortada);
+            // coordenada imagen (100,200,300,400)                                                     220, 0  220
+            BufferedImage bufferedOrganizacionCortada = bufferedOrganizacion.getSubimage(anchoImagen - 200, 0, 170, altoImagenRecortada);
             String textoPartidoA = tc.doOCR(preprocesarImagenRegionVoto(bufferedOrganizacionCortada, "bufferedValorVoto" + i, VariableGlobals.lecturaActasEnMemoria.get("fileNamePath"), 1.61f, 1.9f));
 
             y += (altoImagenRecortada);
