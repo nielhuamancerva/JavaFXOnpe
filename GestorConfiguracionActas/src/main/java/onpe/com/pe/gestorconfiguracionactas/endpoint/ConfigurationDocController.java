@@ -217,6 +217,9 @@ public class ConfigurationDocController implements Initializable {
                                     }
                                 });
 
+                                if (i == 0) {
+                                    buttonDeleteEventEdit[i].setVisible(false);
+                                }
                             }
 
                         } catch (Exception ex) {
@@ -236,118 +239,215 @@ public class ConfigurationDocController implements Initializable {
     private void actionAddModulos(ActionEvent event) throws Exception {
         tipoModule = "";
         Modules module = new Modules();
+        if (listModule.isEmpty()) {
+            module.setCodemodule(String.valueOf(listModule.size()));
+            module.setTypeModule("Codigo Barra");
+            module.setOrdenCreation(String.valueOf(0));
+            buttonEventConfi[0] = new TextField("Codigo Barra");
+            buttonEventConfi[0].setId(String.valueOf(listModule.size()));
 
-        Dialog<String> dialog = new Dialog<>();
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.getDialogPane().setBorder(new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.THIN)));
-        VBox vbox = new VBox();
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(20);
-        for (int buttonModal = 0; buttonModal <= listTypeModule.length - 1; buttonModal++) {
-            Button button = new Button(listTypeModule[buttonModal]);
-            button.setOnAction(e -> {
-                tipoModule = button.getText();
-                for (int i = 0; i < buttonEventConfi.length; i++) {
-                    module.setCodemodule(String.valueOf(listModule.size()));
-                    module.setTypeModule(tipoModule);
-                    module.setOrdenCreation(String.valueOf(i));
+            buttonEventConfi[0].setLayoutX(10);
+            buttonEventConfi[0].getStyleClass().add("button-initializa");
+
+            buttonEventAdd[0] = new Button();
+            buttonEventAdd[0].setId("buttonAdd" + 0);
+            buttonEventAdd[0].setLayoutX(410);
+            buttonEventAdd[0].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventAdd[0].getStyleClass().add("button-guardar");
+
+            buttonEventDelete[0] = new Button();
+            buttonEventDelete[0].setId("buttonAdd" + 0);
+            buttonEventDelete[0].setLayoutX(370);
+            buttonEventDelete[0].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventDelete[0].getStyleClass().add("button-eliminar");
+
+            buttonEventEdit[0] = new Button();
+            buttonEventEdit[0].setId("buttonAdd" + 0);
+            buttonEventEdit[0].setLayoutX(450);
+            buttonEventEdit[0].setDisable(true);
+            buttonEventEdit[0].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+            buttonEventEdit[0].getStyleClass().add("button-editar");
+
+            AnchorPane conteninerTextFieldAndButton = new AnchorPane();
+            conteninerTextFieldAndButton.getChildren().addAll(buttonEventConfi[0], buttonEventDelete[0], buttonEventEdit[0], buttonEventAdd[0]);
+
+            containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
+            containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
+
+            TextField textField = buttonEventConfi[0];
+            Button btDelete = buttonEventDelete[0];
+            Button btEdit = buttonEventEdit[0];
+            Button btAdds = buttonEventAdd[0];
+
+            buttonEventAdd[0].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    if (textField.getText().equals("") || textField.getText().isEmpty()) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("VALIDAR MODULO");
+                        alert.setHeaderText("No Existe un nombre para el modulo");
+                        alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
+                        alert.showAndWait();
+                    } else {
+                        btAdds.setDisable(true);
+                        textField.setDisable(true);
+                        btEdit.setDisable(false);
+                        if (verificarButton()) {
+                            btnGuardar.setDisable(false);
+                        }
+
+                        listModule.forEach(action -> {
+                            if (action.getCodemodule().equals(textField.getId())) {
+                                action.setNameModule(textField.getText());
+                            }
+                        });
+                    }
+
+                }
+            });
+
+            buttonEventEdit[0].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    btAdds.setDisable(false);
+                    textField.setDisable(false);
+                    btnGuardar.setDisable(true);
+                }
+            });
+
+            buttonEventDelete[0].setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    conteninerTextFieldAndButton.getChildren().removeAll(textField, btDelete, btEdit, btAdds);
+                    containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
+                    listModule.removeIf(action -> action.getCodemodule().equals(textField.getId()));
+                    if (verificarButton()) {
+                        btnGuardar.setDisable(false);
+                    }
+                }
+            });
+
+                buttonEventDelete[0].setVisible(false);
+//                        buttonEventAdd[i].setDisable(true);
+                buttonEventEdit[0].setDisable(true);
+
+            listModule.add(module);
+            list.add(1);
+        } else {
+            Dialog<String> dialog = new Dialog<>();
+            dialog.initStyle(StageStyle.UNDECORATED);
+            dialog.getDialogPane().setBorder(new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.THIN)));
+            VBox vbox = new VBox();
+            vbox.setAlignment(Pos.CENTER);
+            vbox.setSpacing(20);
+            for (int buttonModal = 0; buttonModal <= listTypeModule.length - 1; buttonModal++) {
+                Button button = new Button(listTypeModule[buttonModal]);
+                button.setOnAction(e -> {
+                    tipoModule = button.getText();
+                    for (int i = 0; i < buttonEventConfi.length; i++) {
+                        module.setCodemodule(String.valueOf(listModule.size()));
+                        module.setTypeModule(tipoModule);
+                        module.setOrdenCreation(String.valueOf(i));
 //                    buttonEventConfi[i] = new TextField(String.valueOf(list.size()));
-                    buttonEventConfi[i] = new TextField(tipoModule);
-                    buttonEventConfi[i].setId(String.valueOf(listModule.size()));
+                        buttonEventConfi[i] = new TextField(tipoModule);
+                        buttonEventConfi[i].setId(String.valueOf(listModule.size()));
 
-                    buttonEventConfi[i].setLayoutX(10);
-                    buttonEventConfi[i].getStyleClass().add("button-initializa");
+                        buttonEventConfi[i].setLayoutX(10);
+                        buttonEventConfi[i].getStyleClass().add("button-initializa");
 
-                    buttonEventAdd[i] = new Button();
-                    buttonEventAdd[i].setId("buttonAdd" + i);
-                    buttonEventAdd[i].setLayoutX(410);
-                    buttonEventAdd[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                    buttonEventAdd[i].getStyleClass().add("button-guardar");
+                        buttonEventAdd[i] = new Button();
+                        buttonEventAdd[i].setId("buttonAdd" + i);
+                        buttonEventAdd[i].setLayoutX(410);
+                        buttonEventAdd[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                        buttonEventAdd[i].getStyleClass().add("button-guardar");
 
-                    buttonEventDelete[i] = new Button();
-                    buttonEventDelete[i].setId("buttonAdd" + i);
-                    buttonEventDelete[i].setLayoutX(370);
-                    buttonEventDelete[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                    buttonEventDelete[i].getStyleClass().add("button-eliminar");
+                        buttonEventDelete[i] = new Button();
+                        buttonEventDelete[i].setId("buttonAdd" + i);
+                        buttonEventDelete[i].setLayoutX(370);
+                        buttonEventDelete[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                        buttonEventDelete[i].getStyleClass().add("button-eliminar");
 
-                    buttonEventEdit[i] = new Button();
-                    buttonEventEdit[i].setId("buttonAdd" + i);
-                    buttonEventEdit[i].setLayoutX(450);
-                    buttonEventEdit[i].setDisable(true);
-                    buttonEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
-                    buttonEventEdit[i].getStyleClass().add("button-editar");
+                        buttonEventEdit[i] = new Button();
+                        buttonEventEdit[i].setId("buttonAdd" + i);
+                        buttonEventEdit[i].setLayoutX(450);
+                        buttonEventEdit[i].setDisable(true);
+                        buttonEventEdit[i].getStylesheets().add(getClass().getResource("/onpe/com/pe/styles/Style.css").toExternalForm());
+                        buttonEventEdit[i].getStyleClass().add("button-editar");
 
-                    AnchorPane conteninerTextFieldAndButton = new AnchorPane();
-                    conteninerTextFieldAndButton.getChildren().addAll(buttonEventConfi[i], buttonEventDelete[i], buttonEventEdit[i], buttonEventAdd[i]);
+                        AnchorPane conteninerTextFieldAndButton = new AnchorPane();
+                        conteninerTextFieldAndButton.getChildren().addAll(buttonEventConfi[i], buttonEventDelete[i], buttonEventEdit[i], buttonEventAdd[i]);
 
-                    containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
-                    containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
+                        containerSettingModule.getChildren().addAll(conteninerTextFieldAndButton);
+                        containerSettingModule.setMargin(conteninerTextFieldAndButton, new Insets(10, 0, 0, 0));
 
-                    TextField textField = buttonEventConfi[i];
-                    Button btDelete = buttonEventDelete[i];
-                    Button btEdit = buttonEventEdit[i];
-                    Button btAdds = buttonEventAdd[i];
+                        TextField textField = buttonEventConfi[i];
+                        Button btDelete = buttonEventDelete[i];
+                        Button btEdit = buttonEventEdit[i];
+                        Button btAdds = buttonEventAdd[i];
 
-                    buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            if (textField.getText().equals("") || textField.getText().isEmpty()) {
-                                Alert alert = new Alert(Alert.AlertType.WARNING);
-                                alert.setTitle("VALIDAR MODULO");
-                                alert.setHeaderText("No Existe un nombre para el modulo");
-                                alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
-                                alert.showAndWait();
-                            } else {
-                                btAdds.setDisable(true);
-                                textField.setDisable(true);
-                                btEdit.setDisable(false);
+                        buttonEventAdd[i].setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                if (textField.getText().equals("") || textField.getText().isEmpty()) {
+                                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                                    alert.setTitle("VALIDAR MODULO");
+                                    alert.setHeaderText("No Existe un nombre para el modulo");
+                                    alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
+                                    alert.showAndWait();
+                                } else {
+                                    btAdds.setDisable(true);
+                                    textField.setDisable(true);
+                                    btEdit.setDisable(false);
+                                    if (verificarButton()) {
+                                        btnGuardar.setDisable(false);
+                                    }
+
+                                    listModule.forEach(action -> {
+                                        if (action.getCodemodule().equals(textField.getId())) {
+                                            action.setNameModule(textField.getText());
+                                        }
+                                    });
+                                }
+
+                            }
+                        });
+
+                        buttonEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                btAdds.setDisable(false);
+                                textField.setDisable(false);
+                                btnGuardar.setDisable(true);
+                            }
+                        });
+
+                        buttonEventDelete[i].setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                conteninerTextFieldAndButton.getChildren().removeAll(textField, btDelete, btEdit, btAdds);
+                                containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
+                                listModule.removeIf(action -> action.getCodemodule().equals(textField.getId()));
                                 if (verificarButton()) {
                                     btnGuardar.setDisable(false);
                                 }
-
-                                listModule.forEach(action -> {
-                                    if (action.getCodemodule().equals(textField.getId())) {
-                                        action.setNameModule(textField.getText());
-                                    }
-                                });
                             }
+                        });
 
-                        }
-                    });
+                    }
+                    listModule.add(module);
+                    list.add(1);
+                    dialog.close();
 
-                    buttonEventEdit[i].setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            btAdds.setDisable(false);
-                            textField.setDisable(false);
-                             btnGuardar.setDisable(true);
-                        }
-                    });
+                });
+                vbox.getChildren().add(button);
+            }
 
-                    buttonEventDelete[i].setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            conteninerTextFieldAndButton.getChildren().removeAll(textField, btDelete, btEdit, btAdds);
-                            containerSettingModule.getChildren().remove(conteninerTextFieldAndButton);
-                            listModule.removeIf(action -> action.getCodemodule().equals(textField.getId()));
-                            if (verificarButton()) {
-                                btnGuardar.setDisable(false);
-                            }
-                        }
-                    });
-                }
-                listModule.add(module);
-                list.add(1);
-                dialog.close();
-            });
-            vbox.getChildren().add(button);
+            dialog.getDialogPane().setContent(vbox);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            dialog.initOwner(containerSettingModule.getScene().getWindow());
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.show();
         }
-
-        dialog.getDialogPane().setContent(vbox);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-        dialog.initOwner(containerSettingModule.getScene().getWindow());
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.show();
 
     }
 
