@@ -84,7 +84,7 @@ public class CreacionTable {
                             case "Valido":
                                 setStyle("-fx-text-fill: transparent; -fx-background-color:green; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
-                            case "No Valido":
+                            case "Invalido":
                                 setStyle("-fx-text-fill: transparent; -fx-background-color:red; -fx-border-width:0.5px; -fx-border-color: white;");
                                 break;
                             case "":
