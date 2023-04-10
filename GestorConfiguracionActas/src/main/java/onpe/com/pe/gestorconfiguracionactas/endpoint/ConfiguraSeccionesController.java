@@ -119,6 +119,7 @@ public class ConfiguraSeccionesController implements Initializable {
                 encuadrarActa(2, escalaLo);
                 System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
             }
+<<<<<<< Updated upstream
             int i = 0;
             Label[] listLabel = new Label[listModules.length];
             Button[] listaBotones = new Button[listModules.length];
@@ -251,6 +252,12 @@ public class ConfiguraSeccionesController implements Initializable {
                 vboxPane.getChildren().add(anchor);
                 i++;
             }
+=======
+            //combox sol
+            cboDocumentos.setValue(VariableGlobales.identificaActa.get("nombreSeleccion"));
+            String selecion = VariableGlobales.identificaActa.get("nombreSeleccion");
+            // cargando elemtos del combox
+>>>>>>> Stashed changes
 
             //fin de carga de combox
         }
@@ -398,9 +405,15 @@ public class ConfiguraSeccionesController implements Initializable {
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Ancho", Double.toString(imgAncho2));
                                         configuracion.setCoordinatesWigth(Double.toString(imgAncho2));
                                         //configuracionActa.put(configuracion + "Alto", Double.toString(imgAlto2));
+<<<<<<< Updated upstream
                                         VariableGlobales.coordenadasActa.put(configuracion.getNameModule() + "Alto", Double.toString(imgAlto2));
                                         configuracion.setCoordinatesHeigth(Double.toString(imgAlto2));
                                         System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
+=======
+                                        VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
+                                        System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
+
+>>>>>>> Stashed changes
 
                                     }
                                     btnValidar.setDisable(false);
@@ -457,9 +470,16 @@ public class ConfiguraSeccionesController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
+<<<<<<< Updated upstream
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath());// para chapar el nombre de la imagen
         img = new Image(fileSeleccionado.getPath());
         imgViewActa.setImage(img);
+=======
+        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
+        img = new Image(fileSeleccionado.getPath().toString());
+        imgViewActa.setImage(img);
+        double scale = imgViewActa.getScaleX();
+>>>>>>> Stashed changes
 
         scrollPaneActa.setVvalue(0.5);
         scrollPaneActa.setHvalue(0.5);
