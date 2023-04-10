@@ -84,11 +84,8 @@ public class ValidarSeccionController implements Initializable {
             gc.drawImage(imgViewActa.getImage(), 0, 0);
 
             for (Setting item : businessService.findAllSettingOnlyEleccion()) {
-<<<<<<< Updated upstream
+
                 System.out.println("IDENTIFICA=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
-=======
-                System.out.println("IDENTIFICA="+VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
->>>>>>> Stashed changes
 
                 if (item.getId_setting().equals(VariableGlobales.identificaActa.get("idSectionActaSeleccion"))) {
                     Gson gson = new Gson();
