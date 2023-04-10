@@ -119,7 +119,7 @@ public class ConfiguraSeccionesController implements Initializable {
                 encuadrarActa(2, escalaLo);
                 System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
             }
-<<<<<<< Updated upstream
+
 
             int i = 0;
             Label[] listLabel = new Label[listModules.length];
@@ -254,8 +254,7 @@ public class ConfiguraSeccionesController implements Initializable {
                 i++;
             }
 
-=======
->>>>>>> Stashed changes
+
             //combox sol
             cboDocumentos.setValue(VariableGlobales.identificaActa.get("nombreSeleccion"));
             String selecion = VariableGlobales.identificaActa.get("nombreSeleccion");
@@ -415,10 +414,6 @@ public class ConfiguraSeccionesController implements Initializable {
                                         VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
                                     }
                                     btnValidar.setDisable(false);
@@ -475,16 +470,9 @@ public class ConfiguraSeccionesController implements Initializable {
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);
-<<<<<<< Updated upstream
 
         VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath());// para chapar el nombre de la imagen
         img = new Image(fileSeleccionado.getPath());
-        imgViewActa.setImage(img);
-
-=======
->>>>>>> Stashed changes
-        VariableGlobales.lecturaActasEnMemoria.put("fileNamePathOriginal", fileSeleccionado.getPath().toString());// para chapar el nombre de la imagen
-        img = new Image(fileSeleccionado.getPath().toString());
         imgViewActa.setImage(img);
         double scale = imgViewActa.getScaleX();
 
