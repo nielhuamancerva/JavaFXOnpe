@@ -4,6 +4,8 @@
  */
 package com.mycompany.loging.endpoint.dashboard;
 
+import com.mycompany.loging.App;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -33,29 +35,38 @@ public class Footer_dashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }
+        apShowMenu.setVisible(false);
 
+    }
 
     @FXML
     private void btnAdministradorExited(MouseEvent event) {
+        apShowMenu.setVisible(false);
+
     }
 
     @FXML
     private void btnAdministradorEntered(MouseEvent event) {
+        apShowMenu.setVisible(true);
+
     }
 
     @FXML
-    private void handleLogout(ActionEvent event) {
-        System.out.println("me hiciste click");
+    private void handleLogout() throws IOException{
+        App.setRoot(null, "login");
+
     }
 
     @FXML
     private void apCerrarSesionExited(MouseEvent event) {
+        apShowMenu.setVisible(false);
+
     }
 
     @FXML
     private void apCerrarSesionEntered(MouseEvent event) {
+        apShowMenu.setVisible(true);
+
     }
 
     @FXML
