@@ -70,8 +70,8 @@ public class TransmisionMqController implements Initializable {
     private Label lblMensaje;
     @FXML
     private TextArea txtAreaResultado;
-    
-    private String textoInicial= "";
+
+    private String textoInicial = "";
 
     private boolean isPressed = false;
 
@@ -109,7 +109,6 @@ public class TransmisionMqController implements Initializable {
 //        LocalDateTime fechaHoraActual = LocalDateTime.now();
 //        // Formatear la fecha y hora actual con el formato deseado
 //        String fechaHoraFormateada = fechaHoraActual.format(formato);
-
         System.out.println(" inicio de rabbit ");
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
@@ -139,8 +138,8 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
 
+                System.out.println("Persona: " +gson.toJson(persona));
 //                System.out.println("body" + gson.toJson(persona.getBody()));
-
                 FactoryService = FactoryServices.getInstance();
                 try {
                     Connection conn = FactoryService.ServicePostgreSQL().conexionPostgreSQL();
@@ -155,16 +154,27 @@ public class TransmisionMqController implements Initializable {
                     statement.setInt(1, random.nextInt(1000));
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
-                    statement.setInt(4, 1);
+                    
+                    if (persona1.getBody().getFirma1().equals("true") && persona1.getBody().getFirma2().equals("true")
+                            && persona1.getBody().getFirma3().equals("true")) {
+//                        System.out.println(persona1.getBody().getFirma1() + "\n");    
+//                        System.out.println(persona1.getBody().getFirma2() + "\n");    
+//                        System.out.println(persona1.getBody().getFirma3() + "\n");    
+                        statement.setInt(4, 1);
+                    } else {
+                        statement.setInt(4, 0);
+//                         System.out.println(persona1.getBody().getFirma1() + "\n");    
+//                        System.out.println(persona1.getBody().getFirma2() + "\n");    
+//                        System.out.println(persona1.getBody().getFirma3() + "\n"); 
+
+                    }
 
                     statement.setObject(5, persona.getBody().getImagen().getImagen());
 
                     statement.executeUpdate();
-                    
-//                    txtAreaResultado.setText("Se recibio la cola el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now());
 
-                    txtAreaResultado.appendText("Se recibio la cola con el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now()+ "\n");
-                   
+//                    txtAreaResultado.setText("Se recibio la cola el codigo de barra:"+ persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now());
+                    txtAreaResultado.appendText("Se recibio la cola con el codigo de barra:" + persona1.getBody().getActa() + " con fecha y hora " + LocalDateTime.now() + "\n");
 
                 } catch (SQLException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,9 +185,18 @@ public class TransmisionMqController implements Initializable {
                 ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
                 BufferedImage image;
                 try {
-                    image = ImageIO.read(bis);
-                    File ff = new File("D:\\carpe\\" + persona1.getBody().getActa() + ".png");
-                    ImageIO.write(image, "png", ff);
+                    if (persona1.getBody().getFirma1().equals("true") && persona1.getBody().getFirma2().equals("true")
+                            && persona1.getBody().getFirma3().equals("true")) {
+                        image = ImageIO.read(bis);
+                        File ff = new File("D:\\carpetaValido\\" + persona1.getBody().getActa() + ".png");
+                        ImageIO.write(image, "png", ff);
+                        
+                    } else {
+                        image = ImageIO.read(bis);
+                        File ff = new File("D:\\carpetaInvalido\\" + persona1.getBody().getActa() + ".png");
+                        ImageIO.write(image, "png", ff);
+                    }
+
                 } catch (IOException ex) {
                     Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
                 }

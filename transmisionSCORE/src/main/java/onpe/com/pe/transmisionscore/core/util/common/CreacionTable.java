@@ -63,8 +63,6 @@ public class CreacionTable {
 //
 //        TableColumn<Actas, String> columnaFirma3 = new TableColumn<>("firma3");
 //        columnaFirma3.setCellValueFactory(new PropertyValueFactory<>("firma3"));
-
-
         TableColumn<TransmisionRecibidas, String> columnaFechaRegistro = new TableColumn<>("Fecha de Registro");
         columnaFechaRegistro.setCellValueFactory(new PropertyValueFactory<>("dfechahora"));
 
@@ -83,7 +81,6 @@ public class CreacionTable {
                     } else {
 //                        setText(item);
 
-     
                         switch (item) {
                             case 1:
                                 setStyle("-fx-text-fill: transparent; -fx-background-color:green; -fx-border-width:0.5px; -fx-border-color: white;");
@@ -106,12 +103,26 @@ public class CreacionTable {
             @Override
             public TableCell<TransmisionRecibidas, Void> call(final TableColumn<TransmisionRecibidas, Void> param) {
                 final TableCell<TransmisionRecibidas, Void> cell = new TableCell<TransmisionRecibidas, Void>() {
+
                     private final Button btn = new Button("Ver");
 
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getStrama();
-//                                App.setRoot(null, "viewImagen");
+//                            VariableGlobales.viewImage = getTableView().getItems().get(getIndex()).getStrama();
+
+                            if (getTableView().getItems().get(getIndex()).getNestado() == 1) {
+                                VariableGlobales.viewImage = "file:D:\\carpetaValido\\" + getTableView().getItems().get(getIndex()).getStrama() + ".png";
+                            } else {
+                                VariableGlobales.viewImage = "file:D:\\carpetaInvalido\\" + getTableView().getItems().get(getIndex()).getStrama() + ".png";
+                            }
+
+                            System.out.println("imprimir: " + VariableGlobales.viewImage);
+                            try {
+
+                                App.setRoot(null, "viewImagen");
+                            } catch (IOException ex) {
+                                System.out.println("error:" + ex);
+                            }
                             System.out.println("Editar acta " + getTableView().getItems().get(getIndex()).getNestado());
 
                         });
@@ -125,13 +136,14 @@ public class CreacionTable {
                             setGraphic(null);
                         } else {
                             setGraphic(btn);
+                        }
 
-//                            if (getTableView().getItems().get(getIndex()).getEstado().equals("Valido")) {
+//                            if (getTableView().getItems().get(getIndex()).getNestado().equals(1)) {
 //                                setGraphic(btn);
 //                            } else {
 //                                setGraphic(null);
 //                            }
-                        }
+//                        
                     }
                 };
                 return cell;
@@ -139,7 +151,7 @@ public class CreacionTable {
         };
 
         columnaAccion.setCellFactory(cellFactory);
-        Tactas.getColumns().addAll(columnaActa, columnaDepartamento,columnaFechaRegistro, columnaEstado, columnaAccion);
+        Tactas.getColumns().addAll(columnaActa, columnaDepartamento, columnaFechaRegistro, columnaEstado, columnaAccion);
         return Tactas;
     }
 }

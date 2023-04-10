@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: E0E0E0;" stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.dashboard.ViewImagenController">
+    <children><AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: E0E0E0;" styleClass="pane_tipo_body" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+<children><AnchorPane layoutY="-251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><AnchorPane layoutX="1055.0" layoutY="69.0" prefHeight="39.0" prefWidth="314.0" styleClass="cabecera1_primera_digitacion" AnchorPane.rightAnchor="10.0" />     
+      <AnchorPane layoutX="-589.5" layoutY="607.0" prefHeight="114.0" prefWidth="1357.0" styleClass="ap_bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox layoutX="275.0" layoutY="-32.0" prefHeight="100.0" styleClass="hbox_botones" AnchorPane.rightAnchor="7.0" /><HBox layoutX="815.0" layoutY="-26.0" prefHeight="100.0" styleClass="hbox_botones" />
+            <Button layoutX="1734.0" layoutY="-33.0" mnemonicParsing="false" onAction="#actionSalir" prefHeight="83.0" prefWidth="63.0" styleClass="btn_salir" text="SALIR" />
+                        <ImageView fitHeight="74.0" fitWidth="200.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/logo_onpe%20modulos.png" />
+                           </image>
+                        </ImageView>
+         </children>
+      </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
+                  <ImageView fx:id="imageDocumentos" fitHeight="848.0" fitWidth="914.0" layoutX="513.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+</children></AnchorPane>
+</children></AnchorPane>   
+   </children>
+</AnchorPane>
