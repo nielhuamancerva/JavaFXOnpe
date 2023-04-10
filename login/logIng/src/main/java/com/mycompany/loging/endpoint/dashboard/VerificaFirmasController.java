@@ -168,6 +168,9 @@ public class VerificaFirmasController implements Initializable {
     @FXML
     private void elegirFichero() throws Exception, IOException {
         nombreDelArchivoProcesado = "";
+        ContainerHora.getChildren().clear();
+//        ModuleFirma.getChildren().clear();
+        ContainerVboxFirma.getChildren().clear();
         FileChooser fileChoiser = new FileChooser();
         fileChoiser.setTitle("Elegir Actas");
         fileSeleccionado = fileChoiser.showOpenDialog(null);

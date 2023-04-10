@@ -97,7 +97,7 @@ public class LeerActasVotosController implements Initializable {
 
     @FXML
     private void regresarLeerActas() throws IOException {
-//        App.setRoot(null, "verificaFirmas");
+//        App.setRoot(null, "verificaFirmas");nhc   nh
         VariableGlobals.viewPosition--;
         App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }

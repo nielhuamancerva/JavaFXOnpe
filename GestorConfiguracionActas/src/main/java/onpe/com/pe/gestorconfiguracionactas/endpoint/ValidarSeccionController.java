@@ -84,11 +84,11 @@ public class ValidarSeccionController implements Initializable {
             gc.drawImage(imgViewActa.getImage(), 0, 0);
 
             for (Setting item : businessService.findAllSettingOnlyEleccion()) {
-                System.out.println("IDENTIFICA="+VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
+                System.out.println("IDENTIFICA=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
 
                 if (item.getId_setting().equals(VariableGlobales.identificaActa.get("idSectionActaSeleccion"))) {
                     Gson gson = new Gson();
-       
+
                     for (var configuracion : listModules) {
                         if (VariableGlobales.coordenadasActa.get(configuracion.getNameModule() + "Xo") != null) {
                             System.out.println("DATOS DE ARRAYS:::::" + configuracion.getNameModule());
@@ -97,7 +97,7 @@ public class ValidarSeccionController implements Initializable {
                             //gc.strokeRect(imgX, imgY, imgAncho, imgAlto);
                             System.out.println("variables vacias o nel :" + configuracion.getCoordinatesXo());
                             gc.strokeRect(Double.parseDouble(configuracion.getCoordinatesXo()),
-                                    Double.parseDouble(configuracion.getCoordinatesYo()), 
+                                    Double.parseDouble(configuracion.getCoordinatesYo()),
                                     Double.parseDouble(configuracion.getCoordinatesWigth()),
                                     Double.parseDouble(configuracion.getCoordinatesHeigth()));
                         }
@@ -140,9 +140,11 @@ public class ValidarSeccionController implements Initializable {
                 try {
                     System.out.println("datos en Globales=" + VariableGlobales.coordenadasActa.toString());
                     System.out.println("datos en Globales=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
-                     Gson gson = new Gson();
-                    businessService.uploadSectionsCoornates(VariableGlobales.identificaActa.get("idSectionActaSeleccion"),gson.toJson(listModules));// actualiza en base de datos ESTO VA A CONFIRMAR
-                   listModules = new Modules[0];
+                    Gson gson = new Gson();
+                    businessService.uploadSectionsCoornates(VariableGlobales.identificaActa.get("idSectionActaSeleccion"), gson.toJson(listModules));// actualiza en base de datos ESTO VA A CONFIRMAR
+                    listModules = new Modules[0];
+                    VariableGlobales.identificaActa.clear();
+                    VariableGlobales.lecturaActasEnMemoria.clear();
                     App.setRoot(null, "inicioMenu");
                 } catch (Exception e) {
                     System.out.println("datos:" + e);
