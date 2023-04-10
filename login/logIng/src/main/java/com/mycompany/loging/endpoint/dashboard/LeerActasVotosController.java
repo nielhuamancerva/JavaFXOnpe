@@ -80,11 +80,13 @@ public class LeerActasVotosController implements Initializable {
                         voto6.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto5"));
                         voto7.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto6"));
 
-                        //System.out.println("bufferedValorVoto1 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
-                        //System.out.println("bufferedValorVoto2 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
-                        //System.out.println("bufferedValorVoto3 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
-                        //System.out.println("bufferedValorVoto4 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
-                        //System.out.println("bufferedValorVoto5 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+//                        System.out.println("bufferedValorVoto1 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
+//                        System.out.println("bufferedValorVoto2 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
+//                        System.out.println("bufferedValorVoto3 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto2"));
+//                        System.out.println("bufferedValorVoto4 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto3"));
+//                        System.out.println("bufferedValorVoto5 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto4"));
+//                        System.out.println("bufferedValorVoto6 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto5"));
+//                        System.out.println("bufferedValorVoto7 " + VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto6"));
                         break;
                     default:
                         App.setRoot(null, "registrarObs");
