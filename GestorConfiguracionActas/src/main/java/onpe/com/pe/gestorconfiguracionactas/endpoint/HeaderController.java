@@ -38,13 +38,11 @@ public class HeaderController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         apShowMenu.setVisible(false);
-
     }
 
     @FXML
     private void btnAdministradorExited(MouseEvent event) {
         apShowMenu.setVisible(false);
-
     }
 
     @FXML
@@ -55,7 +53,7 @@ public class HeaderController implements Initializable {
 
     @FXML
     private void handleLogout() throws IOException {
-//        App.setRoot(null, "login");
+        App.setRoot(null, "login");
     }
 
     @FXML
