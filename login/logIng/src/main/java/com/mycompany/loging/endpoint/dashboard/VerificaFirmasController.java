@@ -187,31 +187,29 @@ public class VerificaFirmasController implements Initializable {
                 }
             }
         }
-        VariableGlobals.actasLeida.setFirma1("false");
-        VariableGlobals.actasLeida.setFirma2("false");
-        VariableGlobals.actasLeida.setFirma3("false");
-        for (boolean ord : ordcre) {
-            System.out.println("longitud de orden:"+ordcre.size());
-            if (ordcre.size() == 1) {
-                VariableGlobals.actasLeida.setFirma1("true");
 
-            } else if (ordcre.size() == 2) {
-                VariableGlobals.actasLeida.setFirma1("true");
-                VariableGlobals.actasLeida.setFirma2("true");
-
-            } else if (ordcre.size() == 3) {
-                VariableGlobals.actasLeida.setFirma1("true");
-                VariableGlobals.actasLeida.setFirma2("true");
-                VariableGlobals.actasLeida.setFirma3("true");
+        switch (ordcre.size()) {
+            case 1: {
+                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
+                break;
             }
-
-            if (ordcre.contains(false)) {
-                App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.size()));
-            } else {
-                App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+            case 2: {
+                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
+                VariableGlobals.actasLeida.setFirma2(ordcre.get(1).toString());
             }
-
+            case 3: {
+                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
+                VariableGlobals.actasLeida.setFirma2(ordcre.get(1).toString());
+                VariableGlobals.actasLeida.setFirma3(ordcre.get(2).toString());
+            }
         }
+
+        if (ordcre.contains(false)) {
+            App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.size()));
+        } else {
+            App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+        }
+
     }
 
     @FXML
