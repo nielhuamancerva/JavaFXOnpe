@@ -17,8 +17,8 @@ import java.sql.SQLException;
 public class ServicePostgreSQLImpl implements ServicePostgreSQL {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/SCE";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "niel";
+    private static final String USER = "postgres"; //
+    private static final String PASSWORD = "admin"; //niel
     private Connection connection;
 
     @Override
