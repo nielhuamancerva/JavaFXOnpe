@@ -84,6 +84,7 @@ public class ValidarSeccionController implements Initializable {
             gc.drawImage(imgViewActa.getImage(), 0, 0);
 
             for (Setting item : businessService.findAllSettingOnlyEleccion()) {
+                System.out.println("IDENTIFICA="+VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
 
                 System.out.println("IDENTIFICA=" + VariableGlobales.identificaActa.get("idSectionActaSeleccion"));
 
