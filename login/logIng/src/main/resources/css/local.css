@@ -54,7 +54,7 @@
 .btnAdministradorHead{
     -fx-cursor: hand;
     -fx-background-color: #001b3f;
-    -fx-pref-width: 220px;
+    -fx-pref-width: 250px;
     /*    -fx-background-image: url("../image/icoBtnAdministrador.png");*/
     -fx-background-repeat: no-repeat;
     -fx-background-position:center 5;

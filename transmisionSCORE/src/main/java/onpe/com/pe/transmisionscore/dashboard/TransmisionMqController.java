@@ -95,6 +95,7 @@ public class TransmisionMqController implements Initializable {
             btnRecepcionar.getStyleClass().add("btn_txrx_azul");
             btnRecepcionar.getStyleClass().remove("claseNueva");
             isPressed = false;
+            
         } else {
             lblMensaje.setText("Iniciando Rabbit......");
             btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
@@ -155,8 +156,7 @@ public class TransmisionMqController implements Initializable {
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
                     
-                    if (persona1.getBody().getFirma1().equals("true") && persona1.getBody().getFirma2().equals("true")
-                            && persona1.getBody().getFirma3().equals("true")) {
+                    if (persona1.getBody().getEstado().equals("Valido")) {
 //                        System.out.println(persona1.getBody().getFirma1() + "\n");    
 //                        System.out.println(persona1.getBody().getFirma2() + "\n");    
 //                        System.out.println(persona1.getBody().getFirma3() + "\n");    
@@ -185,8 +185,7 @@ public class TransmisionMqController implements Initializable {
                 ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
                 BufferedImage image;
                 try {
-                    if (persona1.getBody().getFirma1().equals("true") && persona1.getBody().getFirma2().equals("true")
-                            && persona1.getBody().getFirma3().equals("true")) {
+                    if (persona1.getBody().getEstado().equals("Valido")) {
                         image = ImageIO.read(bis);
                         File ff = new File("D:\\carpetaValido\\" + persona1.getBody().getActa() + ".png");
                         ImageIO.write(image, "png", ff);

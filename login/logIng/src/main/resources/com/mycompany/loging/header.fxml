@@ -12,7 +12,7 @@
                 <Image url="@../../../imagenes/LogoONPE.png" />
             </image>
         </ImageView>
-        <Button fx:id="btnAdministrador" alignment="BOTTOM_CENTER" layoutX="1026.1875" mnemonicParsing="false" onMouseEntered="#btnAdministradorEntered" onMouseExited="#btnAdministradorExited" prefHeight="92.0" styleClass="btnAdministradorHead" text="USUARIO" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0" />
+        <Button fx:id="btnAdministrador" alignment="BOTTOM_CENTER" layoutX="1026.1875" mnemonicParsing="false" onMouseEntered="#btnAdministradorEntered" onMouseExited="#btnAdministradorExited" prefHeight="80.0" prefWidth="230.0" styleClass="btnAdministradorHead" text="ADMINISTRADOR" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="0.0" />
         <AnchorPane layoutX="657.0" layoutY="3.0" prefHeight="75.0" prefWidth="532.0" AnchorPane.leftAnchor="657.0" AnchorPane.rightAnchor="91.0">
             <children>
                 <Label fx:id="lblNameEleccion" layoutX="459.0048828125" layoutY="32.0" prefHeight="75.0" prefWidth="532.0" styleClass="title_eleccion" text="ELECCIONES GENERALES 2025" wrapText="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-2.0" />
