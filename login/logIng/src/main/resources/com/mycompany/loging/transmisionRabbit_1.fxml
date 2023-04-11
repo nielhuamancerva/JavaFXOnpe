@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionRabbitController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.TransmisionRabbitController">
    <children>
-      <HBox alignment="CENTER" layoutY="81.0" prefHeight="1080.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="1080.0" prefWidth="1920.0">
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
                <children>
-                  <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
                      <children>
-                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="PROCESAR ACTA" />
-                        <Pane layoutX="642.0" layoutY="235.0" prefHeight="337.0" prefWidth="710.0" styleClass="fielset">
+                        <Pane layoutX="52.0" layoutY="107.0" prefHeight="337.0" prefWidth="710.0" styleClass="fielset">
                            <children>
                               <Label layoutX="39.0" layoutY="29.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Transmitir datos e Imágenes">
                                  <font>
@@ -44,6 +41,16 @@
                               </ImageView>
                            </children>
                         </Pane>
+                        <Label layoutX="114.0" layoutY="2.0" styleClass="title" text="rocesar" />
+                        <Label layoutX="81.0" layoutY="-18.0" styleClass="title-first" text="P" />
+                        <Label layoutX="342.0" layoutY="2.0" styleClass="title" text="cta" />
+                        <Label layoutX="298.0" layoutY="-12.0" styleClass="title-first" text="A" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="85.0" prefHeight="33.0" prefWidth="346.0" text="TRANSMISIÓN">
+                           <styleClass>
+                              <String fx:value="fielset-title" />
+                              <String fx:value="apBlanco" />
+                           </styleClass>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>
@@ -52,18 +59,17 @@
       </HBox>
       <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button layoutX="836.0" layoutY="5.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+            <Button layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#regresarFirmas" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
                <styleClass>
                   <String fx:value="btn-regresar" />
                   <String fx:value="btn-azul" />
                </styleClass>
             </Button>
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
        <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
    <stylesheets>
-      <URL value="@../../../css/observaciones.css" />
       <URL value="@../../../css/local.css" />
+      <URL value="@../../../css/transmision.css" />
    </stylesheets>
 </AnchorPane>
