@@ -89,13 +89,18 @@ public class TransmisionMqController implements Initializable {
 
     @FXML
     private void btnRecepcionar_OnAction(ActionEvent event) throws IOException, TimeoutException {
-
+        System.out.println(" inicio de rabbit ");
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost("localhost");
+        com.rabbitmq.client.Connection connection = factory.newConnection();
+        com.rabbitmq.client.Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, "direct");
         if (isPressed) {
             lblMensaje.setText("Servidor Rabbit en Stop");
             btnRecepcionar.getStyleClass().add("btn_txrx_azul");
             btnRecepcionar.getStyleClass().remove("claseNueva");
             isPressed = false;
-            
+            channel.close();
         } else {
             lblMensaje.setText("Iniciando Rabbit......");
             btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
@@ -110,13 +115,6 @@ public class TransmisionMqController implements Initializable {
 //        LocalDateTime fechaHoraActual = LocalDateTime.now();
 //        // Formatear la fecha y hora actual con el formato deseado
 //        String fechaHoraFormateada = fechaHoraActual.format(formato);
-        System.out.println(" inicio de rabbit ");
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        com.rabbitmq.client.Connection connection = factory.newConnection();
-        com.rabbitmq.client.Channel channel = connection.createChannel();
-        channel.exchangeDeclare(EXCHANGE_NAME, "direct");
-
 //        for (String queueName : QUEUE_NAMES) {
 //            channel.queueDeclare(queueName, false, false, false, null);
 //            channel.queueBind(queueName, EXCHANGE_NAME, queueName);
@@ -139,7 +137,7 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
 
-                System.out.println("Persona: " +gson.toJson(persona));
+                System.out.println("Persona: " + gson.toJson(persona));
 //                System.out.println("body" + gson.toJson(persona.getBody()));
                 FactoryService = FactoryServices.getInstance();
                 try {
@@ -155,7 +153,7 @@ public class TransmisionMqController implements Initializable {
                     statement.setInt(1, random.nextInt(1000));
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
-                    
+
                     if (persona1.getBody().getEstado().equals("Valido")) {
 //                        System.out.println(persona1.getBody().getFirma1() + "\n");    
 //                        System.out.println(persona1.getBody().getFirma2() + "\n");    
@@ -189,7 +187,7 @@ public class TransmisionMqController implements Initializable {
                         image = ImageIO.read(bis);
                         File ff = new File("D:\\carpetaValido\\" + persona1.getBody().getActa() + ".png");
                         ImageIO.write(image, "png", ff);
-                        
+
                     } else {
                         image = ImageIO.read(bis);
                         File ff = new File("D:\\carpetaInvalido\\" + persona1.getBody().getActa() + ".png");
@@ -205,63 +203,10 @@ public class TransmisionMqController implements Initializable {
             });
 
         };
-//            DefaultConsumer consumer = new DefaultConsumer(channel) {
-//                @Override
-//                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-//                    String message = new String(body, "UTF-8");
-//                    System.out.println(" ingreso de mensaje '" + message + "'");
-//
-//                    String decryptString = null;
-//                    try {
-//                        decryptString = decrypt(message);
-//                    } catch (Exception ex) {
-//                        Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                    System.out.println(" body cola descriptado '" + decryptString + "'");
-//                    Gson gson = new Gson();
-//                    Transmision persona = gson.fromJson(decryptString, Transmision.class);
-//                    Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
-//                    persona1.getBody().getImagen().setImagen("");
-//                    System.out.println("body" + gson.toJson(persona.getBody()));
-//
-//                    FactoryService = FactoryServices.getInstance();
-//                    try {
-//                        Connection conn = FactoryService.ServicePostgreSQL().conexionPostgreSQL();
-//                        Statement stmt = conn.createStatement();
-//
-//                        String sql = "INSERT INTO tramasrecibidas (ncodtrama, strama, dfechahora,nestado,filebase64) VALUES (?, ?, ?,?,?)";
-//                        PreparedStatement statement = conn.prepareStatement(sql);
-//
-//                        //JsonObject jsonObject = gson.fromJson(persona.getBody().getImagen().getImagen(), JsonObject.class);
-//                        System.out.println(persona1.getBody().getActa());
-//
-//                        statement.setString(2, persona1.getBody().getActa());
-//                        statement.setDate(3, Date.valueOf(LocalDate.now()));
-//                        statement.setInt(4, 1);
-//
-//                        statement.setObject(5, persona.getBody().getImagen().getImagen());
-//                        //statement.setObject(5, jsonObject, Types.OTHER);
-//                        //statement.setObject(5, persona1.getBody().getActa());
-//
-//                        statement.executeUpdate();
-//                    } catch (SQLException ex) {
-//                        Logger.getLogger(TransmisionMqController.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//
-//                    byte[] byteArray = Base64.getDecoder().decode(persona.getBody().getImagen().getImagen());
-//
-//                    ByteArrayInputStream bis = new ByteArrayInputStream(byteArray);
-//                    BufferedImage image = ImageIO.read(bis);
-//
-//                    File ff = new File("D:\\carpe\\decode.png");
-//                    ImageIO.write(image, "png", ff);
-//                }
-//            };
-//            channel.basicConsume(queueName, true, consumer);
 
         channel.basicConsume("cola_niel", true, deliverCallback, consumerTag -> {
         });
-//        }
+
     }
 
     @FXML
