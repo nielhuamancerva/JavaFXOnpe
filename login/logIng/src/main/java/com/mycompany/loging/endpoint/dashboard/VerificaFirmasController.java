@@ -250,7 +250,7 @@ public class VerificaFirmasController implements Initializable {
                             Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
                     Label labelAnchorHora = new Label();
-                    labelAnchorHora.setText(module.getNameModule());
+                    labelAnchorHora.setText(module.getNameModule().toUpperCase());
                     labelAnchorHora.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
                     labelAnchorHora.getStyleClass().add("fielset-title");
                     labelAnchorHora.getStyleClass().add("apBlanco");
@@ -306,8 +306,8 @@ public class VerificaFirmasController implements Initializable {
 
                     ImageView imageViewfirma = new ImageView();
                     imageViewfirma.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get(module.getNameModule())));
-                    imageViewfirma.setFitHeight(98);
-                    imageViewfirma.setFitWidth(249);
+                    imageViewfirma.setFitHeight(160);
+                    imageViewfirma.setFitWidth(360);
                     imageViewfirma.setLayoutX(12);
                     imageViewfirma.setLayoutY(17);
 
@@ -319,7 +319,7 @@ public class VerificaFirmasController implements Initializable {
                     Button buttonSiFirma = new Button("SI FIRMO");
                     buttonSiFirma.setPrefWidth(128);
                     buttonSiFirma.setPrefHeight(62);
-                    buttonSiFirma.setLayoutX(412);
+                    buttonSiFirma.setLayoutX(600);
                     buttonSiFirma.setLayoutY(43);
                     buttonSiFirma.setId(module.getOrdenCreation());
                     System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
@@ -328,7 +328,7 @@ public class VerificaFirmasController implements Initializable {
                     buttonNoFirma.setId(module.getOrdenCreation());
                     buttonNoFirma.setPrefWidth(128);
                     buttonNoFirma.setPrefHeight(62);
-                    buttonNoFirma.setLayoutX(273);
+                    buttonNoFirma.setLayoutX(450);
                     buttonNoFirma.setLayoutY(43);
 
                     System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
@@ -367,7 +367,7 @@ public class VerificaFirmasController implements Initializable {
                     anchorFirma.getChildren().addAll(imageViewfirma, buttonSiFirma, buttonNoFirma);
 
                     ContainerVboxFirma.getChildren().addAll(anchorFirma);
-                    ContainerVboxFirma.setMargin(anchorFirma, new Insets(45, 0, 80, 0));
+                    ContainerVboxFirma.setMargin(anchorFirma, new Insets(10, 0, 20, 0));
 
                     ModuleFirma.getChildren().addAll(labelAnchorFirma);
                     ModuleFirma.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());

@@ -5,12 +5,12 @@
 .btnVersion{
     -fx-cursor: hand;
     -fx-background-color: #001b3f;
-    -fx-pref-width: 150px;
+    -fx-pref-width: 400px;
     -fx-pref-height: 40px;
-    -fx-font-family: "Calibri";
+    -fx-font-family: "Arial";
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
+    -fx-font-size: 24px;
 
 }
 
@@ -30,11 +30,11 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position:10;
     -fx-background-size: 30;
-    -fx-font-family: "Calibri";
+    -fx-font-family: "Arial";
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 20px;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-padding: 18 0 17 20;
+    -fx-padding: 18 0 20 15;
 }
 
 .apImagen1{
