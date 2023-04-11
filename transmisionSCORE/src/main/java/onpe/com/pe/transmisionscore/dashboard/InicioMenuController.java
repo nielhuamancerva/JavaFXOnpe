@@ -7,10 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import onpe.com.pe.transmisionscore.App;
 
 public class InicioMenuController implements Initializable {
 
+    @FXML
+    private Label lblNameEleccion;
     @FXML
     private Button btnTransmision;
 
@@ -25,7 +28,6 @@ public class InicioMenuController implements Initializable {
 
     }
 
-    @FXML
     private void ingresarSeguimientoActa()throws  IOException{
          App.setRoot(null, "seguimientoActa");
     }
@@ -34,5 +36,6 @@ public class InicioMenuController implements Initializable {
     private void ingresarSeguimientoTransmision() throws  IOException{
          App.setRoot(null, "seguimientoTransmision");
     }
+
 
 }

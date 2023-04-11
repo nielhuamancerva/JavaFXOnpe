@@ -1,54 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.LoginController">
-   <children>
-      <AnchorPane prefHeight="600.0" prefWidth="541.0" style="-fx-background-color: #004788;">
-         <children>
-            <ImageView fitHeight="115.0" fitWidth="378.0" layoutX="82.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/core.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <Label layoutX="631.0" layoutY="183.0" text="Usuario">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="631.0" layoutY="267.0" text="Password">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnIngresar" layoutX="688.0" layoutY="390.0" mnemonicParsing="false" onAction="#iniciandoSession" prefHeight="40.0" prefWidth="192.0" style="-fx-background-color: #004788;" text="INGRESAR" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Button>
-      <TextField fx:id="userName" layoutX="631.0" layoutY="217.0" prefHeight="34.0" prefWidth="274.0" promptText="Ingrese su Usuario">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <PasswordField fx:id="passwordField" layoutX="631.0" layoutY="307.0" prefHeight="40.0" prefWidth="274.0" promptText="Ingrese su Password">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
-   </children>
+<AnchorPane id="AnchorPane" fx:id="ppAnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="apPreLoginn" stylesheets="@../styles/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.transmisionscore.LoginController">
+    <children>
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="3000.0">
+                    <children>
+                        <HBox prefWidth="200.0">
+                            <children>
+                                <AnchorPane minWidth="0.0" prefHeight="683.0" prefWidth="2000.0" styleClass="apAtrasMovilDerecha" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                <AnchorPane maxWidth="621.0" minHeight="-Infinity" minWidth="621.0" prefHeight="683.0" prefWidth="621.0" />
+                                <AnchorPane minWidth="0.0" prefHeight="200.0" prefWidth="2000.0" styleClass="apAtrasMovilIzquierda" />
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="800.0" prefWidth="725.0">
+                    <children>
+                        <AnchorPane prefHeight="706.0" prefWidth="725.0" styleClass="apLogeo">
+                     <children>
+                        <AnchorPane layoutX="230.0" layoutY="56.0" prefHeight="131.0" prefWidth="290.0" style="-fx-background-color: #77B0E5;">
+                           <children>
+                              <Label layoutX="36.0" layoutY="27.0" prefHeight="64.0" prefWidth="91.0" text="SCE" textFill="WHITE">
+                                 <font>
+                                    <Font size="53.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="211.0" layoutY="91.0" prefHeight="27.0" prefWidth="65.0" text="V 1.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="231.0" layoutY="211.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
+                           <children>
+                              <TextField fx:id="userName" layoutX="14.0" layoutY="9.0" prefHeight="60.0" prefWidth="204.0" promptText="Usuario">
+                                 <styleClass>
+                                    <String fx:value="txtLogin" />
+                                    <String fx:value="required" />
+                                 </styleClass>
+                              </TextField>
+                              <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="226.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/user.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="231.0" layoutY="312.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
+                           <children>
+                              <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="204.0" promptText="Clave">
+                                 <styleClass>
+                                    <String fx:value="txtLogin" />
+                                    <String fx:value="required" />
+                                 </styleClass>
+                              </PasswordField>
+                              <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="224.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/contra.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="btnIngresar" layoutX="231.0" layoutY="423.0" mnemonicParsing="false" onAction="#iniciandoSecion" prefHeight="68.0" prefWidth="155.0" styleClass="btnIngresarLogin" text="INGRESAR" />
+                        <Button fx:id="btnSalir" layoutX="400.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionSalir" prefHeight="77.0" prefWidth="139.0" text="SALIR">
+                           <styleClass>
+                              <String fx:value="btnIngresarLogin" />
+                              <String fx:value="btnIngresarExit" />
+                           </styleClass>
+                        </Button>
+                     </children></AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>

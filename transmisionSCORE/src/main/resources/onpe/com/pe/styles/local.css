@@ -1,0 +1,209 @@
+:root {
+    -fx-font-family: "Arial";
+}
+
+.btnCerrarSesion{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;
+    -fx-pref-width: 220px;
+    -fx-pref-height: 40px;
+    -fx-font-family: "Calibri";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.apCerrarSesionHead{
+    -fx-background-image: url("../image/imgTrianguloVolteado.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:top center;
+    -fx-background-size: 40;
+}
+.apCerrarSesionFooter{
+    -fx-background-image: url("../image/imgTrianguloBtn.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:bottom center;
+    -fx-background-size: 40;
+}
+
+.apPrincipal{
+    -fx-background-color: #004788;
+}
+
+.apBlanco{
+    -fx-background-color: #FFFFFF !important;
+}
+
+.apHead{
+    -fx-background-color: #001b3f;
+    /*    -fx-background-image: url("../image/Eva.png");*/
+    -fx-background-size: 90;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 20 center;
+}
+
+.title_eleccion{
+    -fx-text-fill: #B4D6D7;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial";
+
+
+}
+
+.btnAdministradorHead{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;
+    -fx-pref-width: 220px;
+    /*    -fx-background-image: url("../image/icoBtnAdministrador.png");*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center 5;
+    -fx-background-size: 30;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+}
+
+.title_module{
+    -fx-pref-height: 80px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0  20 0 75;
+    -fx-background-color: #001b3f;
+    -fx-background-position: 20 center;
+    -fx-background-size: auto 70%;
+    -fx-background-repeat: no-repeat;
+}
+
+.btnRegresar{
+    -fx-cursor: hand;
+    -fx-background-color: #001b3f;
+    -fx-pref-width: 40px;
+    -fx-background-image: url("../image/menu.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:center center;
+    -fx-background-size: 45;
+}
+
+.title
+{
+    -fx-font-size: 32px;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+
+}
+
+.title-first
+{
+    -fx-font-size: 63px;
+    -fx-text-fill: black;
+    -fx-font-family: "Arial";
+}
+
+.fielset
+{
+    -fx-border-style:solid;
+    -fx-border-width:2px;
+    -fx-border-color:#A9A8A8;
+}
+
+.fielset-title
+{
+    -fx-background-color:#FFF;
+    -fx-alignment:center;
+    -fx-font-family: "Arial";
+}
+
+.fielset-title{
+    -fx-font-size: 20px;
+    -fx-alignment:center;
+    -fx-text-fill: #05767A;
+    -fx-font-family: "Arial";
+}
+
+
+.btn_icon_search{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../image/search_ico.png");
+}
+
+.btn_icon{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 65;
+    -fx-pref-height: 51;
+    -fx-background-size: auto 78%;
+    -fx-background-position: center center;
+}
+
+.btn-process
+{
+    -fx-background-size:100% 100%;
+    -fx-background-repeat:no-repeat;
+    -fx-text-fill:#FFF;
+    -fx-font-size:24px;
+    -fx-cursor:hand;
+    -fx-background-color: #74BD70;
+}
+
+.btn-regresar
+{
+    -fx-background-size:100% 100%;
+    -fx-background-repeat:no-repeat;
+    -fx-text-fill:#FFF;
+    -fx-font-size:24px;
+    -fx-cursor:hand;
+    -fx-background-color: #F56C47;
+}
+/*.btn-azul
+{
+    -fx-background-image: url("../imagenes/boton_azul.png");
+}*/
+
+.apFooter{
+    -fx-background-color: #001b3f;
+}
+
+
+.button-configura{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    /*    -fx-text-fill: back;*/
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/ico_process.png');
+    -fx-background-size:60px;
+}
+
+.lblMayuscula{
+    -fx-text-transform: uppercase;
+}
+
+.button-add{
+    -fx-cursor: hand;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 63px;
+    -fx-background-position: top center ;
+    -fx-font-family: "Roboto Condensed";
+    -fx-font-size: 13px;
+    /*    -fx-text-fill: back;*/
+    -fx-padding: 0 0 -90 0;
+    -fx-text-alignment: center;
+    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-size:60px;
+}
+.button-add:hover{
+    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-size:60px;
+}

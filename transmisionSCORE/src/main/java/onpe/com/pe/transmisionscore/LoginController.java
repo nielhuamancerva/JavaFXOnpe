@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import onpe.com.pe.transmisionscore.core.repository.FactoryServices;
 
 /**
@@ -34,6 +35,10 @@ public class LoginController implements Initializable {
     private TextField userName;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private AnchorPane ppAnchorPane;
+    @FXML
+    private Button btnSalir;
 
     /**
      * Initializes the controller class.
@@ -41,7 +46,6 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
 
     }
 
@@ -51,7 +55,14 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void iniciandoSession() throws IOException {
+    private void iniciandoSecion() throws IOException{
         App.setRoot(null, "inicioMenu");
+    }
+
+    @FXML
+    private void actionSalir() {
+        Platform.exit();
+        System.exit(0);
+
     }
 }
