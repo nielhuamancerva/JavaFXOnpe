@@ -9,6 +9,7 @@ import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
 import static com.mycompany.loging.score.util.constanst.VariableGlobals.lecturaActasEnMemoria;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -105,7 +106,8 @@ public class TransmisionRabbitController implements Initializable {
 
     @FXML
     private void regresarFirmas() throws IOException {
-        App.setRoot(null, "registrarFirma");
+                VariableGlobals.viewPosition--;
+       App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
 
     }
 
