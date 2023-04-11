@@ -41,7 +41,7 @@
                         <Pane layoutX="88.0" layoutY="402.0" prefHeight="117.0" prefWidth="394.0" styleClass="fielset">
                            <children>
                               <ImageView fx:id="imagenCodigoBarra" fitHeight="80.0" fitWidth="294.0" layoutX="50.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="-32.0" prefHeight="47.0" prefWidth="210.0" text="CODIGO DE BARRAS">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="-27.0" prefHeight="47.0" prefWidth="210.0" text="CODIGO DE BARRAS">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
@@ -51,7 +51,7 @@
                         </Pane>
                         <Pane layoutX="88.0" layoutY="230.0" prefHeight="117.0" prefWidth="394.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-31.0" prefHeight="47.0" prefWidth="83.0" text="UBIGEO">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-25.0" prefHeight="47.0" prefWidth="83.0" text="UBIGEO">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />

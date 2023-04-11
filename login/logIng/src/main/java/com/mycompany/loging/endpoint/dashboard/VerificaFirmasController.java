@@ -226,8 +226,8 @@ public class VerificaFirmasController implements Initializable {
                     labelAnchorHora.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
                     labelAnchorHora.getStyleClass().add("fielset-title");
                     labelAnchorHora.getStyleClass().add("apBlanco");
-                    labelAnchorHora.setLayoutX(-5);
-                    labelAnchorHora.setLayoutY(-35);
+                    labelAnchorHora.setLayoutX(10);
+                    labelAnchorHora.setLayoutY(-10);
 
                     TextField textFieldAnchorPane = new TextField();
                     textFieldAnchorPane.setLayoutX(275);
@@ -297,7 +297,7 @@ public class VerificaFirmasController implements Initializable {
                     buttonSiFirma.setPrefWidth(128);
                     buttonSiFirma.setPrefHeight(62);
                     buttonSiFirma.setLayoutX(600);
-                    buttonSiFirma.setLayoutY(43);
+                    buttonSiFirma.setLayoutY(66);
                     buttonSiFirma.setId(module.getOrdenCreation());
                     System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
 
@@ -306,7 +306,7 @@ public class VerificaFirmasController implements Initializable {
                     buttonNoFirma.setPrefWidth(128);
                     buttonNoFirma.setPrefHeight(62);
                     buttonNoFirma.setLayoutX(450);
-                    buttonNoFirma.setLayoutY(43);
+                    buttonNoFirma.setLayoutY(66);
 
                     System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
 
