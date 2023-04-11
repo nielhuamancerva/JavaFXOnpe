@@ -18,15 +18,16 @@
                   <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
                      <children>
                         <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="573.0" styleClass="title" text="CONFIGURAR DOCUMENTO" />
-                        <Pane layoutX="1011.0" layoutY="158.0" prefHeight="84.0" prefWidth="778.0" styleClass="fielset">
+                        <Pane layoutX="1011.0" layoutY="158.0" prefHeight="84.0" prefWidth="786.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="-23.0" prefHeight="47.0" prefWidth="431.0" text="INGRESE EL NOMBRE DEL DOCUMENTO">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="-23.0" prefHeight="47.0" prefWidth="431.0" text="INGRESE NOMBRE DEL DOCUMENTO">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <TextField fx:id="titleDocumentSetting" disable="true" layoutX="23.0" layoutY="19.0" prefHeight="47.0" prefWidth="718.0" styleClass="search-text" />
+                              <TextField fx:id="titleDocumentSetting" disable="true" layoutX="23.0" layoutY="19.0" prefHeight="47.0" prefWidth="652.0" styleClass="search-text" />
+                              <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="692.0" layoutY="11.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
                            </children>
                         </Pane>
                         <Pane layoutX="1021.0" layoutY="299.0" prefHeight="531.0" prefWidth="778.0" styleClass="fielset">
@@ -37,18 +38,17 @@
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <ScrollPane hbarPolicy="ALWAYS" layoutX="34.0" layoutY="39.0" prefHeight="453.0" prefWidth="573.0" vbarPolicy="ALWAYS">
+                              <ScrollPane layoutX="34.0" layoutY="39.0" prefHeight="453.0" prefWidth="573.0">
                                  <content>
                                     <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="558.0" />
                                  </content>
                               </ScrollPane>
-                              <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="663.0" layoutY="429.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
+                              <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="671.0" layoutY="447.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
                            </children>
                         </Pane>
-                        <Pane layoutX="122.0" layoutY="158.0" prefHeight="672.0" prefWidth="765.0" styleClass="fielset">
+                        <Pane layoutX="122.0" layoutY="158.0" prefHeight="672.0" prefWidth="676.0" styleClass="fielset">
                            <children>
-                              <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="658.0" layoutY="576.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
-                              <ScrollPane fx:id="DocumentosElectorales" hbarPolicy="ALWAYS" layoutX="35.0" layoutY="31.0" prefHeight="610.0" prefWidth="615.0" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="DocumentosElectorales" layoutX="35.0" layoutY="31.0" prefHeight="610.0" prefWidth="615.0">
                                  <content>
                                     <VBox fx:id="containerDocumentsModule" prefHeight="745.0" prefWidth="602.0" styleClass="borde-pane-black" />
                                  </content>
