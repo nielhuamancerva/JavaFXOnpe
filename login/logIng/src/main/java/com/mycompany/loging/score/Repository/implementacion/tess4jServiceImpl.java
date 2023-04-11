@@ -157,6 +157,7 @@ public class Tess4jServiceImpl implements Tess4jService {
 
             String[] numeros = textoPartidoA.trim().split("\n");
             VariableGlobals.lecturaActasEnMemoria.put("bufferedValorVoto" + i, numeros[0]);
+            //System.out.println("bufferedValorVoto" + i+"  "+ numeros[0]);
         }
     }
 

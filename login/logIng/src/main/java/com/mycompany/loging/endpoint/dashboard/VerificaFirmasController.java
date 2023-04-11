@@ -226,7 +226,7 @@ public class VerificaFirmasController implements Initializable {
                     labelAnchorHora.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
                     labelAnchorHora.getStyleClass().add("fielset-title");
                     labelAnchorHora.getStyleClass().add("apBlanco");
-                    labelAnchorHora.setLayoutX(25);
+                    labelAnchorHora.setLayoutX(-5);
                     labelAnchorHora.setLayoutY(-35);
 
                     TextField textFieldAnchorPane = new TextField();
@@ -278,7 +278,7 @@ public class VerificaFirmasController implements Initializable {
                     labelAnchorFirma.getStyleClass().add("fielset-title");
                     labelAnchorFirma.getStyleClass().add("apBlanco");
                     labelAnchorFirma.setLayoutX(25);
-                    labelAnchorFirma.setLayoutY(-35);
+                    labelAnchorFirma.setLayoutY(-10);
 
                     ImageView imageViewfirma = new ImageView();
                     imageViewfirma.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get(module.getNameModule())));

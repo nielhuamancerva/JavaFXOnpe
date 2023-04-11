@@ -48,10 +48,9 @@ public class LeerActasVotosController implements Initializable {
     @FXML
     private Button btnRegresar, btnSiguiente;
     VBox votoBox;
-    TextField voto1;
 
     @FXML
-    TextField voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
+    TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
             voto15, voto16, voto17, voto18, voto19, voto20;
 
     @Override
@@ -72,6 +71,7 @@ public class LeerActasVotosController implements Initializable {
                                 Mappers.transformaTointerger(module.getCoordinatesHeigth()));
 
                         imagenVotos.setImage(CreateObject.image(VariableGlobals.lecturaActasEnMemoria.get("leerRegionNumeroVotosUri")));
+                        imagenVotos.autosize();
 
                         voto1.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto0"));
                         voto2.setText(VariableGlobals.lecturaActasEnMemoria.get("bufferedValorVoto1"));
