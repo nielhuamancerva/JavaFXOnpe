@@ -69,7 +69,7 @@
       </HBox>
       <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="btnGuardar" layoutX="1019.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="54.0" prefWidth="249.0" text="CONTINUAR">
+            <Button fx:id="btnGuardar" layoutX="1019.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="54.0" prefWidth="249.0" text="GUARDAR">
                <styleClass>
                   <String fx:value="btn-process" />
                   <String fx:value="btn-azul" />
