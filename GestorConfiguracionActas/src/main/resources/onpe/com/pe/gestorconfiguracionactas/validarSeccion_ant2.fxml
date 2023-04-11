@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ValidarSeccionController">
+   <children>
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+               <children>
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                     <children>
+                        <Label layoutX="99.0" layoutY="-11.0" styleClass="title" text="alidar" />
+                        <Label layoutX="59.0" layoutY="-25.0" styleClass="title-first" text="V" />
+                        <Label layoutX="292.0" layoutY="-11.0" styleClass="title" text="ecciones" />
+                        <Label layoutX="258.0" layoutY="-25.0" styleClass="title-first" text="S" />
+                        <ScrollPane fx:id="scrollPaneActa" layoutX="5.0" layoutY="93.0" prefHeight="567.0" prefWidth="1357.0">
+                           <content>
+                              <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane layoutX="14.0" layoutY="50.0">
+                           <children>
+                              <Label layoutX="65.0" layoutY="6.0" prefHeight="27.0" prefWidth="232.0" text="Seleccionar Documento:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbActaValidar" layoutX="352.0" layoutY="-1.0" prefHeight="35.0" prefWidth="661.0" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnRegresar" layoutX="620.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+               <styleClass>
+                  <String fx:value="btn-regresar" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnContinuar" layoutX="918.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionFinaliza" prefHeight="54.0" prefWidth="249.0" text="FINALIZAR">
+               <styleClass>
+                  <String fx:value="btn-process" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+         </children></AnchorPane>
+       <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+   <stylesheets>
+      <URL value="@../styles/configuraseccion.css" />
+      <URL value="@../styles/local.css" />
+   </stylesheets>
+</AnchorPane>

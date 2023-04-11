@@ -18,21 +18,21 @@
                   <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
                      <children>
                         <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="573.0" styleClass="title" text="VALIDAR SECCIONES" />
-                        <AnchorPane layoutX="14.0" layoutY="90.0" prefHeight="109.0" prefWidth="525.0">
+                        <AnchorPane layoutX="131.0" layoutY="102.0">
                            <children>
-                              <Label layoutX="66.0" layoutY="6.0" prefHeight="27.0" prefWidth="150.0" styleClass="search-label" text="Documento:">
+                              <Label layoutX="65.0" layoutY="6.0" prefHeight="27.0" prefWidth="232.0" text="Seleccionar Documento:">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lbActaValidar" layoutX="66.0" layoutY="44.0" prefHeight="35.0" prefWidth="661.0" styleClass="search-label" text="Label">
+                              <Label fx:id="lbActaValidar" layoutX="350.0" layoutY="-1.0" prefHeight="35.0" prefWidth="661.0" text="Label">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <ScrollPane fx:id="scrollPaneActa" layoutX="548.0" layoutY="53.0" prefHeight="838.0" prefWidth="776.0">
+                        <ScrollPane fx:id="scrollPaneActa" layoutX="139.0" layoutY="147.0" prefHeight="719.0" prefWidth="1680.0">
                            <content>
                               <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
                            </content>

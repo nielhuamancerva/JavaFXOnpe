@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfiguraSeccionesController">
+    <children>
+        <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+                    <children>
+                        <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                            <children>
+                                <Pane layoutX="54.0" layoutY="193.0" prefHeight="475.0" prefWidth="427.0" styleClass="fielset">
+                           <children>
+                                        <VBox fx:id="vboxPane" layoutX="22.0" layoutY="21.0" prefHeight="458.0" prefWidth="408.0" />
+                                      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="-23.0" prefHeight="47.0" prefWidth="181.0" text="SECCIONES">
+                                          <styleClass>
+                                              <String fx:value="fielset-title" />
+                                              <String fx:value="apBlanco" />
+                                          </styleClass>
+                                      </Label>
+                           </children>
+                                </Pane>
+                                <Label layoutX="92.0" layoutY="-11.0" styleClass="title" text="onfigurar" />
+                                <Label layoutX="52.0" layoutY="-25.0" styleClass="title-first" text="C" />
+                                <Label layoutX="319.0" layoutY="-11.0" styleClass="title" text="ecciones" />
+                                <Label layoutX="285.0" layoutY="-25.0" styleClass="title-first" text="S" />
+                                <ScrollPane fx:id="scrollPaneActa" layoutX="502.0" prefHeight="660.0" prefWidth="857.0" styleClass="pane_recep_body">
+                                    <content>
+                                        <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="50.0" layoutY="60.0" prefHeight="27.0" prefWidth="226.0" styleClass="search-label" text="Seleccionar Documento:">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="cboDocumentos" layoutX="39.0" layoutY="87.0" prefHeight="42.0" prefWidth="454.0" styleClass="search-combo" />
+                                <ImageView fx:id="imgCargarActa" fitHeight="42.0" fitWidth="31.0" layoutX="50.0" layoutY="139.0" onMouseClicked="#cargarActa" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/carpeta.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="97.0" layoutY="141.0" prefHeight="21.0" prefWidth="188.0" styleClass="search-label" text="Cargar Archivo">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button fx:id="btnRegresar" layoutX="620.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+                    <styleClass>
+                        <String fx:value="btn-regresar" />
+                        <String fx:value="btn-azul" />
+                    </styleClass>
+                </Button>
+                <Button fx:id="btnValidar" layoutX="918.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionContinuar" prefHeight="54.0" prefWidth="249.0" text="VALIDAR">
+                    <styleClass>
+                        <String fx:value="btn-process" />
+                        <String fx:value="btn-azul" />
+                    </styleClass>
+                </Button>
+            </children>
+        </AnchorPane>
+        <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+    <stylesheets>
+        <URL value="@../styles/configuraseccion.css" />
+        <URL value="@../styles/local.css" />
+    </stylesheets>
+
+
+</AnchorPane>

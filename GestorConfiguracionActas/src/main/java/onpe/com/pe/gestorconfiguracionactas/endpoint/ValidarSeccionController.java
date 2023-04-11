@@ -175,8 +175,8 @@ public class ValidarSeccionController implements Initializable {
             imgViewActa.setScaleY(escala / 2.5);
         } else if (tipoHoja == 2) {
 
-            imgViewActa.setScaleX(escala / 2);
-            imgViewActa.setScaleY(escala / 2);
+            imgViewActa.setScaleX(escala / 4.2);
+            imgViewActa.setScaleY(escala / 4.2);
 
         }
 

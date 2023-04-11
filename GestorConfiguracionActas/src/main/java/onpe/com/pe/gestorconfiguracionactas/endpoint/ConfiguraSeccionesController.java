@@ -503,8 +503,8 @@ public class ConfiguraSeccionesController implements Initializable {
             imgViewActa.setScaleY(escala / 3);
         } else if (tipoHoja == 2) {
 
-            imgViewActa.setScaleX(escala / 2.5);
-            imgViewActa.setScaleY(escala / 2.5);
+            imgViewActa.setScaleX(escala / 2.2);
+            imgViewActa.setScaleY(escala / 2.2);
 
         }
 
