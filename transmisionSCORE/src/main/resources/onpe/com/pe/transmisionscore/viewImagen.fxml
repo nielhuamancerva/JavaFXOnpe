@@ -21,11 +21,11 @@
                         </ImageView>
          </children>
       </AnchorPane><Label fx:id="numVotoPreferencial" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="76.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="1" textAlignment="CENTER" visible="false" /><Label fx:id="etiquetaVotoRev" alignment="CENTER" focusTraversable="false" layoutX="844.0" layoutY="75.0" prefHeight="41.0" prefWidth="50.0" styleClass="num_voto_preferencial" text="SI" textAlignment="CENTER" visible="false" />
-                  <Pane layoutX="405.0" layoutY="63.0" prefHeight="944.0" prefWidth="1100.0">
-                     <children>
+                  <ScrollPane layoutX="366.0" layoutY="28.0" prefHeight="952.0" prefWidth="1112.0">
+                     <content>
                         <ImageView fx:id="imageDocumentos" fitHeight="1275.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                  </Pane>
+                     </content>
+                  </ScrollPane>
 </children></AnchorPane>
 </children></AnchorPane>   
    </children>
