@@ -153,7 +153,7 @@ public class ConfigurationDocController implements Initializable {
                                 TextFieldEventEdit[i].setId(listModule.get(i).getCodemodule());
                                 TextFieldEventEdit[i].setDisable(true);
                                 TextFieldEventEdit[i].setLayoutX(10);
-
+                                TextFieldEventEdit[i].setStyle("-fx-font-size: 18px;");
                                 TextFieldEventEdit[i].getStyleClass().add("button-initializa");
 
                                 buttonAddEventEdit[i] = new Button();
@@ -250,7 +250,7 @@ public class ConfigurationDocController implements Initializable {
             module.setOrdenCreation(String.valueOf(0));
             buttonEventConfi[0] = new TextField("Codigo Barra");
             buttonEventConfi[0].setId(String.valueOf(listModule.size()));
-
+            buttonEventConfi[0].setStyle("-fx-font-size: 18px;");
             buttonEventConfi[0].setLayoutX(10);
             buttonEventConfi[0].getStyleClass().add("button-initializa");
 
@@ -359,7 +359,7 @@ public class ConfigurationDocController implements Initializable {
 //                    buttonEventConfi[i] = new TextField(String.valueOf(list.size()));
                         buttonEventConfi[i] = new TextField(tipoModule);
                         buttonEventConfi[i].setId(String.valueOf(listModule.size()));
-
+                        buttonEventConfi[i].setStyle("-fx-font-size: 18px;");
                         buttonEventConfi[i].setLayoutX(10);
                         buttonEventConfi[i].getStyleClass().add("button-initializa");
 

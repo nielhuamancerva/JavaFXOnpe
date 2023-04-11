@@ -200,7 +200,7 @@
     /*    -fx-text-fill: back;*/
     -fx-padding: 0 0 -90 0;
     -fx-text-alignment: center;
-    -fx-background-image: url('../image/button-add_on.png');
+    -fx-background-image: url('../image/button-add_off.png');
     -fx-background-size:60px;
 }
 .button-add:hover{
