@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "6435461db097c15cc81e34d5"
+  },
+  "id_module": "1",
+  "name_Module": "Codigo Barra"
+},{
+  "_id": {
+    "$oid": "6435468db097c15cc81e34d6"
+  },
+  "id_module": "2",
+  "name_Module": "Hora"
+},{
+  "_id": {
+    "$oid": "643546a2b097c15cc81e34d7"
+  },
+  "id_module": "3",
+  "name_Module": "Regiones"
+},{
+  "_id": {
+    "$oid": "643546eab097c15cc81e34d8"
+  },
+  "id_module": "4",
+  "name_Module": "Observaciones"
+},{
+  "_id": {
+    "$oid": "64354702b097c15cc81e34d9"
+  },
+  "id_module": "5",
+  "name_Module": "Firma"
+}]

@@ -32,7 +32,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <ScrollPane fx:id="scrollPaneActa" layoutX="548.0" layoutY="53.0" prefHeight="838.0" prefWidth="776.0">
+                        <ScrollPane fx:id="scrollPaneActa" layoutX="578.0" layoutY="66.0" prefHeight="838.0" prefWidth="734.0">
                            <content>
                               <ImageView fx:id="imgViewActa" pickOnBounds="true" preserveRatio="true" />
                            </content>
