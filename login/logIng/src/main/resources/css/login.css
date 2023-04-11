@@ -25,7 +25,7 @@
 
     -fx-background-repeat: no-repeat;
     -fx-background-size: 520, 320 ; /*, 520, 822, 40,40, 280,40,40 */
-    -fx-background-position: 220 650 ,330 20; /*,330 20, 551 10,-280 81,650 400,650 242,0 215, 565 170, 565 92 */
+    -fx-background-position: 140 650 ,215 20; /*,330 20, 551 10,-280 81,650 400,650 242,0 215, 565 170, 565 92 */
 }
 
 .txtLogin{
@@ -48,6 +48,6 @@
 
 .btnIngresarExit{
     -fx-background-color: #D14358;
-    -fx-pref-width: 100px;
+    -fx-pref-width: 120px;
     -fx-text-fill: #FFFFFF;
 }

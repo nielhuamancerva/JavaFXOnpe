@@ -118,8 +118,8 @@
 }
 
 .title_eleccion_main{
-    -fx-font-family: "Calibri";
+    -fx-font-family: "Arial";
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 16px;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -24,50 +25,21 @@
                     <children>
                         <AnchorPane prefHeight="506.0" prefWidth="1366.0" styleClass="apVerde">
                             <children>
-                                <ImageView fitHeight="110.0" fitWidth="151.0" layoutX="70.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../imagenes/logoOnpePrincipal.png" />
-                                    </image>
-                                </ImageView>
                                 <HBox alignment="CENTER" layoutY="239.0" prefHeight="590.0" prefWidth="1366.0" AnchorPane.bottomAnchor="-28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-190.0">
                                     <children>
-                                        <AnchorPane layoutX="275.0" layoutY="33.0" prefHeight="504.0" prefWidth="1067.0" AnchorPane.bottomAnchor="-30.0">
-                                            <children>
-                                                <AnchorPane layoutX="53.0" layoutY="80.0" prefHeight="377.0" prefWidth="503.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0" AnchorPane.leftAnchor="53.0">
-                                                    <children>
-                                                        <AnchorPane layoutY="119.0" prefHeight="223.0" prefWidth="205.0" styleClass="apIcono1" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                                                    </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="264.0" layoutY="308.0" prefHeight="360.0" prefWidth="408.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0">
-                                                    <children>
-                                                        <AnchorPane layoutX="39.0" layoutY="-50.0" prefHeight="205.0" prefWidth="219.0" styleClass="apIcono2" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                                                    </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="704.0" layoutY="318.0" prefHeight="354.0" prefWidth="360.0" styleClass="apImagen1" AnchorPane.bottomAnchor="-110.0">
-                                                    <children>
-                                                        <AnchorPane layoutX="48.0" layoutY="2.0" prefHeight="190.0" prefWidth="227.0" styleClass="apIcono4" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0" />
-                                                    </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="767.0" layoutY="308.0" prefHeight="230.0" prefWidth="300.0" styleClass="apImagen1" visible="false" AnchorPane.bottomAnchor="-110.0">
-                                                    <children>
-                                                        <AnchorPane layoutX="609.0" layoutY="79.0" prefHeight="110.0" prefWidth="110.0" styleClass="apIcono5" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                                                    </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="84.0" minHeight="408.0" prefHeight="595.0" prefWidth="983.0" styleClass="apImgMano" AnchorPane.bottomAnchor="0.0">
-                                       <children>
-                                                      <AnchorPane layoutX="400.0" layoutY="370.0" prefHeight="354.0" prefWidth="379.0" styleClass="apImagen1">
-                                                          <children>
-                                                              <AnchorPane layoutX="41.0" layoutY="-12.0" prefHeight="205.0" prefWidth="205.0" styleClass="apIcono3" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-12.0" />
-                                                          </children>
-                                                      </AnchorPane>
-                                       </children>
-                                    </AnchorPane>
-                                            </children>
+                                        <AnchorPane layoutX="275.0" layoutY="33.0" prefHeight="543.0" prefWidth="1067.0" AnchorPane.bottomAnchor="-30.0">
+                                 <children>
+                                            <ImageView fitHeight="156.0" fitWidth="214.0" layoutX="433.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../../../imagenes/logoOnpePrincipal.png" />
+                                                </image>
+                                            </ImageView>
+                                                <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="394.0" layoutY="422.0" prefHeight="127.0" prefWidth="289.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
+                                 </children>
                                         </AnchorPane>
                                     </children>
                                 </HBox>
                                 <AnchorPane opacity="0.74" prefHeight="23.0" prefWidth="1366.0" styleClass="apSombra" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="50.0" layoutY="144.0" prefHeight="127.0" prefWidth="180.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
                             </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="600.0" prefWidth="3000.0" styleClass="apBlanco">
@@ -79,7 +51,7 @@
                                  <children>
                                     <VBox prefHeight="343.0" prefWidth="1198.0">
                                        <children>
-                                          <HBox alignment="CENTER" prefHeight="223.0" prefWidth="1198.0">
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="155.0" prefWidth="669.0">
                                              <children>
                                                 <Button fx:id="btnRegistro" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToTransmision" text="REGISTRO" textAlignment="CENTER" wrapText="true">
                                                    <cursor>
@@ -104,6 +76,7 @@
                                                       <String fx:value="btn-reportes" />
                                                    </styleClass>
                                                 </Button>
+                                                <ImageView fitHeight="150.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -114,15 +87,7 @@
                         </VBox>
                                 <AnchorPane prefHeight="156.0" prefWidth="485.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <HBox alignment="CENTER" layoutY="-14.0" prefHeight="156.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-14.0">
-                                            <children>
-                                                <ImageView fitHeight="98.0" fitWidth="648.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@../../../imagenes/sistema-name.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </children>
-                                        </HBox>
+                                        <HBox alignment="CENTER" layoutY="-51.0" prefHeight="193.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0" />
                                     </children>
                                 </AnchorPane>
                             </children>

@@ -39,23 +39,23 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="800.0" prefWidth="725.0">
                     <children>
-                        <AnchorPane prefHeight="683.0" prefWidth="956.0" styleClass="apLogeo">
+                        <AnchorPane prefHeight="706.0" prefWidth="725.0" styleClass="apLogeo">
                      <children>
-                        <AnchorPane layoutX="344.0" layoutY="59.0" prefHeight="131.0" prefWidth="290.0" style="-fx-background-color: #77B0E5;">
+                        <AnchorPane layoutX="230.0" layoutY="56.0" prefHeight="131.0" prefWidth="290.0" style="-fx-background-color: #77B0E5;">
                            <children>
                               <Label layoutX="36.0" layoutY="27.0" prefHeight="64.0" prefWidth="91.0" text="SCE" textFill="WHITE">
                                  <font>
                                     <Font size="53.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="211.0" layoutY="91.0" prefHeight="27.0" prefWidth="65.0" text="V 0.1" textFill="WHITE">
+                              <Label layoutX="211.0" layoutY="91.0" prefHeight="27.0" prefWidth="65.0" text="V 1.0" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="345.0" layoutY="207.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
+                        <AnchorPane layoutX="231.0" layoutY="211.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
                            <children>
                               <TextField fx:id="userName" layoutX="14.0" layoutY="9.0" prefHeight="60.0" prefWidth="204.0" promptText="Usuario">
                                  <styleClass>
@@ -70,9 +70,9 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="345.0" layoutY="315.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
+                        <AnchorPane layoutX="231.0" layoutY="312.0" prefHeight="77.0" prefWidth="290.0" style="-fx-background-color: #001b3f;">
                            <children>
-                              <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="204.0" promptText="password">
+                              <PasswordField fx:id="passwordField" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="204.0" promptText="Clave">
                                  <styleClass>
                                     <String fx:value="txtLogin" />
                                     <String fx:value="required" />
@@ -85,8 +85,8 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btnIngresar" layoutX="356.0" layoutY="423.0" mnemonicParsing="false" onAction="#iniciandoSecion" prefHeight="68.0" prefWidth="155.0" styleClass="btnIngresarLogin" text="INGRESAR" />
-                        <Button fx:id="btnSalir" layoutX="524.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionSalir" prefHeight="68.0" prefWidth="104.0" text="SALIR">
+                        <Button fx:id="btnIngresar" layoutX="231.0" layoutY="423.0" mnemonicParsing="false" onAction="#iniciandoSecion" prefHeight="68.0" prefWidth="155.0" styleClass="btnIngresarLogin" text="INGRESAR" />
+                        <Button fx:id="btnSalir" layoutX="400.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionSalir" prefHeight="77.0" prefWidth="139.0" text="SALIR">
                            <styleClass>
                               <String fx:value="btnIngresarLogin" />
                               <String fx:value="btnIngresarExit" />
