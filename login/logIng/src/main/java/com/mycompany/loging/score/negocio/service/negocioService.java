@@ -1,6 +1,7 @@
 package com.mycompany.loging.score.negocio.service;
 
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Component;
 import com.mycompany.loging.score.model.Imagenes;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
@@ -18,8 +19,9 @@ public interface NegocioService {
     public Document consultaUsuarioDb(String username, String password) throws IOException, Exception;
 
     public ObservableList<Actas> finAllActas() throws IOException, Exception;
+
     public ObservableList<Setting> finAllSetting() throws IOException, Exception;
-    
+
     public Actas finByCodigoBarra(String codigoBarra) throws IOException, Exception;
 
     public String uploadFileOnMemory(File fileSelected);
@@ -36,11 +38,13 @@ public interface NegocioService {
 
     public void loadSettingActa() throws Exception;
 
-    public void readAndCutHoraInicio(String nameFile,Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
+    public void readAndCutHoraInicio(String nameFile, Integer cordenadaX, Integer cordenadaY, Integer cordenadaAnchoW, Integer cordenadaAltoH) throws IOException, Exception;
 
     public Setting finAllSettingByName(String name) throws IOException, Exception;
-    
+
     public ObservableList<Setting> finSettingByname(String name) throws IOException, Exception;
-    
-      public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
+
+    public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
+
+    public ObservableList<Component> finAllComponent() throws IOException, Exception;
 }

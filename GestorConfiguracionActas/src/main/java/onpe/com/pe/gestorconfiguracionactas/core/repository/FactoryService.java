@@ -1,10 +1,12 @@
 package onpe.com.pe.gestorconfiguracionactas.core.repository;
 
+import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.ComponentServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.MongoServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.SectionsServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.SettingServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.Tess4jServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.impl.UserServiceImpl;
+import onpe.com.pe.gestorconfiguracionactas.core.repository.service.ComponentService;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.service.MongoService;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.service.SectionsService;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.service.SettingService;
@@ -23,6 +25,7 @@ public class FactoryService {
     private final UserService userService;
     private final Tess4jService tess4jService;
     private final SectionsService sectionsService;
+    private final ComponentService componentService;
 
     private FactoryService() {
         this.mongoService = new MongoServiceImpl();
@@ -30,6 +33,7 @@ public class FactoryService {
         this.userService = new UserServiceImpl();
         this.tess4jService = new Tess4jServiceImpl();
         this.sectionsService = new SectionsServiceImpl();
+        this.componentService = new ComponentServiceImpl();
     }
 
     public static FactoryService getInstance() {
@@ -57,5 +61,9 @@ public class FactoryService {
 
     public SectionsService SectionsService() {
         return this.sectionsService;
+    }
+
+    public ComponentService ComponentService() {
+        return this.componentService;
     }
 }

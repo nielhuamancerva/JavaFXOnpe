@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Component;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Sections;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import org.bson.Document;
@@ -19,6 +20,14 @@ import org.bson.Document;
  * @author NHuaman
  */
 public class Mapper {
+
+    public static  List<String> castObservableListOfComponent(FindIterable<Document> arra) {
+        List<String> listComponent = new ArrayList<>();
+        arra.forEach(action -> {
+            listComponent.add(action.getString("name_Module"));
+        });
+        return listComponent;
+    }
 
     public static Document settingCastToDocument(Setting ss) {
         Document document = new Document();
@@ -35,8 +44,6 @@ public class Mapper {
         document.append("coordinates", "");
         return document;
     }
-    
-
 
     public static ObservableList<Setting> actaCastToDocument(FindIterable<Document> listDocument) {
         List<Setting> listSetting = new ArrayList();

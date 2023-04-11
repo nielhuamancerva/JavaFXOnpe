@@ -7,6 +7,7 @@ package com.mycompany.loging.score.util.mapper;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Component;
 import com.mycompany.loging.score.model.Imagenes;
 import com.mycompany.loging.score.model.Sections;
 import com.mycompany.loging.score.model.Setting;
@@ -48,6 +49,17 @@ public class Mappers {
         return FXCollections.observableArrayList(listActas);
     }
 
+    public ObservableList<Component> castObservableListOfComponent(FindIterable<Document> arra) {
+        List<Component> listComponent = new ArrayList<>();
+        arra.forEach(action -> {
+            Component acta = new Component();
+            acta.setId_module(action.getString("id_module"));
+            acta.setName_Module(action.getString("name_module"));
+            listComponent.add(acta);
+        });
+        return FXCollections.observableArrayList(listComponent);
+    }
+
     public Actas documentCastToActas(Document ss) {
         Actas acta = new Actas();
         acta.setActa(ss.getString("acta"));
@@ -77,11 +89,14 @@ public class Mappers {
         document.append("firma1", ss.getFirma1());
         document.append("firma2", ss.getFirma2());
         document.append("firma3", ss.getFirma3());
-        document.append("estado", "Invalido");
+        document.append("estado", "Valido");
         document.append("fecha_registro", LocalDate.now().toString());
-        if (ss.getFirma1().equals("true") && ss.getFirma2().equals("true") && ss.getFirma3().equals("true")) {
-            document.append("estado", "Valido");
-        }
+        document.append("firmas", ss.getFirmas());
+        ss.getFirmas().forEach(action -> {
+            if (action.getIsSignature().equals(false)) {
+                document.append("estado", "Invalido");
+            }
+        });
         return document;
     }
 

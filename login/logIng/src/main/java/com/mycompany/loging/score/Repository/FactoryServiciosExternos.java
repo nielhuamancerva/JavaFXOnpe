@@ -5,6 +5,7 @@
 package com.mycompany.loging.score.Repository;
 
 import com.mycompany.loging.score.Repository.implementacion.ActaServiceImpl;
+import com.mycompany.loging.score.Repository.implementacion.ComponentServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
 import com.mycompany.loging.score.Repository.implementacion.ImageServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.SectionsServiceImpl;
@@ -13,6 +14,7 @@ import com.mycompany.loging.score.Repository.implementacion.UserServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.Tess4jServiceImpl;
 import com.mycompany.loging.score.Repository.implementacion.TransmisionServiceImpl;
 import com.mycompany.loging.score.Repository.service.ActaService;
+import com.mycompany.loging.score.Repository.service.ComponentService;
 import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import com.mycompany.loging.score.Repository.service.ImageService;
 import com.mycompany.loging.score.Repository.service.SectionsService;
@@ -36,6 +38,7 @@ public class FactoryServiciosExternos {
     private final ActaService actaService;
     private final SettingService settingService;
     private final SectionsService sectionsService;
+    private final ComponentService componentService;
 
     private FactoryServiciosExternos() {
         this.conexionMongo = new ConexionMongoImpl();
@@ -46,6 +49,7 @@ public class FactoryServiciosExternos {
         this.actaService = new ActaServiceImpl();
         this.settingService = new SettingServiceImpl();
         this.sectionsService = new SectionsServiceImpl();
+        this.componentService = new ComponentServiceImpl();
     }
 
     public static FactoryServiciosExternos getInstance() {
@@ -57,6 +61,10 @@ public class FactoryServiciosExternos {
 
     public ConexionMongo MongoService() {
         return this.conexionMongo;
+    }
+
+    public ComponentService ComponentService() {
+        return this.componentService;
     }
 
     public UserService UserService() {

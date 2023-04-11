@@ -6,6 +6,7 @@ import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.Repository.implementacion.SettingServiceImpl;
 import com.mycompany.loging.score.model.Actas;
+import com.mycompany.loging.score.model.Component;
 import com.mycompany.loging.score.model.Imagenes;
 import com.mycompany.loging.score.model.Setting;
 import com.mycompany.loging.score.model.Transmision;
@@ -194,5 +195,12 @@ public class NegocioServiceImpl implements NegocioService {
                 .filter(s -> s.getSetting_id().equals(idSecciont))
                 .map(y -> y.getCoordinates())
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    @Override
+    public ObservableList<Component> finAllComponent() throws IOException, Exception {
+                factoryservices = FactoryServiciosExternos.getInstance();
+        factoryservices.MongoService().conexionMongo();
+        return mapping.castObservableListOfComponent(factoryservices.ComponentService().findAllCollection().find());
     }
 }

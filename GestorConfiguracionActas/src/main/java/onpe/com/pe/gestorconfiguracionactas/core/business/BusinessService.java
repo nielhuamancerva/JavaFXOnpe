@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.ObservableList;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Component;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import org.bson.Document;
 
@@ -47,4 +48,6 @@ public interface BusinessService {
      public void uploadSectionsCoornates(String idSetings, String coordenadas) throws Exception;
 
     public ObservableList<String> findAllSectionsOnCorrdinates(String idSecciont) throws Exception;
+    
+    public void finAllComponent() throws IOException, Exception;
 }

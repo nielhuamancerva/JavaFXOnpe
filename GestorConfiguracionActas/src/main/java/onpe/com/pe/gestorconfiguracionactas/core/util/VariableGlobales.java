@@ -7,7 +7,9 @@ package onpe.com.pe.gestorconfiguracionactas.core.util;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Component;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Modules;
 
 /**
@@ -30,5 +32,6 @@ public class VariableGlobales {
 
     public static ArrayList<String> listCount = new ArrayList<>();
     public static Modules[] listModules;
+    public static List<String> listComponent;
 
 }

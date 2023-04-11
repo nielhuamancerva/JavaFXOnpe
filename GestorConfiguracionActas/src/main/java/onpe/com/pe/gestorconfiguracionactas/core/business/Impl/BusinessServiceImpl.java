@@ -16,6 +16,7 @@ import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 import onpe.com.pe.gestorconfiguracionactas.core.util.commonmappings.CommonMappings;
 import org.bson.Document;
 import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
+import onpe.com.pe.gestorconfiguracionactas.core.model.Component;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Sections;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
 import onpe.com.pe.gestorconfiguracionactas.core.repository.FactoryService;
@@ -157,6 +158,14 @@ public class BusinessServiceImpl implements BusinessService {
         factoryService = FactoryService.getInstance();
         factoryService.SettingService().findAllSetting();
         factoryService.SettingService().updateSettingCoordinates(idSetings, coordenadas);
+    }
+
+    @Override
+    public void finAllComponent() throws IOException, Exception {
+        factoryService = FactoryService.getInstance();
+        factoryService.MongoService().conexionMongo();
+
+       VariableGlobales.listComponent = Mapper.castObservableListOfComponent(factoryService.ComponentService().findAllCollection());
     }
 
 }

@@ -43,6 +43,7 @@ import onpe.com.pe.gestorconfiguracionactas.core.business.BusinessService;
 import onpe.com.pe.gestorconfiguracionactas.core.business.Impl.BusinessServiceImpl;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Modules;
 import onpe.com.pe.gestorconfiguracionactas.core.model.Setting;
+import onpe.com.pe.gestorconfiguracionactas.core.util.VariableGlobales;
 
 public class ConfigurationDocController implements Initializable {
 
@@ -71,7 +72,7 @@ public class ConfigurationDocController implements Initializable {
 
     ArrayList<Integer> list = new ArrayList<>();
 
-    String[] listTypeModule = {"Codigo Barra", "Hora", "Regiones", "Observaciones", "Firma"};
+   
     ArrayList<Modules> listModule = new ArrayList<>();
     ArrayList<String> listCount = new ArrayList<>();
     TextField[] buttonEventConfi = new TextField[1];
@@ -88,7 +89,9 @@ public class ConfigurationDocController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnGuardar.setDisable(true);
         btnAddSeccion.setDisable(true);
+        
         try {
+              businessService.finAllComponent();
             Label[] labelText = new Label[businessService.findAllSections().size()];
             for (int i = 0; i < businessService.findAllSections().size(); i++) {
 
@@ -342,8 +345,8 @@ public class ConfigurationDocController implements Initializable {
             VBox vbox = new VBox();
             vbox.setAlignment(Pos.CENTER);
             vbox.setSpacing(20);
-            for (int buttonModal = 0; buttonModal <= listTypeModule.length - 1; buttonModal++) {
-                Button button = new Button(listTypeModule[buttonModal]);
+            for (int buttonModal = 0; buttonModal <= VariableGlobales.listComponent.size() - 1; buttonModal++) {
+                Button button = new Button( VariableGlobales.listComponent.get(buttonModal));
                 button.setOnAction(e -> {
                     tipoModule = button.getText();
                     for (int i = 0; i < buttonEventConfi.length; i++) {
