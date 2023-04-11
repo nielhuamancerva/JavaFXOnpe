@@ -1,5 +1,7 @@
 package com.mycompany.loging.score.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.control.Button;
 
 public class Actas {
@@ -17,6 +19,7 @@ public class Actas {
     String votosInpugnados;
     String votosEmitidos;
     String observaciones;
+    List<Signature> firmas = new ArrayList();
     String firma1;
     String firma2;
     String firma3;
@@ -24,6 +27,14 @@ public class Actas {
     String fecha_registro;
     Imagenes imagen = new Imagenes();
     String accion;
+
+    public List<Signature> getFirmas() {
+        return firmas;
+    }
+
+    public void setFirmas(List<Signature> firmas) {
+        this.firmas = firmas;
+    }
     
 
     public Imagenes getImagen() {

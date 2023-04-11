@@ -12,6 +12,7 @@ import com.mycompany.loging.score.Repository.FactoryServiciosExternos;
 import com.mycompany.loging.score.model.Actas;
 import com.mycompany.loging.score.model.Modules;
 import com.mycompany.loging.score.model.Setting;
+import com.mycompany.loging.score.model.Signature;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.CreateObject;
@@ -23,6 +24,8 @@ import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad
 import com.mycompany.loging.score.util.mapper.Mappers;
 import java.io.File;
 import java.io.IOException;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
@@ -163,51 +166,20 @@ public class VerificaFirmasController implements Initializable {
         VariableGlobals.actasLeida.setFirma1(String.valueOf(firmoP));
         VariableGlobals.actasLeida.setFirma2(String.valueOf(firmoS));
         VariableGlobals.actasLeida.setFirma3(String.valueOf(firmoT));
-        List<Boolean> ordcre = new ArrayList<>();
-        Boolean bool = null;
-        for (Node node : ContainerVboxFirma.getChildren()) {
-            AnchorPane ap = (AnchorPane) node;
-            for (Node button : ap.getChildren()) {
 
-                if (button instanceof Button) {
-                    System.out.println("button ::::::::::" + button.getId());
-                    if (((Button) button).getText().equals("NO FIRMO")) {
-                        System.out.println("CLASE ::::::::::" + button.getClass());
+        Boolean isObservada = true;
 
-                        if (button.getStyle().equals("-fx-background-color: #2ECC71;")) {
-
-                            System.out.println("CLASE ::::::::::" + viewLoad.size());
-                            ordcre.add(false);
-
-                        } else {
-                            ordcre.add(true);
-                        }
-
-                    }
-                }
-            }
-        }
-
-        switch (ordcre.size()) {
-            case 1: {
-                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
+        for (Signature ss : VariableGlobals.actasLeida.getFirmas()) {
+            if (!ss.getIsSignature()) {
+                isObservada = false;
                 break;
             }
-            case 2: {
-                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
-                VariableGlobals.actasLeida.setFirma2(ordcre.get(1).toString());
-            }
-            case 3: {
-                VariableGlobals.actasLeida.setFirma1(ordcre.get(0).toString());
-                VariableGlobals.actasLeida.setFirma2(ordcre.get(1).toString());
-                VariableGlobals.actasLeida.setFirma3(ordcre.get(2).toString());
-            }
         }
 
-        if (ordcre.contains(false)) {
-            App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.size()));
-        } else {
+        if (isObservada) {
             App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+        } else {
+            App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(viewLoad.size()-1)));
         }
 
     }
@@ -290,7 +262,11 @@ public class VerificaFirmasController implements Initializable {
                     view.add(3);
                     break;
                 case "Firma":
-                    firmoP = negocioService.readAndCutsignature(module.getNameModule(),
+                    Signature signature = new Signature();
+                    signature.setNroSignature(module.getOrdenCreation());
+                    signature.setNameSignature(module.getNameModule());
+                    VariableGlobals.actasLeida.getFirmas().add(signature);
+                    negocioService.readAndCutsignature(module.getNameModule(),
                             Mappers.transformaTointerger(module.getCoordinatesXo()),
                             Mappers.transformaTointerger(module.getCoordinatesYo()),
                             Mappers.transformaTointerger(module.getCoordinatesWigth()),
@@ -317,6 +293,7 @@ public class VerificaFirmasController implements Initializable {
 //                    imageViewfirma.setFitHeight(38);
 //                    imageViewfirma.setVisible(true);
                     Button buttonSiFirma = new Button("SI FIRMO");
+                    buttonSiFirma.setId(module.getOrdenCreation());
                     buttonSiFirma.setPrefWidth(128);
                     buttonSiFirma.setPrefHeight(62);
                     buttonSiFirma.setLayoutX(600);
@@ -343,7 +320,12 @@ public class VerificaFirmasController implements Initializable {
                             buttonNoFirma.getStyleClass().remove("boton-activeN");
                             System.out.println("CLASE DE BOTON" + buttonSiFirma.getStyle());
                             //                            ActivarBoton(btn1);
-                            firmoP = true;
+                            VariableGlobals.actasLeida.getFirmas()
+                                    .forEach(action -> {
+                                        if (action.getNroSignature().equals(buttonSiFirma.getId())) {
+                                            action.setIsSignature(TRUE);
+                                        }
+                                    });
                         }
                     });
 
@@ -351,13 +333,18 @@ public class VerificaFirmasController implements Initializable {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            buttonNoFirma.setStyle("-fx-background-color: #2ECC71;");
+                            buttonNoFirma.setStyle("-fx-background-color: #E74C3C;");
                             buttonSiFirma.setStyle("");
                             buttonSiFirma.getStyleClass().remove("boton-active");
                             buttonSiFirma.getStyleClass().remove("boton-activeN");
                             System.out.println("CLASE DE BOTON" + buttonNoFirma.getStyle());
 //                            ActivarBoton(btn1);
-                            firmoP = false;
+                            VariableGlobals.actasLeida.getFirmas()
+                                    .forEach(action -> {
+                                        if (action.getNroSignature().equals(buttonSiFirma.getId())) {
+                                            action.setIsSignature(FALSE);
+                                        }
+                                    });
                         }
                     });
 
