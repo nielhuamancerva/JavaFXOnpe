@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="onpe.com.pe.gestorconfiguracionactas.endpoint.ConfigurationDocController">
+    <children>
+        <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+            <children>
+                <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+                    <children>
+                        <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                            <children>
+                                <Label layoutX="92.0" layoutY="-11.0" styleClass="title" text="onfigurar" />
+                                <Label layoutX="52.0" layoutY="-25.0" styleClass="title-first" text="C" />
+                                <Label layoutX="319.0" layoutY="-11.0" styleClass="title" text="ocumento" />
+                                <Label layoutX="285.0" layoutY="-25.0" styleClass="title-first" text="D" />
+                        <Pane layoutX="34.0" layoutY="67.0" prefHeight="83.0" prefWidth="628.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="-23.0" prefHeight="47.0" prefWidth="582.0" text="INGRESE EL NOMBRE DEL DOCUMENTO">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <TextField fx:id="titleDocumentSetting" disable="true" layoutX="14.0" layoutY="24.0" prefHeight="47.0" prefWidth="607.0" styleClass="search-text" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="34.0" layoutY="196.0" prefHeight="414.0" prefWidth="628.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="-23.0" prefHeight="47.0" prefWidth="296.0" text="AGREGAR SECCIÓN">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <ScrollPane hbarPolicy="ALWAYS" layoutX="109.0" layoutY="44.0" prefHeight="356.0" prefWidth="499.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="containerSettingModule" prefHeight="556.0" prefWidth="494.0" />
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="btnAddSeccion" defaultButton="true" layoutX="17.0" layoutY="35.0" mnemonicParsing="false" onAction="#actionAddModulos" styleClass="button-add" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="789.0" layoutY="63.0" prefHeight="557.0" prefWidth="562.0" styleClass="fielset">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="-23.0" prefHeight="47.0" prefWidth="462.0" text="DOCUMENTOS ELECTORALES">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <Button fx:id="btnAddDocumentos" defaultButton="true" layoutX="468.0" layoutY="488.0" mnemonicParsing="false" onAction="#createNewSetting" prefHeight="83.0" prefWidth="63.0" styleClass="button-add" />
+                              <ScrollPane fx:id="DocumentosElectorales" hbarPolicy="ALWAYS" layoutX="17.0" layoutY="29.0" prefHeight="453.0" prefWidth="536.0" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="containerDocumentsModule" prefHeight="459.0" prefWidth="588.0" styleClass="borde-pane-black" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button fx:id="btnRegresar" layoutX="620.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionRegresar" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+                    <styleClass>
+                        <String fx:value="btn-regresar" />
+                        <String fx:value="btn-azul" />
+                    </styleClass>
+                </Button>
+                <Button fx:id="btnGuardar" layoutX="918.0" layoutY="5.0" mnemonicParsing="false" onAction="#actionGuardar" prefHeight="54.0" prefWidth="249.0" text="GUARDAR">
+                    <styleClass>
+                        <String fx:value="btn-process" />
+                        <String fx:value="btn-azul" />
+                    </styleClass>
+                </Button>
+            </children>
+        </AnchorPane>
+        <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+    <stylesheets>
+        <URL value="@../styles/configuraseccion.css" />
+        <URL value="@../styles/local.css" />
+    </stylesheets>
+</AnchorPane>
