@@ -449,6 +449,7 @@ public class ConfigurationDocController implements Initializable {
                 });
                 vbox.getChildren().addAll(button);
             }
+            
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
             Label title = new Label("MODULOS DE CONFIGURACION");
             title.setStyle("-fx-background-color:#FFF;\n"
