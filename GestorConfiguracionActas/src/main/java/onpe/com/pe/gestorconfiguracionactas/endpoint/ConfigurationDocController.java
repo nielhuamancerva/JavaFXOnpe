@@ -26,6 +26,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -72,7 +73,6 @@ public class ConfigurationDocController implements Initializable {
 
     ArrayList<Integer> list = new ArrayList<>();
 
-   
     ArrayList<Modules> listModule = new ArrayList<>();
     ArrayList<String> listCount = new ArrayList<>();
     TextField[] buttonEventConfi = new TextField[1];
@@ -89,9 +89,9 @@ public class ConfigurationDocController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnGuardar.setDisable(true);
         btnAddSeccion.setDisable(true);
-        
+
         try {
-              businessService.finAllComponent();
+            businessService.finAllComponent();
             Label[] labelText = new Label[businessService.findAllSections().size()];
             for (int i = 0; i < businessService.findAllSections().size(); i++) {
 
@@ -345,8 +345,11 @@ public class ConfigurationDocController implements Initializable {
             VBox vbox = new VBox();
             vbox.setAlignment(Pos.CENTER);
             vbox.setSpacing(20);
+
             for (int buttonModal = 0; buttonModal <= VariableGlobales.listComponent.size() - 1; buttonModal++) {
-                Button button = new Button( VariableGlobales.listComponent.get(buttonModal));
+                Button button = new Button(VariableGlobales.listComponent.get(buttonModal));
+                button.setPrefSize(180, 40);
+                button.setStyle("-fx-font-size: 18px;");
                 button.setOnAction(e -> {
                     tipoModule = button.getText();
                     for (int i = 0; i < buttonEventConfi.length; i++) {
@@ -444,11 +447,25 @@ public class ConfigurationDocController implements Initializable {
                     dialog.close();
 
                 });
-                vbox.getChildren().add(button);
+                vbox.getChildren().addAll(button);
             }
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
+            Label title = new Label("MODULOS DE CONFIGURACION");
+            title.setStyle("-fx-background-color:#FFF;\n"
+                    + "    -fx-alignment:center;\n"
+                    + "-fx-font-size: 20px;"
+                    + "    -fx-font-family: \"Arial\";");
 
-            dialog.getDialogPane().setContent(vbox);
-            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+            Separator separafooter = new Separator();
+            separafooter.setPadding(new Insets(10, 0, 10, 0));
+            Separator separaheader = new Separator();
+            separaheader.setPadding(new Insets(10, 0, 10, 0));
+
+            VBox pane = new VBox();
+            pane.getChildren().addAll(title, separaheader, vbox, separafooter);
+
+            dialog.getDialogPane().setContent(pane);
+
             dialog.initOwner(containerSettingModule.getScene().getWindow());
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.show();
