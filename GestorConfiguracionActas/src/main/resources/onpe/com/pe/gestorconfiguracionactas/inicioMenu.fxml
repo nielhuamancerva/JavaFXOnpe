@@ -34,7 +34,7 @@
                                                     <Image url="@../image/logoOnpePrincipal.png" />
                                                 </image>
                                             </ImageView>
-                                                <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="394.0" layoutY="422.0" prefHeight="127.0" prefWidth="289.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="191.0" layoutY="487.0" prefHeight="0.0" prefWidth="747.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
                                  </children>
                                         </AnchorPane>
                                     </children>

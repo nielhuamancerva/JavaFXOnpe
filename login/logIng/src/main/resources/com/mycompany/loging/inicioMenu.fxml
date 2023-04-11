@@ -25,7 +25,7 @@
                     <children>
                         <AnchorPane prefHeight="506.0" prefWidth="1366.0" styleClass="apVerde">
                             <children>
-                                <HBox alignment="CENTER" layoutY="239.0" prefHeight="590.0" prefWidth="1366.0" AnchorPane.bottomAnchor="-28.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-190.0">
+                                <HBox alignment="CENTER" layoutX="28.0" layoutY="-192.0" prefHeight="590.0" prefWidth="1366.0" AnchorPane.bottomAnchor="-26.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="-28.0" AnchorPane.topAnchor="-192.0">
                                     <children>
                                         <AnchorPane layoutX="275.0" layoutY="33.0" prefHeight="543.0" prefWidth="1067.0" AnchorPane.bottomAnchor="-30.0">
                                  <children>
@@ -34,7 +34,10 @@
                                                     <Image url="@../../../imagenes/logoOnpePrincipal.png" />
                                                 </image>
                                             </ImageView>
-                                                <Label fx:id="lblNameEleccion" alignment="CENTER" layoutX="394.0" layoutY="422.0" prefHeight="127.0" prefWidth="289.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
+                                              <HBox alignment="CENTER" layoutX="46.0" layoutY="484.0" prefHeight="65.0" prefWidth="976.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="484.0">
+                                       <children>
+                                                      <Label fx:id="lblNameEleccion" alignment="CENTER" prefHeight="0.0" prefWidth="747.0" styleClass="title_eleccion_main" text="ELECCIONES GENERALES 2025" textAlignment="CENTER" wrapText="true" />
+                                       </children></HBox>
                                  </children>
                                         </AnchorPane>
                                     </children>
@@ -85,11 +88,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                                <AnchorPane prefHeight="156.0" prefWidth="485.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <children>
-                                        <HBox alignment="CENTER" layoutY="-51.0" prefHeight="193.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-51.0" />
-                                    </children>
-                                </AnchorPane>
+                                <AnchorPane prefHeight="156.0" prefWidth="485.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                             </children>
                         </AnchorPane>
                     </children>

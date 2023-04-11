@@ -21,7 +21,7 @@
                         <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="SEGUIMIENTO ACTA" />
                         <Pane layoutX="95.0" layoutY="133.0" prefHeight="520.0" prefWidth="1681.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="-19.0" prefHeight="33.0" prefWidth="346.0" text="RESULTADO">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="-20.0" prefHeight="33.0" prefWidth="141.0" text="RESULTADO">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
@@ -32,7 +32,7 @@
                         </Pane>
                         <Pane layoutX="95.0" layoutY="676.0" prefHeight="177.0" prefWidth="414.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="-23.0" prefHeight="47.0" prefWidth="199.0" text="LEYENDA">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="-23.0" prefHeight="47.0" prefWidth="127.0" text="LEYENDA">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
