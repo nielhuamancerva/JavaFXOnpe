@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.LeerActasVotosController">
+   <children>
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
+               <children>
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
+                     <children>
+                        <Pane layoutX="51.0" layoutY="48.0" prefHeight="588.0" prefWidth="1120.0" styleClass="fielset">
+                           <children>
+                              <Label fx:id="lblTipoActa" layoutX="39.0" layoutY="29.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane layoutX="136.0" layoutY="67.0" prefHeight="418.0" prefViewportHeight="614.0" prefViewportWidth="526.0" prefWidth="502.0">
+                                 <content>
+                                    <ImageView fx:id="imagenVotos" fitHeight="415.0" fitWidth="497.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                                 </content>
+                              </ScrollPane>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="-18.0" prefHeight="33.0" prefWidth="346.0" text="DOCUMENTO">
+                                 <styleClass>
+                                    <String fx:value="fielset-title" />
+                                    <String fx:value="apBlanco" />
+                                 </styleClass>
+                              </Label>
+                              <TextField fx:id="voto1" alignment="CENTER" layoutX="657.0" layoutY="67.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto2" alignment="CENTER" layoutX="657.0" layoutY="126.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto3" alignment="CENTER" layoutX="657.0" layoutY="185.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto6" alignment="CENTER" layoutX="657.0" layoutY="362.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto5" alignment="CENTER" layoutX="657.0" layoutY="303.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto4" alignment="CENTER" layoutX="657.0" layoutY="244.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="voto7" alignment="CENTER" layoutX="657.0" layoutY="421.0" prefHeight="60.0" prefWidth="71.0" style="-fx-border-color: black;" styleClass="search-text">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </Pane>
+                        <Label layoutX="114.0" layoutY="-8.0" styleClass="title" text="rocesar" />
+                        <Label layoutX="78.0" layoutY="-22.0" styleClass="title-first" text="P" />
+                        <Label layoutX="342.0" layoutY="-8.0" styleClass="title" text="cta" />
+                        <Label layoutX="301.0" layoutY="-22.0" styleClass="title-first" text="A" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnRegresar" layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#regresarLeerActas" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
+               <styleClass>
+                  <String fx:value="btn-regresar" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnSiguiente" layoutX="331.0" layoutY="5.0" mnemonicParsing="false" onAction="#registrarObs" prefHeight="54.0" prefWidth="249.0" text="CONTINUAR">
+               <styleClass>
+                  <String fx:value="btn-process" />
+                  <String fx:value="btn-azul" />
+               </styleClass>
+            </Button>
+         </children></AnchorPane>
+       <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+   </children>
+   <stylesheets>
+      <URL value="@../../../css/local.css" />
+      <URL value="@../../../css/leervotos.css" />
+   </stylesheets>
+</AnchorPane>

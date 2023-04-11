@@ -35,7 +35,7 @@ public class LeerActasVotosController implements Initializable {
     private FactoryServiciosExternos factoryservices;
     private DropShadowE dropShadowE;
     @FXML
-    private Label numVotoPreferencial, lblTipoActa;
+    private Label lblTipoActa;
 
     public LeerActasVotosController() {
         this.negocioService = new NegocioServiceImpl();
@@ -48,9 +48,10 @@ public class LeerActasVotosController implements Initializable {
     @FXML
     private Button btnRegresar, btnSiguiente;
     VBox votoBox;
+    TextField voto1;
 
     @FXML
-    TextField voto1, voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
+    TextField voto2, voto3, voto4, voto5, voto6, voto7, voto8, voto9, voto10, voto11, voto12, voto13, voto14,
             voto15, voto16, voto17, voto18, voto19, voto20;
 
     @Override
