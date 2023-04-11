@@ -58,4 +58,10 @@ public class SeguimientoActaController implements Initializable {
         App.setRoot(null, "inicioMenu");
     }
 
+
+    @FXML
+    private void regresarMenu() throws IOException {
+        App.setRoot(null, "inicioMenu");
+    }
+
 }

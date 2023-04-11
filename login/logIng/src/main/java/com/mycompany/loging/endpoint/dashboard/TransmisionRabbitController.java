@@ -38,7 +38,6 @@ public class TransmisionRabbitController implements Initializable {
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
 
     ImageView observacionesActa;
-    @FXML
     ImageView codigoBarra;
 
     private Label lblTipoActa;

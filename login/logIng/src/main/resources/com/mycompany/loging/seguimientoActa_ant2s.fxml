@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.SeguimientoActaController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.loging.endpoint.dashboard.SeguimientoActaController">
    <children>
-      <HBox alignment="CENTER" layoutY="81.0" prefHeight="1080.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+      <HBox alignment="CENTER" layoutY="81.0" prefHeight="620.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="1080.0" prefWidth="1920.0">
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="1365.0">
                <children>
-                  <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
+                  <AnchorPane prefHeight="684.0" prefWidth="1200.0">
                      <children>
-                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="SEGUIMIENTO ACTA" />
-                        <Pane layoutX="95.0" layoutY="133.0" prefHeight="520.0" prefWidth="1681.0" styleClass="fielset">
+                        <Pane layoutX="52.0" layoutY="107.0" prefHeight="302.0" prefWidth="1262.0" styleClass="fielset">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="-19.0" prefHeight="33.0" prefWidth="346.0" text="RESULTADO">
                                  <styleClass>
@@ -27,10 +23,15 @@
                                     <String fx:value="apBlanco" />
                                  </styleClass>
                               </Label>
-                              <TableView fx:id="tableActas" layoutX="14.0" layoutY="56.0" prefHeight="434.0" prefWidth="1650.0" styleClass="pane_tipo_body" />
+                              <TableView fx:id="tableActas" layoutX="14.0" layoutY="56.0" prefHeight="220.0" prefWidth="1236.0" styleClass="pane_tipo_body" />
                            </children>
                         </Pane>
-                        <Pane layoutX="95.0" layoutY="676.0" prefHeight="177.0" prefWidth="414.0" styleClass="fielset">
+                        <Label layoutX="114.0" layoutY="2.0" styleClass="title" text="eguimiento" />
+                        <Label layoutX="81.0" layoutY="-18.0" styleClass="title-first" text="S" />
+                        <Label layoutX="446.0" layoutY="2.0" styleClass="title" text="cta" />
+                        <Label layoutX="405.0" layoutY="-12.0" styleClass="title-first" text="A" />
+                        <Label layoutX="343.0" layoutY="2.0" styleClass="title" text="de" />
+                        <Pane layoutX="67.0" layoutY="442.0" prefHeight="177.0" prefWidth="414.0" styleClass="fielset">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="-23.0" prefHeight="47.0" prefWidth="199.0" text="LEYENDA">
                                  <styleClass>
@@ -76,20 +77,11 @@
             </VBox>
          </children>
       </HBox>
-      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Button layoutX="836.0" layoutY="5.0" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="54.0" prefWidth="249.0" text="REGRESAR">
-               <styleClass>
-                  <String fx:value="btn-regresar" />
-                  <String fx:value="btn-azul" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane prefHeight="64.0" prefWidth="1366.0" styleClass="apFooter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
        <fx:include fx:id="header" source="header.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
    </children>
    <stylesheets>
-      <URL value="@../../../css/observaciones.css" />
+      <URL value="@../../../css/reportGridTheme.css" />
       <URL value="@../../../css/local.css" />
       <URL value="@../../../css/seguimiento.css" />
    </stylesheets>
