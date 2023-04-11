@@ -91,7 +91,8 @@ public class RegistrarObsController implements Initializable {
     @FXML
     private void transmitir() throws IOException {
 //        App.setRoot(null, "transmisionRabbit");
-        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition++)));
+VariableGlobals.viewPosition++;
+        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
     }
 
 }

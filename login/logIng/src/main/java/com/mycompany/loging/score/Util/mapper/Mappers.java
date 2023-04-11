@@ -4,6 +4,7 @@
  */
 package com.mycompany.loging.score.util.mapper;
 
+import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mycompany.loging.score.model.Actas;
@@ -15,6 +16,7 @@ import com.mycompany.loging.score.model.Transmision;
 import com.mycompany.loging.score.model.TransmisionHeader;
 import com.mycompany.loging.score.util.common.CommonMappings;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.actasLeida;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -78,7 +80,7 @@ public class Mappers {
     }
 
     public Document actaCastToDocument(Actas ss) {
-
+    
         Document document = new Document();
         document.append("acta", ss.getActa());
         document.append("departamento", ss.getDepartamento());
@@ -91,12 +93,18 @@ public class Mappers {
         document.append("firma3", ss.getFirma3());
         document.append("estado", "Valido");
         document.append("fecha_registro", LocalDate.now().toString());
-        document.append("firmas", ss.getFirmas());
+        Gson gson = new Gson();
+        String json = gson.toJson( ss.getFirmas());
+        document.append("firmas", json);
+         actasLeida.setEstado(json);
+        actasLeida.setEstado("Valido");
         ss.getFirmas().forEach(action -> {
             if (action.getIsSignature().equals(false)) {
                 document.append("estado", "Invalido");
+                   actasLeida.setEstado("Invalido");
             }
         });
+      
         return document;
     }
 

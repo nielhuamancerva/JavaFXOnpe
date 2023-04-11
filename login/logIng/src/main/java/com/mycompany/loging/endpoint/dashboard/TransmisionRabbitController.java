@@ -2,31 +2,32 @@ package com.mycompany.loging.endpoint.dashboard;
 
 import com.google.gson.Gson;
 import com.mycompany.loging.App;
+import com.mycompany.loging.score.Repository.implementacion.ConexionMongoImpl;
+import com.mycompany.loging.score.Repository.service.ConexionMongo;
 import com.mycompany.loging.score.negocio.NegocioServiceImpl;
 import com.mycompany.loging.score.negocio.service.NegocioService;
 import com.mycompany.loging.score.util.DropShadowE;
 import com.mycompany.loging.score.util.constanst.VariableGlobals;
+import static com.mycompany.loging.score.util.constanst.VariableGlobals.lecturaActasEnMemoria;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Base64;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import com.mycompany.loging.score.util.CreateObject;
-import static com.mycompany.loging.score.util.constanst.VariableGlobals.viewLoad;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 public class TransmisionRabbitController implements Initializable {
 
@@ -37,36 +38,38 @@ public class TransmisionRabbitController implements Initializable {
     private static final String ALGORITMO = "AES";
     private static final byte[] CLAVE_SECRETA = "EstaEsUnaClaveSecreta".getBytes();
 
-    ImageView observacionesActa;
-    ImageView codigoBarra;
-
-    private Label lblTipoActa;
+    @FXML
+    private Button btnTransmitir;
+    @FXML
+    private Button btnRegresar;
 
     public TransmisionRabbitController() {
         this.negocioService = new NegocioServiceImpl();
-//        this.dropShadowE = new DropShadowE();
+        this.dropShadowE = new DropShadowE();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+//        dropShadowE.setTabEffect(btnTransmitir);
+//        dropShadowE.setTabEffect(btnRegresar);
     }
 
     @FXML
     private void transmitir() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-//        factory.setHost("172.16.89.225");
-//        factory.setUsername("admin");
-//        factory.setPassword("admin");
-//        factory.setVirtualHost("/");
-        factory.setHost("localhost");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
+        factory.setHost("172.16.89.225");
+        factory.setUsername("admin");
+        factory.setPassword("admin");
         factory.setVirtualHost("/");
+//        factory.setHost("localhost");
+//        factory.setUsername("guest");
+//        factory.setPassword("guest");
+//        factory.setVirtualHost("/");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         Gson gson = new Gson();
+
         String json = cifrar(gson.toJson(negocioService.uploadActaReadOnMemory(VariableGlobals.actasLeida)));
 
         channel.basicPublish("", QUEUE_NAME, null, json.getBytes("UTF-8"));
@@ -102,12 +105,8 @@ public class TransmisionRabbitController implements Initializable {
 
     @FXML
     private void regresarFirmas() throws IOException {
-        VariableGlobals.viewPosition--;
-        App.setRoot(null, VariableGlobals.viewOrder.get(viewLoad.get(VariableGlobals.viewPosition)));
+        App.setRoot(null, "registrarFirma");
+
     }
 
-    private void regresaActasV() throws IOException {
-        VariableGlobals.viewPosition--;
-        App.setRoot(null, VariableGlobals.viewOrder.get(VariableGlobals.viewPosition));
-    }
 }
