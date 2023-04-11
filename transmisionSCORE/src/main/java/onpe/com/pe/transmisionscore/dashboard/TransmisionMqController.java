@@ -87,26 +87,43 @@ public class TransmisionMqController implements Initializable {
         progressBarRx.setStyle("-fx-accent: #78F93C;");
     }
 
+    ConnectionFactory factory = new ConnectionFactory();
+
     @FXML
     private void btnRecepcionar_OnAction(ActionEvent event) throws IOException, TimeoutException {
-        System.out.println(" inicio de rabbit ");
-        ConnectionFactory factory = new ConnectionFactory();
+
         factory.setHost("localhost");
         com.rabbitmq.client.Connection connection = factory.newConnection();
         com.rabbitmq.client.Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME, "direct");
-        if (isPressed) {
-            lblMensaje.setText("Servidor Rabbit en Stop");
-            btnRecepcionar.getStyleClass().add("btn_txrx_azul");
-            btnRecepcionar.getStyleClass().remove("claseNueva");
-            isPressed = false;
-            channel.close();
-        } else {
-            lblMensaje.setText("Iniciando Rabbit......");
-            btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
-            btnRecepcionar.getStyleClass().add("claseNueva");
-            isPressed = true;
 
+        if (connection == null || !connection.isOpen()) {
+            //Si no hay una conexión abierta, crear una nueva conexión
+            try {
+                connection = factory.newConnection();
+                channel = connection.createChannel();
+
+                lblMensaje.setText("Iniciando Rabbit......");
+                btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
+                btnRecepcionar.getStyleClass().add("claseNueva");
+
+            } catch (IOException | TimeoutException e) {
+                System.out.println("Error al activar la conexión: " + e.getMessage());
+            }
+        } else {
+            //Si hay una conexión abierta, cerrarla
+            try {
+                System.out.println("Conexión activada.");
+                lblMensaje.setText("Servidor Rabbit en Stop");
+                btnRecepcionar.getStyleClass().add("btn_txrx_azul");
+                btnRecepcionar.getStyleClass().remove("claseNueva");
+
+                channel.close();
+                connection.close();
+                System.out.println("Conexión cerrada.");
+            } catch (IOException | TimeoutException e) {
+                System.out.println("Error al cerrar la conexión: " + e.getMessage());
+            }
         }
 
 //        // Definir el formato deseado
