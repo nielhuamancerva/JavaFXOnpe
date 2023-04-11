@@ -239,17 +239,18 @@ public class ConfigurationDocController implements Initializable {
     }
 
     String tipoModule = new String();
+    Boolean isExists = null;
 
     @FXML
     private void actionAddModulos(ActionEvent event) throws Exception {
         tipoModule = "";
         Modules module = new Modules();
-        if (listModule.isEmpty()) {
-            module.setCodemodule(String.valueOf(listModule.size()));
+        if (containerSettingModule.getChildren().isEmpty()) {
+            module.setCodemodule(String.valueOf(containerSettingModule.getChildren().size()));
             module.setTypeModule("Codigo Barra");
             module.setOrdenCreation(String.valueOf(0));
             buttonEventConfi[0] = new TextField("Codigo Barra");
-            buttonEventConfi[0].setId(String.valueOf(listModule.size()));
+            buttonEventConfi[0].setId(String.valueOf(containerSettingModule.getChildren().size()));
             buttonEventConfi[0].setStyle("-fx-font-size: 18px;");
             buttonEventConfi[0].setLayoutX(10);
             buttonEventConfi[0].getStyleClass().add("button-initializa");
@@ -294,6 +295,7 @@ public class ConfigurationDocController implements Initializable {
                         alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
                         alert.showAndWait();
                     } else {
+                        listModule.add(module);
                         btAdds.setDisable(true);
                         textField.setDisable(true);
                         btEdit.setDisable(false);
@@ -306,6 +308,7 @@ public class ConfigurationDocController implements Initializable {
                                 action.setNameModule(textField.getText());
                             }
                         });
+
                     }
 
                 }
@@ -336,8 +339,6 @@ public class ConfigurationDocController implements Initializable {
 //                        buttonEventAdd[i].setDisable(true);
             buttonEventEdit[0].setDisable(true);
 
-            listModule.add(module);
-            list.add(1);
         } else {
             Dialog<String> dialog = new Dialog<>();
             dialog.initStyle(StageStyle.UNDECORATED);
@@ -353,12 +354,12 @@ public class ConfigurationDocController implements Initializable {
                 button.setOnAction(e -> {
                     tipoModule = button.getText();
                     for (int i = 0; i < buttonEventConfi.length; i++) {
-                        module.setCodemodule(String.valueOf(listModule.size()));
+                        module.setCodemodule(String.valueOf(UUID.randomUUID()));
                         module.setTypeModule(tipoModule);
                         module.setOrdenCreation(String.valueOf(listModule.size()));
 //                    buttonEventConfi[i] = new TextField(String.valueOf(list.size()));
                         buttonEventConfi[i] = new TextField(tipoModule);
-                        buttonEventConfi[i].setId(String.valueOf(listModule.size()));
+                        buttonEventConfi[i].setId(String.valueOf(module.getCodemodule()));
                         buttonEventConfi[i].setStyle("-fx-font-size: 18px;");
                         buttonEventConfi[i].setLayoutX(10);
                         buttonEventConfi[i].getStyleClass().add("button-initializa");
@@ -403,6 +404,7 @@ public class ConfigurationDocController implements Initializable {
                                     alert.setContentText("Por favor, verifique que ha escrito un nombre al modulo");
                                     alert.showAndWait();
                                 } else {
+
                                     btAdds.setDisable(true);
                                     textField.setDisable(true);
                                     btEdit.setDisable(false);
@@ -413,10 +415,16 @@ public class ConfigurationDocController implements Initializable {
                                     listModule.forEach(action -> {
                                         if (action.getCodemodule().equals(textField.getId())) {
                                             action.setNameModule(textField.getText());
+                                            isExists = true;
                                         }
                                     });
-                                }
+                                    if (isExists == null) {
+                                        module.setNameModule(textField.getText());
+                                        listModule.add(module);
+                                    }
 
+                                }
+                                isExists = null;
                             }
                         });
 
@@ -442,14 +450,13 @@ public class ConfigurationDocController implements Initializable {
                         });
 
                     }
-                    listModule.add(module);
-                    list.add(1);
+
                     dialog.close();
 
                 });
                 vbox.getChildren().addAll(button);
             }
-            
+
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
             Label title = new Label("MODULOS DE CONFIGURACION");
             title.setStyle("-fx-background-color:#FFF;\n"
@@ -483,6 +490,7 @@ public class ConfigurationDocController implements Initializable {
         containerSettingModule.getChildren().clear();
         titleDocumentSetting.clear();
         titleDocumentSetting.setDisable(false);
+        titleDocumentSetting.requestFocus();
 
     }
 
