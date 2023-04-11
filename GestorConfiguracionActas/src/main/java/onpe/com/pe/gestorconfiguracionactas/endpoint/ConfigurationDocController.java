@@ -349,7 +349,7 @@ public class ConfigurationDocController implements Initializable {
                     for (int i = 0; i < buttonEventConfi.length; i++) {
                         module.setCodemodule(String.valueOf(listModule.size()));
                         module.setTypeModule(tipoModule);
-                        module.setOrdenCreation(String.valueOf(i));
+                        module.setOrdenCreation(String.valueOf(listModule.size()));
 //                    buttonEventConfi[i] = new TextField(String.valueOf(list.size()));
                         buttonEventConfi[i] = new TextField(tipoModule);
                         buttonEventConfi[i].setId(String.valueOf(listModule.size()));
