@@ -120,7 +120,6 @@ public class ConfiguraSeccionesController implements Initializable {
                 System.out.println("posisicon:" + imgViewActa.getImage().getHeight());
             }
 
-
             int i = 0;
             Label[] listLabel = new Label[listModules.length];
             Button[] listaBotones = new Button[listModules.length];
@@ -136,11 +135,11 @@ public class ConfiguraSeccionesController implements Initializable {
                 listaBotones[i].getStyleClass().add("button-activar-seccion");
 
                 Button btnTem = listaBotones[i];
-              
-                if(!configuracion.getCoordinatesXo().isEmpty()){
+
+                if (!configuracion.getCoordinatesXo().isEmpty()) {
                     btnTem.getStyleClass().add("button-activar-actived");
                 }
- 
+
                 listaBotones[i].setOnMouseClicked((MouseEvent ev) -> {
                     imgViewActa.setOnMousePressed(new EventHandler<MouseEvent>() {
                         @Override
@@ -253,7 +252,6 @@ public class ConfiguraSeccionesController implements Initializable {
                 vboxPane.getChildren().add(anchor);
                 i++;
             }
-
 
             //combox sol
             cboDocumentos.setValue(VariableGlobales.identificaActa.get("nombreSeleccion"));
@@ -414,7 +412,6 @@ public class ConfiguraSeccionesController implements Initializable {
                                         VariableGlobales.coordenadasActa.put(configuracion + "Alto", Double.toString(imgAlto2));
                                         System.out.println("datos en Globales" + VariableGlobales.coordenadasActa);
 
-
                                     }
                                     btnValidar.setDisable(false);
                                     btnTem.getStyleClass().add("button-activar-actived");
@@ -455,6 +452,8 @@ public class ConfiguraSeccionesController implements Initializable {
 
     @FXML
     private void actionRegresar() throws IOException {
+        VariableGlobales.identificaActa.clear();
+        VariableGlobales.lecturaActasEnMemoria.clear();
         App.setRoot(null, "inicioMenu");
     }
 
@@ -475,7 +474,6 @@ public class ConfiguraSeccionesController implements Initializable {
         img = new Image(fileSeleccionado.getPath());
         imgViewActa.setImage(img);
         double scale = imgViewActa.getScaleX();
-
 
         scrollPaneActa.setVvalue(0.5);
         scrollPaneActa.setHvalue(0.5);

@@ -87,43 +87,21 @@ public class TransmisionMqController implements Initializable {
         progressBarRx.setStyle("-fx-accent: #78F93C;");
     }
 
-    ConnectionFactory factory = new ConnectionFactory();
-
     @FXML
     private void btnRecepcionar_OnAction(ActionEvent event) throws IOException, TimeoutException {
 
-        factory.setHost("localhost");
-        com.rabbitmq.client.Connection connection = factory.newConnection();
-        com.rabbitmq.client.Channel channel = connection.createChannel();
-        channel.exchangeDeclare(EXCHANGE_NAME, "direct");
-
-        if (connection == null || !connection.isOpen()) {
-            //Si no hay una conexión abierta, crear una nueva conexión
-            try {
-                connection = factory.newConnection();
-                channel = connection.createChannel();
-
-                lblMensaje.setText("Iniciando Rabbit......");
-                btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
-                btnRecepcionar.getStyleClass().add("claseNueva");
-
-            } catch (IOException | TimeoutException e) {
-                System.out.println("Error al activar la conexión: " + e.getMessage());
-            }
+        if (isPressed) {
+            lblMensaje.setText("Servidor Rabbit en Stop");
+            btnRecepcionar.getStyleClass().add("btn_txrx_azul");
+            btnRecepcionar.getStyleClass().remove("claseNueva");
+            isPressed = false;
+            
         } else {
-            //Si hay una conexión abierta, cerrarla
-            try {
-                System.out.println("Conexión activada.");
-                lblMensaje.setText("Servidor Rabbit en Stop");
-                btnRecepcionar.getStyleClass().add("btn_txrx_azul");
-                btnRecepcionar.getStyleClass().remove("claseNueva");
+            lblMensaje.setText("Iniciando Rabbit......");
+            btnRecepcionar.getStyleClass().remove("btn_txrx_azul");
+            btnRecepcionar.getStyleClass().add("claseNueva");
+            isPressed = true;
 
-                channel.close();
-                connection.close();
-                System.out.println("Conexión cerrada.");
-            } catch (IOException | TimeoutException e) {
-                System.out.println("Error al cerrar la conexión: " + e.getMessage());
-            }
         }
 
 //        // Definir el formato deseado
@@ -132,6 +110,13 @@ public class TransmisionMqController implements Initializable {
 //        LocalDateTime fechaHoraActual = LocalDateTime.now();
 //        // Formatear la fecha y hora actual con el formato deseado
 //        String fechaHoraFormateada = fechaHoraActual.format(formato);
+        System.out.println(" inicio de rabbit ");
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost("localhost");
+        com.rabbitmq.client.Connection connection = factory.newConnection();
+        com.rabbitmq.client.Channel channel = connection.createChannel();
+        channel.exchangeDeclare(EXCHANGE_NAME, "direct");
+
 //        for (String queueName : QUEUE_NAMES) {
 //            channel.queueDeclare(queueName, false, false, false, null);
 //            channel.queueBind(queueName, EXCHANGE_NAME, queueName);
@@ -154,7 +139,7 @@ public class TransmisionMqController implements Initializable {
                 Transmision persona1 = gson.fromJson(decryptString, Transmision.class);
                 persona1.getBody().getImagen().setImagen("");
 
-                System.out.println("Persona: " + gson.toJson(persona));
+                System.out.println("Persona: " +gson.toJson(persona));
 //                System.out.println("body" + gson.toJson(persona.getBody()));
                 FactoryService = FactoryServices.getInstance();
                 try {
@@ -170,7 +155,7 @@ public class TransmisionMqController implements Initializable {
                     statement.setInt(1, random.nextInt(1000));
                     statement.setString(2, persona1.getBody().getActa());
                     statement.setDate(3, Date.valueOf(LocalDate.now()));
-
+                    
                     if (persona1.getBody().getEstado().equals("Valido")) {
 //                        System.out.println(persona1.getBody().getFirma1() + "\n");    
 //                        System.out.println(persona1.getBody().getFirma2() + "\n");    
@@ -204,7 +189,7 @@ public class TransmisionMqController implements Initializable {
                         image = ImageIO.read(bis);
                         File ff = new File("D:\\carpetaValido\\" + persona1.getBody().getActa() + ".png");
                         ImageIO.write(image, "png", ff);
-
+                        
                     } else {
                         image = ImageIO.read(bis);
                         File ff = new File("D:\\carpetaInvalido\\" + persona1.getBody().getActa() + ".png");
@@ -223,7 +208,7 @@ public class TransmisionMqController implements Initializable {
 
         channel.basicConsume("cola_niel", true, deliverCallback, consumerTag -> {
         });
-
+//        }
     }
 
     @FXML
