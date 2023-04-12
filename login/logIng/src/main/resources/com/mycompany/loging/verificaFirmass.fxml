@@ -17,10 +17,10 @@
                <children>
                   <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
                      <children>
-                        <Pane layoutX="88.0" layoutY="118.0" prefHeight="64.0" prefWidth="1638.0" styleClass="fielset">
+                        <Pane layoutX="88.0" layoutY="118.0" prefHeight="64.0" prefWidth="1738.0" styleClass="fielset">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="21.0" styleClass="search-label" text="Seleccione documento:" />
-                              <ComboBox fx:id="cboDocumentos" layoutX="238.0" layoutY="15.0" onAction="#selecionarActa" prefHeight="39.0" prefWidth="681.0" styleClass="search-combo">
+                              <ComboBox fx:id="cboDocumentos" layoutX="238.0" layoutY="13.0" onAction="#selecionarActa" prefHeight="39.0" prefWidth="681.0" styleClass="search-combo">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

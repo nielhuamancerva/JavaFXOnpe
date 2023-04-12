@@ -17,26 +17,21 @@
                <children>
                   <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
                      <children>
-                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="PROCESAR ACTA" />
-                        <Pane layoutX="103.0" layoutY="172.0" prefHeight="232.0" prefWidth="1337.0" styleClass="fielset">
+                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="506.0" styleClass="title" text="VERIFICAR OBSERVACIONES" />
+                        <Pane layoutX="103.0" layoutY="222.0" prefHeight="232.0" prefWidth="1337.0" styleClass="fielset">
                            <children>
-                              <Label fx:id="lblTipoActa" layoutX="39.0" layoutY="29.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Label">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
                               <ImageView fx:id="observacionesActa" fitHeight="140.0" fitWidth="1178.0" layoutX="42.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </Pane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="136.0" layoutY="156.0" prefHeight="33.0" prefWidth="177.0" text="DOCUMENTO">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="197.0" prefHeight="33.0" prefWidth="139.0" text="DOCUMENTO">
                            <styleClass>
                               <String fx:value="fielset-title" />
                               <String fx:value="apBlanco" />
                            </styleClass>
                         </Label>
-                        <Pane layoutX="103.0" layoutY="446.0" prefHeight="177.0" prefWidth="1337.0" styleClass="fielset">
+                        <Pane layoutX="103.0" layoutY="537.0" prefHeight="177.0" prefWidth="1337.0" styleClass="fielset">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="-23.0" prefHeight="47.0" prefWidth="329.0" text="INGRESE LAS OBSERVACIONES">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-5.0" layoutY="-28.0" prefHeight="42.0" prefWidth="323.0" text="INGRESE LAS OBSERVACIONES">
                                  <styleClass>
                                     <String fx:value="fielset-title" />
                                     <String fx:value="apBlanco" />
@@ -49,6 +44,16 @@
                               </TextArea>
                            </children>
                         </Pane>
+                        <Label fx:id="lblTipoActa" layoutX="222.0" layoutY="117.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Label">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTipoActa1" layoutX="105.0" layoutY="117.0" prefHeight="27.0" prefWidth="110.0" styleClass="search-label" text="Documento:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

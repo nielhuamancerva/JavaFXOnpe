@@ -277,7 +277,7 @@ public class VerificaFirmasController implements Initializable {
                     labelAnchorFirma.getStylesheets().add(getClass().getResource("/css/local.css").toExternalForm());
                     labelAnchorFirma.getStyleClass().add("fielset-title");
                     labelAnchorFirma.getStyleClass().add("apBlanco");
-                    labelAnchorFirma.setLayoutX(25);
+                    labelAnchorFirma.setLayoutX(0);
                     labelAnchorFirma.setLayoutY(-10);
 
                     ImageView imageViewfirma = new ImageView();

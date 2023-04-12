@@ -18,15 +18,15 @@
                <children>
                   <AnchorPane prefHeight="1000.0" prefWidth="1900.0">
                      <children>
-                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="PROCESAR ACTA" />
+                        <Label layoutX="44.0" layoutY="35.0" prefHeight="49.0" prefWidth="382.0" styleClass="title" text="TRANSMISIÓN" />
                         <Pane layoutX="642.0" layoutY="235.0" prefHeight="337.0" prefWidth="710.0" styleClass="fielset">
                            <children>
-                              <Label layoutX="39.0" layoutY="29.0" prefHeight="27.0" prefWidth="443.0" styleClass="search-label" text="Transmitir datos e Imágenes">
+                              <Label layoutX="199.0" layoutY="25.0" prefHeight="27.0" prefWidth="311.0" styleClass="search-label" text="TRANSMITIR DATOS E IMAGENES" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="39.0" layoutY="69.0" prefHeight="27.0" prefWidth="750.0" styleClass="search-label" text="Presione el botón para transmitir la información a un servidor remoto">
+                              <Label layoutX="54.0" layoutY="76.0" prefHeight="27.0" prefWidth="616.0" styleClass="search-label" text="Presione el botón para transmitir la información a un servidor remoto">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
